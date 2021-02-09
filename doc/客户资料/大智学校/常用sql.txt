@@ -1,0 +1,41 @@
+
+ select deptcode as 部门编号,deptmc as 部门名称,yskmcode 预算科目编号,yskmmc as 预算科目名称
+ ,'' as 借方会计科目编号,'' as 借方会计科目名称,'' as 贷方会计科目编号,'' as 贷方会计科目名称,'收入生成凭证' as 对应类型
+ from (
+ select *,(select yskmmc from bill_yskm where yskmcode=a.yskmcode) as yskmmc
+ ,(select deptname from bill_departments where deptcode=a.deptcode) as deptmc
+ ,(select count(*) from bill_yskm_dept where yskmcode like a.yskmcode+'%' and len(yskmcode)>len(a.yskmcode)) as acount from bill_yskm_dept a where deptcode like '02%'
+ and yskmcode like '01%'
+) a
+
+
+
+--从一个部门复制另一个部门的部门科目对照关系
+declare @canzhaodept varchar(50)
+set @canzhaodept='0228'
+declare @dept varchar(50)
+set @dept='0311'
+
+delete from bill_yskm_dept where deptcode=@dept and yskmcode like '02%'
+insert into bill_yskm_dept(deptcode,yskmcode,djlx)
+select @dept,yskmcode,djlx
+from bill_yskm_dept where deptcode=@canzhaodept
+and yskmcode like '02%'
+
+
+
+
+
+--删除分校的填报数并整理主表
+
+delete  from 
+bill_ysmxb where list_id in (select mxb.list_id from 
+bill_main main,bill_ysmxb mxb where main.billcode=mxb.billcode
+and flowid='ys' and mxb.ysdept in (select deptcode from bill_departments where deptcode like '02%' and isgk='N')
+and mxb.yskm in ('020701','020702','022801','022802','023301','023302')
+)
+
+
+update bill_main
+ set billje=(select sum(ysje) as je  from bill_ysmxb where billcode=bill_main.billcode)
+where flowid='ys'
