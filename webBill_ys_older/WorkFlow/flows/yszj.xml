@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='gb2312'?>
+<WebFlow>
+	<FlowConfig>
+		<BaseProperties flowId="yszj" flowText="预算追加"/>
+		<VMLProperties stepTextColor="green" stepStrokeColor="green" stepShadowColor="#b3b3b3" stepFocusedStrokeColor="yellow" isStepShadow="F" actionStrokeColor="green" actionTextColor="" actionFocusedStrokeColor="yellow" sStepTextColor="green" sStepStrokeColor="green" stepColor1="green" stepColor2="white" isStep3D="true" step3DDepth="20"/>
+		<FlowProperties flowMode="" startTime="" endTime="" ifMonitor="" runMode="" noteMode="" activeForm="" autoExe=""/>
+	</FlowConfig>
+	<Steps>
+		<Step>
+			<BaseProperties id="begin" text="开 始" stepType="BeginStep"/>
+			<VMLProperties width="200" height="200" x="144px" y="166px" textWeight="" strokeWeight="" isFocused="" zIndex=""/>
+			<FlowProperties wkGroup="" flowMode="" />
+		</Step>
+		<Step>
+			<BaseProperties id="end" text="结 束" stepType="EndStep"/>
+			<VMLProperties width="200" height="200" x="1594px" y="124px" textWeight="" strokeWeight="" isFocused="" zIndex="40"/>
+			<FlowProperties wkGroup="" flowMode="" />
+		</Step>
+		<Step>
+			<BaseProperties id="newstep" text="财务审核" stepType="NormalStep"/>
+			<VMLProperties width="200" height="200" x="562px" y="938px" textWeight="" strokeWeight="" isFocused="" zIndex=""/>
+			<FlowProperties wkGroup="0005" flowMode="一般" />
+		</Step>
+		<Step>
+			<BaseProperties id="zjlsp" text="老总审批" stepType="NormalStep"/>
+			<VMLProperties width="200" height="200" x="1113px" y="930px" textWeight="" strokeWeight="" isFocused="" zIndex=""/>
+			<FlowProperties wkGroup="0004" flowMode="一般" />
+		</Step>
+	</Steps>
+	<Actions>
+		<Action>
+			<BaseProperties id="newaction" text="新动作" actionType="PolyLine" from="begin" to="newstep"/>
+			<VMLProperties startArrow="" endArrow="Classic" strokeWeight="" isFocused="" zIndex="40"/>
+			<FlowProperties/>
+		</Action>
+		<Action>
+			<BaseProperties id="zg_lz" text="新动作" actionType="PolyLine" from="newstep" to="zjlsp"/>
+			<VMLProperties startArrow="" endArrow="Classic" strokeWeight="" isFocused="" zIndex="40"/>
+			<FlowProperties/>
+		</Action>
+		<Action>
+			<BaseProperties id="lz_end" text="新动作" actionType="PolyLine" from="zjlsp" to="end"/>
+			<VMLProperties startArrow="" endArrow="Classic" strokeWeight="" isFocused="" zIndex="39"/>
+			<FlowProperties/>
+		</Action>
+	</Actions>
+</WebFlow>

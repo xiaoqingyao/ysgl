@@ -1,0 +1,17 @@
+d:\Documents\Visual Studio 2013\Projects\webBill_ys_older\sqlHelper\bin\Debug\sqlHelper.dll
+d:\Documents\Visual Studio 2013\Projects\webBill_ys_older\sqlHelper\bin\Debug\sqlHelper.pdb
+d:\Documents\Visual Studio 2013\Projects\webBill_ys_older\sqlHelper\obj\Debug\sqlHelper.dll
+d:\Documents\Visual Studio 2013\Projects\webBill_ys_older\sqlHelper\obj\Debug\sqlHelper.pdb
+E:\PROJECT\预算无账套\sqlHelper\bin\Debug\sqlHelper.dll
+E:\PROJECT\预算无账套\sqlHelper\bin\Debug\sqlHelper.pdb
+E:\PROJECT\预算无账套\sqlHelper\obj\Debug\sqlHelper.dll
+E:\PROJECT\预算无账套\sqlHelper\obj\Debug\sqlHelper.pdb
+E:\PROJECT\预算无账套\sqlHelper\obj\Debug\sqlHelper.csprojResolveAssemblyReference.cache
+E:\PROJECT\预算无账套\预算无账套\sqlHelper\bin\Debug\sqlHelper.dll
+E:\PROJECT\预算无账套\预算无账套\sqlHelper\bin\Debug\sqlHelper.pdb
+E:\PROJECT\预算无账套\预算无账套\sqlHelper\obj\Debug\sqlHelper.dll
+E:\PROJECT\预算无账套\预算无账套\sqlHelper\obj\Debug\sqlHelper.pdb
+E:\PROJECT\ys_new\sqlHelper\bin\Debug\sqlHelper.dll
+E:\PROJECT\ys_new\sqlHelper\bin\Debug\sqlHelper.pdb
+E:\PROJECT\ys_new\sqlHelper\obj\Debug\sqlHelper.dll
+E:\PROJECT\ys_new\sqlHelper\obj\Debug\sqlHelper.pdb

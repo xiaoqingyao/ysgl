@@ -1,0 +1,53 @@
+2015 11 23
+采集器 江苏金彭  16
+
+2015 11 
+    高新区 发票 12
+
+
+内存条：
+  228
+
+
+20151124
+   北京文件 8
+
+
+ insert into bill_djlx values('yszjhz','预算追加汇总','预算追加汇总','yszjhz','yszjhz','d','3','0')
+insert into mainworkflow values('yszjhz','预算追加汇总')
+insert into billtoworkflow values('yszjhz','预算追加汇总','yszjhz') 
+
+
+CREATE TABLE [dbo].[bill_zfzxsqd_dz](
+	billcode nvarchar(50) null,--billcode
+	sqrq nvarchar(50) null,--申请日期
+	zcfx nvarchar(50) null,--转出区域分校
+	zrfx nvarchar(50) null,--转入分校
+	xyxm nvarchar(50) null,--学员姓名
+	nianji nvarchar(50) null,--年级
+	yxyfdfy decimal(18,4) null,--原协议辅导费用
+	ybmkc nvarchar(50) null,--原报名课程
+	ykcxsyh nvarchar(50) null,--原课程享受优惠
+	yxfks decimal(18,4) null,--已消费课时/次
+	dyksdj decimal(18,4) null,--对应课时单价
+	yxffy decimal(18,4) null,--已消费费用
+	ykqtfy decimal(18,4) null,--应扣其他费用
+	syjexx decimal(18,4)null,--剩余金额
+	syjedx nvarchar(50) null,--剩余金额大写
+	zfyy nvarchar(50) null,--转费原因
+	xbxs nvarchar(50) null,--新报小时/课程
+	xbjje decimal(18,4) null,--须补交金额
+	xbjjedx nvarchar(50)null,--须补交金额大写
+	[note1] [nvarchar](50) NULL,
+	[note2] [nvarchar](50) NULL,
+	[note3] [nvarchar](50) NULL,
+	[note4] [nvarchar](50) NULL,
+	[note5] [nvarchar](50) NULL
+) 
+
+
+
+ insert into bill_djlx values('zfzxsqd','转费转校申请单','转费转校申请单','zfzxsqd','zfzxsqd','d','3','0')
+insert into mainworkflow values('zfzxsqd','转费转校申请单')
+insert into billtoworkflow values('zfzxsqd','转费转校申请单','zfzxsqd') 
+

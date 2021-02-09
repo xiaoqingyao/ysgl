@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='utf-8'?>
+<WebFlow>
+  <FlowConfig>
+    <BaseProperties flowId="ys" flowText="预算审批"/>
+    <VMLProperties stepTextColor="green" stepStrokeColor="green" stepShadowColor="#b3b3b3" stepFocusedStrokeColor="yellow" isStepShadow="T" actionStrokeColor="green" actionTextColor="" actionFocusedStrokeColor="yellow" sStepTextColor="red" sStepStrokeColor="green" stepColor1="green" stepColor2="white" isStep3D="true" step3DDepth="20"/>
+    <FlowProperties flowMode="" startTime="" endTime="" ifMonitor="" runMode="" noteMode="" activeForm="" autoExe=""/>
+  </FlowConfig>
+  <Steps>
+    <Step>
+      <BaseProperties id="begin" text="?开 始" stepType="BeginStep"/>
+      <VMLProperties width="200" height="200" x="57px" y="2px" textWeight="" strokeWeight="" isFocused="" zIndex=""/>
+      <FlowProperties wkGroup="" flowMode="" />
+    </Step>
+    <Step>
+      <BaseProperties id="end" text="?结 束" stepType="EndStep"/>
+      <VMLProperties width="200" height="200" x="1623px" y="1296px" textWeight="" strokeWeight="" isFocused="" zIndex=""/>
+      <FlowProperties wkGroup="" flowMode="" />
+    </Step>
+    <Step>
+      <BaseProperties id="newstep" text="?助理审查" stepType="NormalStep"/>
+      <VMLProperties width="200" height="200" x="444px" y="378px" textWeight="" strokeWeight="" isFocused="" zIndex=""/>
+      <FlowProperties wkGroup="1" flowMode="一般" />
+    </Step>
+    <Step>
+      <BaseProperties id="newstep2" text="?经理审核" stepType="NormalStep"/>
+      <VMLProperties width="200" height="200" x="824px" y="718px" textWeight="" strokeWeight="" isFocused="" zIndex=""/>
+      <FlowProperties wkGroup="2" flowMode="一般" />
+    </Step>
+    <Step>
+      <BaseProperties id="newstep3" text="?分管领导审批" stepType="NormalStep"/>
+      <VMLProperties width="200" height="200" x="1188px" y="910px" textWeight="" strokeWeight="" isFocused="" zIndex=""/>
+      <FlowProperties wkGroup="2" flowMode="一般" />
+    </Step>
+    <Step>
+      <BaseProperties id="newstep44" text="?总经理审批" stepType="NormalStep"/>
+      <VMLProperties width="200" height="200" x="1349px" y="1550px" textWeight="" strokeWeight="" isFocused="" zIndex=""/>
+      <FlowProperties wkGroup="" flowMode="一般" />
+    </Step>
+  </Steps>
+  <Actions>
+    <Action>
+      <BaseProperties id="newaction1" text="新动作" actionType="PolyLine" from="begin" to="newstep"/>
+      <VMLProperties startArrow="" endArrow="Classic" strokeWeight="" isFocused="" zIndex="39"/>
+      <FlowProperties/>
+    </Action>
+    <Action>
+      <BaseProperties id="newaction2" text="新动作" actionType="PolyLine" from="newstep" to="newstep2"/>
+      <VMLProperties startArrow="" endArrow="Classic" strokeWeight="" isFocused="" zIndex="39"/>
+      <FlowProperties/>
+    </Action>
+    <Action>
+      <BaseProperties id="newaction3" text="新动作" actionType="PolyLine" from="newstep2" to="newstep3"/>
+      <VMLProperties startArrow="" endArrow="Classic" strokeWeight="" isFocused="" zIndex="39"/>
+      <FlowProperties/>
+    </Action>
+    <Action>
+      <BaseProperties id="newaction" text="新动作" actionType="PolyLine" from="newstep3" to="newstep44"/>
+      <VMLProperties startArrow="" endArrow="Classic" strokeWeight="" isFocused="" zIndex="39"/>
+      <FlowProperties/>
+    </Action>
+    <Action>
+      <BaseProperties id="newaction32" text="新动作" actionType="PolyLine" from="newstep44" to="end"/>
+      <VMLProperties startArrow="" endArrow="Classic" strokeWeight="" isFocused="" zIndex="40"/>
+      <FlowProperties/>
+    </Action>
+  </Actions>
+</WebFlow>

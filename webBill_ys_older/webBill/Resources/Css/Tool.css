@@ -1,0 +1,34 @@
+﻿html,body,form
+{
+	font-size:11px;
+	width:100%;
+	height:100%;
+	margin:0 auto;
+	overflow:hidden;
+}
+.main
+{
+	background-image:url(../Images/toolBarBG.bmp);
+	height:20px;
+	margin:0 auto;
+	float:left;
+	width:95%;
+}
+
+.main a
+{
+	float:right;
+	margin-right:10px;
+	margin-top:5px;
+	text-decoration:none;
+	color:Black;
+}
+
+.main span
+{
+	float:left;
+	margin-left:10px;
+	margin-top:5px;
+	display:block;
+}
+

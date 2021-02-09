@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A07DFE43-33CC-43C2-AB56-5208532A6400}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Models</RootNamespace>
+    <AssemblyName>Models</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Bill_DataDic.cs" />
+    <Compile Include="Bill_Departments.cs" />
+    <Compile Include="bill_deptFyblDy.cs" />
+    <Compile Include="Bill_Lscg.cs" />
+    <Compile Include="bill_lyd.cs" />
+    <Compile Include="bill_lyds.cs" />
+    <Compile Include="Bill_Main.cs" />
+    <Compile Include="Bill_Msg.cs" />
+    <Compile Include="Bill_NotePad.cs" />
+    <Compile Include="bill_pingzheng_xmModel.cs" />
+    <Compile Include="Bill_SysMenu.cs" />
+    <Compile Include="bill_syspar.cs" />
+    <Compile Include="Bill_TravelApplication.cs" />
+    <Compile Include="Bill_TravelReport.cs" />
+    <Compile Include="Bill_Users.cs" />
+    <Compile Include="Bill_Xm.cs" />
+    <Compile Include="Bill_xmzfd.cs" />
+    <Compile Include="bill_xm_dept_nd.cs" />
+    <Compile Include="Bill_Ybbxmxb.cs" />
+    <Compile Include="Bill_Ybbxmxb_Fykm.cs" />
+    <Compile Include="Bill_Ybbxmxb_Fykm_Dept.cs" />
+    <Compile Include="Bill_Ybbxmxb_Hsxm.cs" />
+    <Compile Include="Bill_Ybbx_Fysq.cs" />
+    <Compile Include="bill_yksq.cs" />
+    <Compile Include="Bill_Ysgc.cs" />
+    <Compile Include="Bill_Yskm.cs" />
+    <Compile Include="bill_yskm_dept.cs" />
+    <Compile Include="Bill_Ysmxb.cs" />
+    <Compile Include="bill_ys_benefitpro.cs" />
+    <Compile Include="bill_ys_xmfjbm.cs" />
+    <Compile Include="bill_ys_xmfjlrb.cs" />
+    <Compile Include="bill_zfzxsqd_dz.cs" />
+    <Compile Include="bill__travelclaims.cs" />
+    <Compile Include="dz_yksqd.cs" />
+    <Compile Include="dz_zcgzsqd.cs" />
+    <Compile Include="MessageReader.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SaleProcessMode.cs" />
+    <Compile Include="ShouRuRel.cs" />
+    <Compile Include="ShouRuTemp.cs" />
+    <Compile Include="Sys_Note.cs" />
+    <Compile Include="Sys_Notes.cs" />
+    <Compile Include="TitleMessage.cs" />
+    <Compile Include="T_BillingApplication.cs" />
+    <Compile Include="T_ControlItemMode.cs" />
+    <Compile Include="T_LoanList.cs" />
+    <Compile Include="T_RebatesStandard.cs" />
+    <Compile Include="T_Remittance.cs" />
+    <Compile Include="T_ReportApplication.cs" />
+    <Compile Include="T_SaleFeeAllocationNote.cs" />
+    <Compile Include="T_SaleFeeSpendNote.cs" />
+    <Compile Include="T_SpecialRebatesAppmode.cs" />
+    <Compile Include="T_SpecialRebatesStandardmodel.cs" />
+    <Compile Include="T_truckType.cs" />
+    <Compile Include="T_TruckTypeCorrespond.cs" />
+    <Compile Include="YsgcTb.cs" />
+    <Compile Include="ZiChan_CaiGouShenQing.cs" />
+    <Compile Include="ZiChan_ChuZhiDan.cs" />
+    <Compile Include="ZiChan_Jilu.cs" />
+    <Compile Include="ZiChan_Leibie.cs" />
+    <Compile Include="ZiChan_ShiYongZhuangKuang.cs" />
+    <Compile Include="ZiChan_WeiXiuRiZhi.cs" />
+    <Compile Include="ZiChan_WeiXiuShenQing.cs" />
+    <Compile Include="ZiChan_ZengJianFangShi.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\sqlHelper\sqlHelper.csproj">
+      <Project>{d5496b5c-5152-4bf8-85e5-34296312d81c}</Project>
+      <Name>sqlHelper</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

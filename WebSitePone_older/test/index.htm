@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html> 
+<html class="ui-mobile"> 
+<head> 
+<title>Page Title</title> 
+
+<meta name="viewport" content="width=device-width, initial-scale=1"> 
+<META HTTP-EQUIV="pragma" CONTENT="no-cache"> 
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-store, must-revalidate"> 
+<META HTTP-EQUIV="expires" CONTENT="Wed, 26 Feb 1997 08:21:57 GMT"> 
+<META HTTP-EQUIV="expires" CONTENT="0"> 
+<meta charset="utf-8">
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0-rc.1/jquery.mobile-1.1.0-rc.1.min.css" />
+<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.1.0-rc.1/jquery.mobile-1.1.0-rc.1.min.js"></script>
+<script type="text/javascript" charset="utf-8">
+
+$( document ).delegate("#index", "pageinit", function() {
+$(document).bind( "pagebeforechange", beforechange);
+
+});
+function beforechange( e, data ) {
+if ( typeof data.toPage != "string" ) {
+var url = $.mobile.path.parseUrl(e.target.baseURI),
+re = /a.html/;
+if(url.href.search(re) != -1){
+var page = $(e.target).find("#a2");
+var d = data.options.data;
+page.find("#s").append(decodeURIComponent(d));
+}
+}
+}
+</script>
+</head> 
+
+
+<body> 
+<div data-role="page" id="index"> 
+<div data-role="header">.header.</div> 
+<div data-role="content">
+<a href="a.htm?p1=112&p2=113">a.html</a><br>
+<div id="ccc"><a href="#c" id="cc">cccccc</a><br></div>
+<a href="b.htm" data-rel="dialog" data-transition="pop">Open dialog</a>
+<form action="a.html" method="post">
+姓名：<input type="text" value="23" name="name"/><br>
+密码：<input type="text" value="过后" name="pwd"/><br>
+<input type="submit" value="submit"/>
+</form>
+</div> 
+<div data-role="footer" data-position="fixed">footer</div> 
+</div>
+</body></html>

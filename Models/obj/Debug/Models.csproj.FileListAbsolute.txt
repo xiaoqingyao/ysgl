@@ -1,0 +1,28 @@
+d:\Documents\Visual Studio 2013\Projects\webBill_ys_older\Models\obj\Debug\Models.csprojResolveAssemblyReference.cache
+d:\Documents\Visual Studio 2013\Projects\webBill_ys_older\Models\bin\Debug\Models.dll
+d:\Documents\Visual Studio 2013\Projects\webBill_ys_older\Models\bin\Debug\Models.pdb
+d:\Documents\Visual Studio 2013\Projects\webBill_ys_older\Models\bin\Debug\sqlHelper.dll
+d:\Documents\Visual Studio 2013\Projects\webBill_ys_older\Models\bin\Debug\sqlHelper.pdb
+d:\Documents\Visual Studio 2013\Projects\webBill_ys_older\Models\obj\Debug\Models.dll
+d:\Documents\Visual Studio 2013\Projects\webBill_ys_older\Models\obj\Debug\Models.pdb
+E:\PROJECT\预算无账套\Models\bin\Debug\Models.dll
+E:\PROJECT\预算无账套\Models\bin\Debug\Models.pdb
+E:\PROJECT\预算无账套\Models\bin\Debug\sqlHelper.dll
+E:\PROJECT\预算无账套\Models\bin\Debug\sqlHelper.pdb
+E:\PROJECT\预算无账套\Models\obj\Debug\Models.csprojResolveAssemblyReference.cache
+E:\PROJECT\预算无账套\Models\obj\Debug\Models.dll
+E:\PROJECT\预算无账套\Models\obj\Debug\Models.pdb
+E:\PROJECT\预算无账套\预算无账套\Models\bin\Debug\Models.dll
+E:\PROJECT\预算无账套\预算无账套\Models\bin\Debug\Models.pdb
+E:\PROJECT\预算无账套\预算无账套\Models\bin\Debug\sqlHelper.dll
+E:\PROJECT\预算无账套\预算无账套\Models\bin\Debug\sqlHelper.pdb
+E:\PROJECT\预算无账套\预算无账套\Models\obj\Debug\Models.csprojResolveAssemblyReference.cache
+E:\PROJECT\预算无账套\预算无账套\Models\obj\Debug\Models.dll
+E:\PROJECT\预算无账套\预算无账套\Models\obj\Debug\Models.pdb
+E:\PROJECT\ys_new\Models\bin\Debug\Models.dll
+E:\PROJECT\ys_new\Models\bin\Debug\Models.pdb
+E:\PROJECT\ys_new\Models\bin\Debug\sqlHelper.dll
+E:\PROJECT\ys_new\Models\bin\Debug\sqlHelper.pdb
+E:\PROJECT\ys_new\Models\obj\Debug\Models.csprojResolveAssemblyReference.cache
+E:\PROJECT\ys_new\Models\obj\Debug\Models.dll
+E:\PROJECT\ys_new\Models\obj\Debug\Models.pdb

@@ -1,0 +1,71 @@
+﻿html,body
+{
+	font-size:12px;
+	width:100%;
+	height:100%;
+	margin:0 auto;
+	overflow:hidden;
+	background-image:url(../Images/logoBg.GIF);
+}
+
+
+#logo
+{
+	height:84px;
+	width:15%;
+	margin:0 auto;
+	float:left;
+	background-image:url(../Images/logoBg.GIF);
+}
+#logo img
+{
+	margin-bottom:0px;
+	width:100%;
+	height:84px;
+}
+
+
+#toolBar
+{
+	margin:0px;
+	margin-left:5px;
+	float:left;
+	width:60%;
+	height:80px;
+	background-image:url(../Images/logoBg.GIF);
+	padding-top:65px;
+}
+
+#toolBar a
+{
+	float:right;
+	margin-right:10px;
+	text-decoration:none;
+	color:Black;
+}
+
+#toolBar span
+{
+	float:left;
+	margin-left:10px;
+	display:block;
+}
+
+#weather
+{
+	float:right;
+	background-image:url(../Images/logoBg.GIF);
+	width:20%;
+	height:80px;
+}
+
+#weather li
+{
+	margin-top:0px;
+	list-style:none;
+}
+#weather ul
+{
+	margin:0px;
+	float:right;
+}

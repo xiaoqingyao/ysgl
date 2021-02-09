@@ -1,0 +1,14 @@
+E:\PROJECT\预算无账套\sqlHelper\bin\Release\sqlHelper.dll
+E:\PROJECT\预算无账套\sqlHelper\bin\Release\sqlHelper.pdb
+E:\PROJECT\预算无账套\sqlHelper\obj\Release\sqlHelper.dll
+E:\PROJECT\预算无账套\sqlHelper\obj\Release\sqlHelper.pdb
+E:\PROJECT\预算无账套\预算无账套\sqlHelper\bin\Release\sqlHelper.dll
+E:\PROJECT\预算无账套\预算无账套\sqlHelper\bin\Release\sqlHelper.pdb
+E:\PROJECT\预算无账套\预算无账套\sqlHelper\obj\Release\sqlHelper.csprojResolveAssemblyReference.cache
+E:\PROJECT\预算无账套\预算无账套\sqlHelper\obj\Release\sqlHelper.dll
+E:\PROJECT\预算无账套\预算无账套\sqlHelper\obj\Release\sqlHelper.pdb
+E:\PROJECT\ys_new\sqlHelper\bin\Release\sqlHelper.dll
+E:\PROJECT\ys_new\sqlHelper\bin\Release\sqlHelper.pdb
+E:\PROJECT\ys_new\sqlHelper\obj\Release\sqlHelper.csprojResolveAssemblyReference.cache
+E:\PROJECT\ys_new\sqlHelper\obj\Release\sqlHelper.dll
+E:\PROJECT\ys_new\sqlHelper\obj\Release\sqlHelper.pdb

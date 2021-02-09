@@ -1,0 +1,52 @@
+d:\Documents\Visual Studio 2013\Projects\webBill_ys_older\Bll\bin\Debug\Bll.dll
+d:\Documents\Visual Studio 2013\Projects\webBill_ys_older\Bll\bin\Debug\Bll.pdb
+d:\Documents\Visual Studio 2013\Projects\webBill_ys_older\Bll\obj\Debug\Bll.csprojResolveAssemblyReference.cache
+d:\Documents\Visual Studio 2013\Projects\webBill_ys_older\Bll\obj\Debug\Bll.dll
+d:\Documents\Visual Studio 2013\Projects\webBill_ys_older\Bll\obj\Debug\Bll.pdb
+d:\Documents\Visual Studio 2013\Projects\webBill_ys_older\Bll\bin\Debug\Dal.dll
+d:\Documents\Visual Studio 2013\Projects\webBill_ys_older\Bll\bin\Debug\Models.dll
+d:\Documents\Visual Studio 2013\Projects\webBill_ys_older\Bll\bin\Debug\sqlHelper.dll
+d:\Documents\Visual Studio 2013\Projects\webBill_ys_older\Bll\bin\Debug\webBillLibrary.dll
+d:\Documents\Visual Studio 2013\Projects\webBill_ys_older\Bll\bin\Debug\Dal.pdb
+d:\Documents\Visual Studio 2013\Projects\webBill_ys_older\Bll\bin\Debug\Models.pdb
+d:\Documents\Visual Studio 2013\Projects\webBill_ys_older\Bll\bin\Debug\sqlHelper.pdb
+d:\Documents\Visual Studio 2013\Projects\webBill_ys_older\Bll\bin\Debug\webBillLibrary.pdb
+E:\PROJECT\预算无账套\Bll\bin\Debug\Bll.dll
+E:\PROJECT\预算无账套\Bll\bin\Debug\Bll.pdb
+E:\PROJECT\预算无账套\Bll\bin\Debug\Dal.dll
+E:\PROJECT\预算无账套\Bll\bin\Debug\Models.dll
+E:\PROJECT\预算无账套\Bll\bin\Debug\sqlHelper.dll
+E:\PROJECT\预算无账套\Bll\bin\Debug\webBillLibrary.dll
+E:\PROJECT\预算无账套\Bll\bin\Debug\Dal.pdb
+E:\PROJECT\预算无账套\Bll\bin\Debug\Models.pdb
+E:\PROJECT\预算无账套\Bll\bin\Debug\sqlHelper.pdb
+E:\PROJECT\预算无账套\Bll\bin\Debug\webBillLibrary.pdb
+E:\PROJECT\预算无账套\Bll\obj\Debug\Bll.csprojResolveAssemblyReference.cache
+E:\PROJECT\预算无账套\Bll\obj\Debug\Bll.dll
+E:\PROJECT\预算无账套\Bll\obj\Debug\Bll.pdb
+E:\PROJECT\预算无账套\预算无账套\Bll\bin\Debug\Bll.dll
+E:\PROJECT\预算无账套\预算无账套\Bll\bin\Debug\Bll.pdb
+E:\PROJECT\预算无账套\预算无账套\Bll\bin\Debug\Dal.dll
+E:\PROJECT\预算无账套\预算无账套\Bll\bin\Debug\Models.dll
+E:\PROJECT\预算无账套\预算无账套\Bll\bin\Debug\sqlHelper.dll
+E:\PROJECT\预算无账套\预算无账套\Bll\bin\Debug\webBillLibrary.dll
+E:\PROJECT\预算无账套\预算无账套\Bll\bin\Debug\Dal.pdb
+E:\PROJECT\预算无账套\预算无账套\Bll\bin\Debug\Models.pdb
+E:\PROJECT\预算无账套\预算无账套\Bll\bin\Debug\sqlHelper.pdb
+E:\PROJECT\预算无账套\预算无账套\Bll\bin\Debug\webBillLibrary.pdb
+E:\PROJECT\预算无账套\预算无账套\Bll\obj\Debug\Bll.csprojResolveAssemblyReference.cache
+E:\PROJECT\预算无账套\预算无账套\Bll\obj\Debug\Bll.dll
+E:\PROJECT\预算无账套\预算无账套\Bll\obj\Debug\Bll.pdb
+E:\PROJECT\ys_new\Bll\bin\Debug\Bll.dll
+E:\PROJECT\ys_new\Bll\bin\Debug\Bll.pdb
+E:\PROJECT\ys_new\Bll\bin\Debug\Dal.dll
+E:\PROJECT\ys_new\Bll\bin\Debug\Models.dll
+E:\PROJECT\ys_new\Bll\bin\Debug\sqlHelper.dll
+E:\PROJECT\ys_new\Bll\bin\Debug\webBillLibrary.dll
+E:\PROJECT\ys_new\Bll\bin\Debug\Dal.pdb
+E:\PROJECT\ys_new\Bll\bin\Debug\Models.pdb
+E:\PROJECT\ys_new\Bll\bin\Debug\sqlHelper.pdb
+E:\PROJECT\ys_new\Bll\bin\Debug\webBillLibrary.pdb
+E:\PROJECT\ys_new\Bll\obj\Debug\Bll.csprojResolveAssemblyReference.cache
+E:\PROJECT\ys_new\Bll\obj\Debug\Bll.dll
+E:\PROJECT\ys_new\Bll\obj\Debug\Bll.pdb

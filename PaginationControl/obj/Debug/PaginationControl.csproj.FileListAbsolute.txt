@@ -1,0 +1,19 @@
+d:\Documents\Visual Studio 2013\Projects\webBill_ys_older\PaginationControl\bin\Debug\PaginationControl.dll
+d:\Documents\Visual Studio 2013\Projects\webBill_ys_older\PaginationControl\bin\Debug\PaginationControl.pdb
+d:\Documents\Visual Studio 2013\Projects\webBill_ys_older\PaginationControl\obj\Debug\PaginationControl.dll
+d:\Documents\Visual Studio 2013\Projects\webBill_ys_older\PaginationControl\obj\Debug\PaginationControl.pdb
+E:\PROJECT\预算无账套\PaginationControl\bin\Debug\PaginationControl.dll
+E:\PROJECT\预算无账套\PaginationControl\bin\Debug\PaginationControl.pdb
+E:\PROJECT\预算无账套\PaginationControl\obj\Debug\PaginationControl.dll
+E:\PROJECT\预算无账套\PaginationControl\obj\Debug\PaginationControl.pdb
+E:\PROJECT\预算无账套\PaginationControl\obj\Debug\PaginationControl.csprojResolveAssemblyReference.cache
+E:\PROJECT\预算无账套\预算无账套\PaginationControl\bin\Debug\PaginationControl.dll
+E:\PROJECT\预算无账套\预算无账套\PaginationControl\bin\Debug\PaginationControl.pdb
+E:\PROJECT\预算无账套\预算无账套\PaginationControl\obj\Debug\PaginationControl.csprojResolveAssemblyReference.cache
+E:\PROJECT\预算无账套\预算无账套\PaginationControl\obj\Debug\PaginationControl.dll
+E:\PROJECT\预算无账套\预算无账套\PaginationControl\obj\Debug\PaginationControl.pdb
+E:\PROJECT\ys_new\PaginationControl\bin\Debug\PaginationControl.dll
+E:\PROJECT\ys_new\PaginationControl\bin\Debug\PaginationControl.pdb
+E:\PROJECT\ys_new\PaginationControl\obj\Debug\PaginationControl.dll
+E:\PROJECT\ys_new\PaginationControl\obj\Debug\PaginationControl.pdb
+E:\PROJECT\ys_new\PaginationControl\obj\Debug\PaginationControl.csprojResolveAssemblyReference.cache

@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>无标题页</title>
+    <link href="webBill/Resources/Css/StyleSheet.css" rel="stylesheet" type="text/css" />
+    <link href="webBill/Resources/Css/StyleSheet2.css" rel="stylesheet" type="text/css" />
+    <script src="webBill/Resources/jScript/jQuery/jquery-1.8.0.min.js"></script>
+    <script>
+        function jiexi() {
+            var str = $("#abc").val();
+            alert(str);
+            var json = $.parseJSON(str);
+            alert(json);
+        }
+    </script>
+</head>
+<body>
+    <input type="button" id="aa" value="返回登录页" class="baseButton" onclick="javascript:window.location.href='logindex.aspx'"/><br />
+    <img src="images/help.jpg" />
+    <!--<textarea id="abc"></textarea>
+    <input type="button" onclick="jiexi()" value="解析"/>-->
+</body>
+</html>

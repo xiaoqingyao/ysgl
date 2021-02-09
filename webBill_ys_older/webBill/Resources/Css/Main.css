@@ -1,0 +1,316 @@
+﻿html,body,form
+{
+	font-size:11px;
+	width:100%;
+	height:100%;
+	margin:0 auto;
+}
+#left
+{
+	width:15%;
+	margin:0 auto;
+	float:left;
+	padding:0px;
+}
+
+#left li
+{
+	list-style:none;
+	margin-top: 10px;
+}
+#left ul
+{
+	margin:0px;
+	padding:0px;
+}
+
+#left img
+{
+	width:20px;
+	height:20px;
+	margin:2px auto;
+	float:left;
+}
+
+#left h3
+{
+	height:25px;
+}
+
+#left div
+{
+	padding-top:0px;
+}
+
+#left li span
+{
+	position:relative;
+	top:5px;
+	left:5px;
+	/*cursor:pointer;*/
+}
+.addTabs
+{
+	cursor:pointer;
+}
+
+
+#right
+{
+	width:84%;
+	margin-left:2px;
+	margin-top:1px;
+	float:left;
+	height:100%;
+	padding:1px;
+}
+
+#right div
+{
+	padding:1px;
+	height:100%;
+}
+#tabs-1 div
+{
+	padding:0px;
+	height:auto;
+}
+
+#right ul
+{
+	margin:0px;
+	padding:0px;
+}
+#right li
+{
+	height:20px;
+	font-size:11px;
+	font-style:normal;
+	margin-top:0px;
+}
+#right li a
+{
+	font-weight:normal;
+}
+
+
+.basehidden
+{
+	display:none;
+}
+
+.rightBox
+{
+	text-align:right;
+}
+td
+{
+    font-size: 12px;
+}
+a:visited
+{
+    color: #333333;
+    text-decoration: none;
+}
+a:hover
+{
+    color: #CC0000;
+    text-decoration: none;
+}
+a:active
+{
+    color: #CC0000;
+    text-decoration: none;
+}
+a:link
+{
+    color: #333333;
+    text-decoration: none;
+}
+
+/*表格*/
+.baseTable
+{
+    padding-top: 4px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-collapse: collapse;
+    border: 1px solid #1855C6;
+    cell-spacing: 0px;
+}
+.myGrid
+{
+    border-bottom:1px solid; border-top:1px solid; border-color:#1855C6; border-right:1px solid;border-left:1px solid;
+}
+.myTable
+{
+    border-bottom:0px solid; border-top:1px solid; border-color:#1855C6; border-right:0px solid;border-left:1px solid;
+}
+.myTable td
+{
+	height:25px;
+    border-bottom:1px solid; border-top:0px solid; border-color:#1855C6; border-right:1px solid;border-left:0px solid;
+}
+
+.myTable tdNone
+{
+	height:25px;
+    border-bottom:0px solid; border-top:0px solid; border-color:#1855C6; border-right:0px solid;border-left:0px solid;
+}
+.tableBg
+{
+	background-color:#EDEDED;
+	width:100px;
+	text-align:center;
+}
+.tableBg2
+{
+	background-color:#EDEDED;
+	text-align:center;
+}
+
+.myGridHeader
+{
+    background: url(../Images/th_bg.gif);
+    height: 20px;
+    border-bottom:1px solid; border-top:1px solid; border-color:#1855C6; border-right:1px solid;border-left:1px solid;
+    text-align:center;
+}
+.myGridItem
+{
+    padding: 3px;
+    line-height: 20px;
+    border-bottom:1px solid; border-top:1px solid; border-color:#1855C6; border-right:1px solid;border-left:1px solid;
+}
+.myGridItemRight
+{
+	text-align:right;
+    padding: 3px;
+    line-height: 20px;
+    border-bottom:1px solid; border-top:1px solid; border-color:#1855C6; border-right:1px solid;border-left:1px solid;
+}
+
+/* 层*/
+.baseDiv
+{
+}
+/* 按钮*/
+.baseButton
+{
+    border-right: #2C59AA 1px solid;
+    padding-right: 2px;
+    border-top: #2C59AA 1px solid;
+    padding-left: 2px;
+    font-size: 12px;
+    filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#ffffff, EndColorStr=#C3DAF5);
+    border-left: #2C59AA 1px solid;
+    cursor: hand;
+    color: black;
+    padding-top: 2px;
+    border-bottom: #2C59AA 1px solid;
+}
+
+/* 提交按钮*/
+.baseSubmit
+{
+    padding: 1px 10px;
+    font-size: 12px;
+    border: 1px #1E7ACE solid;
+    background: #D0F0FF;
+}
+/* 只读文本框*/
+.baseTextReadOnly
+{
+}
+
+/* 文本输入框*/
+.baseText
+{
+    text-align: left;
+    width: 100px;
+    vertical-align: bottom;
+    border-top-style: none;
+    border-right-style: none;
+    border-left-style: none;
+    background-color: #FFF;
+    border-bottom: #000 1px solid;
+}
+/* 密码框*/
+.basePassword
+{
+}
+/* 多项框*/
+.baseCbx
+{
+}
+/* 单选框*/
+.baseRadio
+{
+}
+/* 文本域*/
+.baseArea
+{
+    background: #f8f8f8;
+    border-bottom: #B7B7B7 1px solid;
+    border-left: #B7B7B7 1px solid;
+    border-right: #B7B7B7 1px solid;
+    border-top: #B7B7B7 1px solid;
+    color: #000000;
+    cursor: text;
+    font-family: "Arial";
+    font-size: 9pt;
+    padding: 1px;
+}
+/* 图片*/
+.baseImg
+{
+}
+/* 下拉框*/
+.baseSelect
+{
+    border-right: #000000 1px solid;
+    border-top: #FFFFFF 1px solid;
+    font-size: 12px;
+    border-left: #FFFFFF 1px solid;
+    color: #003366;
+    border-bottom: #000000 1px solid;
+    background-color: #f4f4f4;
+}
+
+
+.baseTableInput
+{
+    padding-top: 4px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-collapse: collapse;
+    border: 1px solid #1855C6;
+    cell-spacing: 0px;
+}
+.baseTableInput TD
+{
+    padding: 3px;
+    line-height: 23px;
+    border: 1px solid #1855C6;
+}
+.InputLabel
+{
+	background-color:#EFECED;
+	width:100px;
+	text-align:center;
+}
+
+.infoLi
+{
+	border-bottom:dashed 1px;
+	border-color:#e7eef8;
+	margin-top:5px;
+	margin-left:0px;
+	padding-left:10px;
+	padding-top:5px;
+	padding-right:10px;
+}

@@ -1,0 +1,218 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml">
+<head>
+    <title>BS版本工作流软件设计</title>
+    <link href="inc/style.css" type="text/css" rel="stylesheet" />
+    <link href="../webBill/Resources/Css/StyleSheet.css" type="text/css" rel="Stylesheet" />
+    <link href="../webBill/Resources/Css/StyleSheet2.css" type="text/css" rel="Stylesheet" />
+    <script language="javascript" type="text/javascript" src="inc/httpRequest.js"></script>
+
+    <script language="javascript" type="text/javascript" src="inc/contextMenu/context.js"></script>
+
+    <script language="javascript" type="text/javascript" src="inc/webflow.js"></script>
+
+    <script language="javascript" type="text/javascript" src="inc/function.js"></script>
+
+    <script language="javascript" type="text/javascript" src="inc/shiftlang.js"></script>
+
+    <script language="javascript" type="text/javascript" src="inc/movestep.js"></script>
+
+    <script language="javascript" type="text/javascript">
+<!--
+        //自动取得浏览器语言
+        var LANG = navigator.browserLanguage;
+        if (LANG.indexOf('en') > -1) {
+            LANG = 'en';
+        }
+        if (LANG.indexOf('zh') > -1) {
+            LANG = 'zh';
+        }
+        function saveToXML() {
+            if (document.all.FlowXML.value == '') {
+                alert('无流程信息！');
+                return;
+            }
+            
+            var dialogAbout = window.showModalDialog("wkSaver.aspx", window, "dialogWidth:300px; dialogHeight:130px; center:yes; help:no; resizable:no; status:no;scroll:no");
+        }
+        function loadFromXML() {
+                    
+            var xml = CreateXMLHttp();
+
+            xml.onreadystatechange = function() {
+
+                if (xml.readyState == 4) {
+
+                    if (xml.status == 200) {
+
+                        var response = xml.responseText;
+
+                        FlowXML.value = response;
+
+                    } //if xml.status == 200
+                } //if xml.readyState == 4
+            }      //function
+
+            try {
+                var local = document.location.href;
+                var flowID = local.split("=")[1];
+                xml.open("GET", "getXml.aspx?flowID=" + flowID + "&par=" + Math.random(), true);
+                xml.send(null);
+            }
+            catch (e) { }
+        }
+        function delxml() {
+            clearVML();
+            clearXML();
+        }
+        
+
+        function deleteDataBaseStegpGroup(stepID)
+        {
+            var xml = CreateXMLHttp();
+
+            xml.onreadystatechange = function() {
+
+                if (xml.readyState == 4) {
+
+                    if (xml.status == 200) {
+
+                        var response = xml.responseText;
+                        
+                        if(response=="false")
+                        {
+                            alert('流程相关权限设置删除失败！');
+                        }
+
+                    } //if xml.status == 200
+                } //if xml.readyState == 4
+            }      //function
+
+            try {
+                var local = document.location.href;
+                var flowID = local.split("=")[1];
+                xml.open("GET", "deleteStepGroup.aspx?flowID=" + flowID + "&stepID="+stepID+"&par=" + Math.random(), true);
+                xml.send(null);
+            }
+            catch (e) { }
+        }
+
+
+        //function about(){
+        //  var dialogAbout = window.showModalDialog("flow.aspx?id='"+s+"'", window, "dialogWidth:460px; dialogHeight:373px; center:yes; help:no; resizable:no; status:no") ;
+        //}
+//-->
+    </script>
+
+    <style type="text/css">
+        v\:*
+        {
+            behavior: url(#default#VML);
+        }
+        .style1
+        {
+            font-size: small;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body onload='document.title+=" Build "+document.lastModified;'
+    oncontextmenu="cleancontextMenu();return false;" scroll="auto" style="font-size: 12px;">
+    <input type="text" name="FlowXML" onpropertychange='if(AUTODRAW) redrawVML();' style="display:none;" />
+    &nbsp;<span class="style1">相关操作：</span>
+    <input type="button" class="baseButton" value="保存流程步骤" onclick='saveToXML()' onfocus='this.blur()' />&nbsp;<input
+        type="button" class="baseButton" value="修改流程基本信息" onclick='editFlow()' onfocus='this.blur()' />
+    <span style="color: #ff0000">重要提示：先删除动作，再删除步骤。</span><table border="0">
+        <tr>
+            <td valign="top" style="height: 504px">
+                <table width="100%" cellspacing="0" cellpadding="0" class="panel_style" style="height: 503px;
+                    display: none">
+                    <tr height="20">
+                        <td style="height: 25px;" background="">
+                        </td>
+                        <td width="" background="">
+                            <div id="treeText" style="text-align: center">
+                                流程导航视图</div>
+                        </td>
+                    </tr>
+                    <tr height="1">
+                        <td colspan="2" class="panel_line">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" bgcolor="white" style="height: 91%" align="center" valign="top">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <span id="loadText"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="height: 372px">
+                                        <select name="flowList" class="txtput" multiple="multiple" onclick='loadFromXML()'
+                                            style="width: 210px; height: 418px;">
+                                        </select>
+                                        <!--<input id=btnLoadFlow type="image" SRC="inc/images/loadflow.gif" title="导入流程" onclick='loadFromXML()' onfocus='this.blur()'>-->
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr height="1">
+                        <td colspan="2" class="panel_line">
+                        </td>
+                    </tr>
+                    <tr height="22">
+                        <td colspan="2" align="right" style="height: 30px">
+                            <table style="height: 42px">
+                                <tr>
+                                    <td>
+                                        <input id="btnNewFlow" type="image" src="inc/images/newflow.gif" title="创建新流程" onclick='newFlow()'
+                                            onfocus='this.blur()' />
+                                    </td>
+                                    <td>
+                                        &nbsp;
+                                    </td>
+                                    <td>
+                                    </td>
+                                    <td>
+                                        &nbsp;
+                                    </td>
+                                    <td>
+                                    </td>
+                                    <td>
+                                        &nbsp;
+                                    </td>
+                                    <td>
+                                    </td>
+                                    <td>
+                                        &nbsp;
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td width="800" style="height: 504px">
+                <table cellspacing="0" cellpadding="0" class="panel_style">
+                    <tr>
+                        <td colspan="2" width="800" height="500" onclick="cleancontextMenu();return false;"
+                            oncontextmenu='flowContextMenu();return false;' valign="top" align="left">
+                            <v:group id="FlowVML" style="left: 15px; top: 41px; width: 800px; height: 500px;
+                                position: absolute;" coordsize="2000,2000">
+                            </v:group>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <script language="javascript" type="text/javascript">
+<!--
+        loadFromXML();
+//-->
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,282 @@
+﻿*
+{
+	font-family: 微软雅黑;
+	margin: 0px;
+	padding: 0px;
+}
+
+img
+{
+	margin-left: -15px;
+}
+table
+{
+	width: 100%;
+}
+
+th
+{
+	text-align: center;
+	font-family: 微软雅黑;
+	font-weight: 600;
+}
+
+.ItemTable td
+{
+	font-size: 14px;
+}
+
+.hiddenbill
+{
+	display: none;
+}
+.c-main
+{
+	border: 1px solid gray;
+}
+.c-row
+{
+}
+.c-row-item
+{
+	display: block;
+	border-bottom: 1px dashed gray;
+}
+.c-row-item div
+{
+	font-weight: bold;
+	display: block;
+	width: 120px;
+	float: left;
+	text-align: right;
+}
+.title
+{
+	position: relative;
+}
+.title-l
+{
+	display: block;
+	float: left;
+}
+.title-r
+{
+	position: absolute;
+	right: -11px;
+	top: -10px;
+	display: block;
+	float: right;
+}
+.title-r img
+{
+	width: 16px;
+	height: 16px;
+	margin-left: -35px;
+}
+.title-r a
+{
+}
+.c-option
+{
+	text-align: center;
+}
+.display
+{
+	width: X;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	border: 1PX solid black;
+	position: fixed;
+	left: 0px;
+	top: 0px;
+}
+
+.pupMsg
+{
+	width: X;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	border: 1PX solid black;
+	position: fixed;
+	left: 0px;
+	top: 0px;
+}
+
+.tdOdd
+{
+	width: 100px;
+}
+.tdEnenRight
+{
+	text-align: right;
+}
+.tdborder
+{
+	border-bottom: 1px dashed gray;
+}
+.tdEnenLeft
+{
+	text-align: left;
+	padding-left: 2px;
+}
+.mytdEnenLeft
+{
+	text-align: left;
+	padding-left: 2px;
+	font-weight: 500;
+	color: Blue;
+}
+.mytdEnenRight
+{
+	text-align: right;
+	padding-left: 2px;
+	font-weight: 500;
+	color: Blue;
+}
+.myInput
+{
+	width: 100px;
+	height: 30px;
+	line-height: 30px;
+	box-shadow: 0px 0px 20px rgba(0,0,0,0.4);
+	text-shadow: 0px 0px 5px rgba(0,0,0,0.4);
+	font-weight: 400;
+	font-size: 16px;
+	width: 100%;
+	border-radius: 5px;
+}
+.myInputRight
+{
+	width: 100px;
+	height: 30px;
+	line-height: 30px;
+	box-shadow: 0px 0px 20px rgba(0,0,0,0.4);
+	text-shadow: 0px 0px 5px rgba(0,0,0,0.4);
+	font-weight: 400;
+	font-size: 16px;
+	width: 100%;
+	text-align: right;
+	border-radius: 5px;
+}
+.div-left
+{
+	position: :relative;
+	left: 0px;
+	top: 0px;
+}
+.txtOnfocus
+{
+	border: 1px solid Blue;
+}
+.borderGray
+{
+	border-bottom: 1px dashed gray;
+}
+.disableTextBox
+{
+	background-color: #FFD9D9D9;
+}
+.checkStatus
+{
+	margin-top: 3px; /*border-top: 2px solid Red;*/
+}
+.checkStatus lable
+{
+	font-weight: 700;
+	font-size: 14px;
+	font-style: italic;
+}
+.ui-page
+{
+	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+}
+
+.in, .out
+{
+	-webkit-animation-timing-function: ease-in-out;
+	-webkit-animation-duration: 350ms;
+}
+
+#divMenu
+{
+	right: 0px;
+	bottom: 150px;
+	position: fixed;
+	z-index: 999999999999;
+}
+
+/*beg Page*/
+#page
+{
+	font: 14px arial;
+	
+	text-align: center;
+}
+#page a, #page strong
+{
+	display: inline-block;
+	vertical-align: text-bottom;
+	height: 36px;
+	text-align: center;
+	line-height: 36px;
+	text-decoration: none;
+	overflow: hidden;
+	margin-right: 2px;
+	background: white;
+}
+#page a
+{
+	cursor: pointer;
+}
+#page a:hover
+{
+	background: 0;
+}
+#page .n:hover, #page a:hover .pc
+{
+	background: #f2f8ff;
+	border: 1px solid #38f;
+}
+#page .n
+{
+	height: 34px;
+	padding: 0 18px;
+	border: 1px solid #e1e2e3;
+}
+#page span
+{
+	display: block;
+}
+#page .pc
+{
+	width: 34px;
+	height: 34px;
+	border: 1px solid #e1e2e3;
+	cursor: pointer;
+}
+
+#page strong .pc
+{
+	cursor: auto;
+}
+
+#page strong .pc
+{
+	border: 0;
+	width: 36px;
+	height: 36px;
+	line-height: 36px;
+}
+#page .nums
+{
+	display: inline-block;
+	vertical-align: text-bottom;
+	height: 36px;
+	line-height: 36px;
+	margin-left: 10px;
+}
+/*end Page*/

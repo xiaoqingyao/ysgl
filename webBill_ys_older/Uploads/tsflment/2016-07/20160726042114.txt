@@ -1,0 +1,16 @@
+
+C/S 导出excel网址：
+	http://blog.csdn.net/caoguangguang/article/details/5788364 
+仓库网址
+	http://119.164.180.68:8899
+
+
+本期预算= 本期填报+本期追加 +调整入-调整出
+
+
+预算调整 预算追加加查询 能导出execel
+
+
+
+
+ef mvc linq

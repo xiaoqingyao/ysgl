@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--用户表配置-->
+<workflowconfig>
+  <!--查找到个人,type为类型,
+  name为表名,
+  filter为过滤字段,(就是checkcode对应的user表中的字段)
+  codecolum为审批字段编号字段,
+  usercolum是人员表中的字段名,
+  typename是该审批类型名称
+  codemaintable是checkcode所在的主表,
+  codemainvalue是checkcode所在的主表中的名称字段
+  typetype标识了审批方法，会签(多人同时通过)，多人只需找一个人签，单人签-->
+  <userapprove>
+
+    <tablename type="01">
+      <name>bill_users</name>
+      <filter>usercode</filter>
+      <codecolum>usercode</codecolum>
+      <usercolum>usercode</usercolum>
+      <typename>个人审批</typename>
+      <codemaintable>bill_users</codemaintable>
+      <codemainvalue>username</codemainvalue>
+    </tablename>
+        
+    <tablename type="02">
+      <name>bill_dept_ywzg</name>
+      <filter>deptcode</filter>
+      <codecolum></codecolum>
+      <usercolum>usercode</usercolum>
+      <typename>部门领导审批</typename>
+      <codemaintable>bill_users</codemaintable>
+      <codemainvalue>userdept</codemainvalue>
+    </tablename>
+
+    <tablename type="03">
+      <name>bill_dept_fgld</name>
+      <filter>deptcode</filter>
+      <codecolum></codecolum>
+      <usercolum>usercode</usercolum>
+      <typename>分管领导审批</typename>
+      <codemaintable>bill_users</codemaintable>
+      <codemainvalue>userdept</codemainvalue>
+    </tablename>
+
+    <tablename type="04">
+      <name>bill_dept_ywzg</name>
+      <filter>deptcode</filter>
+      <codecolum></codecolum>
+      <usercolum>usercode</usercolum>
+      <typename>业务主管审批</typename>
+      <codemaintable>bill_users</codemaintable>
+      <codemainvalue>userdept</codemainvalue>
+    </tablename>
+
+    <tablename type="05">
+      <name>bill_dept_ywzg</name>
+      <filter>deptcode</filter>
+      <codecolum></codecolum>
+      <usercolum>usercode</usercolum>
+      <typename>归口部门领导审批</typename>
+      <codemaintable>bill_users</codemaintable>
+      <codemainvalue>userdept</codemainvalue>
+    </tablename>
+
+     <tablename type="06">
+      <name>bill_dept_fgld</name>
+      <filter>deptcode</filter>
+      <codecolum></codecolum>
+      <usercolum>usercode</usercolum>
+      <typename>归口分管领导审批</typename>
+      <codemaintable>bill_users</codemaintable>
+      <codemainvalue>userdept</codemainvalue>
+    </tablename>
+
+  </userapprove>
+
+  <connectionstring>
+    <add key="sqlCon" value=""></add>
+  </connectionstring>
+
+  <!--审批流生成后的排序方式-->
+  <sortcolum></sortcolum>
+</workflowconfig>
+

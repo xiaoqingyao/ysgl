@@ -1,0 +1,28 @@
+d:\Documents\Visual Studio 2013\Projects\webBill_ys_older\webBillLibrary\obj\Debug\webBillLibrary.csprojResolveAssemblyReference.cache
+d:\Documents\Visual Studio 2013\Projects\webBill_ys_older\webBillLibrary\bin\Debug\webBillLibrary.dll
+d:\Documents\Visual Studio 2013\Projects\webBill_ys_older\webBillLibrary\bin\Debug\webBillLibrary.pdb
+d:\Documents\Visual Studio 2013\Projects\webBill_ys_older\webBillLibrary\bin\Debug\sqlHelper.dll
+d:\Documents\Visual Studio 2013\Projects\webBill_ys_older\webBillLibrary\bin\Debug\sqlHelper.pdb
+d:\Documents\Visual Studio 2013\Projects\webBill_ys_older\webBillLibrary\obj\Debug\webBillLibrary.dll
+d:\Documents\Visual Studio 2013\Projects\webBill_ys_older\webBillLibrary\obj\Debug\webBillLibrary.pdb
+E:\PROJECT\预算无账套\webBillLibrary\bin\Debug\webBillLibrary.dll
+E:\PROJECT\预算无账套\webBillLibrary\bin\Debug\webBillLibrary.pdb
+E:\PROJECT\预算无账套\webBillLibrary\bin\Debug\sqlHelper.dll
+E:\PROJECT\预算无账套\webBillLibrary\bin\Debug\sqlHelper.pdb
+E:\PROJECT\预算无账套\webBillLibrary\obj\Debug\webBillLibrary.csprojResolveAssemblyReference.cache
+E:\PROJECT\预算无账套\webBillLibrary\obj\Debug\webBillLibrary.dll
+E:\PROJECT\预算无账套\webBillLibrary\obj\Debug\webBillLibrary.pdb
+E:\PROJECT\预算无账套\预算无账套\webBillLibrary\bin\Debug\webBillLibrary.dll
+E:\PROJECT\预算无账套\预算无账套\webBillLibrary\bin\Debug\webBillLibrary.pdb
+E:\PROJECT\预算无账套\预算无账套\webBillLibrary\bin\Debug\sqlHelper.dll
+E:\PROJECT\预算无账套\预算无账套\webBillLibrary\bin\Debug\sqlHelper.pdb
+E:\PROJECT\预算无账套\预算无账套\webBillLibrary\obj\Debug\webBillLibrary.csprojResolveAssemblyReference.cache
+E:\PROJECT\预算无账套\预算无账套\webBillLibrary\obj\Debug\webBillLibrary.dll
+E:\PROJECT\预算无账套\预算无账套\webBillLibrary\obj\Debug\webBillLibrary.pdb
+E:\PROJECT\ys_new\webBillLibrary\bin\Debug\webBillLibrary.dll
+E:\PROJECT\ys_new\webBillLibrary\bin\Debug\webBillLibrary.pdb
+E:\PROJECT\ys_new\webBillLibrary\bin\Debug\sqlHelper.dll
+E:\PROJECT\ys_new\webBillLibrary\bin\Debug\sqlHelper.pdb
+E:\PROJECT\ys_new\webBillLibrary\obj\Debug\webBillLibrary.csprojResolveAssemblyReference.cache
+E:\PROJECT\ys_new\webBillLibrary\obj\Debug\webBillLibrary.dll
+E:\PROJECT\ys_new\webBillLibrary\obj\Debug\webBillLibrary.pdb

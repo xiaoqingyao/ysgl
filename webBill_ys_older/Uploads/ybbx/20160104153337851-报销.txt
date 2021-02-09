@@ -1,0 +1,13 @@
+20151214
+	阳谷发票：7
+
+
+20151228
+	江苏金彭采集器加发票：19
+
+酸奶（2提）：50
+
+
+
+C/S 导出excel网址：
+	http://blog.csdn.net/caoguangguang/article/details/5788364 

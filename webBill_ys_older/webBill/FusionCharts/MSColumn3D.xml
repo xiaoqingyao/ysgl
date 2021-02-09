@@ -1,0 +1,84 @@
+<chart caption='Country Comparison' shownames='1' showvalues='0' decimals='0' numberPrefix='$'>
+	<categories>
+		<category label='Austria' />
+		<category label='Brazil' />
+		<category label='France' />
+		<category label='Germany' />
+		<category label='USA' />
+	</categories>
+	<dataset seriesName='1996' color='AFD8F8' showValues='0'>
+		<set value='25601.34' />
+		<set value='20148.82' />
+		<set value='17372.76' />
+		<set value='35407.15' />
+		<set value='38105.68' />
+	</dataset>
+	<dataset seriesName='1997' color='F6BD0F' showValues='0'>
+		<set value='57401.85' />
+		<set value='41941.19' />
+		<set value='45263.37' />
+		<set value='117320.16' />
+		<set value='114845.27' />
+	</dataset>
+	<dataset seriesName='1998' color='8BBA00' showValues='0'>
+		<set value='45000.65' />
+		<set value='44835.76' />
+		<set value='18722.18' />
+		<set value='77557.31' />
+		<set value='92633.68' />
+	</dataset>
+</chart>
+
+<chart caption='ysqk' shownames='1' showvalues='0' decimals='0' numberPrefix='$'>
+	<categories>
+		<category label='20130010' />
+		<category label='20140010' />
+	</categories>
+	<dataset seriesName='05' color='8BBA00' showValues='1'>
+		<set value='0.00' />
+		<set value='0.00' />
+	</dataset>
+	<dataset seriesName='05' color='8BBA00' showValues='1'>
+		<set value='16895.10' />
+		<set value='0.00' />
+	</dataset>
+</chart>
+
+
+<chart caption='ysqk' shownames='1' showvalues='0' decimals='0' numberPrefix='$'>
+	<categories>
+		<category label='20130010' />
+		<category label='20130011' />
+		<category label='20130012' />
+	</categories>
+	<dataset seriesName='01' color='8BBA00' showValues='1'>
+		<set value='1066813.15' />
+		<set value='0.00' />
+		<set value='0.00' />
+	</dataset>
+	<dataset seriesName='01' color='8BBA00' showValues='1'>
+		<set value='0.00' />
+		<set value='431586.55' />
+		<set value='0.00' />
+	</dataset>
+	<dataset seriesName='01' color='8BBA00' showValues='1'>
+		<set value='0.00' />
+		<set value='0.00' />
+		<set value='654732.20' />
+	</dataset>
+	<dataset seriesName='05' color='8BBA00' showValues='1'>
+		<set value='16895.10' />
+		<set value='0.00' />
+		<set value='0.00' />
+	</dataset>
+	<dataset seriesName='05' color='8BBA00' showValues='1'>
+		<set value='0.00' />
+		<set value='21674.23' />
+		<set value='0.00' />
+	</dataset>
+	<dataset seriesName='05' color='8BBA00' showValues='1'>
+		<set value='0.00' />
+		<set value='0.00' />
+		<set value='20134.92' />
+	</dataset>
+</chart>

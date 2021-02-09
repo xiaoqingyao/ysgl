@@ -1,0 +1,52 @@
+﻿.DeskDivLeft{
+	margin-left:5px;
+	margin-top:5px;
+	float:left;
+	width:44%;
+	overflow:hidden;
+	border:solid 1px;
+	border-color:#e7eef8;
+}
+
+.DeskDivRight{
+	margin-left:5px;
+	margin-top:5px;
+	float:left;
+	width:54%;
+	overflow:hidden;
+	border:solid 1px;
+	border-color:#e7eef8;
+}
+
+.DeskDivLeft ul{
+	list-style:none;
+	padding-left:5px;
+	padding-right:5px;
+}
+.DeskDivLeft li{
+	border-bottom:dashed 1px;
+	border-color:#e7eef8;
+	margin-top:5px;
+	margin-left:0px;
+}
+
+.DeskDivRight ul{
+	list-style:none;
+	padding-left:5px;
+	padding-right:5px;
+}
+.DeskDivRight li{
+	border-bottom:dashed 1px;
+	border-color:#e7eef8;
+	margin-top:5px;
+	margin-left:0px;
+}
+
+.divheader{
+	font-size:14pt;
+	color:red;
+	height:20px;
+	font-weight:bold;
+	background-color:#EDEDED;
+}
+

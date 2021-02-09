@@ -1,0 +1,29 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="dept_km_ystj_dy.aspx.cs"
+    Inherits="webBill_tjbb_dept_km_ystj_dy" %>
+
+<%@ Register Assembly="CrystalDecisions.Web, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304"
+    Namespace="CrystalDecisions.Web" TagPrefix="CR" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>无标题页</title>
+    <style type="text/css">
+        .myfont
+        {
+         font-size:8pt;
+        	}
+        	.danyuange
+        	{
+        		 font-size:7pt;
+        		}
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <CR:CrystalReportViewer ID="CrystalReportViewer1" runat="server" AutoDataBind="true"
+            PrintMode="ActiveX" />
+    </div>
+    </form>
+</body>
+</html>

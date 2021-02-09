@@ -1,0 +1,198 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml">
+<head>
+    <title>BS版本工作流软件设计</title>
+    <link href="inc/style.css" type="text/css" rel="stylesheet" />
+
+    <script language="javascript" type="text/javascript" src="inc/contextMenu/context.js"></script>
+
+    <script language="javascript" type="text/javascript" src="inc/webflow1.js"></script>
+
+    <script language="javascript" type="text/javascript" src="inc/function.js"></script>
+
+    <script language="javascript" type="text/javascript" src="inc/shiftlang.js"></script>
+
+    <script language="javascript" type="text/javascript" src="inc/movestep.js"></script>
+
+    <script language="javascript" type="text/javascript" src="inc/kill.js"></script>
+
+    <script language="javascript" type="text/javascript">
+<!--
+//自动取得浏览器语言
+var LANG = navigator.browserLanguage;
+if (LANG.indexOf('en') > -1){
+    LANG = 'en';
+}
+if (LANG.indexOf('zh') > -1){
+    LANG = 'zh';
+}
+function saveToXML(){
+  if(document.all.FlowXML.value=='') {
+	   alert('请先创建新流程！');
+	   return;
+  }
+  //var path="雅丹WorkFlow";
+  var xmlDoc = new ActiveXObject('MSXML2.DOMDocument');
+  xmlDoc.async = false;
+  xmlDoc.loadXML(document.all.FlowXML.value);
+  var xmlRoot = xmlDoc.documentElement;
+  var Flow = xmlRoot.getElementsByTagName("FlowConfig").item(0);
+  filename = Flow.getElementsByTagName("BaseProperties").item(0).getAttribute("flowId")+'.xml';
+  var s = Flow.getElementsByTagName("BaseProperties").item(0).getAttribute("flowId");
+  var dialogAbout = window.showModalDialog("flow.aspx?id='"+s+"'", window, "dialogWidth:400px; dialogHeight:100px; center:yes; help:no; resizable:no; status:no") ;
+}
+
+
+
+function getParameter(parName){
+           var str = parName.toLowerCase() + "=";
+           var gvalue = "";
+           var HREF = location.href;
+           var upperHREF = location.href.toLowerCase();
+           if(upperHREF.indexOf(str)>0){
+                 gvalue = HREF.substring(upperHREF.indexOf(str) + str.length,upperHREF.length);
+                 if(gvalue.indexOf('&')>0) gvalue = gvalue.substring(0,gvalue.indexOf('&'));
+                 if(gvalue.indexOf("#")>0) gvalue = gvalue.split("#")[0];
+           }
+           return gvalue;
+     }
+
+
+
+     function loadFromXML() {
+
+         var xml = CreateXMLHttp();
+
+         xml.onreadystatechange = function() {
+
+             if (xml.readyState == 4) {
+
+                 if (xml.status == 200) {
+
+                     var response = xml.responseText;
+
+                     FlowXML.value = response;
+
+                 } //if xml.status == 200
+             } //if xml.readyState == 4
+         }      //function
+
+         try {
+             var local = document.location.href;
+             var flowID = local.split("=")[1];
+             xml.open("GET", "getXml.aspx?flowID=" + flowID + "&par=" + Math.random(), true);
+             xml.send(null);
+         }
+         catch (e) { }
+     }
+  //-->
+    </script>
+
+    <style type="text/css">
+        v\:*
+        {
+            behavior: url(#default#VML);
+        }
+    </style>
+</head>
+<body onload='shiftLanguage(LANG,"main");document.title+=" Build "+document.lastModified;'
+    oncontextmenu="cleancontextMenu();return false;" scroll="auto">
+    <input type="hidden" name="FlowXML" onpropertychange='redrawVML();'>
+    <table border="0" style="display: none">
+        <tr>
+            <td width="170" valign="top">
+                <table width="100%" height="500" cellspacing="0" cellpadding="0" class="panel_style"
+                    style="display: none">
+                    <tr height="20">
+                        <td width="20" background="">
+                        </td>
+                        <td width="" background="">
+                            <div id="treeText">
+                                流程导航视图</div>
+                        </td>
+                    </tr>
+                    <tr height="1">
+                        <td colspan="2" class="panel_line">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" height="100%" bgcolor="white">
+                            <table width="" height="" border="0" cellspacing="0" cellpadding="0" style="display: none">
+                                <tr>
+                                    <td height="5" colspan="3">
+                                </tr>
+                                <tr>
+                                    <td width="0">
+                                    </td>
+                                    <td valign="top" align="left" height="450">
+                                        <!-- <iframe id=treeview src="_flowtree.html" frameborder=0 width="100%" height="100%"></iframe><div></div><BR>-->
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <span id="loadText"></span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <select name="flowList" class="txtput" multiple="multiple" onclick='loadFromXML()'>
+                                                    </select>
+                                                    <!--<input id=btnLoadFlow TYPE="image" SRC="inc/images/loadflow.gif" title="导入流程" onclick='loadFromXML()' onfocus='this.blur()'>-->
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td width="0">
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr height="1">
+                        <td colspan="2" class="panel_line">
+                        </td>
+                    </tr>
+                    <tr height="22">
+                        <td colspan="2" align="right">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <input id="btnNewFlow" type="image" src="inc/images/newflow.gif" title="创建新流程" onclick='newFlow()'
+                                            onfocus='this.blur()'>
+                                    </td>
+                                    <td>
+                                        <input id="btnEditFlow" type="image" src="inc/images/editflow.gif" title="修改流程" onclick='editFlow()'
+                                            onfocus='this.blur()'>
+                                    </td>
+                                    <td>
+                                        <input id="btnSaveFlow" type="image" src="inc/images/saveflow.gif" title="导出流程" onclick='saveToXML()'
+                                            onfocus='this.blur()'>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td width="8">
+            </td>
+            <td width="800" height="500">
+            </td>
+        </tr>
+    </table>
+    <table cellspacing="0" cellpadding="0" class="panel_style">
+        <tr>
+            <td colspan="2" width="800" height="500" valign="top" align="left">
+                <v:group id="FlowVML" style="left: 14px; top: 42px; width: 800px; height: 500px;
+                    position: absolute;" coordsize="2000,2000">
+                </v:group>
+            </td>
+        </tr>
+    </table>
+
+    <script language="javascript" type="text/javascript">
+<!--
+loadFromXML();
+//-->
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='gb2312'?>
+<WebFlow>
+	<FlowConfig>
+		<BaseProperties flowId="lscg" flowText="报告申请"/>
+		<VMLProperties stepTextColor="green" stepStrokeColor="green" stepShadowColor="#b3b3b3" stepFocusedStrokeColor="yellow" isStepShadow="T" actionStrokeColor="green" actionTextColor="" actionFocusedStrokeColor="yellow" sStepTextColor="red" sStepStrokeColor="green" stepColor1="green" stepColor2="white" isStep3D="true" step3DDepth="20"/>
+		<FlowProperties flowMode="" startTime="" endTime="" ifMonitor="" runMode="" noteMode="" activeForm="" autoExe=""/>
+	</FlowConfig>
+	<Steps>
+		<Step>
+			<BaseProperties id="begin" text="开 始" stepType="BeginStep"/>
+			<VMLProperties width="200" height="200" x="144px" y="166px" textWeight="" strokeWeight="" isFocused="" zIndex=""/>
+			<FlowProperties wkGroup="" flowMode="" />
+		</Step>
+		<Step>
+			<BaseProperties id="end" text="结 束" stepType="EndStep"/>
+			<VMLProperties width="200" height="200" x="1594px" y="900px" textWeight="" strokeWeight="" isFocused="" zIndex="40"/>
+			<FlowProperties wkGroup="" flowMode="" />
+		</Step>
+	</Steps>
+	<Actions>
+		<Action>
+			<BaseProperties id="begin1" text="新动作" actionType="PolyLine" from="begin" to="end"/>
+			<VMLProperties startArrow="" endArrow="Classic" strokeWeight="" isFocused="" zIndex="40"/>
+			<FlowProperties/>
+		</Action>
+	</Actions>
+</WebFlow>

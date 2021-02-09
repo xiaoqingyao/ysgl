@@ -1,0 +1,96 @@
+See the end of this message for details on invoking 
+just-in-time (JIT) debugging instead of this dialog box.
+
+************** Exception Text **************
+System.IndexOutOfRangeException: Cannot find table 0.
+   at System.Data.DataTableCollection.get_Item(Int32 index)
+   at xxqxys.ysDal.DataHelper.GetDataTable(String sql) in E:\mes\0225-------------------\0225_140301\0225---------------------------------------\MESWIN\xxqxys\ysDal\DataHelper.cs:line 48
+   at xxqxys.MyWorkFlow.BillMainToApprove.databind(String flowid) in E:\mes\0225-------------------\0225_140301\0225---------------------------------------\MESWIN\xxqxys\MyWorkFlow\BillMainToApprove.cs:line 232
+   at xxqxys.MyWorkFlow.BillMainToApprove.btn_qd_Click(Object sender, EventArgs e) in E:\mes\0225-------------------\0225_140301\0225---------------------------------------\MESWIN\xxqxys\MyWorkFlow\BillMainToApprove.cs:line 395
+   at System.Windows.Forms.Control.OnClick(EventArgs e)
+   at System.Windows.Forms.Button.OnClick(EventArgs e)
+   at System.Windows.Forms.Button.OnMouseUp(MouseEventArgs mevent)
+   at System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   at System.Windows.Forms.Control.WndProc(Message& m)
+   at System.Windows.Forms.ButtonBase.WndProc(Message& m)
+   at System.Windows.Forms.Button.WndProc(Message& m)
+   at System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   at System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   at System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+
+
+************** Loaded Assemblies **************
+mscorlib
+    Assembly Version: 2.0.0.0
+    Win32 Version: 2.0.50727.42 (RTM.050727-4200)
+    CodeBase: file:///C:/WINDOWS/Microsoft.NET/Framework/v2.0.50727/mscorlib.dll
+----------------------------------------
+MESWIN
+    Assembly Version: 1.0.0.0
+    Win32 Version: 1.0.0.0
+    CodeBase: file:///C:/Documents%20and%20Settings/Administrator/桌面/MES_最新程序更新目录/MESWIN.exe
+----------------------------------------
+IrisSkin2
+    Assembly Version: 2006.3.22.45
+    Win32 Version: 2006.3.22.45
+    CodeBase: file:///C:/Documents%20and%20Settings/Administrator/桌面/MES_最新程序更新目录/IrisSkin2.DLL
+----------------------------------------
+System
+    Assembly Version: 2.0.0.0
+    Win32 Version: 2.0.50727.42 (RTM.050727-4200)
+    CodeBase: file:///C:/WINDOWS/assembly/GAC_MSIL/System/2.0.0.0__b77a5c561934e089/System.dll
+----------------------------------------
+System.Windows.Forms
+    Assembly Version: 2.0.0.0
+    Win32 Version: 2.0.50727.42 (RTM.050727-4200)
+    CodeBase: file:///C:/WINDOWS/assembly/GAC_MSIL/System.Windows.Forms/2.0.0.0__b77a5c561934e089/System.Windows.Forms.dll
+----------------------------------------
+System.Drawing
+    Assembly Version: 2.0.0.0
+    Win32 Version: 2.0.50727.42 (RTM.050727-4200)
+    CodeBase: file:///C:/WINDOWS/assembly/GAC_MSIL/System.Drawing/2.0.0.0__b03f5f7f11d50a3a/System.Drawing.dll
+----------------------------------------
+System.Web.Services
+    Assembly Version: 2.0.0.0
+    Win32 Version: 2.0.50727.42 (RTM.050727-4200)
+    CodeBase: file:///C:/WINDOWS/assembly/GAC_MSIL/System.Web.Services/2.0.0.0__b03f5f7f11d50a3a/System.Web.Services.dll
+----------------------------------------
+System.Xml
+    Assembly Version: 2.0.0.0
+    Win32 Version: 2.0.50727.42 (RTM.050727-4200)
+    CodeBase: file:///C:/WINDOWS/assembly/GAC_MSIL/System.Xml/2.0.0.0__b77a5c561934e089/System.Xml.dll
+----------------------------------------
+System.Configuration
+    Assembly Version: 2.0.0.0
+    Win32 Version: 2.0.50727.42 (RTM.050727-4200)
+    CodeBase: file:///C:/WINDOWS/assembly/GAC_MSIL/System.Configuration/2.0.0.0__b03f5f7f11d50a3a/System.Configuration.dll
+----------------------------------------
+System.Data
+    Assembly Version: 2.0.0.0
+    Win32 Version: 2.0.50727.42 (RTM.050727-4200)
+    CodeBase: file:///C:/WINDOWS/assembly/GAC_32/System.Data/2.0.0.0__b77a5c561934e089/System.Data.dll
+----------------------------------------
+mym8mopy
+    Assembly Version: 1.0.0.0
+    Win32 Version: 2.0.50727.42 (RTM.050727-4200)
+    CodeBase: file:///C:/WINDOWS/assembly/GAC_MSIL/System/2.0.0.0__b77a5c561934e089/System.dll
+----------------------------------------
+
+************** JIT Debugging **************
+To enable just-in-time (JIT) debugging, the .config file for this
+application or computer (machine.config) must have the
+jitDebugging value set in the system.windows.forms section.
+The application must also be compiled with debugging
+enabled.
+
+For example:
+
+<configuration>
+    <system.windows.forms jitDebugging="true" />
+</configuration>
+
+When JIT debugging is enabled, any unhandled exception
+will be sent to the JIT debugger registered on the computer
+rather than be handled by this dialog box.
+
+

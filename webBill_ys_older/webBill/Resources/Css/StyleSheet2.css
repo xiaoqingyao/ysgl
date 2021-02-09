@@ -1,0 +1,176 @@
+﻿/***********************************************************************
+ * Module:      default
+ * CreateDate:  2011-6-17 14:08:55      
+ * Created By : Simon at 2011-6-17 14:08:55
+ * AuthorEmail: 361367651@qq.com
+ * Purpose:     页面默认样式
+ ***********************************************************************/
+/* body */
+/*
+html, body
+{
+    overflow: auto;
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
+    border: none;
+    scrollbar-face-color: #f2f2f2;
+    scrollbar-highlight-color: #ffffff;
+    scrollbar-shadow-color: #cccccc;
+    scrollbar-3dlight-color: #dddddd;
+    scrollbar-arrow-color: #336000;
+    scrollbar-track-color: #fff;
+    scrollbar-darkshadow-color: #ffffff;
+}
+*/
+/* 超级链接显示风格 */
+
+td
+{
+    font-size: 12px;
+	text-align: left;
+}
+a:visited
+{
+    color: #333333;
+    text-decoration: none;
+}
+a:hover
+{
+    color: #CC0000;
+    text-decoration: none;
+}
+a:active
+{
+    color: #CC0000;
+    text-decoration: none;
+}
+a:link
+{
+    color: #333333;
+    text-decoration: none;
+}
+
+/*表格*/
+.baseTable
+{
+    padding-top: 4px;
+    background-color: #ffffff;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-collapse: collapse;
+    border: 1px solid #1855C6;
+    cell-spacing: 0px;
+}
+.baseTable TH
+{
+    background: url(../../Resources/images/th_bg.gif);
+    height: 24px;
+    border: 1px solid #1855C6;
+    text-align:center;
+}
+.baseTable TD
+{
+    padding: 3px;
+    line-height: 23px;
+    border: 1px solid #1855C6;
+}
+.tableBg2
+{
+	background-color:#EDEDED;
+	text-align:center;
+}
+/* 层*/
+.baseDiv
+{
+	margin-top:5px;
+	margin-left:5px;
+}
+/* 按钮*/
+.baseButton
+{
+    border-right: #2C59AA 1px solid;
+    padding-right: 5px;
+    border-top: #2C59AA 1px solid;
+    padding-left: 5px;
+    font-size: 12px;
+    filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#ffffff, EndColorStr=#C3DAF5);
+    border-left: #2C59AA 1px solid;
+    cursor: hand;
+    color: black;
+    padding-top: 2px;
+    border-bottom: #2C59AA 1px solid;
+    margin-left:3px;
+    margin-right:3px;
+}
+
+/* 提交按钮*/
+.baseSubmit
+{
+    padding: 1px 10px;
+    font-size: 12px;
+    border: 1px #1E7ACE solid;
+    background: #D0F0FF;
+}
+/* 只读文本框*/
+.baseTextReadOnly
+{
+	background-color: #cccccc;
+}
+
+/* 文本输入框*/
+.baseText
+{
+    text-align: left;
+    width: 100px;
+    vertical-align: bottom;
+    border-top-style: none;
+    border-right-style: none;
+    border-left-style: none;
+    background-color: #FFF;
+    border-bottom: #000 1px solid;
+}
+/* 密码框*/
+.basePassword
+{
+}
+/* 多项框*/
+.baseCbx
+{
+}
+/* 单选框*/
+.baseRadio
+{
+}
+/* 文本域*/
+.baseArea
+{
+    background: #f8f8f8;
+    border-bottom: #B7B7B7 1px solid;
+    border-left: #B7B7B7 1px solid;
+    border-right: #B7B7B7 1px solid;
+    border-top: #B7B7B7 1px solid;
+    color: #000000;
+    cursor: text;
+    font-family: "Arial";
+    font-size: 9pt;
+    padding: 1px;
+}
+/* 图片*/
+.baseImg
+{
+}
+/* 下拉框*/
+.baseSelect
+{
+    border-right: #000000 1px solid;
+    border-top: #FFFFFF 1px solid;
+    font-size: 12px;
+    border-left: #FFFFFF 1px solid;
+    color: #003366;
+    border-bottom: #000000 1px solid;
+    background-color: #f4f4f4;
+}
+.hiddenbill{ display:none;}

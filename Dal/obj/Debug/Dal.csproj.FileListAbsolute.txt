@@ -1,0 +1,52 @@
+d:\Documents\Visual Studio 2013\Projects\webBill_ys_older\Dal\obj\Debug\Dal.csprojResolveAssemblyReference.cache
+d:\Documents\Visual Studio 2013\Projects\webBill_ys_older\Dal\bin\Debug\Dal.dll
+d:\Documents\Visual Studio 2013\Projects\webBill_ys_older\Dal\bin\Debug\Dal.pdb
+d:\Documents\Visual Studio 2013\Projects\webBill_ys_older\Dal\bin\Debug\Models.dll
+d:\Documents\Visual Studio 2013\Projects\webBill_ys_older\Dal\bin\Debug\PaginationControl.dll
+d:\Documents\Visual Studio 2013\Projects\webBill_ys_older\Dal\bin\Debug\sqlHelper.dll
+d:\Documents\Visual Studio 2013\Projects\webBill_ys_older\Dal\bin\Debug\webBillLibrary.dll
+d:\Documents\Visual Studio 2013\Projects\webBill_ys_older\Dal\bin\Debug\Models.pdb
+d:\Documents\Visual Studio 2013\Projects\webBill_ys_older\Dal\bin\Debug\PaginationControl.pdb
+d:\Documents\Visual Studio 2013\Projects\webBill_ys_older\Dal\bin\Debug\sqlHelper.pdb
+d:\Documents\Visual Studio 2013\Projects\webBill_ys_older\Dal\bin\Debug\webBillLibrary.pdb
+d:\Documents\Visual Studio 2013\Projects\webBill_ys_older\Dal\obj\Debug\Dal.dll
+d:\Documents\Visual Studio 2013\Projects\webBill_ys_older\Dal\obj\Debug\Dal.pdb
+E:\PROJECT\预算无账套\Dal\bin\Debug\Dal.dll
+E:\PROJECT\预算无账套\Dal\bin\Debug\Dal.pdb
+E:\PROJECT\预算无账套\Dal\bin\Debug\Models.dll
+E:\PROJECT\预算无账套\Dal\bin\Debug\PaginationControl.dll
+E:\PROJECT\预算无账套\Dal\bin\Debug\sqlHelper.dll
+E:\PROJECT\预算无账套\Dal\bin\Debug\webBillLibrary.dll
+E:\PROJECT\预算无账套\Dal\bin\Debug\Models.pdb
+E:\PROJECT\预算无账套\Dal\bin\Debug\PaginationControl.pdb
+E:\PROJECT\预算无账套\Dal\bin\Debug\sqlHelper.pdb
+E:\PROJECT\预算无账套\Dal\bin\Debug\webBillLibrary.pdb
+E:\PROJECT\预算无账套\Dal\obj\Debug\Dal.csprojResolveAssemblyReference.cache
+E:\PROJECT\预算无账套\Dal\obj\Debug\Dal.dll
+E:\PROJECT\预算无账套\Dal\obj\Debug\Dal.pdb
+E:\PROJECT\预算无账套\预算无账套\Dal\bin\Debug\Dal.dll
+E:\PROJECT\预算无账套\预算无账套\Dal\bin\Debug\Dal.pdb
+E:\PROJECT\预算无账套\预算无账套\Dal\bin\Debug\Models.dll
+E:\PROJECT\预算无账套\预算无账套\Dal\bin\Debug\PaginationControl.dll
+E:\PROJECT\预算无账套\预算无账套\Dal\bin\Debug\sqlHelper.dll
+E:\PROJECT\预算无账套\预算无账套\Dal\bin\Debug\webBillLibrary.dll
+E:\PROJECT\预算无账套\预算无账套\Dal\bin\Debug\Models.pdb
+E:\PROJECT\预算无账套\预算无账套\Dal\bin\Debug\PaginationControl.pdb
+E:\PROJECT\预算无账套\预算无账套\Dal\bin\Debug\sqlHelper.pdb
+E:\PROJECT\预算无账套\预算无账套\Dal\bin\Debug\webBillLibrary.pdb
+E:\PROJECT\预算无账套\预算无账套\Dal\obj\Debug\Dal.csprojResolveAssemblyReference.cache
+E:\PROJECT\预算无账套\预算无账套\Dal\obj\Debug\Dal.dll
+E:\PROJECT\预算无账套\预算无账套\Dal\obj\Debug\Dal.pdb
+E:\PROJECT\ys_new\Dal\bin\Debug\Dal.dll
+E:\PROJECT\ys_new\Dal\bin\Debug\Dal.pdb
+E:\PROJECT\ys_new\Dal\bin\Debug\Models.dll
+E:\PROJECT\ys_new\Dal\bin\Debug\PaginationControl.dll
+E:\PROJECT\ys_new\Dal\bin\Debug\sqlHelper.dll
+E:\PROJECT\ys_new\Dal\bin\Debug\webBillLibrary.dll
+E:\PROJECT\ys_new\Dal\bin\Debug\Models.pdb
+E:\PROJECT\ys_new\Dal\bin\Debug\PaginationControl.pdb
+E:\PROJECT\ys_new\Dal\bin\Debug\sqlHelper.pdb
+E:\PROJECT\ys_new\Dal\bin\Debug\webBillLibrary.pdb
+E:\PROJECT\ys_new\Dal\obj\Debug\Dal.csprojResolveAssemblyReference.cache
+E:\PROJECT\ys_new\Dal\obj\Debug\Dal.dll
+E:\PROJECT\ys_new\Dal\obj\Debug\Dal.pdb

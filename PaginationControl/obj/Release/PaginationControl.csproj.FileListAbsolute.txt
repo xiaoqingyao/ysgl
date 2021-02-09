@@ -1,0 +1,9 @@
+E:\PROJECT\预算无账套\PaginationControl\bin\Release\PaginationControl.dll
+E:\PROJECT\预算无账套\PaginationControl\bin\Release\PaginationControl.pdb
+E:\PROJECT\预算无账套\PaginationControl\obj\Release\PaginationControl.dll
+E:\PROJECT\预算无账套\PaginationControl\obj\Release\PaginationControl.pdb
+E:\PROJECT\预算无账套\预算无账套\PaginationControl\bin\Release\PaginationControl.dll
+E:\PROJECT\预算无账套\预算无账套\PaginationControl\bin\Release\PaginationControl.pdb
+E:\PROJECT\预算无账套\预算无账套\PaginationControl\obj\Release\PaginationControl.csprojResolveAssemblyReference.cache
+E:\PROJECT\预算无账套\预算无账套\PaginationControl\obj\Release\PaginationControl.dll
+E:\PROJECT\预算无账套\预算无账套\PaginationControl\obj\Release\PaginationControl.pdb

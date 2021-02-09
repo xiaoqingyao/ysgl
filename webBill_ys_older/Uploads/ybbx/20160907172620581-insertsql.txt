@@ -1,0 +1,27 @@
+insert bjgl_bjd
+(cdefine20,
+billcode,billname,lsh,pch,billdate,status,tb_gysmc,tb_lxr,tb_lxdh,tb_cpmc
+,tb_cpth,tb_bjsl,tb_ssqxbh,tb_ssqxmc
+,tb_cpflbh,tb_cpflmc,tb_cpjz,tb_cpmz
+,tb_cpde,tb_clczbh,tb_clczmc,tb_clcgdj,tb_clcb,tb_flcb,tb_gs_m,tb_gs_h,tb_xsfl,tb_jgfy
+,tb_mjf_cp,tb_mjf_dj,tb_qjfy,tb_ysfy,tb_bzfy,tb_gjdj,tb_lr,tb_bj,tb_mbjg
+--,billuser ,tb_gysbh
+)
+select
+'导入',
+ newid(),(case [产品类别（铸、锻）] when '锻' then '中国重汽桥箱采购零部件报价单---锻件' when '铸' then '中国重汽桥箱采购零部件报价单---铸件' end) 
+,('LSH'+ rtrim(convert(char,getdate(),112))+convert(char(50),序号)),('PCH'+ rtrim(convert(char,getdate(),112))+convert(char(50),序号))
+,convert(varchar(10), GETDATE(),121),'完毕',供应商名称,供方联系人,供方联系方式,产品名称
+,产品图号,isnull(产品报价数量,0),所属桥型,所属桥型
+, 产品分类+'类', 产品分类+'类',isnull([产品净重_（kg）],0),isnull(产品毛坯重量,0)
+,isnull(产品定额,0),材料材质,材料材质,isnull(材料采购单价,0),isnull(材料成本,0)
+,isnull(辅料成本,0), (isnull([加工工时（小时）],0)*60)
+,isnull([加工工时（小时）],0), isnull([小时费率（元/小时）],0),isnull([加工费用（元）],0),isnull([模具费用_（冲压件等产品填报）],0),isnull(单件模具费用,0)
+,isnull(期间费用,0),isnull(运输费用,0),isnull(包装费用,0),isnull(公斤单价,0),isnull(利润,0),isnull([报价（不含税）],0),isnull(目标价格,0)
+--,'['+制单人编号+']'+制单人姓名,供应商编号
+from Sheet1$
+
+
+
+
+

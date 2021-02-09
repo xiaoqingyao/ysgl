@@ -1,0 +1,52 @@
+d:\Documents\Visual Studio 2013\Projects\webBill_ys_older\workFlowLibrary\obj\Debug\workFlowLibrary.csprojResolveAssemblyReference.cache
+d:\Documents\Visual Studio 2013\Projects\webBill_ys_older\workFlowLibrary\bin\Debug\workFlowLibrary.dll
+d:\Documents\Visual Studio 2013\Projects\webBill_ys_older\workFlowLibrary\bin\Debug\workFlowLibrary.pdb
+d:\Documents\Visual Studio 2013\Projects\webBill_ys_older\workFlowLibrary\bin\Debug\Bll.dll
+d:\Documents\Visual Studio 2013\Projects\webBill_ys_older\workFlowLibrary\bin\Debug\Dal.dll
+d:\Documents\Visual Studio 2013\Projects\webBill_ys_older\workFlowLibrary\bin\Debug\Models.dll
+d:\Documents\Visual Studio 2013\Projects\webBill_ys_older\workFlowLibrary\bin\Debug\sqlHelper.dll
+d:\Documents\Visual Studio 2013\Projects\webBill_ys_older\workFlowLibrary\bin\Debug\Bll.pdb
+d:\Documents\Visual Studio 2013\Projects\webBill_ys_older\workFlowLibrary\bin\Debug\Dal.pdb
+d:\Documents\Visual Studio 2013\Projects\webBill_ys_older\workFlowLibrary\bin\Debug\Models.pdb
+d:\Documents\Visual Studio 2013\Projects\webBill_ys_older\workFlowLibrary\bin\Debug\sqlHelper.pdb
+d:\Documents\Visual Studio 2013\Projects\webBill_ys_older\workFlowLibrary\obj\Debug\workFlowLibrary.dll
+d:\Documents\Visual Studio 2013\Projects\webBill_ys_older\workFlowLibrary\obj\Debug\workFlowLibrary.pdb
+E:\PROJECT\预算无账套\workFlowLibrary\bin\Debug\workFlowLibrary.dll
+E:\PROJECT\预算无账套\workFlowLibrary\bin\Debug\workFlowLibrary.pdb
+E:\PROJECT\预算无账套\workFlowLibrary\bin\Debug\Bll.dll
+E:\PROJECT\预算无账套\workFlowLibrary\bin\Debug\Dal.dll
+E:\PROJECT\预算无账套\workFlowLibrary\bin\Debug\Models.dll
+E:\PROJECT\预算无账套\workFlowLibrary\bin\Debug\sqlHelper.dll
+E:\PROJECT\预算无账套\workFlowLibrary\bin\Debug\Bll.pdb
+E:\PROJECT\预算无账套\workFlowLibrary\bin\Debug\Dal.pdb
+E:\PROJECT\预算无账套\workFlowLibrary\bin\Debug\Models.pdb
+E:\PROJECT\预算无账套\workFlowLibrary\bin\Debug\sqlHelper.pdb
+E:\PROJECT\预算无账套\workFlowLibrary\obj\Debug\workFlowLibrary.csprojResolveAssemblyReference.cache
+E:\PROJECT\预算无账套\workFlowLibrary\obj\Debug\workFlowLibrary.dll
+E:\PROJECT\预算无账套\workFlowLibrary\obj\Debug\workFlowLibrary.pdb
+E:\PROJECT\预算无账套\预算无账套\workFlowLibrary\bin\Debug\workFlowLibrary.dll
+E:\PROJECT\预算无账套\预算无账套\workFlowLibrary\bin\Debug\workFlowLibrary.pdb
+E:\PROJECT\预算无账套\预算无账套\workFlowLibrary\bin\Debug\Bll.dll
+E:\PROJECT\预算无账套\预算无账套\workFlowLibrary\bin\Debug\Dal.dll
+E:\PROJECT\预算无账套\预算无账套\workFlowLibrary\bin\Debug\Models.dll
+E:\PROJECT\预算无账套\预算无账套\workFlowLibrary\bin\Debug\sqlHelper.dll
+E:\PROJECT\预算无账套\预算无账套\workFlowLibrary\bin\Debug\Bll.pdb
+E:\PROJECT\预算无账套\预算无账套\workFlowLibrary\bin\Debug\Dal.pdb
+E:\PROJECT\预算无账套\预算无账套\workFlowLibrary\bin\Debug\Models.pdb
+E:\PROJECT\预算无账套\预算无账套\workFlowLibrary\bin\Debug\sqlHelper.pdb
+E:\PROJECT\预算无账套\预算无账套\workFlowLibrary\obj\Debug\workFlowLibrary.csprojResolveAssemblyReference.cache
+E:\PROJECT\预算无账套\预算无账套\workFlowLibrary\obj\Debug\workFlowLibrary.dll
+E:\PROJECT\预算无账套\预算无账套\workFlowLibrary\obj\Debug\workFlowLibrary.pdb
+E:\PROJECT\ys_new\workFlowLibrary\bin\Debug\workFlowLibrary.dll
+E:\PROJECT\ys_new\workFlowLibrary\bin\Debug\workFlowLibrary.pdb
+E:\PROJECT\ys_new\workFlowLibrary\bin\Debug\Bll.dll
+E:\PROJECT\ys_new\workFlowLibrary\bin\Debug\Dal.dll
+E:\PROJECT\ys_new\workFlowLibrary\bin\Debug\Models.dll
+E:\PROJECT\ys_new\workFlowLibrary\bin\Debug\sqlHelper.dll
+E:\PROJECT\ys_new\workFlowLibrary\bin\Debug\Bll.pdb
+E:\PROJECT\ys_new\workFlowLibrary\bin\Debug\Dal.pdb
+E:\PROJECT\ys_new\workFlowLibrary\bin\Debug\Models.pdb
+E:\PROJECT\ys_new\workFlowLibrary\bin\Debug\sqlHelper.pdb
+E:\PROJECT\ys_new\workFlowLibrary\obj\Debug\workFlowLibrary.csprojResolveAssemblyReference.cache
+E:\PROJECT\ys_new\workFlowLibrary\obj\Debug\workFlowLibrary.dll
+E:\PROJECT\ys_new\workFlowLibrary\obj\Debug\workFlowLibrary.pdb
