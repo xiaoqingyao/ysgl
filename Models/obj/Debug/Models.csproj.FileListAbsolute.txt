@@ -26,3 +26,12 @@ E:\PROJECT\ys_new\Models\bin\Debug\sqlHelper.pdb
 E:\PROJECT\ys_new\Models\obj\Debug\Models.csprojResolveAssemblyReference.cache
 E:\PROJECT\ys_new\Models\obj\Debug\Models.dll
 E:\PROJECT\ys_new\Models\obj\Debug\Models.pdb
+D:\01Project\04预算管理\Models\bin\Debug\Models.dll
+D:\01Project\04预算管理\Models\bin\Debug\Models.pdb
+D:\01Project\04预算管理\Models\bin\Debug\sqlHelper.dll
+D:\01Project\04预算管理\Models\bin\Debug\sqlHelper.pdb
+D:\01Project\04预算管理\Models\obj\Debug\Models.csprojAssemblyReference.cache
+D:\01Project\04预算管理\Models\obj\Debug\Models.csproj.CoreCompileInputs.cache
+D:\01Project\04预算管理\Models\obj\Debug\Models.csproj.CopyComplete
+D:\01Project\04预算管理\Models\obj\Debug\Models.dll
+D:\01Project\04预算管理\Models\obj\Debug\Models.pdb

@@ -26,3 +26,12 @@ E:\PROJECT\ys_new\webBillLibrary\bin\Debug\sqlHelper.pdb
 E:\PROJECT\ys_new\webBillLibrary\obj\Debug\webBillLibrary.csprojResolveAssemblyReference.cache
 E:\PROJECT\ys_new\webBillLibrary\obj\Debug\webBillLibrary.dll
 E:\PROJECT\ys_new\webBillLibrary\obj\Debug\webBillLibrary.pdb
+D:\01Project\04预算管理\webBillLibrary\bin\Debug\webBillLibrary.dll
+D:\01Project\04预算管理\webBillLibrary\bin\Debug\webBillLibrary.pdb
+D:\01Project\04预算管理\webBillLibrary\bin\Debug\sqlHelper.dll
+D:\01Project\04预算管理\webBillLibrary\bin\Debug\sqlHelper.pdb
+D:\01Project\04预算管理\webBillLibrary\obj\Debug\webBillLibrary.csprojAssemblyReference.cache
+D:\01Project\04预算管理\webBillLibrary\obj\Debug\webBillLibrary.csproj.CoreCompileInputs.cache
+D:\01Project\04预算管理\webBillLibrary\obj\Debug\webBillLibrary.csproj.CopyComplete
+D:\01Project\04预算管理\webBillLibrary\obj\Debug\webBillLibrary.dll
+D:\01Project\04预算管理\webBillLibrary\obj\Debug\webBillLibrary.pdb
