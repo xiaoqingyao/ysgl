@@ -1,0 +1,12 @@
+http://192.168.100.170:8001/bank_webservice/n_bank_webservice.asmx  
+
+busicode  是  501  501 是挂号收入 统计 
+
+
+invalue 是  <Request><Date>2014-10-28</Date></Request> 
+
+http://192.168.100.170:8001/bank_webservice/n_bank_webservice.asmx?op=f_yonyou_inter 这个地址也行  
+
+
+就是不同的busicode 区分不同的业务 所有的request  是一样的 
+同一个连接， 不同的busicode
