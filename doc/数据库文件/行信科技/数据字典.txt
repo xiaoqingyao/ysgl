@@ -1,0 +1,79 @@
+--业务数据表
+bill_cgsp 采购审批单主表，
+bill_cgsp_fjb 采购审批单附件表，
+bill_cgsp_lscg 附单表 ，
+bill_cgsp_mxb 采购审批单子表，
+bill_cgsp_xjb 采购审批单 询价表，
+bill_cgzjfk 采购资金付款
+bill_cgzjfk 采购资金计划
+bill_fysq 费用申请
+bill_fysq_fjb 费用申请附件表
+bill_fysq_mxb 费用申请明细表
+bill_lscg  临时采购申请单
+bill_main 单据主表
+bill_msg 消息表
+bill_qtbxmxb 其它报销明细表
+bill_qtbx_fysq 其它报销 费用申请
+bill_qtbxmxb_bxdj 其它报销明细表 报销单价
+bill_qtbxmxb_fydk 其它报销明细表 费用单据
+bill_qtbxmxb_fykm 其它报销明细表 费用科目
+bill_qtbxmxb_fykm_dept 其它报销明细表 费用科目 单位
+bill_qtbxmxb_fykm_ft
+bill_qtbxmxb_hsxm
+bill_searchRight
+bill_travelApplication 费用申请表
+bill_workFlow 流程表
+bill_workFlowAction 流程动作表
+bill_workFlowGroup  
+bill_workFlowRecord 流程信息记录
+bill_workFlowStep 流程步骤
+bill_xm 预算项目表
+bill_xmzfd 增加项目支付单表
+bill_ybbx_fysq 一般报销费用申请
+bill_ybbxmxb 一般报销明细表
+bill_ybbxmxb_bxdj 一般报销明细表 报销单据
+bill_ybbxmxb_fydk 一般报销明细表 费用dk
+bill_ybbxmxb_fykm  一般报明细表销科目
+bill_ybbxmxb_fykm_dept 一般报销明细表 部门
+bill_ybbxmxb_fykm_ft 一般报销明细表 ft
+bill_ybbxmxb_hsxm 一般报销明细表 hsxm
+bill_yj
+bill_ysbl
+bill_ysgc 预算过程 
+bill_ysmxb 预算明细表 
+bill_ysmxb_smfj 预算明细说明附件
+bill_ystz 预算调整表
+bill_ystz_after 预算调整前
+bill_ystz_before 预算调整后
+MessageReader通知人员
+temp_ysfpbl
+titleMessage 新闻,通知
+workflowrecord  审批记录主表
+workflowrecords  审批记录子表
+workflowstep 审核步骤表
+cardNum 生成系统编号记录表
+xs_srb
+xs_ygzmx
+--基础数据表
+bill_cwkm 财务科目
+bill_dataDic 数据字典
+bill_departments 部门表
+bill_dept_fgld 部门分管领导表
+bill_dept_ywzg 部门主管表
+bill_djlx 单据类型
+bill_notePad 日记表(记录日历备注表)
+bill_SysConfig 配置表
+bill_sysMenu 菜单表
+bill_userGroup 角色表
+bill_userRight 用户权限表（菜单权限）
+bill_users 用户表 
+bill_yskm 预算科目
+bill_yskm_dept 预算科目部门对应表 
+bill_yskm_dzb 
+bill_yskm120107
+billtoworkflow 单据对应的审核流表
+mainworkflow 审批类型表
+t_Config 系统配置表
+yssj
+bill_cbzx
+

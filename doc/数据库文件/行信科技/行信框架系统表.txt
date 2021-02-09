@@ -1,0 +1,72 @@
+
+
+--用户表
+create table t_j_jgry(
+	list_id   decimal(18,0) IDENTITY (1, 1) NOT NULL ,--自增列
+	rybh      varchar(30) null,--人员编号
+	xm        varchar(30) null,--姓名
+	xb        varchar(2) null,--性别
+	pwd       varchar(30) null,--密码
+	zt        varchar(2) null,--状态（1,正常，0，停用）
+	bm        varchar(30) null,--部门
+	zw        varchar(30) null,--职位
+	sfzh      varchar(30) null,--身份证号
+	csrq      datetime null,--出生日期
+	sfczy     varchar(2) null,--是否操作员（0，是，1，否）
+	sfywy     varchar(2) null,--是否业务员（0，是，1，否）
+	lxdh1     varchar(30) null,--电话1
+	lxdh2     varchar(30) null,--电话2
+	bz        varchar(300) null--备注
+	)
+
+
+
+
+--用户权限表(菜单权限) t_userRight
+CREATE TABLE [dbo].[t_j_userRight](
+	[rybh] [varchar](50) NULL,--用户或角色
+	[menuid] [varchar](20) NULL,--菜单id
+	[rightType] [varchar](1) NULL--类型(1，用户权限，)
+)
+
+
+
+--菜单表 t_menu
+create table t_j_menu(
+	list_id int IDENTITY (1, 1) NOT NULL ,--自增列
+	bh varchar(30)  primary key,--编码
+	mc varchar(50) null,--菜单名称
+	cs_mc varchar(200) null,--窗口名称
+	bs_mc varchar(300) null,--网页路径
+	sfkj varchar(2) null,--是否可见
+	bz varchar(300) null--备注
+)
+
+
+
+--部门档案
+create table t_j_bmda(
+	list_id decimal(18,0) IDENTITY (1, 1) NOT NULL ,--自增列
+	bh varchar(30) null,--编号
+	xh int null,--序号
+	mc varchar(30) null,--名称
+	fzr varchar(20) null,--负责人
+	dh varchar(30) null,--电话
+	dz varchar(100) null,--地址
+	zt varchar(2) null,--状态（0,正常，1，停用）	
+	jc int null,--级次
+	sfmj int null,--是否末级
+	sjbm 	varchar(30) null,--上级编码
+	bz varchar(30) null--备注
+	)
+
+
+--9、单据号历史
+	create table t_j_djh(
+		list_id decimal(18,0) IDENTITY (1, 1) NOT NULL ,--自增列
+		djt varchar(10) null,--单据头
+		rq varchar(10) null,--日期
+		lshcd int null,--流水号长度
+		lsh int null--流水号
+	)
+	

@@ -1,0 +1,76 @@
+bill_cgsp	采购审批单主表，	1	1	NULL	NULL	NULL
+bill_cgsp_fjb	采购审批单附件表，	1	1	NULL	NULL	NULL
+bill_cgsp_lscg	附单表	1	1	NULL	NULL	NULL
+bill_cgsp_mxb	采购审批单子表，	1	1	NULL	NULL	NULL
+bill_cgsp_xjb	采购审批单 询价表，	1	1	NULL	NULL	NULL
+bill_cgzjfk	 采购资金付款	1	1	NULL	NULL	NULL
+bill_cgzjfk	采购资金计划	1	1	NULL	NULL	NULL
+bill_fysq	费用申请	1	1	NULL	NULL	NULL
+bill_fysq_fjb	费用申请附件表	1	1	NULL	NULL	NULL
+bill_fysq_mxb	费用申请明细表	1	1	NULL	NULL	NULL
+bill_lscg	临时采购申请单	1	1	NULL	NULL	NULL
+bill_main	单据主表	1	1	NULL	NULL	NULL
+bill_msg	消息表	1	1	NULL	NULL	NULL
+bill_qtbxmxb	其它报销明细表	1	1	NULL	NULL	NULL
+bill_qtbx_fysq	其它报销 费用申请	1	1	NULL	NULL	NULL
+bill_qtbxmxb_bxdj	其它报销明细表 报销单价	1	1	NULL	NULL	NULL
+bill_qtbxmxb_fydk	其它报销明细表 费用单据	1	1	NULL	NULL	NULL
+bill_qtbxmxb_fykm	其它报销明细表 费用科目	1	1	NULL	NULL	NULL
+bill_qtbxmxb_fykm_dept	其它报销明细表 费用科目 单位	1	1	NULL	NULL	NULL
+bill_qtbxmxb_fykm_ft	NULL	1	1	NULL	NULL	NULL
+bill_qtbxmxb_hsxm	NULL	1	1	NULL	NULL	NULL
+bill_searchRight	NULL	1	1	NULL	NULL	NULL
+bill_travelApplication	费用申请表	1	1	NULL	NULL	NULL
+bill_workFlow	流程表	1	1	NULL	NULL	NULL
+bill_workFlowAction	流程动作表	1	1	NULL	NULL	NULL
+bill_workFlowGroup	NULL	1	1	NULL	NULL	NULL
+bill_workFlowRecord	流程信息记录	1	1	NULL	NULL	NULL
+bill_workFlowStep	流程步骤	1	1	NULL	NULL	NULL
+bill_xm	预算项目表	1	1	NULL	NULL	NULL
+bill_xmzfd	增加项目支付单表	1	1	NULL	NULL	NULL
+bill_ybbx_fysq	一般报销费用申请	1	1	NULL	NULL	NULL
+bill_ybbxmxb	一般报销明细表	1	1	NULL	NULL	NULL
+bill_ybbxmxb_bxdj	一般报销明细表 费用dk	1	1	NULL	NULL	NULL
+bill_ybbxmxb_fykm	一般报明细表销科目	1	1	NULL	NULL	NULL
+bill_ybbxmxb_fykm_dept	一般报销明细表 部门	1	1	NULL	NULL	NULL
+bill_ybbxmxb_fykm_ft	一般报销明细表 ft	1	1	NULL	NULL	NULL
+bill_ybbxmxb_hsxm	一般报销明细表 hsxm	1	1	NULL	NULL	NULL
+bill_yj	NULL	1	1	NULL	NULL	NULL
+bill_ysbl	NULL	1	1	NULL	NULL	NULL
+bill_ysgc	预算过程	1	1	NULL	NULL	NULL
+bill_ysmxb	预算明细表	1	1	NULL	NULL	NULL
+bill_ysmxb_smfj	预算明细说明附件	1	1	NULL	NULL	NULL
+bill_ystz	预算调整表	1	1	NULL	NULL	NULL
+bill_ystz_after	预算调整前	1	1	NULL	NULL	NULL
+bill_ystz_before	预算调整后	1	1	NULL	NULL	NULL
+MessageReader	通知人员	1	1	NULL	NULL	NULL
+temp_ysfpbl	NULL	1	1	NULL	NULL	NULL
+titleMessage	新闻,通知	1	1	NULL	NULL	NULL
+workflowrecord	审批记录主表	1	1	NULL	NULL	NULL
+workflowrecords	审批记录子表	1	1	NULL	NULL	NULL
+workflowstep	审核步骤表	1	1	NULL	NULL	NULL
+cardNum	生成系统编号记录表	1	1	NULL	NULL	NULL
+xs_srb	NULL	1	1	NULL	NULL	NULL
+xs_ygzmx	NULL	1	1	NULL	NULL	NULL
+bill_cwkm	财务科目	0	1	NULL	NULL	NULL
+bill_dataDic	数据字典	0	1	NULL	NULL	NULL
+bill_departments	部门表	2	1	NULL	NULL	NULL
+bill_dept_fgld	部门分管领导表	2	1	NULL	NULL	NULL
+bill_dept_ywzg	部门主管表	0	1	NULL	NULL	NULL
+bill_djlx	单据类型	2	1	NULL	NULL	NULL
+bill_notePad	日记表	2	1	NULL	NULL	NULL
+bill_SysConfig	配置表	2	1	NULL	NULL	NULL
+bill_sysMenu	菜单表	2	1	NULL	NULL	NULL
+bill_userGroup	角色表	2	1	NULL	NULL	NULL
+bill_userRight	用户权限表（菜单权限）	2	1	NULL	NULL	NULL
+bill_users	用户表	2	1	NULL	NULL	NULL
+bill_yskm	预算科目	0	1	NULL	NULL	NULL
+bill_yskm_dept	预算科目部门对应表	0	1	NULL	NULL	NULL
+bill_yskm_dzb	NULL	0	1	NULL	NULL	NULL
+bill_yskm120107	NULL	0	1	NULL	NULL	NULL
+billtoworkflow	单据对应的审核流表	0	1	NULL	NULL	NULL
+mainworkflow	审批类型表	2	1	NULL	NULL	NULL
+t_Config	系统配置表	2	1	NULL	NULL	NULL
+yssj	NULL	2	1	NULL	NULL	NULL
+bill_cbzx	NULL	2	1	NULL	NULL	NULL
+NULL	NULL	NULL	NULL	NULL	NULL	NULL
