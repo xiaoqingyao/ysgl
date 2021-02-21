@@ -113,7 +113,7 @@ public partial class webBill_fysq_ZijinShenqingList : BasePage
         string sql = @"select billCode,billName,billdept as showbilldept,billje,
         (select deptname from bill_departments where deptcode=billdept) as billDept,(select username from bill_users where usercode=billuser) as billUser
             ,billDate,stepid,(select top 1 mind from workflowrecords where recordid=(select top 1 recordid from workflowrecord where billCode=bill_main.billCode) and rdstate='3') as mind
-           ,Row_Number()over(order by billdate desc) as crow  from bill_main where flowid='jfsq' ";
+           ,Row_Number()over(order by billdate desc, billname desc) as crow  from bill_main where flowid='jfsq' ";
         sql += " and billDept='" + deptCodes + "'  ";
 
         DataSet temp = server.GetDataSet(sql);
@@ -122,7 +122,7 @@ public partial class webBill_fysq_ZijinShenqingList : BasePage
         strsqlcount = string.Format(strsqlcount, sql);
         count = int.Parse(server.GetCellValue(strsqlcount));
 
-        string strsqlframe = "select * from ( {0} ) t where t.crow>{1} and t.crow<={2} ";
+        string strsqlframe = "select * from ( {0} ) t where t.crow>{1} and t.crow<={2} order by t.crow ";
         strsqlframe = string.Format(strsqlframe, sql, pagefrm, pageto);
         return server.GetDataTable(strsqlframe, null);
 

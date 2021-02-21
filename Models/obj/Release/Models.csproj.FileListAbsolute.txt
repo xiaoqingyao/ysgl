@@ -19,3 +19,12 @@ E:\PROJECT\ys_new\Models\bin\Release\sqlHelper.pdb
 E:\PROJECT\ys_new\Models\obj\Release\Models.csprojResolveAssemblyReference.cache
 E:\PROJECT\ys_new\Models\obj\Release\Models.dll
 E:\PROJECT\ys_new\Models\obj\Release\Models.pdb
+D:\01Project\04预算管理\Models\bin\Release\Models.dll
+D:\01Project\04预算管理\Models\bin\Release\Models.pdb
+D:\01Project\04预算管理\Models\bin\Release\sqlHelper.dll
+D:\01Project\04预算管理\Models\bin\Release\sqlHelper.pdb
+D:\01Project\04预算管理\Models\obj\Release\Models.csprojAssemblyReference.cache
+D:\01Project\04预算管理\Models\obj\Release\Models.csproj.CoreCompileInputs.cache
+D:\01Project\04预算管理\Models\obj\Release\Models.csproj.CopyComplete
+D:\01Project\04预算管理\Models\obj\Release\Models.dll
+D:\01Project\04预算管理\Models\obj\Release\Models.pdb

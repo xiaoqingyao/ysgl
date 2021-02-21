@@ -12,3 +12,9 @@ E:\PROJECT\ys_new\sqlHelper\bin\Release\sqlHelper.pdb
 E:\PROJECT\ys_new\sqlHelper\obj\Release\sqlHelper.csprojResolveAssemblyReference.cache
 E:\PROJECT\ys_new\sqlHelper\obj\Release\sqlHelper.dll
 E:\PROJECT\ys_new\sqlHelper\obj\Release\sqlHelper.pdb
+D:\01Project\04预算管理\sqlHelper\bin\Release\sqlHelper.dll
+D:\01Project\04预算管理\sqlHelper\bin\Release\sqlHelper.pdb
+D:\01Project\04预算管理\sqlHelper\obj\Release\sqlHelper.csprojAssemblyReference.cache
+D:\01Project\04预算管理\sqlHelper\obj\Release\sqlHelper.csproj.CoreCompileInputs.cache
+D:\01Project\04预算管理\sqlHelper\obj\Release\sqlHelper.dll
+D:\01Project\04预算管理\sqlHelper\obj\Release\sqlHelper.pdb
