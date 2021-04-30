@@ -16,6 +16,8 @@
     <script language="javascript" type="text/javascript" src="../bxgl/toDaxie.js"></script>
     <script src="../Resources/jScript/jQuery/jquery-1.4.2.min.js" type="text/javascript"></script>
     <script src="ajaxfileupload.js"></script>
+    <script src="../Resources/jScript/jQuery/jquery.ui.datepicker-zh-CN.js" type="text/javascript"
+        charset="UTF-8"></script>
     <link href="../Resources/Css/jquery-ui-1.8.16.custom.css" rel="stylesheet" type="text/css" />
     <style type="text/css">
         .highlight {
@@ -127,7 +129,7 @@
             });--%>
             //保存
             $("#btn_test").click(function () {
-                
+
                 var type = '<%=Request["type"] %>';
                 var dydj = '<%=Request["dydj"]%>';
                 if (type == null || type == undefined || type == "") {
@@ -611,8 +613,7 @@
         //附加采购单
         function openCgsp() {//选择附加的单据，打开单据选择
             var tempInner = window.showModalDialog('selectCgsp.aspx', 'newwindow', 'center:yes;dialogHeight:600px;dialogWidth:860px;status:no;scroll:yes');
-            if (tempInner == undefined || tempInner == "")
-            { }
+            if (tempInner == undefined || tempInner == "") { }
             else {
                 //给返回的结果添加上一个单选框 
                 var strTemp = tempInner.substring(4, tempInner.length);
@@ -626,8 +627,7 @@
         function openCgsp2() {//选择附加的单据，打开单据选择
             var tempInner = window.showModalDialog('selectlscg.aspx', 'newwindow', 'center:yes;dialogHeight:600px;dialogWidth:860px;status:no;scroll:yes');
             //alert(tempInner);
-            if (tempInner == undefined || tempInner == "")
-            { }
+            if (tempInner == undefined || tempInner == "") { }
             else {
                 //给返回的结果添加上一个单选框 
                 var strTemp = tempInner.substring(4, tempInner.length);
@@ -644,8 +644,7 @@
             }
             var tempInner = window.showModalDialog(url, 'newwindow', 'center:yes;dialogHeight:600px;dialogWidth:860px;status:no;scroll:yes');
 
-            if (tempInner == undefined || tempInner == "")
-            { }
+            if (tempInner == undefined || tempInner == "") { }
             else {
                 //给返回的结果添加上一个单选框 
                 var strTemp = tempInner.substring(4, tempInner.length);
@@ -729,7 +728,9 @@
             $(obj).parent().parent().remove();
         }
 
+
         function openKm(deptCode, isGk) {
+            
             var kmcode = "";
             var kmArray = new Array();
             $("#tab_fykm tbody tr td:nth-child(1)").each(function (i) {
@@ -742,11 +743,24 @@
             if (dydj == null && dydj == '' && dydj == undefined || dydj == '06') {
                 dydj = "02";
             }
-            var str = window.showModalDialog("YskmSelectNew.aspx?deptCode=" + deptCode + "&kmcode=" + kmcode + "&isgk=" + isGk + "&billDate=" + billDate + "&dydj=" + dydj, 'newwindow', 'center:yes;dialogHeight:520px;dialogWidth:300px;status:no;scroll:yes');
-            insertKm(str);
+            //var str = window.showModalDialog("YskmSelectNew.aspx?deptCode=" + deptCode + "&kmcode=" + kmcode + "&isgk=" + isGk + "&billDate=" + billDate + "&dydj=" + dydj, 'newwindow', 'center:yes;dialogHeight:520px;dialogWidth:300px;status:no;scroll:yes');
+            $("#prodcutDetailSrc").attr("src", "YskmSelectNew.aspx?deptCode=" + deptCode + "&kmcode=" + kmcode + "&isgk=" + isGk + "&billDate=" + billDate + "&dydj=" + dydj);
+            $("#dialog-confirm").dialog(
+                {
+                    modal: true,             // 创建模式对话框
+                    autoOpen: true,//是否自动打开
+                    height: 520, //高度
+                    width: 300, //宽度
+                    title_html: true
+                }
+            );
+            
+            
+            //insertKm(str);
         }
         //传入一个json 然后插入科目明细
         function insertKm(str) {
+            $("#dialog-confirm").dialog('close');
             var kmcode = "";
             var kmArray = new Array();
             $("#tab_fykm tbody tr td:nth-child(1)").each(function (i) {
@@ -830,30 +844,6 @@
             r = table.insertRow(n);
             r.insertCell(0).innerHTML = obj;
         }
-        //附件撤销 edit by lvcc 20120906  终于搞定了O(∩_∩)O~
-        //        function cancelAttachment() {
-        //            var tbody = $("#tb_fysq");
-        //            var trLength = tbody.children().length;
-        //            var flg = false;
-        //            var index = -1;
-        //            for (var i = 0; i < trLength; i++) {
-        //                var iRel = tbody.children()[i].children[0].innerHTML.indexOf("CHECKED");
-        //                if (iRel != '-1') {
-        //                    flg = true;
-        //                    index = i;
-        //                    break;
-        //                }
-        //            }
-        //            if (!flg) {
-        //                alert("请选中要操作的记录！");
-        //                return;
-        //            }
-        //            var tableMain = $("#cgdj");
-        //            var nowTr = tbody.children()[index];
-        //            nowTr.parentNode.removeChild(nowTr);
-        //        }
-        //附件撤销 配合下面的 radCheck方法  上面的方法有的浏览器不支持edit by lvcc 20121012
-
         function cancelAttachment() {
             if (selectCode == '' || selectCode == undefined) {
                 alert("请选中要操作的记录！");
@@ -921,33 +911,33 @@
             //var filename = filepath.substring(position + 1);
 
             $.ajaxFileUpload
-            (
-                {
-                    url: 'uploadFile.ashx', //用于文件上传的服务器端请求地址
-                    secureuri: false, //一般设置为false
-                    fileElementId: 'upLoadFiles', //文件上传空间的id属性  <input type="file" id="file" name="file" />
-                    dataType: 'json', //返回值类型 一般设置为json
-                    success: function (data, status)  //服务器成功响应处理函数
+                (
                     {
-                        // $("#img1").attr("src", data.imgurl);
-                        if (typeof (data.error) != 'undefined') {
-                            if (data.error != '') {
-                                alert(data.error);
-                            } else {
-                                //成功
-                                //alert(decodeURI(unescape(data.filename)));
-                                //alert(decodeURI(unescape(data.fileurl)));
-                                $("#filenames").html($("#filenames").html() + "<div style=' border-bottom:1px dashed #CDCDCD; text-align:left;'>&nbsp;&nbsp;&nbsp;<span style='font-weight:700'>新附件：" + decodeURI(unescape(data.filename)) + "：</span><a onclick='delfj(this);'>删除</a><span style='display:none'><input type='text' class='fujianurl' value='" + decodeURI(unescape(data.fileurl)) + "'/><input type='text' class='fujianname' value='" + decodeURI(unescape(data.filename)) + "'/></span></div>");
-                                alert(data.msg);
+                        url: 'uploadFile.ashx', //用于文件上传的服务器端请求地址
+                        secureuri: false, //一般设置为false
+                        fileElementId: 'upLoadFiles', //文件上传空间的id属性  <input type="file" id="file" name="file" />
+                        dataType: 'json', //返回值类型 一般设置为json
+                        success: function (data, status)  //服务器成功响应处理函数
+                        {
+                            // $("#img1").attr("src", data.imgurl);
+                            if (typeof (data.error) != 'undefined') {
+                                if (data.error != '') {
+                                    alert(data.error);
+                                } else {
+                                    //成功
+                                    //alert(decodeURI(unescape(data.filename)));
+                                    //alert(decodeURI(unescape(data.fileurl)));
+                                    $("#filenames").html($("#filenames").html() + "<div style=' border-bottom:1px dashed #CDCDCD; text-align:left;'>&nbsp;&nbsp;&nbsp;<span style='font-weight:700'>新附件：" + decodeURI(unescape(data.filename)) + "：</span><a onclick='delfj(this);'>删除</a><span style='display:none'><input type='text' class='fujianurl' value='" + decodeURI(unescape(data.fileurl)) + "'/><input type='text' class='fujianname' value='" + decodeURI(unescape(data.filename)) + "'/></span></div>");
+                                    alert(data.msg);
+                                }
                             }
+                        },
+                        error: function (data, status, e)//服务器响应失败处理函数
+                        {
+                            alert(e);
                         }
-                    },
-                    error: function (data, status, e)//服务器响应失败处理函数
-                    {
-                        alert(e);
                     }
-                }
-            )//清空上传控件
+                )//清空上传控件
             document.getElementById("upLoadFiles").outerHTML = document.getElementById("upLoadFiles").outerHTML;
             return false;
 
@@ -1438,6 +1428,9 @@
         </div>
         <%--用于显示鼠标悬浮提示的信息--%>
         <div class="item-help" id="item-help" style="display: none;">
+        </div>
+        <div id="dialog-confirm" style="display: none; overflow: hidden;">
+            <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" id="prodcutDetailSrc" scrolling="no" width="100%" height="100%"></iframe>
         </div>
     </form>
 </body>

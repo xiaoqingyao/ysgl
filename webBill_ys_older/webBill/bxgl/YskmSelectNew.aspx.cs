@@ -218,7 +218,7 @@ public partial class webBill_bxgl_YskmSelectNew : System.Web.UI.Page
             string script = jserializer.Serialize(retlist);
             //sb.Remove(sb.Length - 1, 1);
             //string script = sb.ToString();
-            ClientScript.RegisterStartupScript(this.GetType(), "", "<script type='text/javascript'>window.returnValue='" + script + "'; self.close();</script>");
+            ClientScript.RegisterStartupScript(this.GetType(), "", "<script type='text/javascript'>parent.insertKm('" + script + "'); self.close();</script>");
         }
         else
         {

@@ -265,14 +265,34 @@
 
 
         function openDetail(openUrl) {
-            var returnValue = window.showModalDialog(openUrl, 'newwindow', 'center:yes;dialogHeight:700px;dialogWidth:990px;status:no;scroll:yes');
-            if (returnValue == undefined || returnValue == "") {
-                return false;
-            }
-            else {
-                document.getElementById("btnRefresh").click();
-            }
+            //var returnValue = window.showModalDialog(openUrl, 'newwindow', 'center:yes;dialogHeight:700px;dialogWidth:990px;status:no;scroll:yes');
+            //if (returnValue == undefined || returnValue == "") {
+            //    return false;
+            //}
+            //else {
+            //    document.getElementById("btnRefresh").click();
+            //}
+            $("#prodcutDetailSrc").attr("src", openUrl);
+            $("#dialog-confirm").dialog(
+                {
+                    modal: true,             // 创建模式对话框
+                    autoOpen: true,//是否自动打开
+                    height: 700, //高度
+                    width: 990, //宽度
+                    //title: "新窗体",
+                    title_html: true,
+                    buttons: {
+                        //"Ok": function () {
+                        //    $("#btnRefresh").click();
+                        //    $(this).dialog('close');
+                        //},
+                        //"Cancel": function () { $(this).dialog('close'); return false; }
+                    }
+                }
+            );
+
         }
+
         function openLookSpStep(openUrl) {
             window.showModalDialog(openUrl, 'newwindow', 'center:yes;dialogHeight:500px;dialogWidth:460px;status:no;scroll:yes');
         }
@@ -363,7 +383,7 @@
 
                     <input type="button" class="baseButton" id="btn_sh" value="查看审核详细信息" style="display: none" />
                     <asp:Button ID="btn_Export" runat="server" Text="导出Excel" OnClick="btn_Export_Click" CssClass="baseButton" />
-                     <asp:Button ID="Button3" runat="server" Text="导出Excel2" OnClick="Button3_Click" CssClass="baseButton" />
+                    <asp:Button ID="Button3" runat="server" Text="导出Excel2" OnClick="Button3_Click" CssClass="baseButton" />
                     <%--<input type="button" value="打印预览（方式2）" id="btn_print2" class="baseButton" />--%>
                     <input type="button" class="baseButton" value="帮助" onclick="javascript: parent.helptoggle();" />
                 </td>
@@ -517,6 +537,9 @@
                 </td>
             </tr>
         </table>
+        <div id="dialog-confirm" style="display: none; overflow: hidden;">
+            <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" id="prodcutDetailSrc" scrolling="no" width="100%" height="100%"></iframe>
+        </div>
     </form>
 
     <script type="text/javascript">
