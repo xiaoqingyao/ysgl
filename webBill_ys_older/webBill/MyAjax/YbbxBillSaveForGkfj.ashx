@@ -72,9 +72,9 @@ public class YbbxBillSaveForGkfj : IHttpHandler
             //        upLoadFiles.PostedFile.SaveAs(serverpath);
             //    }
             //}
-            
-            
-            //检测单据年度是否在开启状 bill_SysConfig  ndStatus  edit by zyl 2015-01-06
+
+            #region  检测单据年度是否在开启状态
+            // bill_SysConfig  ndStatus  edit by zyl 2015-01-06
             if (strtype == "add")
             {
                 DateTime tbNd;
@@ -95,7 +95,9 @@ public class YbbxBillSaveForGkfj : IHttpHandler
                 }
 
             }
-            //检测附加单据
+            #endregion
+
+            #region 检测强制附加单据选项
             if (string.IsNullOrEmpty(p1.fysq))
             {
                 //根据单据类型(strdiccode，比如报销单、收入单……) 和选择的具体值（下拉框选择的值） 去校验是否附加单据
@@ -107,8 +109,9 @@ public class YbbxBillSaveForGkfj : IHttpHandler
                     return;
                 }
             }
+            #endregion
 
-            //判断部门总金额是否等于科目花费金额
+            #region  判断部门总金额是否等于科目花费金额
             bool IsSumTax = new Bll.ConfigBLL().GetValueByKey("TaxSwitch").Equals("0") ? false : true;
             foreach (YbbxBillTemp fykmtemp in p1.list)
             {
@@ -133,7 +136,9 @@ public class YbbxBillSaveForGkfj : IHttpHandler
                     }
                 }
             }
-            //判断项目总金额是否等于科目花费金额
+            #endregion
+
+            #region  判断项目总金额是否等于科目花费金额
             foreach (YbbxBillTemp fykm in p1.list)
             {
                 if (fykm.xm.Length > 0)
@@ -147,14 +152,13 @@ public class YbbxBillSaveForGkfj : IHttpHandler
                     }
                 }
             }
+            #endregion
 
             string billname = p1.billname;
-
             Bill_Main main = new Bill_Main();
             UserMessage user = new UserMessage(p1.billuser);
             main.BillDept = user.GetDept().DeptCode;
             main.Note5 = p1.yksqcode;
-
             if (string.IsNullOrEmpty(p1.bxDate))
             {
                 main.BillDate = DateTime.Parse(DateTime.Now.ToString("G"));
@@ -165,14 +169,11 @@ public class YbbxBillSaveForGkfj : IHttpHandler
                 string strMinute = DateTime.Now.Minute.ToString();
                 string strSecond = DateTime.Now.Second.ToString();
                 DateTime dt = Convert.ToDateTime(p1.bxDate + string.Format(" {0}:{1}:{2}", strHour, strMinute, strSecond));
-
                 main.BillDate = dt;
             }
 
             main.FlowId = p1.djlx;//"ybbx";
             main.BillUser = p1.billuser;
-            
-
             string gkbm = p1.gkbmbh;
             UserMessage mgr = new UserMessage(p1.billuser);
             string rootbm = mgr.GetRootDept().DeptCode;
@@ -189,18 +190,19 @@ public class YbbxBillSaveForGkfj : IHttpHandler
                 gkbm = rootbm;
             }
             main.Note4 = p1.isxkfx;
-            if (p1.djlx.Equals("yksq_dz")&&p1.isxkfx=="是")//如果是大智的费用报销单  那么note1=前台选择的报销日期
+            if (p1.djlx.Equals("yksq_dz") && p1.isxkfx == "是")//如果是大智的费用报销单  那么note1=前台选择的报销日期
             {
                 main.Note1 = p1.bxDate;
                 //获取用款申请单的日期
                 string yksqcode = p1.yksqcode.Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries)[0];
                 string dt = server.GetCellValue("select billdate from bill_main where billname='" + yksqcode + "'");
-                main.BillDate = DateTime.Parse(dt) ;//实际报销日期以用款申请单为准
+                main.BillDate = DateTime.Parse(dt);//实际报销日期以用款申请单为准
             }
             else
             {
                 main.Note1 = DateTime.Now.ToString("yyyy-MM-dd");//单据填报时间
             }
+            main.needBx = p1.needBx;
 
             //判断是否是新增
             BillManager bmgr = new BillManager();
@@ -222,7 +224,7 @@ public class YbbxBillSaveForGkfj : IHttpHandler
                 {
                     endDate = new DateTime(tempDate.Year + 1, 1, 1);
                 }
-                if (!p1.djlx.Equals("yksq_dz")&&(bxdate >= endDate || bxdate < begDate))
+                if (!p1.djlx.Equals("yksq_dz") && (bxdate >= endDate || bxdate < begDate))
                 {
                     context.Response.ContentType = "text/plain";
                     context.Response.Write("-4");
@@ -231,13 +233,16 @@ public class YbbxBillSaveForGkfj : IHttpHandler
                 main.BillName = tempMain[0].BillName;
                 tempkmList = bmgr.GetYbbx(tempMain[0].BillCode).KmList;
                 main.BillCode = tempMain[0].BillCode;
+                main.StepId = tempMain[0].StepId;
             }
             else
             {
                 SysManager sysMgr = new SysManager();
                 main.BillName = sysMgr.GetYbbxBillName("", DateTime.Now.ToString("yyyMMdd"), 1);
                 main.BillCode = new GuidHelper().getNewGuid();
+                main.StepId = "-1";
             }
+
             //是否冲减预算  
             Bill_DataDic billDic = (new SysManager()).GetDicByTypeCode(strdiccode, p1.bxlx);
             if (billDic.Cjys == "1" && boHasBudgetControl)//冲减预算必须还要启用预算管理
@@ -326,53 +331,15 @@ public class YbbxBillSaveForGkfj : IHttpHandler
                                 return;
                             }
                         }
-                        //费用提成不够了  自动增加预算
-                        if (p1.bxlx == "01" && hasSaleRebate)
-                        {
-                            List<string> listSql = new List<string>();
-                            string ysGuid = (new GuidHelper()).getNewGuid();
-                            decimal deAddYuSuan = billje - syje;
-                            string strSqlInsertToFymxb = @"insert into bill_ysmxb(gcbh,billCode,yskm,ysje,ysDept,ysType,fujian) 
-                                                        values('" + gcbh + "','" + ysGuid + "','" + kmCode + "','" + deAddYuSuan + "','" + depCode + "','2')";
-                            string strSqlInsertToBillMain = @"insert into bill_main(billCode,billName,flowID,stepID,billUser,billDate,billDept,billJe,loopTimes,billType) 
-                                                            values('" + ysGuid + "','" + gcbh + "','yszj','end','','" + System.DateTime.Now.ToString() + "','" + depCode + "','" + deAddYuSuan + "','1','2')";//billuser不要为空 表示是话费费用提成的金额 程序自动添加的预算追加而不是手工添加的预算追加记录
-                            listSql.Add(strSqlInsertToBillMain);//往单据主表里添加记录
-                            listSql.Add(strSqlInsertToFymxb);//往预算明细表里添加记录
-                            T_SaleFeeSpendNote modelSaleFeeSpendNote = new T_SaleFeeSpendNote();
-                            modelSaleFeeSpendNote.Billcode = (new GuidHelper()).getNewGuid();
-                            modelSaleFeeSpendNote.Deptcode = depCode;
-                            modelSaleFeeSpendNote.Fee = deAddYuSuan;
-                            modelSaleFeeSpendNote.Sysdatetime = DateTime.Now.ToString();
-                            modelSaleFeeSpendNote.Sysusercode = main.BillUser;
-                            modelSaleFeeSpendNote.YsgcCode = gcbh;
-                            modelSaleFeeSpendNote.Yskmcode = kmCode;
-                            int iRel = server.ExecuteNonQuerysArray(listSql);
-                            string strErrorMsg = "";
-                            if (iRel >= 0)
-                            {
-                                int iNoteRel = new Bll.SaleBill.T_SaleFeeSpendNoteBll().Add(modelSaleFeeSpendNote, out strErrorMsg);
-                                if (iNoteRel < 1)
-                                {
-                                    context.Response.ContentType = "text/plain";
-                                    context.Response.Write("-2");
-                                    return;
-                                }
-                            }
-                            else
-                            {
-                                context.Response.ContentType = "text/plain";
-                                context.Response.Write("-2");
-                                return;
-                            }
-                        }
+
                     }
+
                 }
 
-                //添加note5 = 1 20160830
-                
-                string ntsql = @"update bill_main set note5='1' where flowID='ybbx' and billName='" + p1.yksqcode+ "'";
+                //添加note5 = 1 20160830   如果用款申请单被用了，就写个1表示同时对应的报销单填写用款申请单的单号  删除逆操作写为0
+                string ntsql = @"update bill_main set note5='1' where flowID='ybbx' and billName='" + p1.yksqcode + "'";
                 server.ExecuteNonQuery(ntsql);
-            
+
             }
             //检查预算科目是否有核算
             for (int i = 0; i < p1.list.Length; i++)
@@ -404,10 +371,7 @@ public class YbbxBillSaveForGkfj : IHttpHandler
             }
 
             //以上为检查科目的核算情况
-
-
             IList<Bill_Ybbxmxb> ybbxList = new List<Bill_Ybbxmxb>();
-
             Bill_Ybbxmxb bxmxb = new Bill_Ybbxmxb();
             bxmxb.BillCode = main.BillCode;
             bxmxb.Bxmxlx = p1.bxlx;
@@ -422,69 +386,13 @@ public class YbbxBillSaveForGkfj : IHttpHandler
             bxmxb.Bxr2 = p1.bxr2;
             bxmxb.fujian = fujian;
 
-            //如果是给付
-            if (p1.sfgf == "1")
-            {
-                bxmxb.Gfr = Convert.ToString(context.Session["userCode"]);
-                bxmxb.Gfsj = DateTime.Now;
-                main.StepId = "end";
-            }
-            else
-            {
-                //可能是修改审核后的报销单，所以要先获取下单据的code
-
-                if (tempMain != null && tempMain.Count > 0)
-                {
-                    main.StepId = tempMain[0].StepId;
-                }
-                else
-                {
-                    if (boYbbxNeedAudit)
-                    {
-                        main.StepId = "-1";
-                    }
-                    else
-                    {
-                        main.StepId = "end";
-                    }
-                }
-            }
-            bxmxb.Sfgf = p1.sfgf;//是否给付
-            //凭证号 凭证日期 是否挂账
-            string strSql = "select guazhang,pzcode,pzdate from bill_ybbxmxb where billCode='" + bxmxb.BillCode + "'";
-            System.Data.DataTable dtMxb = server.GetDataTable(strSql, null);
-            if (dtMxb.Rows.Count > 0)
-            {
-                bxmxb.Pzdate = dtMxb.Rows[0]["pzdate"].ToString();
-                bxmxb.Pzcode = dtMxb.Rows[0]["pzcode"].ToString();
-                bxmxb.Guazhang = dtMxb.Rows[0]["guazhang"].ToString();
-            }
-            if (p1.sfgf == "1")
-            {
-                bxmxb.Guazhang = "0";
-            }
-
             int djs = 0;
             if (int.TryParse(p1.djs, out djs))
             {
                 bxmxb.Bxdjs = djs;
             }
 
-            IList<Bill_Ybbx_Fysq> fysqList = new List<Bill_Ybbx_Fysq>();
-            if (!string.IsNullOrEmpty(p1.fysq))
-            {
-                string[] fysqCodes = p1.fysq.Split('|');
-                bool boflg = false;
-                for (int i = 0; i < fysqCodes.Length; i++)
-                {
-                    Bill_Ybbx_Fysq fyClass = new Bill_Ybbx_Fysq();
-                    fyClass.BillCode = main.BillCode;
-                    fyClass.SqCode = fysqCodes[i];
-                    fyClass.Status = "0";
-                    fysqList.Add(fyClass);
-                }
-            }
-            bxmxb.FysqList = fysqList;
+
 
             decimal je = 0;
             IList<Bill_Ybbxmxb_Fykm> kmList = new List<Bill_Ybbxmxb_Fykm>();
@@ -501,7 +409,7 @@ public class YbbxBillSaveForGkfj : IHttpHandler
                 }
                 else
                 {
-                    je += p1.list[i].je;//+ p1.list[i].修改于20121016，税额不进费用
+                    je += p1.list[i].je;
                 }
                 fykm.MxGuid = (new GuidHelper()).getNewGuid();
                 fykm.Se = p1.list[i].se;
@@ -532,6 +440,20 @@ public class YbbxBillSaveForGkfj : IHttpHandler
                     xmList.Add(xm);
                 }
                 fykm.XmList = xmList;
+
+                //Note1
+                if (p1.djlx.Equals("yksq_dz") && p1.isxkfx == "是")//如果是大智的费用报销单  那么note1=前台选择的报销日期
+                {
+                    main.Note1 = p1.bxDate;
+                    //获取用款申请单的日期
+                    string dt = server.GetCellValue("select billdate from bill_main where billname='" + p1.list[i].yksqcode + "'");
+                   fykm.yksqBillDate = dt;
+                }
+                else
+                {
+                    main.Note1 = DateTime.Now.ToString("yyyy-MM-dd");//单据填报时间
+                }
+                
                 kmList.Add(fykm);
             }
             bxmxb.KmList = kmList;
@@ -539,19 +461,7 @@ public class YbbxBillSaveForGkfj : IHttpHandler
             main.BillJe = je;
 
             BillManager billmgr = new BillManager();
-            //if (main.IsGk.Equals("1"))
-            //{
             billmgr.insertYbbxForGkfj(main, ybbxList);
-            //}
-            //else
-            //{
-            //    billmgr.InsertYbbx(main, ybbxList);
-            //}
-            string strCurrentOrLastForYbbx = new Bll.ConfigBLL().GetValueByKey("CurrentOrLastForYbbx");
-            if (strCurrentOrLastForYbbx.Equals("0"))
-            {
-                context.Session["LastBXR"] = main.BillUser;
-            }
             //获取用款申请单的code
             List<string> lisql = new List<string>();
             string strykcode = p1.yksqcode;
@@ -595,7 +505,7 @@ public class YbbxBillSaveForGkfj : IHttpHandler
                     return;
                 }
             }
-           
+
 
             context.Response.ContentType = "text/plain";
             context.Response.Write("1");
@@ -656,6 +566,7 @@ public class YbbxBillSaveForGkfj : IHttpHandler
         public string yksqcode { get; set; }//用款申请单code 大智用
         public string isxkfx { get; set; }//是否是新财年
         public string fujian { get; set; }
+        public string needBx { get; set; }
     }
 
     class YbbxBillTemp
@@ -668,6 +579,7 @@ public class YbbxBillSaveForGkfj : IHttpHandler
         public XmTemp[] xm { get; set; }
         //报销部门
         public string bxbm { get; set; }
+        public string yksqcode { get; set; }//报销明细对应的用款申请单
     }
 
     class BmTemp

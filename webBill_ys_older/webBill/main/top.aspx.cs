@@ -22,7 +22,6 @@ public partial class main_top : System.Web.UI.Page
             Bll.ConfigBLL bllConfig = new Bll.ConfigBLL();
             DataTable dt;
             //企业Logo图片配置
-
             dt = bllConfig.GetDtByKey("CompanyLogo");
             if (dt.Rows.Count > 0&&!string.IsNullOrEmpty( Convert.ToString(dt.Rows[0]["avalue"])))
             {
@@ -32,16 +31,16 @@ public partial class main_top : System.Web.UI.Page
             string userCode = Convert.ToString(Session["userCode"]);
             UserMessage userMsg = new UserMessage(userCode);
             userName.InnerHtml = "[" + userMsg.Users.UserCode + "]" + userMsg.Users.UserName;
-            deptName.InnerHtml = userMsg.GetRootDept().DeptName + "--" + userMsg.GetDept().DeptName;
-            try
-            {
-                WeatherWebService weather = new WeatherWebService();
-                string[] array = weather.getWeatherbyCityName("济南");
-                sp_first.InnerHtml = "<img src=\"../Images/" + array[8] + "\" alt=\"\"/>今天:" + array[6].Split(' ')[1] + " " + array[5];
-                sp_next.InnerHtml = "<img src=\"../Images/" + array[15] + "\" alt=\"\"/>明天:" + array[13].Split(' ')[1] + " " + array[12];
-                sp_last.InnerHtml = "<img src=\"../Images/" + array[21] + "\" alt=\"\"/>后天:" + array[18].Split(' ')[1] + " " + array[17];
-            }
-            catch { }
+            deptName.InnerHtml = userMsg.GetDept().DeptName;
+            //try
+            //{
+            //    WeatherWebService weather = new WeatherWebService();
+            //    string[] array = weather.getWeatherbyCityName("济南");
+            //    sp_first.InnerHtml = "<img src=\"../Images/" + array[8] + "\" alt=\"\"/>今天:" + array[6].Split(' ')[1] + " " + array[5];
+            //    sp_next.InnerHtml = "<img src=\"../Images/" + array[15] + "\" alt=\"\"/>明天:" + array[13].Split(' ')[1] + " " + array[12];
+            //    sp_last.InnerHtml = "<img src=\"../Images/" + array[21] + "\" alt=\"\"/>后天:" + array[18].Split(' ')[1] + " " + array[17];
+            //}
+            //catch { }
         }
     }
     protected void Timer1_Tick(object sender, EventArgs e)

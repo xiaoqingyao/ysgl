@@ -108,9 +108,6 @@ public class DeleteBill : IHttpHandler
                 case "zjsq"://资金申请
                     bmgr.DeleteZjsq(billCode);
                     break;
-                case "dzfp"://电子发票
-                    bmgr.DeleteDzfp(billCode);
-                    break;
                 case "zfzxsqd"://跨区域转校转费申请单
                     bmgr.Deletezxzfsqd(billCode);
                     break;

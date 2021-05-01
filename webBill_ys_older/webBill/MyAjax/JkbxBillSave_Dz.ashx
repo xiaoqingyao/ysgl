@@ -290,7 +290,7 @@ public class JkbxBillSave_Dz : IHttpHandler, System.Web.SessionState.IRequiresSe
                 for (int i = 0; i < p1.list.Length; i++)
                 {
                     decimal kcje = 0;//本单据的占用金额
-                    //新增
+                                     //新增
                     if (tempMain != null)
                     {
                         var linqtemp = from lin in tempkmList
@@ -402,11 +402,12 @@ public class JkbxBillSave_Dz : IHttpHandler, System.Web.SessionState.IRequiresSe
             bxmxb.fujian = fujian;
             bxmxb.note0 = p1.tfxx;
             bxmxb.note1 = p1.xfqk;
+            bxmxb.note2 = p1.note2;
 
-       
+
             main.StepId = "-1";
             bxmxb.Sfgf = p1.sfgf;//是否给付
-            //凭证号 凭证日期 是否挂账
+                                 //凭证号 凭证日期 是否挂账
             string strSql = "select guazhang,pzcode,pzdate from bill_ybbxmxb where billCode='" + bxmxb.BillCode + "'";
             System.Data.DataTable dtMxb = server.GetDataTable(strSql, null);
             if (dtMxb.Rows.Count > 0)
@@ -448,7 +449,7 @@ public class JkbxBillSave_Dz : IHttpHandler, System.Web.SessionState.IRequiresSe
                 fykm.bxbm = p1.gkbmbh;
                 fykm.Status = "0";
                 fykm.Bxbm = p1.list[i].bxbm;
-               
+
                 IList<Bill_Ybbxmxb_Fykm_Dept> depList = new List<Bill_Ybbxmxb_Fykm_Dept>();
                 for (int j = 0; j < p1.list[i].bm.Length; j++)
                 {
@@ -533,9 +534,9 @@ public class JkbxBillSave_Dz : IHttpHandler, System.Web.SessionState.IRequiresSe
         public string fujian { get; set; }
         public string yksqcode { get; set; }//用款申请单code
         public string isxkfx { get; set; }//是否是新财年
-        /// <summary>
-        /// 退费信息 格式： 所在分校|&|学员姓名|&|所在班级|&|协议编号|&|签单时间
-        /// </summary>
+                                          /// <summary>
+                                          /// 退费信息 格式： 所在分校|&|学员姓名|&|所在班级|&|协议编号|&|签单时间
+                                          /// </summary>
         public string tfxx { get; set; }
         /// <summary>
         /// 消费情况  格式：协议辅导费用|&|已消费课时|&|对应课时单价|&|已消费费用|&|应扣其他费用
@@ -545,6 +546,10 @@ public class JkbxBillSave_Dz : IHttpHandler, System.Web.SessionState.IRequiresSe
         /// 给付金额
         /// </summary>
         public decimal gfje { get; set; }
+        /// <summary>
+        /// 退费的时候记录对应的任课老师
+        /// </summary>
+        public string note2 { get; set; }
 
 
     }

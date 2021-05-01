@@ -11,297 +11,274 @@
     scrollbar-track-color: #fff;
     scrollbar-darkshadow-color: #ffffff;*/
 
-html, body
-{
-	overflow: auto;
-	font-size: 12px;
-	margin: 0;
-	padding: 0;
-	border: none;
+html, body {
+    overflow: auto;
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
+    border: none;
 }
 
 /* 超级链接显示风格 */
-.basehidden
-{
-	display: none;
+.basehidden {
+    display: none;
 }
 
-.rightBox
-{
-	text-align: right;
+.rightBox {
+    text-align: right;
 }
-td
-{
-	font-size: 12px;
+
+td {
+    font-size: 12px;
 }
-a:visited
-{
-	color: #333333;
-	text-decoration: none;
+
+a:visited {
+    color: #333333;
+    text-decoration: none;
 }
-a:hover
-{
-	color: #CC0000;
-	text-decoration: none;
+
+a:hover {
+    color: #CC0000;
+    text-decoration: none;
 }
-a:active
-{
-	color: #CC0000;
-	text-decoration: none;
+
+a:active {
+    color: #CC0000;
+    text-decoration: none;
 }
-a:link
-{
-	color: #333333;
-	text-decoration: none;
+
+a:link {
+    color: #333333;
+    text-decoration: none;
 }
 
 /*表格*/
-.baseTable
-{
-	padding-top: 4px;
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: 5px;
-	margin-bottom: 5px;
-	border-collapse: collapse;
-	border: 1px solid #1855C6;
-	cell-spacing: 0px;
-}
-.myGrid
-{
-	border-bottom: 1px solid;
-	border-top: 1px solid;
-	border-color: #1855C6;
-	border-right: 1px solid;
-	border-left: 1px solid;
-}
-.myTable
-{
-	border-bottom: 0px solid;
-	border-top: 1px solid;
-	border-color: #1855C6;
-	border-right: 0px solid;
-	border-left: 1px solid;
-	border-collapse: collapse;
-}
-.myTable td
-{
-	height: 25px;
-	border-bottom: 1px solid;
-	border-top: 0px solid;
-	border-color: #1855C6;
-	border-right: 1px solid;
-	border-left: 0px solid;
+.baseTable {
+    padding-top: 4px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-collapse: collapse;
+    border: 1px solid #1855C6;
+    cell-spacing: 0px;
 }
 
-.myTable tdNone
-{
-	height: 25px;
-	border-bottom: 0px solid;
-	border-top: 0px solid;
-	border-color: #1855C6;
-	border-right: 0px solid;
-	border-left: 0px solid;
-}
-.tableBg
-{
-	background-color: #EDEDED;
-	width: 100px;
-	text-align: center;
-}
-.tableBg2
-{
-	background-color: #EDEDED;
-	text-align: right;
-	 padding-right:3px;
+.myGrid {
+    border-bottom: 1px solid;
+    border-top: 1px solid;
+    border-color: #1855C6;
+    border-right: 1px solid;
+    border-left: 1px solid;
 }
 
-.myGridHeader
-{
-	background: url(../Images/th_bg.gif);
-	height: 20px;
-	border-bottom: 1px solid;
-	border-top: 1px solid;
-	border-color: #1855C6;
-	border-right: 1px solid;
-	border-left: 1px solid;
-	text-align: center;
-	font-weight:bold;
+.myTable {
+    border-bottom: 0px solid;
+    border-top: 1px solid;
+    border-color: #1855C6;
+    border-right: 0px solid;
+    border-left: 1px solid;
+    border-collapse: collapse;
 }
-.myGridItem
-{
-	padding: 3px;
-	line-height: 20px;
-	border-bottom: 1px solid;
-	border-top: 1px solid;
-	border-color: #1855C6;
-	border-right: 1px solid;
-	border-left: 1px solid;
+
+    .myTable td {
+        height: 30px;
+        border-bottom: 1px solid;
+        border-top: 0px solid;
+        border-color: #1855C6;
+        border-right: 1px solid;
+        border-left: 0px solid;
+    }
+
+    .myTable tdNone {
+        height: 30px;
+        border-bottom: 0px solid;
+        border-top: 0px solid;
+        border-color: #1855C6;
+        border-right: 0px solid;
+        border-left: 0px solid;
+    }
+
+.tableBg {
+    background-color: #EDEDED;
+    width: 100px;
+    text-align: center;
 }
-.myGridItemCenter
-{
-	text-align: center;
-	padding: 3px;
-	line-height: 20px;
-	border-bottom: 1px solid;
-	border-top: 1px solid;
-	border-color: #1855C6;
-	border-right: 1px solid;
-	border-left: 1px solid;
+
+.tableBg2 {
+    background-color: #EDEDED;
+    text-align: right;
+    padding-right: 5px;
 }
-.myGridItemRight
-{
-	text-align: right;
-	padding: 3px;
-	line-height: 20px;
-	border-bottom: 1px solid;
-	border-top: 1px solid;
-	border-color: #1855C6;
-	border-right: 1px solid;
-	border-left: 1px solid;
+
+.myGridHeader {
+    background: url(../Images/th_bg.gif);
+    height: 20px;
+    border-bottom: 1px solid;
+    border-top: 1px solid;
+    border-color: #1855C6;
+    border-right: 1px solid;
+    border-left: 1px solid;
+    text-align: center;
+    font-weight: bold;
+}
+
+.myGridItem {
+    padding: 3px;
+    line-height: 20px;
+    border-bottom: 1px solid;
+    border-top: 1px solid;
+    border-color: #1855C6;
+    border-right: 1px solid;
+    border-left: 1px solid;
+}
+
+.myGridItemCenter {
+    text-align: center;
+    padding: 3px;
+    line-height: 20px;
+    border-bottom: 1px solid;
+    border-top: 1px solid;
+    border-color: #1855C6;
+    border-right: 1px solid;
+    border-left: 1px solid;
+}
+
+.myGridItemRight {
+    text-align: right;
+    padding: 3px;
+    line-height: 20px;
+    border-bottom: 1px solid;
+    border-top: 1px solid;
+    border-color: #1855C6;
+    border-right: 1px solid;
+    border-left: 1px solid;
 }
 
 /* 层*/
-.baseDiv
-{
+.baseDiv {
 }
 /* 按钮*/
-.baseButton
-{
-	border-right: #2C59AA 1px solid;
-	padding-right: 2px;
-	border-top: #2C59AA 1px solid;
-	padding-left: 2px;
-	font-size: 12px;
-	filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#ffffff, EndColorStr=#C3DAF5);
-	border-left: #2C59AA 1px solid;
-	cursor: hand;
-	color: black;
-	padding-top: 2px;
-	border-bottom: #2C59AA 1px solid;
+.baseButton {
+    border-right: #2C59AA 1px solid;
+    padding-right: 2px;
+    border-top: #2C59AA 1px solid;
+    padding-left: 2px;
+    font-size: 12px;
+    filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#ffffff, EndColorStr=#C3DAF5);
+    border-left: #2C59AA 1px solid;
+    cursor: hand;
+    color: black;
+    padding-top: 2px;
+    border-bottom: #2C59AA 1px solid;
 }
 
 /* 提交按钮*/
-.baseSubmit
-{
-	padding: 1px 10px;
-	font-size: 12px;
-	border: 1px #1E7ACE solid;
-	background: #D0F0FF;
+.baseSubmit {
+    padding: 1px 10px;
+    font-size: 12px;
+    border: 1px #1E7ACE solid;
+    background: #D0F0FF;
 }
 /* 只读文本框*/
-.baseTextReadOnly
-{
-	background-color: #cccccc;
+.baseTextReadOnly {
+    background-color: #cccccc;
 }
 
 /* 文本输入框*/
-.baseText
-{
-	text-align: left;
-	width: 100px;
-	vertical-align: bottom;
-	border-top-style: none;
-	border-right-style: none;
-	border-left-style: none;
-	background-color: #FFF;
-	border-bottom: #000 1px solid;
+.baseText {
+    text-align: left;
+    width: 100px;
+    vertical-align: bottom;
+    border-top-style: none;
+    border-right-style: none;
+    border-left-style: none;
+    background-color: #FFF;
+    border-bottom: #000 1px solid;
 }
 /* 密码框*/
-.basePassword
-{
+.basePassword {
 }
 /* 多项框*/
-.baseCbx
-{
+.baseCbx {
 }
 /* 单选框*/
-.baseRadio
-{
+.baseRadio {
 }
 /* 文本域*/
-.baseArea
-{
-	background: #f8f8f8;
-	border-bottom: #B7B7B7 1px solid;
-	border-left: #B7B7B7 1px solid;
-	border-right: #B7B7B7 1px solid;
-	border-top: #B7B7B7 1px solid;
-	color: #000000;
-	cursor: text;
-	font-family: "Arial";
-	font-size: 9pt;
-	padding: 1px;
+.baseArea {
+    background: #f8f8f8;
+    border-bottom: #B7B7B7 1px solid;
+    border-left: #B7B7B7 1px solid;
+    border-right: #B7B7B7 1px solid;
+    border-top: #B7B7B7 1px solid;
+    color: #000000;
+    cursor: text;
+    font-family: "Arial";
+    font-size: 9pt;
+    padding: 1px;
 }
 /* 图片*/
-.baseImg
-{
+.baseImg {
 }
 /* 下拉框*/
-.baseSelect
-{
-	border-right: #000000 1px solid;
-	border-top: #FFFFFF 1px solid;
-	font-size: 12px;
-	border-left: #FFFFFF 1px solid;
-	color: #003366;
-	border-bottom: #000000 1px solid;
-	background-color: #f4f4f4;
+.baseSelect {
+    border-right: #000000 1px solid;
+    border-top: #FFFFFF 1px solid;
+    font-size: 12px;
+    border-left: #FFFFFF 1px solid;
+    color: #003366;
+    border-bottom: #000000 1px solid;
+    background-color: #f4f4f4;
 }
 
 
-.baseTableInput
-{
-	padding-top: 4px;
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: 5px;
-	margin-bottom: 5px;
-	border-collapse: collapse;
-	border: 1px solid #1855C6;
-	cell-spacing: 0px;
-}
-.baseTableInput TD
-{
-	padding: 3px;
-	line-height: 23px;
-	border: 1px solid #1855C6;
-}
-.InputLabel
-{
-	background-color: #EFECED;
-	width: 100px;
-	text-align: center;
+.baseTableInput {
+    padding-top: 4px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-collapse: collapse;
+    border: 1px solid #1855C6;
+    cell-spacing: 0px;
 }
 
-.highlight
-{
-	text-decoration: underline;
-	font-weight: bold;
+    .baseTableInput TD {
+        padding: 3px;
+        line-height: 23px;
+        border: 1px solid #1855C6;
+    }
+
+.InputLabel {
+    background-color: #EFECED;
+    width: 100px;
+    text-align: center;
+}
+
+.highlight {
+    text-decoration: underline;
+    font-weight: bold;
 }
 /*.highlight{ background:#7CC5E5;}原来的#EBF2F5c*/
-.hiddenbill
-{
-	display: none;
+.hiddenbill {
+    display: none;
 }
 
-.billtitle
-{
-	text-align: center;
-	font-weight: bold;
-	font-size: 16px;
+.billtitle {
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
 }
 /*双数行*/
-.trodd
-{
-	background-color: #F8F8F8;
+.trodd {
+    background-color: #F8F8F8;
 }
 /*单数行*/
-.treven
-{
-	background-color: #FFFFFF;
+.treven {
+    background-color: #FFFFFF;
 }
-.trmouseover
-{
-	background-color: #E4F5FF;
+
+.trmouseover {
+    background-color: #E4F5FF;
 }

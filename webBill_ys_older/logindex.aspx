@@ -10,9 +10,9 @@
 <style type="text/css">
     .content {
         position: absolute;
-        left: 15%;
+        left: 40%;
         top: 35%;
-        margin-left: -200px; /* 400的一半 */
+        /*margin-left: -200px;*/ /* 400的一半 */
         margin-top: -100px; /* 200的一半 */
     }
 
@@ -23,7 +23,7 @@
     }
 
     .STYLE3 {
-        font-size: 12px;
+        font-size: 14px;
     }
 
     input {
@@ -189,61 +189,8 @@
 
 <script language="javascript" type="text/javascript">
     $(function () {
-        // changeImg();
-        //alert($("#txtUserCode"));
-        //alert($("#txtUserCode").val()); //null
-        //alert($("#txtUserCode").text());//报错
         document.getElementById("txtUserCode").focus();
-        //if (!window.ActiveXObject) {
-        //    alert("尊敬的用户您好，系统检测到您使用非IE系列浏览器登录，为了保证您有良好使用体验，强烈建议您使用IE系列浏览器。");
-        //}
-
-
-
     });
-
-    function setClear() {
-        document.getElementById("txtUserCode").value = "";
-        document.getElementById("txtUserPwd").value = "";
-        document.getElementById("txtCheckCode").value = "";
-    }
-    function userLoginSucess() {
-        var width = screen.width;
-        var height = screen.height;
-
-        if (height == 768) height -= 75;
-        if (height == 600) height -= 60;
-
-
-        var szFeatures = "top=0,";
-        szFeatures += "left=0,";
-        szFeatures += "width=" + width + ",";
-        szFeatures += "height=" + height + ",";
-        szFeatures += "directories=no,";
-        szFeatures += "status=yes,";
-        szFeatures += "menubar=no,";
-
-        //    _Default.SetScreenWidth(width);
-        //    _Default.SetScreeniHeight(height);
-        if (height <= 600) szFeatures += "scrollbars=yes,";
-            //else if (height >= 800) szFeatures += "scrollbars=yes,";
-        else szFeatures += "scrollbars=no,";
-
-        szFeatures += "resizable=yes"; //channelmode
-        window.open("webBill/main/mainFrame.aspx", "", szFeatures);
-
-        //不提示的关闭窗口
-        window.opener = "telchina";
-        window.close();
-    }
-    function Clos() {
-        if (confirm("你要退出本系统吗？")) {
-            window.close();
-        }
-    }
-    function objfocus(obj) {
-        obj.focus();
-    }
     function changeImg() {
         var url = "validate.aspx?" + Math.round();
         document.getElementById('imgYz').src = "";
@@ -253,7 +200,7 @@
 
 <body id="bodyid" runat="server">
     <form id="form1" runat="server" style="text-align: center">
-        <div class="content" style="width: 100%">
+        <div class="content">
             <table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0">
                 <tr>
                     <td align="center" style="text-align: center">
@@ -279,13 +226,14 @@
                                 </td>
                                 <td>
                                     <div style="width: 264px; height: 320px; border-width: 1px; border: solid 1px #CCCCCC; margin-bottom: 0px">
-                                        <div width="80%" style="border: #FFFFFF; text-align: center; margin-bottom: 0px">
+                                        <div width="80%" style="border: #FFFFFF; text-align: center; margin-bottom: 0px; margin-top: 20px">
                                             <div style="font-size: 20px; margin-top: 10px; margin-bottom: 15px; font-family: 微软雅黑; font-weight: bold; text-align: center; color: Black; height: 20px">
                                                 <%=Strcp%>
                                             </div>
                                             <div style="font-size: 20px; margin-left: 15px; font-weight: bold; text-align: center; font-family: 微软雅黑;">
                                                 <%=Strobjectname %>
                                             </div>
+                                            <div style="height: 15px;"></div>
                                             <table width="42%" border="0" cellpadding="1" cellspacing="0">
 
 
@@ -299,7 +247,7 @@
                                                         <div align="left" class="STYLE3">
                                                             <input id="txtUserCode" class="formstyle" runat="server" name="txtUserCode2" type="text"
                                                                 value="" />
-                                                            <%--    onmouseover="objfocus(this);"--%>
+
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -316,7 +264,6 @@
                                                         <div align="left" class="STYLE3">
                                                             <input id="txtUserPwd" runat="server" class="formstyle" name="txtUserPwd" type="password"
                                                                 value="" />
-                                                            <%--   onmouseover="objfocus(this);"--%>
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -344,9 +291,9 @@
                                                 </tr>
                                                 <tr>
                                                     <td colspan="2">
-                                                        <div align="left" class="STYLE3">
-                                                            &nbsp;&nbsp;&nbsp;&nbsp;本系统支持IE6以上的IE系列主流浏览器，单击<a href="help.htm">查看</a>如何将IE设为默认浏览器。
-                                                            &nbsp;&nbsp;&nbsp;&nbsp;<a href="erweima.html">手机扫码登录</a>
+                                                        <div align="left" class="STYLE3" style="margin-left: 100px;font-size:12px;">
+                                                            <%--&nbsp;&nbsp;&nbsp;&nbsp;本系统支持IE6以上的IE系列主流浏览器，单击<a href="help.htm">查看</a>如何将IE设为默认浏览器。--%>
+                                                            &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<a href="erweima.html">手机扫码登录</a>
                                                         </div>
 
                                                     </td>
@@ -357,11 +304,6 @@
                                 </td>
                             </tr>
                         </table>
-                        <%--  <div style="width:780px; margin:0 auto; padding:0px; padding-top:5px; height:30px;">
-                          <div style="float:right; color:Black; font-size:12px; font-weight:bold; width:300px;">
-                            <label style="font-weight:normal">济南行信科技有限公司</label>
-                         </div>
-                     </div>--%>
                     </td>
                 </tr>
             </table>

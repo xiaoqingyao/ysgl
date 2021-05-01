@@ -19,6 +19,19 @@
     <script language="javascript" type="Text/javascript">
         var status = "none";
         $(function () {
+            $("#myGrid tbody tr").each(function (i, o) {
+                if (i > 0) {
+                    var billname = $(o).find("td").eq(2).html();
+                    $.post("../MyAjax/WF_GetBillStatus.ashx", { billName: billname }, function (data) {
+                        $(o).find("td").eq(8).html(data);
+                        if (data.indexOf("否决")) {
+                            $.post("../MyAjax/WF_UnPassReason.ashx", { billName: billname }, function (ddt) {
+                                $(o).find("td").eq(9).html(ddt);
+                            });
+                        }
+                    });
+                }
+            });
             $(this).keypress(function (event) {
                 var key = event.keyCode;
                 if (key == '104') {
@@ -71,14 +84,10 @@
                     alert("该行已提交,不能删除！");
                     return;
                 }
-
                 if (!confirm("您确定要删除选中的单据吗?")) {
                     return;
                 }
-
-
                 var billcode = checkrow.find("td")[2].innerHTML;
-
                 $.post("../MyAjax/DeleteBill.ashx", { "billCode": billcode, "type": "gkbx" }, function (data, status) {
                     if (status == "success") {
                         if (data == "1") {
@@ -124,7 +133,6 @@
                 if ($(this).find("td")[1] != null) {
                     var billCode = $(this).find("td")[2].innerHTML;
                 }
-
                 $.post("../MyWorkFlow/GetBillStatus.ashx", { "billCode": billCode }, function (data, status) {
                     if (status == "success") {
                         $("#wf").html(data);
@@ -138,7 +146,6 @@
             //从用友导入存货报销单
             $("#btn_drxgj").click(function () {
                 window.location.href = "chbxd_ImportExcel.aspx?dydj=04";
-                //openDetail("chbxd_ImportExcel.aspx?dydj=04");
             });
             //取消
             $("#btn_cancle").click(function () {
@@ -165,7 +172,6 @@
                 } else {
                     var billcode = checkrow.find("td")[2].innerHTML;
                     $.post("../MyWorkFlow/WorkFlowReplace.ashx", { "billcode": billcode, "flowid": "gkbx" }, function (data, status) {
-                        //alert(data);
                         if (status == "success") {
                             if (data == "1") {
                                 alert("撤销成功！");
@@ -246,7 +252,6 @@
                     alert("单据已提交.不要重复操作!");
                 } else {
                     var billcode = checkrow.find("td")[2].innerHTML;
-                    //因为一般处理程序处理的方式同市立医院的gkbx 所以传的gkbx
                     $.post("../MyWorkFlow/WorkFlowSummit.ashx", { "billcode": billcode, "flowid": djtype, "isdz": "1" }, function (data, status) {
                         if (data == "-1" || data == "-2") {
                             alert("提交失败！");
@@ -262,16 +267,7 @@
                 }
             });
         });
-
-
         function openDetail(openUrl) {
-            //var returnValue = window.showModalDialog(openUrl, 'newwindow', 'center:yes;dialogHeight:700px;dialogWidth:990px;status:no;scroll:yes');
-            //if (returnValue == undefined || returnValue == "") {
-            //    return false;
-            //}
-            //else {
-            //    document.getElementById("btnRefresh").click();
-            //}
             $("#prodcutDetailSrc").attr("src", openUrl);
             $("#dialog-confirm").dialog(
                 {
@@ -279,48 +275,15 @@
                     autoOpen: true,//是否自动打开
                     height: 700, //高度
                     width: 990, //宽度
-                    //title: "新窗体",
                     title_html: true,
                     buttons: {
-                        //"Ok": function () {
-                        //    $("#btnRefresh").click();
-                        //    $(this).dialog('close');
-                        //},
-                        //"Cancel": function () { $(this).dialog('close'); return false; }
                     }
                 }
             );
-
         }
-
-        function openLookSpStep(openUrl) {
-            window.showModalDialog(openUrl, 'newwindow', 'center:yes;dialogHeight:500px;dialogWidth:460px;status:no;scroll:yes');
-        }
-        function gudingbiaotou() {
-            var t = document.getElementById("<%=myGrid.ClientID%>");
-            if (t == null || t.rows.length < 1) {
-                return;
-            }
-            var t2 = t.cloneNode(true);
-            t2.id = "cloneGridView";
-            for (i = t2.rows.length - 1; i > 0; i--) {
-                t2.deleteRow(i);
-            }
-            t.deleteRow(0);
-            header.appendChild(t2);
-            var mainwidth = document.getElementById("main").style.width;
-            mainwidth = mainwidth.substring(0, mainwidth.length - 2);
-            mainwidth = mainwidth - 16;
-            document.getElementById("header").style.width = mainwidth;
-        }
-        function gudingbiaotounew(obj, height) {
-            var gvn = obj.clone(true).removeAttr("id");
-            $(gvn).find("tr:not(:first)").remove();
-            $(gvn).css("margin-bottom", "0px");
-            obj.css("margin", "-1px 0 0 0");
-            obj.before(gvn);
-            obj.find("tr:first").remove();
-            obj.wrap("<div style='height:" + height + "px; margin-top:0px; border-bottom:solid 1px #C1DAD7 ;width:" + (parseFloat(obj.width()) + 20) + "px; overflow-y: scroll;overflow-x:hidden; overflow: auto; padding: 0;margin: 0;'></div>");
+        function closeDetail() {
+            $("#dialog-confirm").dialog("close");
+            $("#btnRefresh").click();
         }
         function add() {
             var dydj = '<%=Request["dydj"] %>';
@@ -383,8 +346,6 @@
 
                     <input type="button" class="baseButton" id="btn_sh" value="查看审核详细信息" style="display: none" />
                     <asp:Button ID="btn_Export" runat="server" Text="导出Excel" OnClick="btn_Export_Click" CssClass="baseButton" />
-                    <asp:Button ID="Button3" runat="server" Text="导出Excel2" OnClick="Button3_Click" CssClass="baseButton" />
-                    <%--<input type="button" value="打印预览（方式2）" id="btn_print2" class="baseButton" />--%>
                     <input type="button" class="baseButton" value="帮助" onclick="javascript: parent.helptoggle();" />
                 </td>
             </tr>
@@ -478,7 +439,7 @@
                                         Font-Strikeout="False" Font-Underline="False" Wrap="false" CssClass="myGridItem"
                                         HorizontalAlign="Center" />
                                 </asp:BoundColumn>
-                                <asp:BoundColumn DataField="billDept" HeaderText="部门"
+                                <asp:BoundColumn DataField="billdeptname" HeaderText="部门"
                                     ItemStyle-Width="100" HeaderStyle-Width="100">
                                     <HeaderStyle Font-Bold="True" Font-Italic="False" Font-Overline="False" Font-Strikeout="False"
                                         Font-Underline="False" HorizontalAlign="Center" Wrap="false" CssClass="myGridHeader" />
@@ -541,17 +502,5 @@
             <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" id="prodcutDetailSrc" scrolling="no" width="100%" height="100%"></iframe>
         </div>
     </form>
-
-    <script type="text/javascript">
-        function SelectAll(aControl) {
-            var chk = document.getElementById("myGrid").getElementsByTagName("input");
-            for (var s = 0; s < chk.length; s++) {
-                chk[s].checked = aControl.checked;
-            }
-        }
-    </script>
-
 </body>
-
-
 </html>

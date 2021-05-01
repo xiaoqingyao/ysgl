@@ -38,6 +38,22 @@
             padding: 15px;
             background-color: White;
         }
+
+        table input {
+            width: 200px;
+        }
+
+        table select {
+            width: 208px;
+        }
+
+        table input[type=button] {
+            width: 100px;
+        }
+
+        table input[type=radio] {
+            width: 20px;
+        }
     </style>
 
     <script src="../Resources/jScript/jQuery/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
@@ -45,7 +61,7 @@
     <script src="../Resources/jScript/jQuery/jquery.ui.datepicker-zh-CN.js" type="text/javascript"
         charset="UTF-8"></script>
 
-    <script language="javascript" type="Text/javascript">
+    <script type="Text/javascript">
         var selectCode = ''; //单据撤销和单据详细信息用到的选择单据的编号
         $(function () {
             htjeChange();
@@ -91,9 +107,7 @@
                         alert("请先选择单据!");
                     }
                     else {
-                        //if (confirm("确定要审批该单据吗?")) {
                         $.post("../MyWorkFlow/WorkFlowApprove.ashx", { "billcode": billcode, "mind": mind, "action": "approve" }, OnApproveSuccess);
-                        //}
                     }
                 }
 
@@ -112,21 +126,6 @@
                 window.close();
                 // $("#btnRefresh").click();
             });
-          <%--  //否决单据
-            $("#btn_cancel").click(function () {
-
-                var billcode = '<%=Request["billCode"] %>';
-                var mind = $("#txt_shyj").val();
-                billcode = billcode + "*" + mind + ",";
-                billcode = escape(billcode);
-                if (billcode == undefined || billcode == "") {
-                    alert("请先选择单据!");
-                } else {
-                    if (confirm("确定要否决该单据吗?")) {
-                        $.post("../MyWorkFlow/WorkFlowApprove.ashx", { "billcode": billcode, "mind": "", "action": "disagree" }, OnApproveSuccess);
-                    }
-                }
-            });--%>
             //保存
             $("#btn_test").click(function () {
 
@@ -196,8 +195,9 @@
                     if (status == "success") {
                         if (data == "1") {
                             alert("保存成功");
-                            window.returnValue = "1";
-                            window.close();
+                            //window.returnValue = "1";
+                            //window.close();
+                            parent.closeDetail();
                         } else if (data == "-2") {
                             alert("有预算超支了,不能保存!");
                         } else if (data == "-3") {
@@ -418,9 +418,7 @@
                 var gkbmbh = "";
                 var isgk = $("#rb_ok").attr("checked");
                 if (isgk) {
-                    //                    gkbmbh = $("#txt_gk").val();20120716修改，无论什么费用都需要选择制单部门的项目
-                    gkbmbh = $("#txt_gk").val(); //20131105修改   根据特种车要求  归口的选择归口部门的项目
-                    //gkbmbh = $("#txtDept").val();
+                    gkbmbh = $("#txt_gk").val();
 
                 } else {
                     gkbmbh = $("#txtDept").val();
@@ -463,12 +461,6 @@
             $("#btnDelFykm").click(function () {
                 $("#tab_fykm tbody tr ").each(function (e) {
                     if ($(this).hasClass("highlight")) {
-                        //删除 报销总金额
-                        //var tempje = $(this).find("input:eq(0)").val(); //金额
-                        //var zje=$("#txtHjjeXx").val();
-                        // alert(zje);
-                        //alert(tempje);
-                        // return;
                         $(this).remove();
                         htjeChange();
 
@@ -518,16 +510,13 @@
 
             //审核详细页
             $("#btn_sh").click(function () {
-
                 var billcode = '<%=Request["billCode"]%>';
-
                 window.showModalDialog("../MyWorkFlow/BillShDetail.aspx?billCode=" + billcode, 'newwindow', 'center:yes;dialogHeight:400px;dialogWidth:700px;status:no;scroll:yes');
             });
         });
 
         function lookyksq(billcode) {
             window.showModalDialog("bxDetailForDz.aspx?type=look&dydj=02&billCode=" + billcode, 'newwindow', 'center:yes;dialogHeight:600px;dialogWidth:970px;status:no;scroll:yes');
-            // location.href = " bxDetailForDz.aspx?type=look&dydj=02&billCode=" + billcode;
         }
 
         function change() {
@@ -673,23 +662,7 @@
                 if (bxdate == "") {
                     alert("请先选择报销日期"); return;
                 }
-                //费用报销单年月 201504
-                //var flg = "1";
-                //var bxdYm = bxdate.substring(0, 4) + bxdate.substring(5, 7);
-                //for (var i = 0; i < json.length; i++) {
-                //    if (json[i].Yksqcode.substring(0, 6) != bxdYm) {
-                //        alert("请确保借款申请单与费用报销单处于同一个财年月份。");
-                //        flg = "0";
-                //        return;
-                //    }
-                //}
-                //if (flg == "0") {
-                //    return;
-                //}
-
-
                 //结束验证借款申请单和费用报销单是否在同一个年月
-
                 var checkArray = new Array();
                 var ykIndex = $("#tab_yksq tbody tr").last().attr("id");
                 if (ykIndex == undefined || ykIndex == "") {
@@ -730,7 +703,7 @@
 
 
         function openKm(deptCode, isGk) {
-            
+
             var kmcode = "";
             var kmArray = new Array();
             $("#tab_fykm tbody tr td:nth-child(1)").each(function (i) {
@@ -743,7 +716,6 @@
             if (dydj == null && dydj == '' && dydj == undefined || dydj == '06') {
                 dydj = "02";
             }
-            //var str = window.showModalDialog("YskmSelectNew.aspx?deptCode=" + deptCode + "&kmcode=" + kmcode + "&isgk=" + isGk + "&billDate=" + billDate + "&dydj=" + dydj, 'newwindow', 'center:yes;dialogHeight:520px;dialogWidth:300px;status:no;scroll:yes');
             $("#prodcutDetailSrc").attr("src", "YskmSelectNew.aspx?deptCode=" + deptCode + "&kmcode=" + kmcode + "&isgk=" + isGk + "&billDate=" + billDate + "&dydj=" + dydj);
             $("#dialog-confirm").dialog(
                 {
@@ -754,9 +726,6 @@
                     title_html: true
                 }
             );
-            
-            
-            //insertKm(str);
         }
         //传入一个json 然后插入科目明细
         function insertKm(str) {
@@ -807,17 +776,6 @@
                     }
                     checkArray[i] = json[i].Yscode;
                 }
-                //如果选择的科目 弹出来没选  则取消  大智学校这边需要累加 所以注释
-                //var checkKm = checkArray.join();
-                //$("#tab_fykm tbody tr").each(function () {
-                //    var tempKmCode = $(this).find("td:eq(0)").html();
-                //    if (checkKm.indexOf(tempKmCode) < 0) {
-                //        var delIndex = this.id.split("_")[1];
-                //        $("#xm_" + delIndex).remove();
-                //        $("#bm_" + delIndex).remove();
-                //        $(this).remove();
-                //    }
-                //});
                 $("#tab_fykm tbody").append(inner);
                 //选中一下最后一行
                 $("#tab_fykm tbody tr:last").click();
@@ -906,10 +864,6 @@
         }
 
         function shangchuan() {
-            //var filepath = document.getElementById("upLoadFiles").value;
-            //var position = filepath.lastIndexOf("\\");
-            //var filename = filepath.substring(position + 1);
-
             $.ajaxFileUpload
                 (
                     {
@@ -919,14 +873,11 @@
                         dataType: 'json', //返回值类型 一般设置为json
                         success: function (data, status)  //服务器成功响应处理函数
                         {
-                            // $("#img1").attr("src", data.imgurl);
                             if (typeof (data.error) != 'undefined') {
                                 if (data.error != '') {
                                     alert(data.error);
                                 } else {
                                     //成功
-                                    //alert(decodeURI(unescape(data.filename)));
-                                    //alert(decodeURI(unescape(data.fileurl)));
                                     $("#filenames").html($("#filenames").html() + "<div style=' border-bottom:1px dashed #CDCDCD; text-align:left;'>&nbsp;&nbsp;&nbsp;<span style='font-weight:700'>新附件：" + decodeURI(unescape(data.filename)) + "：</span><a onclick='delfj(this);'>删除</a><span style='display:none'><input type='text' class='fujianurl' value='" + decodeURI(unescape(data.fileurl)) + "'/><input type='text' class='fujianname' value='" + decodeURI(unescape(data.filename)) + "'/></span></div>");
                                     alert(data.msg);
                                 }
@@ -940,10 +891,7 @@
                 )//清空上传控件
             document.getElementById("upLoadFiles").outerHTML = document.getElementById("upLoadFiles").outerHTML;
             return false;
-
-
         }
-
     </script>
 
     <style type="text/css">
@@ -997,8 +945,8 @@
                                         <asp:Label runat="server" ID="lbl_Jbr" Text="经办人"></asp:Label>
                                     </td>
                                     <td colspan="2" style="width: 200px">
-                                        <div style="margin-left: 2px">
-                                            <asp:TextBox ID="txtJbr" runat="server" Width="150px" ReadOnly="True"></asp:TextBox>
+                                        <div style="margin-left: 5px">
+                                            <asp:TextBox ID="txtJbr" runat="server" ReadOnly="True"></asp:TextBox>
 
                                         </div>
                                     </td>
@@ -1007,8 +955,8 @@
 
                                     </td>
                                     <td colspan="2">
-                                        <div style="margin-left: 2px">
-                                            <input id="txtBxr" readonly="readonly" style="width: 150px; background-color: #cccccc;" type="text" runat="server" />
+                                        <div style="margin-left: 5px">
+                                            <input id="txtBxr" readonly="readonly" style="background-color: #cccccc;" type="text" runat="server" />
                                         </div>
                                     </td>
                                 </tr>
@@ -1018,8 +966,8 @@
 
                                     </td>
                                     <td colspan="2">
-                                        <div style="margin-left: 2px">
-                                            <input id="txtDept" style="width: 150px" readonly="readonly" type="text" runat="server" /><input id="txtbxdept"
+                                        <div style="margin-left: 5px">
+                                            <input id="txtDept" readonly="readonly" type="text" runat="server" /><input id="txtbxdept"
                                                 readonly="readonly" style="display: none; width: 1px" type="text" runat="server" />
                                         </div>
                                     </td>
@@ -1027,8 +975,8 @@
                                         <asp:Label runat="server" ID="lblDate" Text="申请日期"></asp:Label>
                                     </td>
                                     <td colspan="2">
-                                        <div style="margin-left: 2px">
-                                            <asp:TextBox ID="txtSqrq" runat="server" Style="width: 150px"></asp:TextBox>
+                                        <div style="margin-left: 5px">
+                                            <asp:TextBox ID="txtSqrq" runat="server"></asp:TextBox>
                                         </div>
                                     </td>
                                 </tr>
@@ -1038,8 +986,8 @@
                                         <asp:Label runat="server" ID="lb_bxmxlx" Text="报销明细类型"></asp:Label>
                                     </td>
                                     <td colspan="2" style="width: 200px">
-                                        <div style="margin-left: 2px">
-                                            <asp:DropDownList ID="drpBxmxlx" Width="150px" runat="server">
+                                        <div style="margin-left: 5px">
+                                            <asp:DropDownList ID="drpBxmxlx" runat="server">
                                             </asp:DropDownList>
                                         </div>
                                     </td>
@@ -1048,8 +996,8 @@
                                         <asp:Label ID="lbl_djlx" runat="server"></asp:Label>
                                     </td>
                                     <td id="yklxtd2" colspan="2" runat="server">
-                                        <div style="margin-left: 2px">
-                                            <asp:DropDownList ID="ddl_ykdlx" runat="server" Width="151px">
+                                        <div style="margin-left: 5px">
+                                            <asp:DropDownList ID="ddl_ykdlx" runat="server">
                                                 <asp:ListItem Value="fxl">付现类</asp:ListItem>
                                                 <asp:ListItem Value="jkfl">讲课费类</asp:ListItem>
                                                 <asp:ListItem Value="fdl">返点类</asp:ListItem>
@@ -1062,7 +1010,7 @@
                                     <td class="tableBg2" colspan="2">开户银行
                                     </td>
                                     <td colspan="2">
-                                        <div style="margin-left: 2px">
+                                        <div style="margin-left: 5px">
                                             <input type="text" runat="server" id="txt_khh" />
                                         </div>
                                     </td>
@@ -1070,7 +1018,7 @@
 
                                     </td>
                                     <td colspan="2">
-                                        <div style="margin-left: 2px">
+                                        <div style="margin-left: 5px">
                                             <asp:TextBox ID="txtbxzh" runat="server"></asp:TextBox>
                                         </div>
                                     </td>
@@ -1079,15 +1027,15 @@
                                     <td class="tableBg2" colspan="2">收款单位
                                     </td>
                                     <td colspan="2">
-                                        <div style="margin-left: 2px">
+                                        <div style="margin-left: 5px">
                                             <asp:TextBox ID="txt_skdw" runat="server"></asp:TextBox>
                                         </div>
                                     </td>
-                                    <td style="text-align: right">借款方式
+                                    <td class="tableBg2">借款方式
                                     </td>
-                                    <td colspan="2" style="margin-left: 2px">
-                                        <div style="margin-left: 2px;">
-                                            <asp:DropDownList ID="ddl_ykfs" runat="server" Width="151px">
+                                    <td colspan="2" style="margin-left: 5px">
+                                        <div style="margin-left: 5px;">
+                                            <asp:DropDownList ID="ddl_ykfs" runat="server">
                                                 <asp:ListItem Value="现金">现金</asp:ListItem>
                                                 <asp:ListItem Value="转账">转账</asp:ListItem>
                                                 <asp:ListItem Value="支票">支票</asp:ListItem>
@@ -1103,31 +1051,22 @@
                                     <td colspan="2">
                                         <div style="border-bottom: 1px dashed #CDCDCD; height: 20px;">
                                             &nbsp;&nbsp;&nbsp;
-                                            <%--<asp:FileUpload ID="upLoadFiles"  runat="server" Width="100px" />--%>
-                                            <input type="file" id="upLoadFiles" name="upLoadFiles" style="100px" />
-                                            <%--<asp:HiddenField ID="hidfilnename" runat="server"></asp:HiddenField>--%>
-                                            <%--<asp:HiddenField ID="hiddFileDz" runat="server" />--%>
+                                            <input type="file" id="upLoadFiles" name="upLoadFiles" />
                                             <input id="csfj" value="上传" class="baseButton" onclick="shangchuan();" type="button" />
-                                            <%--<asp:Button ID="btn_sc" runat="server" Text="上 传" CssClass="baseButton" OnClick="btnScdj_Click" />--%>
-                                            <%--<asp:Button ID="btn_clear_pic" runat="server" Text="清空附件" CssClass="baseButton" OnClick="btn_clear_pic_Click" OnClientClick="javascript:confirm('确定要清空所有的附件吗？');" />--%>
                                             <input type="button" id="btn_lookpic" runat="server" value="查看图片附件" class="baseButton" />
-                                            <%--<asp:Button ID="btn_lookpic" runat="server" Text="查看图片附件" CssClass="baseButton" OnClick="btn_lookpic_Click" />--%>
-                                            <%--<asp:Label ID="laFilexx" runat="server" Text="" ForeColor="Red"></asp:Label>--%>
                                             <div id="divBxdj" runat="server">
                                             </div>
                                         </div>
                                         <%--存放用于显示附件的名字--%>
                                         <div id="filenames" runat="server">
                                         </div>
-                                        <%--<asp:Literal ID="Lafilename" runat="server" Text=""></asp:Literal>--%>
-                                        <%--<asp:Literal ID="Literal1" runat="server"></asp:Literal>--%>
                                     </td>
                                     <td class="tableBg2">
-                                        <asp:Label ID="lbl_djs" runat="server" Text="单据数："></asp:Label>
+                                        <asp:Label ID="lbl_djs" runat="server" Text="单据数"></asp:Label>
                                     </td>
                                     <td colspan="2">
-                                        <div style="margin-left: 2px">
-                                            <asp:TextBox ID="txt_djs" Width="90" runat="server"></asp:TextBox>
+                                        <div style="margin-left: 5px">
+                                            <asp:TextBox ID="txt_djs" runat="server"></asp:TextBox>
                                         </div>
                                     </td>
 
@@ -1137,7 +1076,7 @@
                                      
                                     </td>
                                     <td colspan="5">
-                                        <div style="margin-left: 2px;">
+                                        <div style="margin-left: 5px;">
                                             <asp:DropDownList ID="drp_xcn" runat="server" AutoPostBack="false" onchange="change()">
                                                 <asp:ListItem Value="是" Selected="True">新财年报销</asp:ListItem>
                                                 <asp:ListItem Value="否">老财年报销</asp:ListItem>
@@ -1153,8 +1092,8 @@
                                         <asp:Label runat="server" ID="lbl_bxzy" Text="报销摘要"></asp:Label>
                                     </td>
                                     <td colspan="5">
-                                        <div style="margin-left: 2px">
-                                            <asp:TextBox ID="txtBxzy" runat="server" Width="810"></asp:TextBox>
+                                        <div style="margin-left: 5px">
+                                            <asp:TextBox ID="txtBxzy" runat="server" Width="791"></asp:TextBox>
                                         </div>
                                     </td>
                                 </tr>
@@ -1163,8 +1102,8 @@
                                         <asp:Label runat="server" ID="lbl_bxsm" Text="报销说明"></asp:Label>
                                     </td>
                                     <td colspan="5">
-                                        <div style="margin-left: 2px">
-                                            <asp:TextBox ID="txtBxsm" runat="server" TextMode="MultiLine" Width="810"></asp:TextBox>
+                                        <div style="margin-left: 5px; margin-top: 3px;">
+                                            <asp:TextBox ID="txtBxsm" runat="server" TextMode="MultiLine" Width="793"></asp:TextBox>
                                         </div>
                                     </td>
                                 </tr>
@@ -1177,7 +1116,7 @@
                                     <td class="tableBg2" colspan="2">归口预算
                                     </td>
                                     <td colspan="2">
-                                        <div style="margin-left: 2px">
+                                        <div style="margin-left: 5px">
                                             <asp:RadioButton ID="rb_ok" runat="server" Text="是" GroupName="is_gk" />
                                             <asp:RadioButton ID="rb_can" runat="server" Text="否" GroupName="is_gk" Checked="true" />
                                         </div>
@@ -1185,7 +1124,7 @@
                                     <td class="tableBg2">归口部门
                                     </td>
                                     <td colspan="2" id="gkbm">
-                                        <div id='dv_gk' style="margin-left: 2px">
+                                        <div id='dv_gk' style="margin-left: 5px">
                                             <span>
                                                 <input type='text' id='txt_gk' runat="server" /></span>
                                         </div>
@@ -1196,7 +1135,7 @@
                                         <asp:Label ID="lbl_yskm" runat="server" Text="预算科目"></asp:Label>
                                     </td>
                                     <td colspan="5">
-                                        <div style="margin-left: 2px">
+                                        <div style="margin-left: 5px">
                                             <input type="button" value="选择预算科目" id="btnAddFykm" runat="server" class="baseButton" />
                                             <input type="button" value="删除预算科目" id="btnDelFykm" runat="server" class="baseButton" />
                                         </div>
@@ -1206,7 +1145,7 @@
                                     <td colspan="2" class="tableBg2">单据明细
                                     </td>
                                     <td colspan="5">
-                                        <div style="margin-left: 2px">
+                                        <div style="margin-left: 5px">
                                             <table id="tab_fykm" class="myTable" style="width: 95%">
                                                 <thead class="myGridHeader">
                                                     <tr>
@@ -1239,7 +1178,7 @@
                                         <asp:Label runat="server" ID="lblHsbm1" Text="选择核算部门"></asp:Label>
                                     </td>
                                     <td colspan="5">
-                                        <div style="margin-left: 2px">
+                                        <div style="margin-left: 5px">
                                             <input type="button" value="选择部门" id="btn_choosedept" runat="server" class="baseButton" />
                                             <input class="baseButton" value="导出Excel模板" type="button" onclick="exportExcel2();" />
                                             <input type="button" value="Excel导入" id="btn_importdept" runat="server" class="baseButton" />
@@ -1256,7 +1195,7 @@
                                     <td colspan="2" class="tableBg2">项目选择
                                     </td>
                                     <td colspan="5">
-                                        <div style="margin-left: 2px">
+                                        <div style="margin-left: 5px">
                                             <input type="button" value="选择项目" id="btn_choosexm" runat="server" class="baseButton" />
                                         </div>
                                     </td>
@@ -1270,14 +1209,14 @@
                                     <td colspan="2" class="tableBg2">合计金额小写
                                     </td>
                                     <td colspan="2" style="width: 200px">
-                                        <div style="margin-left: 2px">
+                                        <div style="margin-left: 5px">
                                             <input type="text" id="txtHjjeXx" runat="server" readonly="readonly" style="width: 226px; text-align: right; background-color: #cccccc;" />
                                         </div>
                                     </td>
                                     <td colspan="1" class="tableBg2" style="width: 200px">合计金额大写
                                     </td>
                                     <td colspan="2">
-                                        <div style="margin-left: 2px">
+                                        <div style="margin-left: 5px">
                                             <input type="text" id="txtHjjeDx" runat="server" readonly="readonly" style="background-color: #cccccc" />
                                         </div>
                                     </td>
@@ -1285,7 +1224,7 @@
                                 <tr runat="server" id="trMark" visible="false">
                                     <td colspan="2" class="tableBg2">单据标记</td>
                                     <td colspan="5">
-                                        <div style="margin-left: 2px">
+                                        <div style="margin-left: 5px">
                                             <asp:TextBox ID="txtMark" runat="server"></asp:TextBox>
                                             <asp:Button ID="btnMark" runat="server" Text="标记" OnClick="btnMark_Click" CssClass="baseButton" />
                                         </div>
@@ -1298,7 +1237,7 @@
                                     <td colspan="2" class="tableBg2">附加单据
                                     </td>
                                     <td colspan="5" style="text-align: right">
-                                        <div style="margin-left: 2px">
+                                        <div style="margin-left: 5px">
                                             <asp:DropDownList ID="selectBill" runat="server" CssClass="baseSelect" onchange="onSelectBillChanged(this.options[this.selectedIndex].value);">
                                                 <asp:ListItem Value="">--选择附加单据--</asp:ListItem>
                                             </asp:DropDownList>
@@ -1343,7 +1282,7 @@
                                     <td style="text-align: right" colspan="2">申请单明细
                                     </td>
                                     <td colspan="5">
-                                        <div style="margin-left: 2px">
+                                        <div style="margin-left: 5px">
                                             <table id="tab_yksq" class="myTable" style="width: 95%">
                                                 <thead class="myGridHeader">
                                                     <tr>

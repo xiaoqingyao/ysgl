@@ -67,8 +67,6 @@ public partial class webBill_bxgl_bxglFrame_Dz : BasePage
                 {
                     StrType = Request["type"].ToString();
                 }
-                //this.txtLoanDateFrm.Attributes.Add("onfocus", "javascript:setday(this);");
-                //this.txtLoanDateTo.Attributes.Add("onfocus", "javascript:setday(this);");
                 this.bindData();
             }
         }
@@ -97,10 +95,6 @@ public partial class webBill_bxgl_bxglFrame_Dz : BasePage
         //----------给gridview赋值
         this.myGrid.DataSource = dtrel;
         this.myGrid.DataBind();
-
-
-
-
         //通过一般报销是否自动审核的配置项来控制删除是否好用 如果是自动审核的  允许删除审核成功了的单子 edit by lvcc 20130124
         this.hdYbbxNeedAudit.Value = boYbbxNeedAudit ? "1" : "0";
     }
@@ -120,10 +114,10 @@ public partial class webBill_bxgl_bxglFrame_Dz : BasePage
         }
         hidflowid.Value = strflid;
         string deptCodes = (new Departments()).GetUserRightDepartments(Session["userCode"].ToString().Trim(), "");
-        string sql = @"select Row_Number()over(order by billdate desc,billName desc) as crow ,sum(je) as billJe,billname,flowid,stepid,billuser,billdate,isgk,(select bxsm from bill_ybbxmxb 
+        string sql = @"select Row_Number()over(order by billName desc) as crow ,sum(je) as billJe,billname,flowid,stepid,billuser,billdate,isgk,(select bxsm from bill_ybbxmxb 
 where bill_ybbxmxb.billCode=(select top 1 billcode from bill_main where billname=main.billName)) as bxsm,
-(select xmmc from bill_ysgc where gcbh=billName) as billName2,(select top 1 billdept from bill_main where billname=main.billname) as billdept
-,(select deptname from bill_departments where deptcode =(select top 1 billdept from bill_main where billname=main.billname)) as billdeptname,
+(select xmmc from bill_ysgc where gcbh=billName) as billName2
+,(select '['+deptcode+']'+deptname from bill_departments where deptcode =(select top 1 billdept from bill_main where billname=main.billname)) as billdeptname,
 (select '['+usercode+']'+username from bill_users where usercode=billuser) as billUserName
 from bill_main main inner join bill_ybbxmxb_fykm
 fykm on main.billcode=fykm.billcode  where flowid='" + strflid + "' and (billUser='" + Session["userCode"].ToString().Trim() + "' or main.billcode in (select billCode from bill_ybbxmxb where bxr='" + Session["userCode"].ToString().Trim() + "') or  billDept in (" + deptCodes + "))";
@@ -165,7 +159,7 @@ fykm on main.billcode=fykm.billcode  where flowid='" + strflid + "' and (billUse
 
 
 
-        string strsqlframe = "select * from ( {0} ) t where t.crow>{1} and t.crow<={2}";
+        string strsqlframe = "select * from ( {0} ) t where t.crow>{1} and t.crow<={2} order by crow";
         strsqlframe = string.Format(strsqlframe, sql, pagefrm, pageto);
         //Response.Write(strsqlframe);
         //count = 0;
@@ -229,39 +223,39 @@ fykm on main.billcode=fykm.billcode  where flowid='" + strflid + "' and (billUse
 
             if (strdydj == "01")//收入
             {
-
                 e.Item.Cells[9].Style.Add("display", "none");//.Visible = false;
-
             }
         }
         if (e.Item.ItemType != ListItemType.Header && e.Item.ItemType != ListItemType.Footer)
         {
-            string strbillcode = e.Item.Cells[2].Text.Trim();
-            SysManager sysMgr = new SysManager();
-            e.Item.Cells[5].Text = sysMgr.GetDeptCodeName(e.Item.Cells[5].Text);
-            string billcode = e.Item.Cells[2].Text;
-            string zt = e.Item.Cells[8].Text;
-            string state = "";
-            if (zt == "end")
-            {
-                e.Item.Cells[8].Text = "审批通过";
-            }
-            else
-            {
+            string sm = e.Item.Cells[7].Text.Trim();
+            e.Item.Cells[7].Text = sm.Length >= 40 ? sm.Substring(0, 37) + "…" : sm;
+            //string strbillcode = e.Item.Cells[2].Text.Trim();
+            //SysManager sysMgr = new SysManager();
+            //e.Item.Cells[5].Text = sysMgr.GetDeptCodeName(e.Item.Cells[5].Text);
+            //string billcode = e.Item.Cells[2].Text;
+            //string zt = e.Item.Cells[8].Text;
+            //string state = "";
+            //if (zt == "end")
+            //{
+            //    e.Item.Cells[8].Text = "审批通过";
+            //}
+            //else
+            //{
 
-                WorkFlowRecordManager bll = new WorkFlowRecordManager();
-                state = bll.WFState(billcode);
-                if (state == "未提交")//大智单子转移的问题  过一阵子就可以删除
-                {
-                    string billcode2 = server.GetCellValue("select top 1 billcode from bill_main where billname='" + billcode + "'");
-                    state = bll.WFState(billcode2);
-                }
-                e.Item.Cells[8].Text = state;
-            }
-            if (state.IndexOf("否决") > -1)
-            {
-                e.Item.Cells[9].Text = getStatus(billcode);
-            }
+            //    WorkFlowRecordManager bll = new WorkFlowRecordManager();
+            //    state = bll.WFState(billcode);
+            //    if (state == "未提交")//大智单子转移的问题  过一阵子就可以删除
+            //    {
+            //        string billcode2 = server.GetCellValue("select top 1 billcode from bill_main where billname='" + billcode + "'");
+            //        state = bll.WFState(billcode2);
+            //    }
+            //    e.Item.Cells[8].Text = state;
+            //}
+            //if (state.IndexOf("否决") > -1)
+            //{
+            //    e.Item.Cells[9].Text = getStatus(billcode);
+        //}
         }
     }
     private string GetDeoptAll()
@@ -283,9 +277,6 @@ fykm on main.billcode=fykm.billcode  where flowid='" + strflid + "' and (billUse
         {
             return "";
         }
-
-
-
     }
     private string GetUsersAll()
     {
@@ -329,8 +320,6 @@ fykm on main.billcode=fykm.billcode  where flowid='" + strflid + "' and (billUse
     }
     private string getStatus(string billcode)
     {
-
-
         string sql = @" select top 1 mind 
                          from workflowrecords
                          where rdstate='3' and
@@ -342,10 +331,7 @@ fykm on main.billcode=fykm.billcode  where flowid='" + strflid + "' and (billUse
 				                        and w.billCode='" + billcode + @"' 
 				                        group by w.recordid
 			                          ) ";
-        //string sql = " select top 1 mind from workflowrecords where recordid=(select top 1 recordid from workflowrecord where (billCode='" + billcode + "' or billcode=(select top 1 billcode from bill_main where billname='" + billcode + "'))) and rdstate='3' ";
         return server.GetCellValue(sql);
-        //string sql = " select top 1 mind from workflowrecords where recordid=(select top 1 recordid from workflowrecord where (billCode='" + billcode + "' or billcode=(select top 1 billcode from bill_main where billname='" + billcode + "'))) and rdstate='3' ";
-        //return server.GetCellValue(sql);
     }
     protected void btn_Export_Click(object sender, EventArgs e)
     {
@@ -359,22 +345,6 @@ fykm on main.billcode=fykm.billcode  where flowid='" + strflid + "' and (billUse
         dic.Add("billJe", "单据金额");
         dic.Add("isgk", "是否归口");
         dic.Add("bxsm", "摘要");
-        new ExcelHelper().ExpExcel(dt, "ExportFile", dic);
-    }
-    protected void Button3_Click(object sender, EventArgs e)
-    {
-       // int count = 0;
-        string strsql = "select * from dz_yksq_bxd";
-
-        DataTable dt = server.GetDataTable(strsql, null); 
-        Dictionary<string, string> dic = new Dictionary<String, String>();
-        //dic.Add("billname", "单据编号");
-        //dic.Add("billdeptname", "部门");
-        //dic.Add("billUserName", "制单人");
-        //dic.Add("billdate", "单据日期");
-        //dic.Add("billJe", "单据金额");
-        //dic.Add("isgk", "是否归口");
-        //dic.Add("bxsm", "摘要");
         new ExcelHelper().ExpExcel(dt, "ExportFile", dic);
     }
 }

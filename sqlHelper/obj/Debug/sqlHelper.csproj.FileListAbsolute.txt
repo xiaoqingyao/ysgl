@@ -17,7 +17,6 @@ E:\PROJECT\ys_new\sqlHelper\obj\Debug\sqlHelper.dll
 E:\PROJECT\ys_new\sqlHelper\obj\Debug\sqlHelper.pdb
 D:\01Project\04预算管理\sqlHelper\bin\Debug\sqlHelper.dll
 D:\01Project\04预算管理\sqlHelper\bin\Debug\sqlHelper.pdb
-D:\01Project\04预算管理\sqlHelper\obj\Debug\sqlHelper.csprojAssemblyReference.cache
 D:\01Project\04预算管理\sqlHelper\obj\Debug\sqlHelper.csproj.CoreCompileInputs.cache
 D:\01Project\04预算管理\sqlHelper\obj\Debug\sqlHelper.dll
 D:\01Project\04预算管理\sqlHelper\obj\Debug\sqlHelper.pdb

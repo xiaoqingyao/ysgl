@@ -47,51 +47,18 @@ public partial class logindex : System.Web.UI.Page
 
         if (!IsPostBack)
         {
-            // bdzt();
-            //绑定账套
             databind();
-            //this.txtUserCode.Value = "22217";
         }
-        //bdzt();
-        //string strsql2 = "select * from t_Config where akey='Companyname'";
-        //DataTable dtcmpname = server.RunQueryCmdToTable(strsql2);
-        //if (dtcmpname.Rows.Count > 0 && dtcmpname != null)
-        //{
-        //    if (dtcmpname.Rows[0]["meaning"].ToString() != null)
-        //    {
-        //        strcp = dtcmpname.Rows[0]["meaning"].ToString();
-        //    }
-        //    else
-        //    {
-        //        
-        //    }
-        //}
-
     }
 
-    public void bdzt()
-    {
-
-        //IList<ConfigModel> configlist = XmlHelper.GetConfigAllzt();
-        //this.zt_drlist.DataSource = configlist;
-        //zt_drlist.DataTextField = "Typename";
-        //zt_drlist.DataValueField = "Typecode";
-        //zt_drlist.DataBind();
-    }
+    
 
     public void databind()
     {
-
-
-
-
-
         string image1 = ConfigurationManager.AppSettings["image1"];
         string image2 = ConfigurationManager.AppSettings["image2"];
         string image3 = ConfigurationManager.AppSettings["image3"];
         string name = ConfigurationManager.AppSettings["CustomTitle"];
-
-
 
         Bll.ConfigBLL bllConfig = new Bll.ConfigBLL();
         DataTable dt;
@@ -101,25 +68,25 @@ public partial class logindex : System.Web.UI.Page
         {
             name = Convert.ToString(dt.Rows[0]["avalue"]);
         }
-        //登录界面图片1
-        dt = bllConfig.GetDtByKey("LoginImg1");
-        if (dt.Rows.Count > 0 && !string.IsNullOrEmpty(Convert.ToString(dt.Rows[0]["avalue"])))
-        {
-            image1 = Convert.ToString(dt.Rows[0]["avalue"]);
-        }
-        //登录界面图片2
-        dt = bllConfig.GetDtByKey("LoginImg2");
-        if (dt.Rows.Count > 0 && !string.IsNullOrEmpty(Convert.ToString(dt.Rows[0]["avalue"])))
-        {
-            image2 = Convert.ToString(dt.Rows[0]["avalue"]);
-        }
+        ////登录界面图片1
+        //dt = bllConfig.GetDtByKey("LoginImg1");
+        //if (dt.Rows.Count > 0 && !string.IsNullOrEmpty(Convert.ToString(dt.Rows[0]["avalue"])))
+        //{
+        //    image1 = Convert.ToString(dt.Rows[0]["avalue"]);
+        //}
+        ////登录界面图片2
+        //dt = bllConfig.GetDtByKey("LoginImg2");
+        //if (dt.Rows.Count > 0 && !string.IsNullOrEmpty(Convert.ToString(dt.Rows[0]["avalue"])))
+        //{
+        //    image2 = Convert.ToString(dt.Rows[0]["avalue"]);
+        //}
 
-        //登录界面图片3
-        dt = bllConfig.GetDtByKey("LoginImg3");
-        if (dt.Rows.Count > 0 && !string.IsNullOrEmpty(Convert.ToString(dt.Rows[0]["avalue"])))
-        {
-            image3 = Convert.ToString(dt.Rows[0]["avalue"]);
-        }
+        ////登录界面图片3
+        //dt = bllConfig.GetDtByKey("LoginImg3");
+        //if (dt.Rows.Count > 0 && !string.IsNullOrEmpty(Convert.ToString(dt.Rows[0]["avalue"])))
+        //{
+        //    image3 = Convert.ToString(dt.Rows[0]["avalue"]);
+        //}
         string xtname = ConfigurationManager.AppSettings["Strobjectname"];
         if (image1 != "")
         {
@@ -148,17 +115,11 @@ public partial class logindex : System.Web.UI.Page
         {
             ShowYanZhengMa = "block";
         }
-
     }
-
-
 
 
     protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
     {
-
-
-
         server = new sqlHelper.sqlHelper();
         bool checkFlg = true;//验证通过标记
         //如果出错次数大于3 让其输入验证码
@@ -182,51 +143,10 @@ public partial class logindex : System.Web.UI.Page
                 txtCheckCode.Focus();
             }
         }
-        //if (this.txtCheckCode.Text.Trim() == "")
-        //{
-        //    ClientScript.RegisterStartupScript(this.GetType(), "", "alert('请输入验证码！');", true);
-        //    txtCheckCode.Focus();
-        //    return;
-        //}
-        //if (Session["VNum"] == null)
-        //{
-        //    Response.Redirect("logindex.aspx");
-        //    Response.End();
-        //}
-        //if (this.txtCheckCode.Text.Trim() != Session["VNum"].ToString().Trim())
-        //{
-        //    ClientScript.RegisterStartupScript(this.GetType(), "", "alert('验证码错误！');", true);
-        //    txtCheckCode.Focus();
-        //    return;
-        //}
+       
         string struser = this.txtUserCode.Value.ToString().Trim();
-        #region 检测点数
-        //int irel = checkPoint();
-        //if (irel == 2)
-        //{
-        //    ClientScript.RegisterStartupScript(this.GetType(), "", "alert('对不起，当前登录人数已经超过了服务器设定的最大数量！');", true);
-        //    return;
-        //}
-        ////else if (irel == 1)
-        ////{
-        ////    if (checkUserHasOnline(struser))
-        ////    {
-        ////        ClientScript.RegisterStartupScript(this.GetType(), "", "alert('对不起，该用户已经登录。如果是异常退出，请30秒后再次登录。');", true);
-        ////        return;
-        ////    }
-        ////}
-        //else if (irel == 3)
-        //{
-        //    ClientScript.RegisterStartupScript(this.GetType(), "", "alert('请插入加密狗。');", true);
-        //    return;
-        //}
-        //else { }
-        #endregion
+
         string sql = "select * from bill_users where userCode=@userCode and userPwd=@userPwd and userStatus='1'";
-        //string sql = "select * from bill_users where userCode=@userCode  and userStatus='1'";
-
-
-
         SqlParameter[] par = new SqlParameter[] { 
             new SqlParameter("@userCode",SqlDbType.VarChar,20),
             new SqlParameter("@userPwd",SqlDbType.VarChar,32)
@@ -262,67 +182,65 @@ public partial class logindex : System.Web.UI.Page
         /*
         ClientScript.RegisterStartupScript(this.GetType(), "", "userLoginSucess();", true);
          */
-        #region 控制点数
-        addUserOnline(strusercode);
-        #endregion
-
+        //#region 控制点数
+        //addUserOnline(strusercode);
+        //#endregion
         Response.Redirect("webBill/main/mainFrame.aspx");
-
     }
 
-    /// <summary>
-    /// 检测点数
-    /// </summary>
-    /// <returns></returns>
-    private int checkPoint()
-    {
-        //是否控制点
-        bool boControlPoint = new ConfigBLL().GetValueByKey("ISControlPoint").Equals("1");
-        if (!boControlPoint)
-        {
-            return 1;
-        }
-        //点数
-        int ilinecount = new Bll.OnlineBLL().GetOnlineCount();//在线点数
-        int iMaxCount = new Bll.OnlineBLL().GetMaxOnlineCount();//最大点数
-        if (iMaxCount == 0)
-        {
-            return 3;//没有狗  因为不可能注册点数为0的狗
-        }
-        if (iMaxCount <= ilinecount)
-        {
-            return 2;
-        }
-        else
-        {
-            return 1;//成功
-        }
-    }
-    /// <summary>
-    /// 用户登录后 添加进去
-    /// </summary>
-    /// <param name="usercode"></param>
-    private void addUserOnline(string usercode)
-    {
-        bool boControlPoint = new ConfigBLL().GetValueByKey("ISControlPoint").Equals("1");
-        if (boControlPoint)
-        {
-            new Bll.OnlineBLL().AddUser(usercode);
-        }
-    }
-    /// <summary>
-    /// 检测是否已经在线
-    /// </summary>
-    /// <param name="usercode"></param>
-    /// <returns></returns>
-    private bool checkUserHasOnline(string usercode)
-    {
-        bool boControlPoint = new ConfigBLL().GetValueByKey("ISControlPoint").Equals("1");
-        if (!boControlPoint)
-        {
-            return false;
-        }
-        return new Bll.OnlineBLL().IsExit(usercode);
-    }
+    ///// <summary>
+    ///// 检测点数
+    ///// </summary>
+    ///// <returns></returns>
+    //private int checkPoint()
+    //{
+    //    //是否控制点
+    //    bool boControlPoint = new ConfigBLL().GetValueByKey("ISControlPoint").Equals("1");
+    //    if (!boControlPoint)
+    //    {
+    //        return 1;
+    //    }
+    //    //点数
+    //    int ilinecount = new Bll.OnlineBLL().GetOnlineCount();//在线点数
+    //    int iMaxCount = new Bll.OnlineBLL().GetMaxOnlineCount();//最大点数
+    //    if (iMaxCount == 0)
+    //    {
+    //        return 3;//没有狗  因为不可能注册点数为0的狗
+    //    }
+    //    if (iMaxCount <= ilinecount)
+    //    {
+    //        return 2;
+    //    }
+    //    else
+    //    {
+    //        return 1;//成功
+    //    }
+    //}
+    ///// <summary>
+    ///// 用户登录后 添加进去
+    ///// </summary>
+    ///// <param name="usercode"></param>
+    //private void addUserOnline(string usercode)
+    //{
+    //    //bool boControlPoint = new ConfigBLL().GetValueByKey("ISControlPoint").Equals("1");
+    //    //if (boControlPoint)
+    //    //{
+    //    //    new Bll.OnlineBLL().AddUser(usercode);
+    //    //}
+    //}
+    ///// <summary>
+    ///// 检测是否已经在线
+    ///// </summary>
+    ///// <param name="usercode"></param>
+    ///// <returns></returns>
+    //private bool checkUserHasOnline(string usercode)
+    //{
+    //    //bool boControlPoint = new ConfigBLL().GetValueByKey("ISControlPoint").Equals("1");
+    //    //if (!boControlPoint)
+    //    //{
+    //    //    return false;
+    //    //}
+    //    //return new Bll.OnlineBLL().IsExit(usercode);
+    //}
 
 }

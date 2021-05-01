@@ -24,15 +24,6 @@
             <li id="sp_last" runat="server"></li>
         </ul>
     </div>
-    <%--控制点数模块--%>
-<%--    <asp:ScriptManager ID="ScriptManager1" runat="server">
-    </asp:ScriptManager>
-    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-        <ContentTemplate>
-            <asp:Timer ID="Timer1" runat="server" Interval="10000" OnTick="Timer1_Tick">
-            </asp:Timer>
-        </ContentTemplate>
-    </asp:UpdatePanel>--%>
     </form>
 </body>
 </html>
