@@ -29,30 +29,6 @@ public class WorkFlowSummit : IHttpHandler, System.Web.SessionState.IRequiresSes
         {
             billtype = context.Request.Params["billtype"];
         }
-
-        //----检查是否设置审批流，如果没有设置审批流，提交及审核
-        string stepid = server.GetCellValue(" select stepid from workflowstep where flowid='" + billtype + "' and stepid=1 ");
-        if(stepid!="1")
-        {
-            string strsqlup = @"update bill_main set stepid='end' where billcode='" + billcode + "'";
-            int introw = server.ExecuteNonQuery(strsqlup);
-
-            if (introw > 0)
-            {
-                context.Response.Write("审批通过");
-                return;
-            }
-            else
-            {
-                context.Response.Write("-3");
-                return;
-            }
-        }
-        
-        //-----------------------------------------------------------
-       
-        
-        
         //判断是否可以审批
         //if (flowid == "ys")
         //{
