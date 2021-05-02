@@ -468,16 +468,16 @@
                                 <asp:BoundField HeaderText="制单人" ItemStyle-CssClass="myGridItem" DataField="billuser">
                                     <HeaderStyle Font-Bold="True" Font-Italic="False" Font-Overline="False" Font-Strikeout="False"
                                         Font-Underline="False" HorizontalAlign="Center" Wrap="False" CssClass="myGridHeader"
-                                        Width="110" />
+                                        Width="150" />
                                     <ItemStyle Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False"
-                                        Wrap="true" CssClass="myGridItem" Width="110" />
+                                        Wrap="true" CssClass="myGridItem" Width="150" />
                                 </asp:BoundField>
                                 <asp:BoundField DataField="billdept" HeaderText="部门" ItemStyle-CssClass="myGridItem">
                                     <HeaderStyle Font-Bold="True" Font-Italic="False" Font-Overline="False" Font-Strikeout="False"
                                         Font-Underline="False" HorizontalAlign="Center" Wrap="true" CssClass="myGridHeader"
-                                        Width="120" />
+                                        Width="180" />
                                     <ItemStyle Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False"
-                                        Wrap="true" CssClass="myGridItem" Width="120" />
+                                        Wrap="true" CssClass="myGridItem" Width="180" />
                                 </asp:BoundField>
                                 <asp:BoundField HeaderText="底盘号">
                                     <HeaderStyle Font-Bold="True" Font-Italic="False" Font-Overline="False" Font-Strikeout="False"
@@ -504,16 +504,16 @@
                                     DataFormatString="{0:N}">
                                     <HeaderStyle Font-Bold="True" Font-Italic="False" Font-Overline="False" Font-Strikeout="False"
                                         Font-Underline="False" HorizontalAlign="Center" Wrap="False" CssClass="myGridHeader"
-                                        Width="100" />
+                                        Width="80" />
                                     <ItemStyle Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False"
-                                        Wrap="False" CssClass="myGridItemRight" Width="100" />
+                                        Wrap="False" CssClass="myGridItemRight" Width="80" />
                                 </asp:BoundField>
                                 <asp:BoundField HeaderText="制单时间" ItemStyle-CssClass="myGridItem" DataField="tbilldate">
                                     <HeaderStyle Font-Bold="True" Font-Italic="False" Font-Overline="False" Font-Strikeout="False"
                                         Font-Underline="False" HorizontalAlign="Center" Wrap="False" CssClass="myGridHeader"
-                                        Width="100" />
+                                        Width="80" />
                                     <ItemStyle Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False"
-                                        Wrap="False" CssClass="myGridItemCenter" Width="100" />
+                                        Wrap="False" CssClass="myGridItemCenter" Width="80" />
                                 </asp:BoundField>
                                 <asp:BoundField DataField="billtype" HeaderText="billtype" Visible="False" ItemStyle-CssClass="myGridItem">
                                     <HeaderStyle Font-Bold="True" Font-Italic="False" Font-Overline="False" Font-Strikeout="False"
@@ -555,10 +555,9 @@
                                 </asp:BoundField>
                                 <asp:BoundField HeaderText="审批人" ItemStyle-CssClass="myGridItem">
                                     <HeaderStyle Font-Bold="True" Font-Italic="False" Font-Overline="False" Font-Strikeout="False"
-                                        Font-Underline="False" HorizontalAlign="Center" Wrap="True" CssClass="myGridHeader"
-                                        Width="200" />
+                                        Font-Underline="False" HorizontalAlign="Center" Wrap="True" CssClass="myGridHeader"  Width="80"/>
                                     <ItemStyle Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False"
-                                        Wrap="True" CssClass="myGridItem" Width="200" />
+                                        Wrap="True" CssClass="myGridItem"   Width="80"/>
                                 </asp:BoundField>
                                 <asp:BoundField HeaderText="项目名称" DataField="" ItemStyle-CssClass="myGridItem">
                                     <HeaderStyle Font-Bold="True" Font-Italic="False" Font-Overline="False" Font-Strikeout="False"

@@ -253,34 +253,36 @@
         });
 
 
+        //function openDetail(openUrl) {
+        //    var returnValue = window.showModalDialog(openUrl, 'newwindow', 'center:yes;dialogHeight:700px;dialogWidth:950px;status:no;scroll:yes');
+        //    if (returnValue == undefined || returnValue == "") {
+        //        return false;
+        //    }
+        //    else {
+        //        document.getElementById("btnRefresh").click();
+        //    }
+        //}
         function openDetail(openUrl) {
-            var returnValue = window.showModalDialog(openUrl, 'newwindow', 'center:yes;dialogHeight:700px;dialogWidth:950px;status:no;scroll:yes');
-            if (returnValue == undefined || returnValue == "") {
-                return false;
-            }
-            else {
-                document.getElementById("btnRefresh").click();
-            }
+            $("#prodcutDetailSrc").attr("src", openUrl);
+            $("#dialog-confirm").dialog(
+                {
+                    modal: true,             // 创建模式对话框
+                    autoOpen: true,//是否自动打开
+                    height: 700, //高度
+                    width: 990, //宽度
+                    title_html: true,
+                    buttons: {
+                    }
+                }
+            );
         }
+        function closeDetail() {
+            $("#dialog-confirm").dialog("close");
+            $("#btnRefresh").click();
+        }
+
         function openLookSpStep(openUrl) {
             window.showModalDialog(openUrl, 'newwindow', 'center:yes;dialogHeight:500px;dialogWidth:460px;status:no;scroll:yes');
-        }
-        function gudingbiaotou() {
-            var t = document.getElementById("<%=myGrid.ClientID%>");
-            if (t == null || t.rows.length < 1) {
-                return;
-            }
-            var t2 = t.cloneNode(true);
-            t2.id = "cloneGridView";
-            for (i = t2.rows.length - 1; i > 0; i--) {
-                t2.deleteRow(i);
-            }
-            t.deleteRow(0);
-            header.appendChild(t2);
-            var mainwidth = document.getElementById("main").style.width;
-            mainwidth = mainwidth.substring(0, mainwidth.length - 2);
-            mainwidth = mainwidth - 16;
-            document.getElementById("header").style.width = mainwidth;
         }
         function gudingbiaotounew(obj, height) {
             var gvn = obj.clone(true).removeAttr("id");
@@ -324,9 +326,10 @@
             initMainTableClass("<%=myGrid.ClientID%>");
 
         });
-
-
-
+        function closeDetail() {
+            $("#dialog-confirm").dialog("close");
+            $("#btnRefresh").click();
+        }
     </script>
 
 </head>
@@ -511,6 +514,9 @@
                 </td>
             </tr>
         </table>
+         <div id="dialog-confirm" style="display: none; overflow: hidden;">
+            <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" id="prodcutDetailSrc" scrolling="auto" width="100%" height="100%"></iframe>
+        </div>
     </form>
 
     <script type="text/javascript">

@@ -499,7 +499,7 @@
             </tr>
         </table>
         <div id="dialog-confirm" style="display: none; overflow: hidden;">
-            <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" id="prodcutDetailSrc" scrolling="no" width="100%" height="100%"></iframe>
+            <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" id="prodcutDetailSrc" scrolling="auto" width="100%" height="100%"></iframe>
         </div>
     </form>
 </body>

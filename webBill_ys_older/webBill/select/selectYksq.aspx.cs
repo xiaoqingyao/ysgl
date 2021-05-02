@@ -149,7 +149,7 @@ public partial class webBill_select_selectYksq : System.Web.UI.Page
         JavaScriptSerializer jserializer = new JavaScriptSerializer();
         string script = jserializer.Serialize(retlist);
         script=script.Replace("\\", "\\\\").Replace("\'", "\\\'").Replace("\t", " ").Replace("\r", " ").Replace("\n", "<br/>");
-        ClientScript.RegisterStartupScript(this.GetType(), "", "<script type='text/javascript'>window.returnValue='" + script + "'; self.close();</script>");
+        ClientScript.RegisterStartupScript(this.GetType(), "", "<script type='text/javascript'>parent.addYksq('" + script + "');</script>");
         if (retlist.Count == 0)
         {
             ClientScript.RegisterStartupScript(this.GetType(), "", "alert('请选择用款申请单!');", true);

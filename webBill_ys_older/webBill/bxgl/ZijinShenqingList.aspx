@@ -9,10 +9,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=8" />
     <link href="../Resources/Css/StyleSheet.css" type="text/css" rel="Stylesheet" />
     <link href="../Resources/Css/StyleSheet2.css" type="text/css" rel="Stylesheet" />
-
+    <link href="../Resources/Css/jquery-ui-1.8.16.custom.css" rel="stylesheet" type="text/css" />
     <script src="../Resources/jScript/jQuery/jquery-1.4.2.min.js" type="text/javascript"></script>
 
     <script src="../Resources/jScript/Common.js" type="text/javascript"></script>
+
+    <script src="../Resources/jScript/jQuery/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
 
     <script language="javascript" type="Text/javascript">
         $(function () {
@@ -189,11 +191,29 @@
             }
             return false;
         }
+        //function openDetail(openUrl) {
+        //    var returnValue = window.showModalDialog(openUrl, 'newwindow', 'center:yes;dialogHeight:600px;dialogWidth:800px;status:no;scroll:yes');
+        //    if (returnValue == "1") {
+        //        document.getElementById("Button6").click();
+        //    }
+        //}
         function openDetail(openUrl) {
-            var returnValue = window.showModalDialog(openUrl, 'newwindow', 'center:yes;dialogHeight:600px;dialogWidth:800px;status:no;scroll:yes');
-            if (returnValue == "1") {
-                document.getElementById("Button6").click();
-            }
+            $("#prodcutDetailSrc").attr("src", openUrl);
+            $("#dialog-confirm").dialog(
+                {
+                    modal: true,             // 创建模式对话框
+                    autoOpen: true,//是否自动打开
+                    height: $(this).height()-100, //高度
+                    width: 900, //宽度
+                    title_html: true,
+                    buttons: {
+                    }
+                }
+            );
+        }
+        function closeDetail() {
+            $("#dialog-confirm").dialog("close");
+            $("#Button6").click();
         }
         function gotoAdd() {
 
@@ -228,8 +248,7 @@
                 <td style="height: 30px">部门：<asp:DropDownList runat="server" ID="LaDept" AutoPostBack="True" OnSelectedIndexChanged="LaDept_SelectedIndexChanged">
                 </asp:DropDownList>
                     <asp:Button ID="Button6" runat="server" Text="刷 新" CssClass="baseButton" OnClick="Button6_Click" />
-                    <asp:Button ID="Button1" runat="server" Text="增 加" CssClass="baseButton" OnClientClick="return gotoAdd();" />
-
+                     <input type="button" value="增 加" id="Button1" class="baseButton" onclick="gotoAdd();" />
                     <input type="button" value="删 除" id="btn_delete" class="baseButton" />
                     <input type="button" value="修 改" id="btn_edit" class="baseButton" onclick="editCheck()" />
                     <asp:Button ID="btn_look" runat="server" Text="详细信息" OnClientClick="return lookCheck()"
@@ -343,6 +362,9 @@
             }
             parent.closeAlert('UploadChoose');
         </script>
+         <div id="dialog-confirm" style="display: none; overflow: hidden;">
+            <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" id="prodcutDetailSrc" scrolling="auto" width="100%" height="100%"></iframe>
+        </div>
     </form>
 </body>
 </html>

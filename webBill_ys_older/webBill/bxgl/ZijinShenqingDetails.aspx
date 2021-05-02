@@ -15,7 +15,6 @@
     <script src="../Resources/jScript/jQuery/jquery-1.4.2.min.js" type="text/javascript"></script>
     <link href="../Resources/Css/jquery-ui-1.8.16.custom.css" rel="stylesheet" type="text/css" />
     <script src="../Resources/jScript/jQuery/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
-    <base target="_self" />
     <script src="ajaxfileupload.js"></script>
     <script src="../Resources/jScript/jQuery/jquery.ui.datepicker-zh-CN.js" type="text/javascript"
         charset="UTF-8"></script>
@@ -53,6 +52,7 @@
                     else {
                         //if (confirm("确定要审批该单据吗?")) {
                         $.post("../MyWorkFlow/WorkFlowApprove.ashx", { "billcode": billcode, "mind": " ", "action": "approve" }, OnApproveSuccess);
+                        parent.closeDetail();
                         //}
                     }
                 }
@@ -68,12 +68,27 @@
                     alert("请选择驳回的记录。");
                     return;
                 }
-                window.showModalDialog("../MyWorkFlow/DisAgreeToSpecial.aspx?billCode=" + billcode+"&mind="+mind, 'newwindow', 'center:yes;dialogHeight:600px;dialogWidth:1000px;status:no;scroll:yes')
-                window.close();
+                //window.showModalDialog(, 'newwindow', 'center:yes;dialogHeight:600px;dialogWidth:1000px;status:no;scroll:yes')
+                $("#prodcutDetailSrc").attr("src", "../MyWorkFlow/DisAgreeToSpecial.aspx?billCode=" + billcode + "&mind=" + mind);
+                $("#dialog-confirm").dialog(
+                    {
+                        modal: true,             // 创建模式对话框
+                        autoOpen: true,//是否自动打开
+                        height: 400, //高度
+                        width: 600, //宽度
+                        title_html: true,
+                        title: '审批驳回'
+                    }
+                );
+                //window.close();
                 // $("#btnRefresh").click();
             });
 
         });
+        function closeDetail() {
+            $("#dialog-confirm").dialog("close");
+            parent.closeDetail();
+        }
         function delfj(obj) {
 
             $(obj).parent().remove();
@@ -83,7 +98,7 @@
         function OnApproveSuccess(data, status) {
             if (data > 0 && status == "success") {
                 alert("操作成功！");
-                self.close();
+                parent.closeDetail();
             } else {
                 alert("审批失败！");
             }
@@ -186,7 +201,7 @@
                 <tr>
                     <td>款项用途：</td>
                     <td colspan="3">
-                        <asp:TextBox ID="TextBox1" runat="server" Width="97%"></asp:TextBox><span style="color: red">*</span></td>
+                        <asp:TextBox ID="TextBox1" runat="server" Width="96%"></asp:TextBox><span style="color: red">*</span></td>
                     <td style="text-align: right">申请金额：</td>
                     <td>
                         <asp:TextBox ID="txtje" runat="server" Width="95%"></asp:TextBox></td>
@@ -252,11 +267,14 @@
                         &nbsp; &nbsp; &nbsp;
                        <input id="btn_ok" type="button" value="审核通过" class="baseButton" runat="server" />
                         <input id="btn_cancel" type="button" value="审核驳回" class="baseButton" runat="server" />
-                        <input type="button" class="baseButton" value="关  闭" onclick="self.close();" />
+                        <%--<input type="button" class="baseButton" value="关  闭" onclick="self.close();" />--%>
                         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                     </td>
                 </tr>
             </table>
+        </div>
+         <div id="dialog-confirm" style="display: none; overflow: hidden;">
+            <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" id="prodcutDetailSrc" scrolling="auto" width="100%" height="100%"></iframe>
         </div>
     </form>
 </body>

@@ -37,6 +37,32 @@
             padding: 15px;
             background-color: White;
         }
+
+        table input {
+            width: 150px;
+        }
+
+        table select {
+            width: 158px;
+        }
+
+        table input[type=button] {
+            width: 100px;
+        }
+
+        table input[type=radio] {
+            width: 20px;
+        }
+        /*审核展示table*/
+        .auditTable {
+            border-spacing: 0;
+        }
+
+            .auditTable td {
+                border-right: 0px solid;
+                border-bottom: 1px dashed;
+                height: 22px;
+            }
     </style>
 
     <script src="../Resources/jScript/jQuery/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
@@ -78,6 +104,7 @@
                 else {
                     if (confirm("确定要审批该单据吗?")) {
                         $.post("../MyWorkFlow/WorkFlowApprove.ashx", { "billcode": billcode, "mind": " ", "action": "approve" }, OnApproveSuccess);
+                        parent.closeDetail();
                     }
                 }
             });
@@ -91,9 +118,18 @@
                     alert("请选择驳回的记录。");
                     return;
                 }
-                window.showModalDialog("../MyWorkFlow/DisAgreeToSpecial.aspx?billCode=" + billcode + "&mind=" + mind, 'newwindow', 'center:yes;dialogHeight:600px;dialogWidth:1000px;status:no;scroll:yes')
-
-                window.close();
+                //window.showModalDialog(, 'newwindow', 'center:yes;dialogHeight:600px;dialogWidth:1000px;status:no;scroll:yes')
+                $("#prodcutDetailSrc").attr("src", "../MyWorkFlow/DisAgreeToSpecial.aspx?billCode=" + billcode + "&mind=" + mind);
+                $("#dialog-confirm").dialog(
+                    {
+                        modal: true,             // 创建模式对话框
+                        autoOpen: true,//是否自动打开
+                        height: 400, //高度
+                        width: 600, //宽度
+                        title_html: true,
+                        title: '审批驳回'
+                    }
+                );
             });
           <%--  //否决单据
             $("#btn_cancel").click(function () {
@@ -142,8 +178,7 @@
                     if (status == "success") {
                         if (data == "1") {
                             alert("保存成功");
-                            window.returnValue = "1";
-                            window.close();
+                            parent.closeDetail();
                         } else if (data == "-2") {
                             alert("有预算超支了,不能保存!");
                         } else if (data == "-3") {
@@ -570,11 +605,22 @@
             if (dydj == null && dydj == '' && dydj == undefined || dydj == '06') {
                 dydj = "02";
             }
-            var str = window.showModalDialog("YskmSelectNew.aspx?deptCode=" + deptCode + "&kmcode=" + kmcode + "&isgk=" + isGk + "&billDate=" + billDate + "&dydj=" + dydj + "&tfsq=tfsq", 'newwindow', 'center:yes;dialogHeight:520px;dialogWidth:300px;status:no;scroll:yes');
-            insertKm(str);
+            //var str = window.showModalDialog("YskmSelectNew.aspx?deptCode=" + deptCode + "&kmcode=" + kmcode + "&isgk=" + isGk + "&billDate=" + billDate + "&dydj=" + dydj + "&tfsq=tfsq", 'newwindow', 'center:yes;dialogHeight:520px;dialogWidth:300px;status:no;scroll:yes');
+            //insertKm(str);
+            $("#prodcutDetailSrc").attr("src", "YskmSelectNew.aspx?deptCode=" + deptCode + "&kmcode=" + kmcode + "&isgk=" + isGk + "&billDate=" + billDate + "&dydj=" + dydj);
+            $("#dialog-confirm").dialog(
+                {
+                    modal: true,             // 创建模式对话框
+                    autoOpen: true,//是否自动打开
+                    height: 520, //高度
+                    width: 300, //宽度
+                    title_html: true
+                }
+            );
         }
         //传入一个json 然后插入科目明细
         function insertKm(str) {
+            $("#dialog-confirm").dialog('close');
             var kmcode = "";
             var kmArray = new Array();
             $("#tab_fykm tbody tr td:nth-child(1)").each(function (i) {
@@ -649,33 +695,33 @@
             //var filename = filepath.substring(position + 1);
 
             $.ajaxFileUpload
-            (
-                {
-                    url: 'uploadFile.ashx', //用于文件上传的服务器端请求地址
-                    secureuri: false, //一般设置为false
-                    fileElementId: 'upLoadFiles', //文件上传空间的id属性  <input type="file" id="file" name="file" />
-                    dataType: 'json', //返回值类型 一般设置为json
-                    success: function (data, status)  //服务器成功响应处理函数
+                (
                     {
-                        // $("#img1").attr("src", data.imgurl);
-                        if (typeof (data.error) != 'undefined') {
-                            if (data.error != '') {
-                                alert(data.error);
-                            } else {
-                                //成功
-                                //alert(decodeURI(unescape(data.filename)));
-                                //alert(decodeURI(unescape(data.fileurl)));
-                                $("#filenames").html($("#filenames").html() + "<div style=' border-bottom:1px dashed #CDCDCD; text-align:left;'>&nbsp;&nbsp;&nbsp;<span style='font-weight:700'>新附件：" + decodeURI(unescape(data.filename)) + "：</span><a onclick='delfj(this);'>删除</a><span style='display:none'><input type='text' class='fujianurl' value='" + decodeURI(unescape(data.fileurl)) + "'/><input type='text' class='fujianname' value='" + decodeURI(unescape(data.filename)) + "'/></span></div>");
-                                alert(data.msg);
+                        url: 'uploadFile.ashx', //用于文件上传的服务器端请求地址
+                        secureuri: false, //一般设置为false
+                        fileElementId: 'upLoadFiles', //文件上传空间的id属性  <input type="file" id="file" name="file" />
+                        dataType: 'json', //返回值类型 一般设置为json
+                        success: function (data, status)  //服务器成功响应处理函数
+                        {
+                            // $("#img1").attr("src", data.imgurl);
+                            if (typeof (data.error) != 'undefined') {
+                                if (data.error != '') {
+                                    alert(data.error);
+                                } else {
+                                    //成功
+                                    //alert(decodeURI(unescape(data.filename)));
+                                    //alert(decodeURI(unescape(data.fileurl)));
+                                    $("#filenames").html($("#filenames").html() + "<div style=' border-bottom:1px dashed #CDCDCD; text-align:left;'>&nbsp;&nbsp;&nbsp;<span style='font-weight:700'>新附件：" + decodeURI(unescape(data.filename)) + "：</span><a onclick='delfj(this);'>删除</a><span style='display:none'><input type='text' class='fujianurl' value='" + decodeURI(unescape(data.fileurl)) + "'/><input type='text' class='fujianname' value='" + decodeURI(unescape(data.filename)) + "'/></span></div>");
+                                    alert(data.msg);
+                                }
                             }
+                        },
+                        error: function (data, status, e)//服务器响应失败处理函数
+                        {
+                            alert(e);
                         }
-                    },
-                    error: function (data, status, e)//服务器响应失败处理函数
-                    {
-                        alert(e);
                     }
-                }
-            )//清空上传控件
+                )//清空上传控件
             document.getElementById("upLoadFiles").outerHTML = document.getElementById("upLoadFiles").outerHTML;
             return false;
 
@@ -685,7 +731,10 @@
             $(obj).parent().remove();
 
         }
-
+        function closeDetail() {
+            $("#dialog-confirm").dialog("close");
+            parent.closeDetail();
+        }
 
     </script>
 
@@ -730,25 +779,15 @@
 
                         <table border="0" cellpadding="1" cellspacing="0" class="myTable" style="width: 100%;">
                             <tr>
-                                <td style="text-align: right">制单人：</td>
-                                <td style="text-align: left">
-                                    <input id="txtBxr" type="text" runat="server" />
-                                </td>
-                                <td style="text-align: right">
-                                    <div>
-                                        制单部门：<input id="txtDept" readonly="readonly" type="text" runat="server" /><input id="txtbxdept"
+                                <td colspan="5">
+                                    <div style="float:right;margin-right: 10px;">
+                                        制单人：&nbsp;&nbsp;<input id="txtBxr" type="text" runat="server" />
+                                        制单部门：&nbsp;&nbsp;<input id="txtDept" readonly="readonly" type="text" runat="server" style="width: 120px" /><input id="txtbxdept"
                                             readonly="readonly" style="display: none; width: 0px" type="text" runat="server" />
-                                    </div>
-                                </td>
-                                <td style="text-align: right">受理时间：
-                                </td>
-                                <td>
-                                    <div style="text-align: left">
-                                        <asp:TextBox ID="txtSqrq" runat="server" Style="width: 150px"></asp:TextBox>
+                                        受理时间：&nbsp;&nbsp;<asp:TextBox ID="txtSqrq" runat="server" Style="width: 150px"></asp:TextBox>
                                     </div>
                                 </td>
                             </tr>
-
                             <tr>
                                 <td style="text-align: center;">所在分校
                                 </td>
@@ -783,7 +822,7 @@
                                 </td>
                                 <td colspan="5">
                                     <div style="text-align: left">
-                                        <asp:TextBox ID="txtBxsm" runat="server" TextMode="MultiLine" Width="90%"></asp:TextBox><span style="color: red">*</span>
+                                        <asp:TextBox ID="txtBxsm" runat="server" TextMode="MultiLine"  Style="width: 700px; margin-left:5px;"></asp:TextBox><span style="color: red">*</span>
                                     </div>
                                 </td>
                             </tr>
@@ -794,13 +833,13 @@
                                 </td>
                                 <td colspan="4">
                                     <div style="margin-left: 2px">
-                                        户名：
-                                        <input type="text" style="width: 90%" runat="server" id="txt_khh" /><span style="color: red">*</span>
+                                        户&nbsp;&nbsp;&nbsp;&nbsp;名：
+                                        <input type="text" style="width: 638px" runat="server" id="txt_khh" /><span style="color: red">*</span>
                                     </div>
                                     <hr />
                                     <div style="margin-left: 2px">
                                         建行账号：
-                                        <asp:TextBox ID="txtbxzh" Style="width: 85%" runat="server"></asp:TextBox><span style="color: red">*</span>
+                                        <asp:TextBox ID="txtbxzh" Style="width: 629px" runat="server"></asp:TextBox><span style="color: red">*</span>
                                     </div>
                                 </td>
                             </tr>
@@ -841,27 +880,19 @@
                                           <input type="file" id="upLoadFiles" name="upLoadFiles" style="100px" />
                                         <input id="csfj" value="上传" class="baseButton" onclick="shangchuan();" type="button" />
                                         <input type="button" id="btn_lookpic" runat="server" value="查看图片附件" class="baseButton" />
-                                        <%-- <asp:FileUpload ID="upLoadFiles" runat="server" Width="100px" />
-                                        <asp:HiddenField ID="hidfilnename" runat="server"></asp:HiddenField>
-                                        <asp:HiddenField ID="hiddFileDz" runat="server" />
-                                        <asp:Button ID="btn_sc" runat="server" Text="上 传" CssClass="baseButton" OnClick="btnScdj_Click" />
-                                        <input type="button" id="btn_lookpic" runat="server" value="查看图片附件" class="baseButton" />
-                                        <asp:Label ID="laFilexx" runat="server" Text="" ForeColor="Red"></asp:Label>--%>
                                         <div id="divBxdj" runat="server">
                                         </div>
                                     </div>
                                     <%--存放用于显示附件的名字--%>
                                     <div id="filenames" runat="server">
                                     </div>
-                                    <%--  <asp:Literal ID="Lafilename" runat="server" Text=""></asp:Literal>
-                                    <asp:Literal ID="Literal1" runat="server"></asp:Literal>--%>
                                 </td>
-                                <td class="tableBg2" style="text-align: left">
-                                    <asp:Label ID="lbl_djs" runat="server" Text="单据数："></asp:Label>
+                                <td class="tableBg2" style="text-align: right">
+                                    <asp:Label ID="lbl_djs" runat="server" Text="单据数：" class="tableBg2"></asp:Label>
                                 </td>
                                 <td>
-                                    <div style="margin-left: 2px">
-                                        <asp:TextBox ID="txt_djs" Width="90" runat="server"></asp:TextBox>
+                                    <div style="margin-left: 5px">
+                                        <asp:TextBox ID="txt_djs" runat="server"></asp:TextBox>
                                     </div>
                                 </td>
 
@@ -874,7 +905,7 @@
                                 <td class="tableBg2">归口预算
                                 </td>
                                 <td>
-                                    <div style="margin-left: 2px">
+                                    <div style="float:left">
                                         <asp:RadioButton ID="rb_ok" runat="server" Text="是" GroupName="is_gk" />
                                         <asp:RadioButton ID="rb_can" runat="server" Text="否" GroupName="is_gk" Checked="true" />
                                     </div>
@@ -882,9 +913,8 @@
                                 <td class="tableBg2">归口部门
                                 </td>
                                 <td colspan="2" id="gkbm">
-                                    <div id='dv_gk' style="margin-left: 2px">
-                                        <span>
-                                            <input type='text' id='txt_gk' runat="server" /></span>
+                                    <div id='dv_gk' style="margin-left: 2px; width: 100px;">
+                                        <input type='text' id='txt_gk' runat="server" />
                                     </div>
                                 </td>
                             </tr>
@@ -999,14 +1029,14 @@
                                 <td style="text-align: right">审核详细：
                                 </td>
                                 <td colspan="4">
-                                    <span id="txt_shxx_history" runat="server"></span>
+                                    <div id="txt_shxx_history" runat="server"></div>
                                 </td>
                             </tr>
                             <tr id="tr_shyj_history" runat="server">
                                 <td style="text-align: right">历史驳回意见：
                                 </td>
                                 <td colspan="4">
-                                    <span id="txt_shyj_History" runat="server"></span>
+                                    <div id="txt_shyj_History" runat="server"></div>
                                 </td>
                             </tr>
                         </table>
@@ -1025,7 +1055,7 @@
                         &nbsp;
                 <input id="btn_ok" type="button" value="审核通过" class="baseButton" runat="server" />&nbsp;
                 <input id="btn_cancel" type="button" value="审核驳回" class="baseButton" runat="server" />&nbsp;
-                <input type="button" onclick="javascript: window.close();" value="关 闭" class="baseButton" />&nbsp;
+                <input type="button" onclick="javascript:parent.closeDetail();" value="关 闭" class="baseButton" />&nbsp;
                 <asp:HiddenField ID="hdHsCCBG" runat="server" />
                         <asp:HiddenField ID="hddictype" runat="server" />
                     </td>
@@ -1045,6 +1075,9 @@
                     </td>
                 </tr>
             </table>
+        </div>
+         <div id="dialog-confirm" style="display: none; overflow: hidden;">
+            <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" id="prodcutDetailSrc" scrolling="auto" width="100%" height="100%"></iframe>
         </div>
     </form>
 </body>

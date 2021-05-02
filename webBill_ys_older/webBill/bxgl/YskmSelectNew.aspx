@@ -27,7 +27,7 @@
         <div style="bottom: 5px; position: fixed; width: 100%">
             <div style="width: 180px; margin: 0 auto;">
                 <asp:Button ID="Button1" runat="server" CssClass="baseButton" Text="确 定" OnClick="Button1_Click" />
-                <input id="Button2" type="button" value="取 消" class="baseButton" onclick="javascript: window.close();" />
+                <%--<input id="Button2" type="button" value="取 消" class="baseButton" onclick="javascript: $('#dialog-confirm',window.parent.document).dialog('close');" />--%>
             </div>
         </div>
     </form>

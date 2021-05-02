@@ -91,7 +91,7 @@ public partial class webBill_bxgl_jkdFrame_Dz : BasePage
         hidflowid.Value = strflowid;
 
 
-        string sql = @"select Row_Number()over(order by billdate desc,billName desc) as crow ,sum(je) as billJe,billname,flowid,stepid,billuser,billdate,isgk,(select bxzy from bill_ybbxmxb 
+        string sql = @"select Row_Number()over(order by billName desc) as crow ,sum(je) as billJe,billname,flowid,stepid,billuser,billdate,isgk,(select bxzy from bill_ybbxmxb 
 where bill_ybbxmxb.billCode=(select top 1 billcode from bill_main where billname=main.billName)) as bxzy,
 (select xmmc from bill_ysgc where gcbh=billName) as billName2,(select top 1 billdept from bill_main where billname=main.billname) as billdept,
 (select '['+usercode+']'+username from bill_users where usercode=billuser) as billUserName
@@ -109,7 +109,7 @@ fykm on main.billcode=fykm.billcode inner join bill_ybbxmxb mxb on main.billcode
 
 
 
-        string strsqlframe = "select * from ( {0} ) t where t.crow>{1} and t.crow<={2}";
+        string strsqlframe = "select * from ( {0} ) t where t.crow>{1} and t.crow<={2} order by crow";
         strsqlframe = string.Format(strsqlframe, sql, pagefrm, pageto);
         //Response.Write(strsqlframe);
         //count = 0;

@@ -58,11 +58,12 @@
         .auditTable {
             border-spacing: 0;
         }
-        .auditTable td {
-            border-right:0px solid;
-            border-bottom:1px dashed;
-            height: 22px;
-        }
+
+            .auditTable td {
+                border-right: 0px solid;
+                border-bottom: 1px dashed;
+                height: 22px;
+            }
     </style>
 
     <script src="../Resources/jScript/jQuery/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
@@ -120,7 +121,6 @@
                         parent.closeDetail();
                     }
                 }
-
             });
 
             $("#btn_cancel").click(function () {
@@ -534,7 +534,17 @@
         });
 
         function lookyksq(billcode) {
-            window.showModalDialog("bxDetailForDz.aspx?type=look&dydj=02&billCode=" + billcode, 'newwindow', 'center:yes;dialogHeight:600px;dialogWidth:970px;status:no;scroll:yes');
+            $("#prodcutDetailSrc").attr("src", "bxDetailForDz.aspx?type=look&dydj=02&billCode=" + billcode);
+            $("#dialog-confirm").dialog(
+                {
+                    modal: true,             // 创建模式对话框
+                    autoOpen: true,//是否自动打开
+                    height: 520, //高度
+                    width: 900, //宽度
+                    title_html: true
+                }
+            );
+            //window.showModalDialog("bxDetailForDz.aspx?type=look&dydj=02&billCode=" + billcode, 'newwindow', 'center:yes;dialogHeight:600px;dialogWidth:970px;status:no;scroll:yes');
         }
 
         function change() {
@@ -668,10 +678,21 @@
             if (isdz == "1") {
                 url += "?isdz=1";
             }
-
+            //var str = window.showModalDialog(url, 'newwindow', 'center:yes;dialogHeight:520px;dialogWidth:900px;status:no;scroll:yes');
+            $("#prodcutDetailSrc").attr("src", url);
+            $("#dialog-confirm").dialog(
+                {
+                    modal: true,             // 创建模式对话框
+                    autoOpen: true,//是否自动打开
+                    height: 520, //高度
+                    width: 900, //宽度
+                    title_html: true
+                }
+            );
+        }
+        function addYksq(str) {
+            $("#dialog-confirm").dialog("close");
             var inner = "";
-            var str = window.showModalDialog(url, 'newwindow', 'center:yes;dialogHeight:520px;dialogWidth:900px;status:no;scroll:yes');
-            var zje = 0;
             var ykcode = "";
             if (str != undefined && str != "") {
                 var json = $.parseJSON(str);
@@ -698,7 +719,7 @@
                         inner += "<td><a onclick=lookyksq('" + json[i].Yksqcode + "') >详细信息</a></td>";
                         inner += "<td><input type='button' style='text-align:center' class='baseButton' value='删除' onclick='del(this)'/></td>";
                         inner += "</tr>";
-                        zje += parseFloat(json[i].yksqje);
+                        //zje += parseFloat(json[i].yksqje);
                         ykcode += json[i].Yksqcode + ",";
                         ykIndex++;
                     }
@@ -1337,7 +1358,7 @@
                                     <td class="tableBg2">审核过程
                                     </td>
                                     <td colspan="6">
-                                        <div id="txt_shxx_history" runat="server" style="margin-left:5px;"></div>
+                                        <div id="txt_shxx_history" runat="server" style="margin-left: 5px;"></div>
                                     </td>
                                 </tr>
 
@@ -1345,7 +1366,7 @@
                                     <td class="tableBg2">历史驳回意见
                                     </td>
                                     <td colspan="6">
-                                        <div id="txt_shyj_History" runat="server" style="margin-left:5px;"></div>
+                                        <div id="txt_shyj_History" runat="server" style="margin-left: 5px;"></div>
                                     </td>
                                 </tr>
                             </table>
@@ -1393,7 +1414,7 @@
         <div class="item-help" id="item-help" style="display: none;">
         </div>
         <div id="dialog-confirm" style="display: none; overflow: hidden;">
-            <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" id="prodcutDetailSrc" scrolling="no" width="100%" height="100%"></iframe>
+            <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" id="prodcutDetailSrc" scrolling="auto" width="100%" height="100%"></iframe>
         </div>
     </form>
 </body>

@@ -264,7 +264,7 @@ public partial class webBill_fysq_ZijinShenqingDetails : System.Web.UI.Page
 
         sqltemp = string.Format(sqltemp, billcode, billname, "jfsq", "-1", user, txtdate.Text.Trim(), dept, strje, "1", "1", this.txtSm.Text.Trim(), stryksj, stryt, fujian, strykfs);
         new sqlHelper.sqlHelper().ExecuteNonQuery(sqltemp, null);
-        ClientScript.RegisterStartupScript(this.GetType(), "", "alert('保存成功！');self.close();", true);
+        ClientScript.RegisterStartupScript(this.GetType(), "", "alert('保存成功！');parent.closeDetail();", true);
     }
 
     private string GetUserAll()
@@ -382,6 +382,7 @@ public partial class webBill_fysq_ZijinShenqingDetails : System.Web.UI.Page
     }
     private decimal getKyje()
     {
+        return 100;
         string stryksj = this.txt_yksj.Text;
         string strdept = this.txtdept.Text.Trim();
         if (string.IsNullOrEmpty(strdept))
