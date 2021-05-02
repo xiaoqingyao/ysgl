@@ -86,7 +86,7 @@ public partial class webBill_bxgl_bxDetailForDz : System.Web.UI.Page
                 tr_shyj.Visible = true;
                 tr_shyj_history.Visible = true;
                 //显示历史驳回意见
-                DataTable dtHisMind = server.GetDataTable("select * from bill_ReturnHistory where billcode='" + Request.QueryString["billCode"] + "' order by dt desc", null);
+                DataTable dtHisMind = server.GetDataTable("select (select '['+usercode+']'+userName from bill_users where usercode=bill_ReturnHistory.usercode)as username,* from bill_ReturnHistory where billcode='" + Request.QueryString["billCode"] + "' order by dt desc", null);
                 if (dtHisMind.Rows.Count == 0)
                 {
                     this.txt_shyj_History.InnerHtml = "无";
@@ -94,20 +94,19 @@ public partial class webBill_bxgl_bxDetailForDz : System.Web.UI.Page
                 else
                 {
                     StringBuilder sbMind = new StringBuilder();
+                    sbMind.Append("<table class='auditTable'>");
                     for (int i = 0; i < dtHisMind.Rows.Count; i++)
                     {
-                        sbMind.Append("<br/>");
-
-                        sbMind.Append("&nbsp;&nbsp;驳回人：");
-                        sbMind.Append(dtHisMind.Rows[i]["usercode"].ToString());
-                        sbMind.Append("&nbsp;&nbsp;驳回时间：");
-                        sbMind.Append(dtHisMind.Rows[i]["dt"].ToString());
-                        sbMind.Append("<br/>");
-                        sbMind.Append("&nbsp;&nbsp;驳回意见：");
-                        sbMind.Append(dtHisMind.Rows[i]["mind"].ToString());
-                        sbMind.Append("<br/>");
-                        sbMind.Append("<hr/>");
+                        sbMind.Append("<tr>");
+                        sbMind.Append("<td style='width:30px;'>" + (i + 1) + "</td>");
+                        sbMind.Append("<td style='color:red; font-weight:bolder;width:100px; '>审批驳回</td>");
+                        sbMind.Append("<td style='width:150px;'>" + dtHisMind.Rows[i]["username"].ToString() + "</td>");
+                        sbMind.Append("<td style='width:200px;'>驳回时间：" + dtHisMind.Rows[i]["dt"].ToString() + "</td>");
+                        
+                        sbMind.Append("<td>驳回意见：" + dtHisMind.Rows[i]["mind"].ToString() + "</td>");
+                        sbMind.Append("</tr>");
                     }
+                    sbMind.Append("</table>");
                     this.txt_shyj_History.InnerHtml = sbMind.ToString();
                 }
             }
@@ -893,22 +892,31 @@ public partial class webBill_bxgl_bxDetailForDz : System.Web.UI.Page
                 if (shdt != null)
                 {
                     StringBuilder sbxx = new StringBuilder();
+                    sbxx.Append("<table class='auditTable'>");
                     for (int i = 0; i < shdt.Rows.Count; i++)
                     {
-                        sbxx.Append("<br/>");
-
-                        sbxx.Append("&nbsp;&nbsp;审批人：");
-                        sbxx.Append(shdt.Rows[i]["checkuser"].ToString());
-                        sbxx.Append("&nbsp;&nbsp;审批状态：");
-                        sbxx.Append(shdt.Rows[i]["wsrdstate"].ToString());
-                        sbxx.Append("&nbsp;&nbsp;审批时间：");
-                        sbxx.Append(shdt.Rows[i]["checkdate1"].ToString());
-                        sbxx.Append("<br/>");
-                        sbxx.Append("&nbsp;&nbsp;审批意见：");
-                        sbxx.Append(shdt.Rows[i]["mind"].ToString());
-                        sbxx.Append("<br/>");
-                        sbxx.Append("<hr/>");
+                        sbxx.Append("<tr>");
+                        string state = shdt.Rows[i]["wsrdstate"].ToString();
+                        sbxx.Append("<td style='width:30px;'>" + (i + 1) + "</td>");
+                        if (state == "审核通过")
+                        {
+                            sbxx.Append("<td style='color:green; font-weight:bolder;width:100px; '>" + shdt.Rows[i]["wsrdstate"].ToString() + "</td>");
+                        }
+                        else if (state == "正在进行")
+                        {
+                            sbxx.Append("<td style='font-weight:bolder; width:100px;'>" + shdt.Rows[i]["wsrdstate"].ToString() + "</td>");
+                        }
+                        else
+                        {
+                            sbxx.Append("<td style='width:100px;'>" + shdt.Rows[i]["wsrdstate"].ToString() + "</td>");
+                        }
+                        sbxx.Append("<td style='width:150px;'>" + shdt.Rows[i]["checkuser"].ToString() + "</td>");
+                        sbxx.Append("<td style='width:200px;'>审批时间：" + shdt.Rows[i]["checkdate1"].ToString() + "</td>");
+                        sbxx.Append("<td >审批意见：</td>");
+                        sbxx.Append("<td >" + shdt.Rows[i]["mind"].ToString() + "</td>");
+                        sbxx.Append("</tr>");
                     }
+                    sbxx.Append("</table>");
                     this.txt_shxx_history.InnerHtml = sbxx.ToString();
                 }
             }
@@ -934,8 +942,7 @@ public partial class webBill_bxgl_bxDetailForDz : System.Web.UI.Page
                   isnull((select '['+usercode+']'+username from bill_users where usercode=ws.finaluser),finaluser) as finaluser,
                  (case when  ws.rdstate  ='1' then '正在进行'  when  ws.rdstate  ='0' then '等待' when  ws.rdstate  ='2' then'审核通过' when  ws.rdstate  ='3' then '驳回'  end)as wsrdstate,
                   mind, convert(varchar(10),ws.checkdate,121) as checkdate, ws.checkdate as checkdate1,checktype   
-                  from workflowrecord w inner join   workflowrecords ws  on w.recordid =ws.recordid  ");
-        sb.Append(" and  billCode  = @billCode ");
+                  from workflowrecord w inner join   workflowrecords ws  on w.recordid =ws.recordid and  billCode  = @billCode order by stepid ");
         lstParameter.Add(new SqlParameter("@billCode ", strBillCode));
         return server.GetDataTable(sb.ToString(), lstParameter.ToArray());
     }

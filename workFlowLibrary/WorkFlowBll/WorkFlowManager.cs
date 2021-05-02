@@ -345,15 +345,15 @@ namespace WorkFlowLibrary.WorkFlowBll
             }
             else
             {
-                Bill_Main main = new MainDal().GetMainByCode(billCode);
-                billJe = main.BillJe;
-                flowid = main.FlowId;
-                strDeptCode = main.BillDept;
+                //Bill_Main main = new MainDal().GetMainByCode(billCode);
+                //billJe = main.BillJe;
+                //flowid = main.FlowId;
+                //strDeptCode = main.BillDept;
 
-                //IList<Bill_Main> main = new MainDal().GetMainsByBillName(billCode);
-                //billJe = main.Sum(p => p.BillJe);
-                //flowid = main[0].FlowId;
-                //strDeptCode = main[0].BillDept;
+                IList<Bill_Main> main = new MainDal().GetMainsByBillName(billCode);
+                billJe = main.Sum(p => p.BillJe);
+                flowid = main[0].FlowId;
+                strDeptCode = main[0].BillDept;
             }
 
 

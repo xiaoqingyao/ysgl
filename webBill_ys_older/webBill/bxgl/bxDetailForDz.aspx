@@ -54,6 +54,15 @@
         table input[type=radio] {
             width: 20px;
         }
+        /*审核展示table*/
+        .auditTable {
+            border-spacing: 0;
+        }
+        .auditTable td {
+            border-right:0px solid;
+            border-bottom:1px dashed;
+            height: 22px;
+        }
     </style>
 
     <script src="../Resources/jScript/jQuery/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
@@ -108,6 +117,7 @@
                     }
                     else {
                         $.post("../MyWorkFlow/WorkFlowApprove.ashx", { "billcode": billcode, "mind": mind, "action": "approve" }, OnApproveSuccess);
+                        parent.closeDetail();
                     }
                 }
 
@@ -117,15 +127,23 @@
                 var billcode = '<%=Request["billCode"] %>';
                 var mind = $("#txt_shyj").val();
 
-
                 if (billcode == "") {
                     alert("请选择驳回的记录。");
                     return;
                 }
-                window.showModalDialog("../MyWorkFlow/DisAgreeToSpecial.aspx?billCode=" + billcode + "&mind=" + mind, 'newwindow', 'center:yes;dialogHeight:600px;dialogWidth:1000px;status:no;scroll:yes')
-                window.close();
-                // $("#btnRefresh").click();
+                $("#prodcutDetailSrc").attr("src", "../MyWorkFlow/DisAgreeToSpecial.aspx?billCode=" + billcode + "&mind=" + mind);
+                $("#dialog-confirm").dialog(
+                    {
+                        modal: true,             // 创建模式对话框
+                        autoOpen: true,//是否自动打开
+                        height: 400, //高度
+                        width: 600, //宽度
+                        title_html: true,
+                        title: '审批驳回'
+                    }
+                );
             });
+
             //保存
             $("#btn_test").click(function () {
 
@@ -892,6 +910,10 @@
             document.getElementById("upLoadFiles").outerHTML = document.getElementById("upLoadFiles").outerHTML;
             return false;
         }
+        function closeDetail() {
+            $("#dialog-confirm").dialog("close");
+            parent.closeDetail();
+        }
     </script>
 
     <style type="text/css">
@@ -1052,8 +1074,8 @@
                                         <div style="border-bottom: 1px dashed #CDCDCD; height: 20px;">
                                             &nbsp;&nbsp;&nbsp;
                                             <input type="file" id="upLoadFiles" name="upLoadFiles" />
-                                            <input id="csfj" value="上传" class="baseButton" onclick="shangchuan();" type="button" />
-                                            <input type="button" id="btn_lookpic" runat="server" value="查看图片附件" class="baseButton" />
+                                            <input id="csfj" value="上传" class="baseButton" onclick="shangchuan();" type="button" style="width: 52px;" />
+                                            <input type="button" id="btn_lookpic" runat="server" value="查看图片附件" class="baseButton" style="width: 52px;" />
                                             <div id="divBxdj" runat="server">
                                             </div>
                                         </div>
@@ -1303,25 +1325,27 @@
                                     </td>
                                 </tr>
                                 <tr id="tr_shyj" runat="server">
-                                    <td style="text-align: right">审核意见：
+                                    <td class="tableBg2">审核意见
                                     </td>
                                     <td colspan="6">
-                                        <asp:TextBox ID="txt_shyj" runat="server" Width="90%"></asp:TextBox>
+                                        <div style="margin-left: 5px;">
+                                            <asp:TextBox ID="txt_shyj" runat="server" Width="791"></asp:TextBox>
+                                        </div>
                                     </td>
                                 </tr>
                                 <tr id="tr_shxx_history" runat="server">
-                                    <td style="text-align: right">审核详细：
+                                    <td class="tableBg2">审核过程
                                     </td>
                                     <td colspan="6">
-                                        <span id="txt_shxx_history" runat="server"></span>
+                                        <div id="txt_shxx_history" runat="server" style="margin-left:5px;"></div>
                                     </td>
                                 </tr>
 
                                 <tr id="tr_shyj_history" runat="server">
-                                    <td style="text-align: right">历史驳回意见：
+                                    <td class="tableBg2">历史驳回意见
                                     </td>
                                     <td colspan="6">
-                                        <span id="txt_shyj_History" runat="server"></span>
+                                        <div id="txt_shyj_History" runat="server" style="margin-left:5px;"></div>
                                     </td>
                                 </tr>
                             </table>
@@ -1340,7 +1364,7 @@
                         &nbsp;
                     <input id="btn_ok" type="button" value="审核通过" class="baseButton" runat="server" />&nbsp;
                     <input id="btn_cancel" type="button" value="审核驳回" class="baseButton" runat="server" />&nbsp;
-                    <input type="button" onclick="javascript: window.close();" value="关 闭" class="baseButton" />&nbsp;
+                    <input type="button" onclick="javascript:parent.closeDetail();" value="关 闭" class="baseButton" />&nbsp;
                     <asp:HiddenField ID="hdHsCCBG" runat="server" />
                         <asp:HiddenField ID="hddictype" runat="server" />
                     </td>

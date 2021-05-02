@@ -21,7 +21,11 @@
         charset="UTF-8"></script>
 
     <script src="../Resources/jScript/Common.js" type="text/javascript"></script>
-
+    <script type="text/javascript">
+        function closeParentDetail() {
+            parent.closeDetail();
+        }
+    </script>
 </head>
 <body>
     <form id="form1" runat="server">

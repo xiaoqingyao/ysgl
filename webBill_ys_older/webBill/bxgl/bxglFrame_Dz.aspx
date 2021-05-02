@@ -405,19 +405,19 @@
                         <asp:DataGrid ID="myGrid" runat="server" AutoGenerateColumns="False" CellPadding="3"
                             CssClass="myGrid" OnItemDataBound="myGrid_ItemDataBound">
                             <Columns>
-                                <asp:BoundColumn DataField="" HeaderText="报销单号" ItemStyle-Width="100" HeaderStyle-Width="100">
+                                <asp:BoundColumn DataField="" HeaderText="报销单号" ItemStyle-Width="80" HeaderStyle-Width="80">
                                     <HeaderStyle Font-Bold="True" Font-Italic="False" Font-Overline="False" Font-Strikeout="False"
                                         Font-Underline="False" HorizontalAlign="Center" Wrap="false" CssClass="myGridHeader hiddenbill" />
                                     <ItemStyle Font-Italic="False" Font-Overline="False" Font-Strikeout="False"
                                         Font-Underline="False" Wrap="false" CssClass="myGridItem hiddenbill" />
                                 </asp:BoundColumn>
-                                <asp:BoundColumn DataField="" HeaderText="报销单号" ItemStyle-Width="100" HeaderStyle-Width="100">
+                                <asp:BoundColumn DataField="" HeaderText="报销单号" ItemStyle-Width="80" HeaderStyle-Width="80">
                                     <HeaderStyle Font-Bold="True" Font-Italic="False" Font-Overline="False" Font-Strikeout="False"
                                         Font-Underline="False" HorizontalAlign="Center" Wrap="false" CssClass="myGridHeader hiddenbill" />
                                     <ItemStyle Font-Italic="False" Font-Overline="False" Font-Strikeout="False"
                                         Font-Underline="False" Wrap="false" CssClass="myGridItem hiddenbill" />
                                 </asp:BoundColumn>
-                                <asp:BoundColumn DataField="billName" HeaderText="单据编号" ItemStyle-Width="100" HeaderStyle-Width="100">
+                                <asp:BoundColumn DataField="billName" HeaderText="单据编号" ItemStyle-Width="80" HeaderStyle-Width="80">
                                     <HeaderStyle Font-Bold="True" Font-Italic="False" Font-Overline="False" Font-Strikeout="False"
                                         Font-Underline="False" HorizontalAlign="Center" Wrap="false" CssClass="myGridHeader" />
                                     <ItemStyle Font-Italic="False" Font-Overline="False" Font-Strikeout="False"
@@ -431,11 +431,11 @@
                                         Font-Underline="False" Wrap="false" CssClass="myGridItem" />
                                 </asp:BoundColumn>
                                 <asp:BoundColumn DataField="billDate" HeaderText="单据日期" DataFormatString="{0:D}"
-                                    ItemStyle-Width="100" HeaderStyle-Width="100">
+                                    ItemStyle-Width="80" HeaderStyle-Width="80">
                                     <HeaderStyle Font-Bold="True" Font-Italic="False" Width="120" Font-Overline="False"
                                         Font-Strikeout="False" Font-Underline="False" HorizontalAlign="Center" Wrap="false"
                                         CssClass="myGridHeader" />
-                                    <ItemStyle Font-Italic="False" Width="120" Font-Overline="False"
+                                    <ItemStyle Font-Italic="False" Width="80" Font-Overline="False"
                                         Font-Strikeout="False" Font-Underline="False" Wrap="false" CssClass="myGridItem"
                                         HorizontalAlign="Center" />
                                 </asp:BoundColumn>
@@ -446,8 +446,8 @@
                                     <ItemStyle Font-Italic="False" Font-Overline="False" Font-Strikeout="False"
                                         Font-Underline="False" Wrap="false" CssClass="myGridItem" />
                                 </asp:BoundColumn>
-                                <asp:BoundColumn DataField="billJe" HeaderText="单据总额" DataFormatString="{0:F2}" ItemStyle-Width="100"
-                                    HeaderStyle-Width="100">
+                                <asp:BoundColumn DataField="billJe" HeaderText="单据总额" DataFormatString="{0:F2}" ItemStyle-Width="80"
+                                    HeaderStyle-Width="80">
                                     <HeaderStyle Font-Bold="True" Font-Italic="False" Font-Overline="False" Font-Strikeout="False"
                                         Font-Underline="False" HorizontalAlign="Center" Wrap="false" CssClass="myGridHeader" />
                                     <ItemStyle Font-Italic="False" Font-Overline="False" Font-Strikeout="False"

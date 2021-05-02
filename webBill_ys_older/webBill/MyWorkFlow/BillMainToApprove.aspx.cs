@@ -466,10 +466,7 @@ public partial class webBill_MyWorkFlow_BillMainToApprove : BasePage
         }
         if (e.Row.RowType != DataControlRowType.Pager)
         {
-            if (flowid == "cksj")
-            {
-                this.btn_edit.Visible = true;
-            }
+            
             if (flowid == "xmzf" && flowid == "cksj")
             {
                 e.Row.Cells[2].CssClass = "hiddenbill";

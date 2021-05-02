@@ -147,6 +147,10 @@ namespace Models
             get { return note5; }
             set { note5 = value; }
         }
-
+        public string needBx
+        {
+            get;
+            set;
+        }
     }
 }

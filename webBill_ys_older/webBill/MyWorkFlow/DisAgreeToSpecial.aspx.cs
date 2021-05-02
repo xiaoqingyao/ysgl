@@ -91,7 +91,7 @@ public partial class webBill_MyWorkFlow_DisAgreeToSpecial : System.Web.UI.Page
                 mgr.DisAgreeToSpecial(billCode, mind, usercode, recordid, ddl_prevLiuCheng.SelectedValue);
 
             }
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "close", "alert('驳回成功！');this.close();", true);
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "close2", "parent.closeDetail();alert('驳回成功！');", true);
         }
 
     }

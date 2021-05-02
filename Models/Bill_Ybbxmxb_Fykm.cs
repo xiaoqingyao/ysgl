@@ -75,5 +75,10 @@ namespace Models
         /// 未知字段 大智用于存储单据的剩余金额
         /// </summary>
         public string ms { get; set; }
+        public string yksqBillDate
+        {
+            get;
+            set;
+        }
     }
 }

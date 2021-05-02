@@ -26,7 +26,7 @@ public partial class ClearData : System.Web.UI.Page
         sqlHelper.sqlHelper sqlHelper = new sqlHelper.sqlHelper();
         
         string strFlg = this.rdbYW.Checked == true ? "1" : "0";//数据表中 1是业务数据 0 基础数据
-        DataTable dtRel = sqlHelper.GetDataSet("select tbName,note1 from tab_Message where tbType='" + strFlg + "' and tbStatus!='D'").Tables[0];
+        DataTable dtRel = sqlHelper.GetDataSet("select tbName,note1 from tab_Message where 1=0 and tbType='" + strFlg + "' and tbStatus!='D'").Tables[0];
         if (dtRel==null||dtRel.Rows.Count<=0)
         {
             Response.Write("没找到要删除的记录！");

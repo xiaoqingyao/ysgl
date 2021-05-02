@@ -38,8 +38,7 @@
             //showModalDialog 显示的页面不刷新，加随机数即可实现随时刷新
             var returnValue = window.showModalDialog(openUrl, 'newwindow', 'center:yes;dialogHeight:130px;dialogWidth:280px;status:no;scroll:yes');
 
-            if (returnValue == undefined || returnValue == "")
-            { }
+            if (returnValue == undefined || returnValue == "") { }
             else {
                 $("#btn_summit").click();
             }
@@ -56,29 +55,7 @@
             if (flowid == "jksq") {
                 $("#btn_hdje").show();
             }
-            $("#btn_hdje").click(function () {
-                var trs = $("#<%=GridView1.ClientID%> tr:gt(0)");
-
-
-                var billcode = "";
-                var iChecked = 0;
-                trs.each(function (index, obj) {
-                    if ($(obj).find("td").eq(0).children().eq(0).attr("checked")) {
-                        billcode = $(obj).find("td").eq(1).html();
-                        iChecked++;
-                    }
-                });
-                if (iChecked == 0) {
-                    alert("请选择要核定金额的行.");
-                    return;
-                }
-                if (iChecked > 1) {
-                    alert("您选择了" + iChecked + "行，请选择一条数据");
-                    return;
-                }
-                openDetailHd("../../SaleBill/BorrowMoney/FundBorrowUpdateDj.aspx?Ctrl=Audit&billCode=" + billcode);
-
-            });
+            
 
             initWindowHW();
             initMainTableClass("<%=GridView1.ClientID%>");
@@ -111,26 +88,6 @@
             });
             //驳回选择   大智
             $("#btn_cancel_xz").click(function () {
-                //var billcode = "";//$(".highlight td:eq(1)").html();
-
-                //if (flowid == 'gkbx' || flowid == "tfsq" || (isdz != null && isdz != undefined && isdz == "1" && (flowid == "yksq_dz" || flowid == "ybbx"))) {
-                //    billcode = $(".highlight td:eq(2)").html();
-                //} else {
-                //    billcode = $(".highlight td:eq(1)").html(); //varGridView.rows[i].cells[1].innerHTML;
-                //}
-
-                //var mind = $(".highlight td:eq(12)").find("input").val();//.html().children();
-
-
-                //if (billcode == ""||billcode==null) {
-                //    alert("请选择驳回的记录。");
-                //    return;
-                //}
-
-
-
-
-
                 var i = 0;
                 var iChecked = 0;
                 var billcode = "";
@@ -161,23 +118,13 @@
                 }
 
                 openDetail("DisAgreeToSpecial.aspx?billCode=" + billcode + "&mind=" + mind);
-                $("#btnRefresh").click();
+                //$("#btnRefresh").click();
             });
 
 
             //驳回  其他客户
             $("#btn_cancel").click(function () {
                 $(this).attr("disabled", "disabled");
-                //                var billcode = $(".highlight td:eq(1)").html();
-                //                if (billcode == undefined || billcode == "") {
-                //                    alert("请先选择单据!");
-                //                }
-                //                else {
-                //                    if (confirm("确定要否决选中的单据吗?")) {
-                //                        var mind = $(".highlight td input").val();
-                //                        $.post("WorkFlowApprove.ashx", { "billcode": billcode, "mind": mind, "action": "disagree" }, OnApproveSuccess);
-                //                    }
-                //                }
                 var varGridView = document.getElementById("<%=GridView1.ClientID %>");
                 var flowid = '<%=Request["flowid"] %>';
                 var isdz = '<%=Request["isdz"] %>';
@@ -202,21 +149,6 @@
                         }
                     }
                 });
-
-                //                for (var i = 0; i < iGridViewRow; i++) {
-                //                    if (varGridView.rows[i].cells[0].getElementsByTagName("input")[0].checked) {
-                //                        var evebillcode = "";
-                //                        if (flowid == 'gkbx') {
-                //                            evebillcode = varGridView.rows[i].cells[2].innerHTML;
-                //                        } else {
-                //                            evebillcode = varGridView.rows[i].cells[1].innerHTML;
-                //                        }
-                //                        if (evebillcode == undefined || evebillcode == "" || evebillcode == "编号") { continue; }
-                //                        var mind = escape(varGridView.rows[i].cells[12].children[0].value);
-                //                        billcode += evebillcode + "*" + mind + ",";
-                //                        iChecked++;
-                //                    }
-                //                }
                 if (iChecked == 0) { alert("请勾选复选框选择记录！"); $(this).removeAttr("disabled"); return; }
                 billcode = billcode.substring(0, billcode.length - 1);
                 if (confirm("确定要否决选中的单据吗?")) {
@@ -277,14 +209,8 @@
                                 window.location.href = data + "&checking=" + checking;
                                 return;
                             }
-                            //window.location.href = data + "&checking=" + checking;
-
                             openDetail(data + "&checking=" + checking);
-
-                            //   window.showModalDialog(data + "&checking=" + checking, 'newwindow', 'center:yes;dialogHeight:600px;dialogWidth:960px;status:no;scroll:yes');
-                            //location.replace(location.href);
                             //$("#btn_summit").click();
-                            $("#btn_summit").click();
                         }
                     });
                 }
@@ -319,17 +245,6 @@
                             }
                         }
                     });
-                    //                return;
-                    //                for (var i = 0; i < iGridViewRow; i++) {
-                    //                    if (varGridView.rows[i].cells[0].getElementsByTagName("input")[0].checked) {
-                    //                        var evebillcode = "";
-                    //                        if (flowid == 'gkbx') {
-                    //                            evebillcode = varGridView.rows[i].cells[2].innerHTML;
-                    //                        } else {
-                    //                            evebillcode = varGridView.rows[i].cells[1].innerHTML;
-                    //                        }
-                    //                    }
-                    //                }
                     if (iChecked == 0) { alert("请勾选复选框选择记录！"); $(this).removeAttr("disabled"); return; }
                     billcode = billcode.substring(0, billcode.length - 1);
 
@@ -358,30 +273,7 @@
             });
             $("#btn_find").click(function () {
                 $("#trSelect").toggle();
-                //                var stu = "none";
-
-                //                stu = document.getElementById("trSelect").style.display;
-
-                //                document.getElementById("trSelect").style.display = stu == "" ? "none" : "";
-
-
             });
-            //修改
-
-            $("#btn_edit").click(function () {
-
-                var billcode = $(".highlight td:eq(1)").html();
-                if (billcode == undefined || billcode == "") {
-                    alert("请先选择单据!");
-                }
-                else {
-                    openDetail("../../SaleBill/RemitTance/RemitTanceDetails.aspx?Ctrl=Atal&Code=" + billcode);
-                }
-
-
-            });
-
-
         });
 
 
@@ -401,24 +293,31 @@
             alert("失败");
         }
         function openDetail(openUrl) {
-            //window.location.href = openUrl;
-            //showModalDialog 显示的页面不刷新，加随机数即可实现随时刷新
-            var returnValue = "";
             var flowid = '<%=Request["flowid"] %>';
+            var width = 1000;
+            var height = $(this).height()-100;
             if (flowid == "ys" || flowid == "xmys" || flowid == "zjys" || flowid == "srys" || flowid == "zcys" || flowid == "chys" || flowid == "wlys" || flowid == "yszj") {
-                returnValue = window.showModalDialog(openUrl, 'newwindow', 'center:yes;dialogHeight:700px;dialogWidth:1300px;status:no;scroll:yes');
-
-            } else {
-                returnValue = window.showModalDialog(openUrl, 'newwindow', 'center:yes;dialogHeight:600px;dialogWidth:1000px;status:no;scroll:yes');
-
+                width = 1300;
+                height = 700;
             }
-
-            if (returnValue == undefined || returnValue == "")
-            { }
-            else {
-
-            }
+            $("#prodcutDetailSrc").attr("src", openUrl);
+            $("#dialog-confirm").dialog(
+                {
+                    modal: true,             // 创建模式对话框
+                    autoOpen: true,//是否自动打开
+                    height: height, //高度
+                    width: width, //宽度
+                    title_html: true,
+                    buttons: {
+                    }
+                }
+            );
         }
+        function closeDetail() {
+            $("#dialog-confirm").dialog("close");
+            $("#btnRefresh").click();
+        }
+
         function submitData(oCheckbox) {
             var code = oCheckbox.name.substr(13, 2);
 
@@ -474,9 +373,6 @@
                     <asp:Button ID="btn_bh" runat="server" CssClass="baseButton" Text="驳回上一步" OnClick="btn_bh_Click" />
                     <input id="btn_cancel_xz" type="button" value="选择节点驳回" class="baseButton" runat="server" />
                     <input id="btn_detail" type="button" value="详细信息" class="baseButton" />
-                    <input id="btn_hdje" type="button" value="修改核定金额" class="baseButton" style="display: none;"
-                        runat="server" />
-                    <asp:Button ID="btn_edit" runat="server" Visible="false" CssClass="baseButton" Text="修 改" />
                     <input type="button" class="baseButton" value="帮助" onclick="javascript: parent.helptoggle();" />
                 </td>
             </tr>
@@ -709,5 +605,8 @@
             parent.closeAlert('UploadChoose');
         </script>
     </form>
+    <div id="dialog-confirm" style="display: none; overflow: hidden;">
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" id="prodcutDetailSrc" scrolling="auto" width="100%" height="100%"></iframe>
+    </div>
 </body>
 </html>
