@@ -25,61 +25,61 @@ public partial class webBill_bxgl_YskmSelectNew : System.Web.UI.Page
         //}
         //else
         //{
-            Response.Cache.SetSlidingExpiration(true);
-            Response.Cache.SetNoStore();
-            if (!IsPostBack)
+        Response.Cache.SetSlidingExpiration(true);
+        Response.Cache.SetNoStore();
+        if (!IsPostBack)
+        {
+            //单据对应编号
+            object objdydj = Request["dydj"];
+            if (objdydj != null && objdydj.ToString() != "")
             {
-                //单据对应编号
-                object objdydj = Request["dydj"];
-                if (objdydj != null && objdydj.ToString() != "")
-                {
-                    strdydj = objdydj.ToString();
-                }
-                //ClientScript.RegisterStartupScript(this.GetType(), "", "alert('" + strdydj + "')", true);
-                IList<string> kmlist = new List<string>();
-                string yskmcode = Request.Params["kmcode"];
-                string isgk = Request.Params["isGk"];
+                strdydj = objdydj.ToString();
+            }
+            //ClientScript.RegisterStartupScript(this.GetType(), "", "alert('" + strdydj + "')", true);
+            IList<string> kmlist = new List<string>();
+            string yskmcode = Request.Params["kmcode"];
+            string isgk = Request.Params["isGk"];
 
-                if ((isgk == "true" && Request["dydj"] != "lyd") || Request["flag"] == "s")
-                {
-                    //单选
-                    StringBuilder sb = new StringBuilder();
-                    sb.Append("<script type=\"text/javascript\">");
-                    sb.Append("$(\"input[type='checkbox']\").click(function() {");
-                    sb.Append("$(\"input[type='checkbox']\").each(function() { $(this).attr(\"checked\", false); });");
-                    sb.Append("$(this).attr(\"checked\", true); });");
-                    sb.Append("</script>");
-                    ClientScript.RegisterStartupScript(this.GetType(), "", sb.ToString());
-                }
+            if ((isgk == "true" && Request["dydj"] != "lyd") || Request["flag"] == "s")
+            {
+                //单选
+                StringBuilder sb = new StringBuilder();
+                sb.Append("<script type=\"text/javascript\">");
+                sb.Append("$(\"input[type='checkbox']\").click(function() {");
+                sb.Append("$(\"input[type='checkbox']\").each(function() { $(this).attr(\"checked\", false); });");
+                sb.Append("$(this).attr(\"checked\", true); });");
+                sb.Append("</script>");
+                ClientScript.RegisterStartupScript(this.GetType(), "", sb.ToString());
+            }
 
-                if (!string.IsNullOrEmpty(yskmcode))
+            if (!string.IsNullOrEmpty(yskmcode))
+            {
+                string[] arry = yskmcode.Split(',');
+                foreach (string temp in arry)
                 {
-                    string[] arry = yskmcode.Split(',');
-                    foreach (string temp in arry)
-                    {
-                        kmlist.Add(temp.Split(']')[0].Trim('['));
-                    }
+                    kmlist.Add(temp.Split(']')[0].Trim('['));
                 }
-                string dept = Request.Params["deptcode"];
-                if (!string.IsNullOrEmpty(dept))
-                {
-                    dept = dept.Split(']')[0].Trim('[');
-                }
+            }
+            string dept = Request.Params["deptcode"];
+            if (!string.IsNullOrEmpty(dept))
+            {
+                dept = dept.Split(']')[0].Trim('[');
+            }
 
 
-                SysManager smgr = new SysManager();
-                if (isgk == "true")
-                {
-                    IList<Bill_Yskm> list = new List<Bill_Yskm>();
-                    list = (!string.IsNullOrEmpty(dept)) ? smgr.GetGkYskmByDep(dept, strdydj) : smgr.GetGkYskmAll();
-                    InserTree(TreeView1.Nodes[0], list, kmlist);
-                }
-                else
-                {
-                    IList<Bill_Yskm> list1 = new List<Bill_Yskm>();
-                    list1 = smgr.GetYskmByDep(dept, strdydj);
-                    InserTree(TreeView1.Nodes[0], list1, kmlist);
-                }
+            SysManager smgr = new SysManager();
+            if (isgk == "true")
+            {
+                IList<Bill_Yskm> list = new List<Bill_Yskm>();
+                list = (!string.IsNullOrEmpty(dept)) ? smgr.GetGkYskmByDep(dept, strdydj) : smgr.GetGkYskmAll();
+                InserTree(TreeView1.Nodes[0], list, kmlist);
+            }
+            else
+            {
+                IList<Bill_Yskm> list1 = new List<Bill_Yskm>();
+                list1 = smgr.GetYskmByDep(dept, strdydj);
+                InserTree(TreeView1.Nodes[0], list1, kmlist);
+            }
             //}
         }
     }
@@ -131,7 +131,7 @@ public partial class webBill_bxgl_YskmSelectNew : System.Web.UI.Page
         YsglDal ysDal = new YsglDal();
         DateTime dt = DateTime.Now;
         string strny = "";
-      
+
         if (list.Count > 0)
         {
             //StringBuilder sb = new StringBuilder();
@@ -148,11 +148,6 @@ public partial class webBill_bxgl_YskmSelectNew : System.Web.UI.Page
                 deptCode = string.IsNullOrEmpty(deptCode) ? "" : deptCode.Split(']')[0].Trim('[');
                 string kmCode = string.IsNullOrEmpty(km) ? "" : km.Split(']')[0].Trim('[');
                 string gcbh = ysmgr.GetYsgcCode(DateTime.Parse(billDate));
-                //if (gcbh=="-1")
-                //{
-                //    ClientScript.RegisterStartupScript(this.GetType(),"","alert('请选择正确的财年')");
-                //    return;
-                //}
                 if (!string.IsNullOrEmpty(Request["dydj"]))
                 {
                     strdydj = Request["dydj"];
@@ -174,30 +169,18 @@ public partial class webBill_bxgl_YskmSelectNew : System.Web.UI.Page
                 {
                     hfje = ysmgr.GetYueHf(gcbh, deptCode, kmCode, strdydj);//花费金额    
                 }
-                
-                //是否启用销售提成模块
-                bool hasSaleRebate = new ConfigBLL().GetValueByKey("HasSaleRebate").Equals("1");             
+
+                ////是否启用销售提成模块
+                //bool hasSaleRebate = new ConfigBLL().GetValueByKey("HasSaleRebate").Equals("1");             
                 decimal syje = ysje - hfje;
+                //decimal tcje = 0;
+                //if (hasSaleRebate)
+                //{
+                //    tcje = ysmgr.getEffectiveSaleRebateAmount(deptCode, kmCode);//提成金额
+                //}
                 decimal tcje = 0;
-                if (hasSaleRebate)
-                {
-                    tcje = ysmgr.getEffectiveSaleRebateAmount(deptCode, kmCode);//提成金额
-                }
                 decimal kyje = syje + tcje;
                 //sb.Append(" 预算:"+ysje.ToString()+" 剩余:"+syje.ToString());
-
-                #region 2014-03-17回滚预算控功能添加  --2014-03-24注掉
-                //bool IsRollCtrl = new ConfigBLL().GetValueByKey("IsRollCtrl").Equals("1");
-                //decimal rollje = 0;
-                //if (IsRollCtrl)
-                //{
-                //    rollje= ysmgr.GetRollSy(gcbh, deptCode, kmCode);
-                //}
-
-                //syje += rollje;
-                //kyje += rollje;
-                #endregion
-
 
                 //sb.Append("|");
                 temp.Ysje = ysje;
@@ -205,7 +188,7 @@ public partial class webBill_bxgl_YskmSelectNew : System.Web.UI.Page
                 temp.Tcje = tcje;
                 temp.Kyje = kyje;
                 //是否项目核算
-                temp.XiangMuHeSuan = new Dal.SysDictionary.YskmDal().GetYskmByCode(kmCode).XmHs.Equals("1") ? "是" : "否";
+                temp.XiangMuHeSuan = "否";//new Dal.SysDictionary.YskmDal().GetYskmByCode(kmCode).XmHs.Equals("1") ? "是" : "否";
 
                 //部门
                 temp.dept = new DepartmentBLL().GetShowNameByCode(deptCode);
