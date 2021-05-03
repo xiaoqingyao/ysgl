@@ -34,66 +34,65 @@
     </script>
 </head>
 <body>
-    <form id="form1" runat="server">
-        <div class="layui-fluid">
-            <div class="layui-row layui-col-space15">
-                <div class="layui-col-md8">
-                    <div class="layui-row layui-col-space15">
-                        <div class="layui-col-md12">
-                            <div class="layui-card">
-                                <div class="layui-card-header">快捷方式</div>
-                                <div class="layui-card-body">
-                                    <div class="layui-carousel layadmin-carousel layadmin-shortcut">
-                                        <ul class="layui-row layui-col-space10">
-                                            <li class="layui-col-xs3" linkname="借款申请单" datalink="../bxgl/bxDetailForDz.aspx?type=add&dydj=02&djmxlx=01&isDZ=1" windoww="1000" windowh="700">
-                                                <a>
-                                                    <i class="layui-icon layui-icon-add-1"></i>
-                                                    <cite>借款单</cite>
-                                                </a>
-                                            </li>
-                                            <li class="layui-col-xs3" linkname="报销单" datalink="../bxgl/bxDetailForDz.aspx?type=add&par=0.23071922305615455&dydj=06&djmxlx=01&isDZ=1" windoww="1000" windowh="700">
-                                                <a>
-                                                    <i class="layui-icon layui-icon-form"></i>
-                                                    <cite>报销单</cite>
-                                                </a>
-                                            </li>
-                                            <li class="layui-col-xs3" linkname="退费申请" datalink="../bxgl/bxDetailForDz.aspx?type=add&par=0.23071922305615455&dydj=06&djmxlx=01&isDZ=1" windoww="1000" windowh="700">
-                                                <a>
-                                                    <i class="layui-icon layui-icon-survey"></i>
-                                                    <cite>退费申请</cite>
-                                                </a>
-                                            </li>
-                                            <li class="layui-col-xs3" linkname="退费申请" datalink="../bxgl/ZijinShenqingDetails.aspx?ctrl=add" windoww="1000" windowh="700">
-                                                <a layadmin-event="im">
-                                                    <i class="layui-icon layui-icon-rmb"></i>
-                                                    <cite>经费申请</cite>
-                                                </a>
-                                            </li>
-                                            <li class="layui-col-xs3" linkname="预算调整" datalink="../ysgl/ystz.aspx?isdz=1" windoww="1000" windowh="700">
-                                                <a>
-                                                    <i class="layui-icon layui-icon-slider"></i>
-                                                    <cite>预算调整</cite>
-                                                </a>
-                                            </li>
-                                            <li class="layui-col-xs3" linkname="其他调整" datalink="../ysgl/ystz_qt_dz.aspx" windoww="1000" windowh="700">
-                                                <a>
-                                                    <i class="layui-icon layui-icon-senior"></i>
-                                                    <cite>其他调整</cite>
-                                                </a>
-                                            </li>
-                                            <li class="layui-col-xs3" linkname="预算追加" datalink="../ysgl/ystz.aspx?isdz=1" windoww="1000" windowh="700">
-                                                <a lay-href="user/user/list.html">
-                                                    <i class="layui-icon layui-icon-templeate-1"></i>
-                                                    <cite>预算追加</cite>
-                                                </a>
-                                            </li>
+    <div class="layui-fluid">
+        <div class="layui-row layui-col-space15">
+            <div class="layui-col-md8">
+                <div class="layui-row layui-col-space15">
+                    <div class="layui-col-md12">
+                        <div class="layui-card">
+                            <div class="layui-card-header">快捷方式</div>
+                            <div class="layui-card-body">
+                                <div class="layui-carousel layadmin-carousel layadmin-shortcut">
+                                    <ul class="layui-row layui-col-space10">
+                                        <li class="layui-col-xs3" linkname="借款申请单" datalink="../bxgl/bxDetailForDz.aspx?type=add&dydj=02&djmxlx=01&isDZ=1" windoww="1000" windowh="700">
+                                            <a>
+                                                <i class="layui-icon layui-icon-add-1"></i>
+                                                <cite>借款单</cite>
+                                            </a>
+                                        </li>
+                                        <li class="layui-col-xs3" linkname="报销单" datalink="../bxgl/bxDetailForDz.aspx?type=add&par=0.23071922305615455&dydj=06&djmxlx=01&isDZ=1" windoww="1000" windowh="700">
+                                            <a>
+                                                <i class="layui-icon layui-icon-form"></i>
+                                                <cite>报销单</cite>
+                                            </a>
+                                        </li>
+                                        <li class="layui-col-xs3" linkname="退费申请" datalink="../bxgl/bxDetailForDz.aspx?type=add&par=0.23071922305615455&dydj=06&djmxlx=01&isDZ=1" windoww="1000" windowh="700">
+                                            <a>
+                                                <i class="layui-icon layui-icon-survey"></i>
+                                                <cite>退费申请</cite>
+                                            </a>
+                                        </li>
+                                        <li class="layui-col-xs3" linkname="退费申请" datalink="../bxgl/ZijinShenqingDetails.aspx?ctrl=add" windoww="1000" windowh="700">
+                                            <a layadmin-event="im">
+                                                <i class="layui-icon layui-icon-rmb"></i>
+                                                <cite>经费申请</cite>
+                                            </a>
+                                        </li>
+                                        <li class="layui-col-xs3" linkname="预算调整" datalink="../ysgl/ystz.aspx?isdz=1" windoww="1000" windowh="700">
+                                            <a>
+                                                <i class="layui-icon layui-icon-slider"></i>
+                                                <cite>预算调整</cite>
+                                            </a>
+                                        </li>
+                                        <li class="layui-col-xs3" linkname="其他调整" datalink="../ysgl/ystz_qt_dz.aspx" windoww="1000" windowh="700">
+                                            <a>
+                                                <i class="layui-icon layui-icon-senior"></i>
+                                                <cite>其他调整</cite>
+                                            </a>
+                                        </li>
+                                        <li class="layui-col-xs3" linkname="预算追加" datalink="../ysgl/ystz.aspx?isdz=1" windoww="1000" windowh="700">
+                                            <a lay-href="user/user/list.html">
+                                                <i class="layui-icon layui-icon-templeate-1"></i>
+                                                <cite>预算追加</cite>
+                                            </a>
+                                        </li>
 
-                                        </ul>
-                                    </div>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
-                        <%--<div class="layui-col-md6">
+                    </div>
+                    <%--<div class="layui-col-md6">
                             <div class="layui-card">
                                 <div class="layui-card-header">当月指标</div>
                                 <div class="layui-card-body">
@@ -122,31 +121,30 @@
                                 </div>
                             </div>
                         </div>--%>
-
-                    </div>
-                    <div class="layui-col-md12">
-                        <div class="layui-card">
-                            <div class="layui-card-header">我的单据</div>
-                            <div class="layui-card-body">
-                                <table class="layui-table">
-                                    <thead>
-                                        <tr>
-                                            <th>类型
-                                            </th>
-                                            <th>摘要
-                                            </th>
-                                            <th>日期
-                                            </th>
-                                            <th>进度
-                                            </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="mybill">
-                                    </tbody>
-                                </table>
-                            </div>
+                </div>
+                <div class="layui-col-md12">
+                    <div class="layui-card">
+                        <div class="layui-card-header">我的单据</div>
+                        <div class="layui-card-body">
+                            <table class="layui-table">
+                                <thead>
+                                    <tr>
+                                        <th>类型
+                                        </th>
+                                        <th>摘要
+                                        </th>
+                                        <th>日期
+                                        </th>
+                                        <th>进度
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody id="mybill">
+                                </tbody>
+                            </table>
                         </div>
-                        <%--<div class="layui-card">
+                    </div>
+                    <%--<div class="layui-card">
                                 <div class="layui-tab layui-tab-brief layadmin-latestData">
                                     <ul class="layui-tab-title">
                                         <li class="layui-this">今日热搜</li>
@@ -162,40 +160,38 @@
                                     </div>
                                 </div>
                             </div>--%>
+                </div>
+                <%--<div class="layui-row layui-col-space15">
+                        <div class="layui-col-md12">
+                            <div class="layui-card">
+                                <div class="layui-card-header">效果报告</div>
+                                <div class="layui-card-body layadmin-takerates">
+                                    <div class="layui-progress" lay-showpercent="yes">
+                                        <h3>转化率（日同比 28% <span class="layui-edge layui-edge-top" lay-tips="增长" lay-offset="-15"></span>）</h3>
+                                        <div class="layui-progress-bar" lay-percent="65%"></div>
+                                    </div>
+                                    <div class="layui-progress" lay-showpercent="yes">
+                                        <h3>签到率（日同比 11% <span class="layui-edge layui-edge-bottom" lay-tips="下降" lay-offset="-15"></span>）</h3>
+                                        <div class="layui-progress-bar" lay-percent="32%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>--%>
+            </div>
+
+            <div class="layui-col-md4">
+                <div class="layui-card">
+                    <div class="layui-card-header">待办事项</div>
+                    <div class="layui-card-body layui-text">
+                        <div class="layui-carousel layadmin-backlog">
+                            <ul class="layui-row layui-col-space10" id="needTodo">
+                            </ul>
+                        </div>
                     </div>
-                    
                 </div>
 
-                <div class="layui-col-md4">
-                    <div class="layui-card">
-                        <div class="layui-card-header">待办事项</div>
-                        <div class="layui-card-body layui-text">
-                            <div class="layui-carousel layadmin-backlog">
-                                <ul class="layui-row layui-col-space10" id="needTodo">
-                                    <%--<li class="layui-col-xs6">
-                                        <a datalink="" class="layadmin-backlog-body">
-                                            <h3>待审评论</h3>
-                                            <p><cite>66</cite></p>
-                                        </a>
-                                    </li> --%>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <%-- <div class="layui-card">
-                        <div class="layui-card-header">效果报告</div>
-                        <div class="layui-card-body layadmin-takerates">
-                            <div class="layui-progress" lay-showpercent="yes">
-                                <h3>转化率（日同比 28% <span class="layui-edge layui-edge-top" lay-tips="增长" lay-offset="-15"></span>）</h3>
-                                <div class="layui-progress-bar" lay-percent="65%"></div>
-                            </div>
-                            <div class="layui-progress" lay-showpercent="yes">
-                                <h3>签到率（日同比 11% <span class="layui-edge layui-edge-bottom" lay-tips="下降" lay-offset="-15"></span>）</h3>
-                                <div class="layui-progress-bar" lay-percent="32%"></div>
-                            </div>
-                        </div>
-                    </div>
+                <%-- 
 
                     <div class="layui-card">
                         <div class="layui-card-header">实时监控</div>
@@ -236,13 +232,69 @@
                             <p>—— 贤心（<a href="http://www.layui.com/" target="_blank">layui.com</a>）</p>
                         </div>
                     </div>--%>
-                </div>
+            </div>
+            <div class="layui-col-md4">
+                <div class="layui-card">
+                    <div class="layui-card-header">我要吐槽</div>
+                    <div class="layui-card-body layui-text">
+                        <div class="layui-carousel layadmin-backlog">
+                            <form class="layui-form" action="" lay-filter="example">
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">类型</label>
+                                    <div class="layui-input-block">
+                                        <select name="type" lay-filter="type">
+                                            <option value="0">操作习惯优化</option>
+                                            <option value="1">系统性能提升</option>
+                                            <option value="2">新增功能</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">功能模块</label>
+                                    <div class="layui-input-block">
+                                        <input id="title" type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input">
+                                    </div>
+                                </div>
+                                <div class="layui-form-item layui-form-text">
+                                    <label class="layui-form-label">详细说明</label>
+                                    <div class="layui-input-block">
+                                        <textarea id="desc" placeholder="请输入内容" class="layui-textarea" name="desc"></textarea>
+                                    </div>
+                                </div>
+                                <div class="layui-form-item layui-form-text">
 
+                                    <div class="layui-input-block">
+                                        十分感谢您的意见和建议，我们会尽力为您提供更好的软件使用体验。
+                                    </div>
+                                </div>
+                                <div class="layui-form-item">
+                                    <div class="layui-input-block">
+                                        <button type="submit" class="layui-btn layui-btn-normal" lay-submit="" lay-filter="demo1">提交</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-
-    </form>
+    </div>
     <script type="text/javascript">
+        layui.use(['form', 'layedit', 'laydate'], function () {
+            var form = layui.form;
+            form.on('submit(demo1)', function (data) {
+                var data = form.val('example');
+               
+                $.post("../MyAjax/Proposal.ashx", JSON.stringify(data), function (data, status) {
+                    if (status == "success") {
+                        $("#title").val('');
+                        $("#desc").val('');
+                        alert("提交成功！");
+                    }
+                });
+                return false;
+            });
+        });
         $(function () {
             //待办事项
             $.post("../MyAjax/GetDeskUndo.ashx", "", function (data, status) {
@@ -256,6 +308,7 @@
                 }
             });
         });
+
     </script>
 </body>
 </html>
