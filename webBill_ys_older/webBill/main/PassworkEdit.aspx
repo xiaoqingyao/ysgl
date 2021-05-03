@@ -7,6 +7,7 @@
     <meta http-equiv="pragma" content="no-cache" />
     <meta http-equiv="Cache-Control" content="no-cache, must-revalidate" />
     <link href="../Resources/Css/StyleSheet.css" rel="stylesheet" type="text/css" />
+     <link href="../Resources/Css/StyleSheet2.css" rel="stylesheet" type="text/css" />
     <title>密码修改</title> <meta http-equiv="X-UA-Compatible" content="IE=8" >
     <style type="text/css">
         div
@@ -39,7 +40,7 @@
     <form id="form1" runat="server">
     <table class="baseTable" width="90%">
         <tr>
-            <td  style="width: 150px; text-align: right">
+            <td  style="width: 80px; text-align: right">
                 人员编号:
             </td>
             <td style="width: 150px; text-align: left">
@@ -47,7 +48,7 @@
             </td>
         </tr>
         <tr>
-            <td  style="width: 150px; text-align: right">
+            <td  style="width: 80px; text-align: right">
                 原 密 码:
             </td>
             <td style="width: 150px; text-align: left">
@@ -55,7 +56,7 @@
             </td>
         </tr>
         <tr>
-            <td  style="width: 150px; text-align: right">
+            <td  style="width: 80px; text-align: right">
                 新 密 码:
             </td>
             <td style="width: 150px; text-align: left">
@@ -63,7 +64,7 @@
             </td>
         </tr>
         <tr>
-            <td  style="width: 150px; text-align: right">
+            <td  style="width: 80px; text-align: right">
                 新密码确认:
             </td>
             <td style="width: 150px; text-align: left">
@@ -74,7 +75,7 @@
             <td colspan="2" style="text-align: right">
                 <asp:Button ID="Button1" runat="server" Text="确 定" CssClass="baseButton" OnClick="Button1_Click"
                     OnClientClick=" return checkpwd();" />
-                <input id="Button2" type="button" value="取 消" class="baseButton" onclick="javascript:window.close();" />
+                <input id="Button2" type="button" value="取 消" class="baseButton" onclick="javascript:parent.closeWindow();" />
             </td>
         </tr>
     </table>

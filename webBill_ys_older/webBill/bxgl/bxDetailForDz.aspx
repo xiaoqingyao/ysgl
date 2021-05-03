@@ -118,7 +118,7 @@
                     }
                     else {
                         $.post("../MyWorkFlow/WorkFlowApprove.ashx", { "billcode": billcode, "mind": mind, "action": "approve" }, OnApproveSuccess);
-                        parent.closeDetail();
+                        
                     }
                 }
             });
@@ -368,7 +368,7 @@
             function OnApproveSuccess(data, status) {
                 if (data > 0 && status == "success") {
                     alert("操作成功！");
-                    self.close();
+                    parent.closeDetail();
                 } else {
                     alert("审批失败！");
                 }

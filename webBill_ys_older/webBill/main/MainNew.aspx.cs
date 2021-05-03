@@ -26,14 +26,9 @@ public partial class webBill_main_MainNew : System.Web.UI.Page
             if (!IsPostBack)
             {
                 left.InnerHtml = LeftInnerMaker();
-                //SysManager sysMgr = new SysManager();
-                //IList<Bill_Users> userlist = new List<Bill_Users>();
-                //userlist = sysMgr.GetAllUser();
 
                 string userCode = Convert.ToString(Session["userCode"]);
                 string username = Convert.ToString(Session["userName"]);
-                //    string uscn = userCode + "[" + username + "]";
-                //  Response.Write("<script>alert('" + uscn + "')</script>");
                 if (this.Td1.InnerHtml != "" && this.Td1.InnerHtml != null)
                 {
                     this.magdiv.Visible = true;
@@ -42,20 +37,6 @@ public partial class webBill_main_MainNew : System.Web.UI.Page
                 {
                     this.magdiv.Visible = false;
                 }
-                //else
-                //{
-                //    this.magdiv.Visible = true;
-                //}
-
-                //if (this.Repeater1.Items.Count<=0)
-                //{
-                //    this.magdiv.Visible = false;
-                //}
-                //else
-                //{
-                //    this.magdiv.Visible = true;
-                //}
-
                 //我的单据绑定
                 string strposql = @"select  top 7 billName,flowID,billuser,isGk,gkDept,(select bxzy from bill_ybbxmxb 
 where bill_ybbxmxb.billCode=bill_main.billCode) as bxzy,stepid,billDept,billCode,
@@ -81,20 +62,6 @@ where (billUser='" + Session["userCode"].ToString().Trim() + "' or billCode in (
                     this.podiv.Visible = true;
                 }
             }
-            ////注册
-            //object objregistermark_date = System.Configuration.ConfigurationManager.AppSettings["RegistDate"];
-            //DateTime dtReg;
-            //if (objregistermark_date != null)
-            //{
-            //    dtReg = DateTime.Parse(objregistermark_date.ToString());
-            //    DateTime strnowdate = DateTime.Now;
-            //    if (strnowdate > dtReg)
-            //    {
-            //        ScriptManager.RegisterStartupScript(this, this.GetType(), "aaa", "alert('您好，试用版本已经到期，请联系软件开发商购买正版！');", true);
-            //        return;
-            //    }
-            //}
-
             //enter快速打开报销单的地址
             string strurl = "../bxgl/bxDetailFinal.aspx?type=add&par=";
             string peizhiurl = new Bll.ConfigBLL().GetValueByKey("EnterForBxURL");
@@ -160,128 +127,6 @@ where (billUser='" + Session["userCode"].ToString().Trim() + "' or billCode in (
 
     }
 
-    //    public void BindInfo()
-    //    {
-    //        #region 待审核单据列表
-    //        string sql = "";
-    //        DataSet temp = new DataSet();
-    //        int index = 1;
-
-    //        StringBuilder sb = new StringBuilder();
-    //        sb.Append("<table style=\"width: 100%\">");
-
-    //        string[] arrBillType = new string[] { "ys", "yszj", "ystz", "lscg", "cgsp", "ybbx", "qtbx", "xmys", "cgzjjh","ccsq","ccbg" };
-    //        string[] arrBillTypeName = new string[] { "预算", "预算追加", "预算调整", "报告申请", "采购审批", "一般报销", "其他报销", "项目预算", "采购资金计划","出差申请","出差报告" };
-    //        string deptCodes = (new Departments()).GetUserRightDepartments(Session["userCode"].ToString().Trim(), "");
-
-    //        for (int i = 0; i <= arrBillType.Length - 1; i++)
-    //        {
-
-    //            sql = @"select count(*) from workflowrecord where recordid in
-    //                    (select recordid from dbo.workflowrecords where rdstate=1 and checkuser='" + Session["userCode"].ToString().Trim() + @"')
-    //                    and billtype='" + arrBillType[i] + "'";
-    //            temp = server.GetDataSet(sql);
-
-    //            sb.Append("     <tr>");
-    //            sb.Append("         <td>");
-    //            sb.Append("             <table class=\"myGrid\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"width: 100%\">");
-    //            sb.Append("                 <tr class=\"myGridItem\">");
-    //            sb.Append("                     <td>");
-
-    //            int infoCount = Convert.ToInt32(temp.Tables[0].Rows[0][0]);
-    //            if (infoCount == 0)
-    //            {
-    //                sb.Append("                         【" + (index++) + "】待审核" + arrBillTypeName[i] + "：");
-    //                //sb.Append("                         " + temp.Tables[0].Rows.Count.ToString());
-    //                sb.Append("                         " + temp.Tables[0].Rows[0][0].ToString());
-    //            }
-    //            else
-    //            {
-    //                //sb.Append("                         <a href=\"../MyWorkFlow/BillMainToApprove.aspx?flowid=" + arrBillType[i] + "\" target=_self>【" + (index++) + "】<font color=red>待审核" + arrBillTypeName[i] + "：");
-    //                sb.Append("                         <span datalink=\"../MyWorkFlow/BillMainToApprove.aspx?flowid=" + arrBillType[i] + "\" class='addTabs' linkname='" + arrBillTypeName[i] + "审核" + "'>【" + (index++) + "】<font color=red>待审核" + arrBillTypeName[i] + "：");
-    //                sb.Append("                         " + temp.Tables[0].Rows[0][0].ToString() + "</font></span>");
-    //            }
-    //            sb.Append("                     </td>");
-    //            sb.Append("                  </tr>");
-    //            sb.Append("              </table>");
-    //            sb.Append("          </td>");
-    //            sb.Append("     </tr>");
-    //        }
-    //        sb.Append("</table>");
-    //        this.info.InnerHtml = sb.ToString();
-    //        #endregion
-
-    //        #region 单位预算填报情况
-
-    //        temp = server.GetDataSet("select * from bill_userright where (userCode='" + Session["userCode"].ToString().Trim() + "' and objectID='0303' and righttype='1') or (usercode=(select userGroup from bill_users where usercode='" + Session["userCode"].ToString().Trim() + "') and objectID='0303' and righttype='3')");
-    //        if (temp.Tables[0].Rows.Count == 0)
-    //        {
-    //            this.ystbTitle.Style["display"] = "none";
-    //            this.ystbInfoList.Style["display"] = "none";
-    //        }
-    //        else
-    //        {
-    //            sb = new StringBuilder();
-    //            sb.Append("<table style=\"width: 100%\">");
-
-    //            temp = server.GetDataSet("select * from bill_ysgc where jzsj>=getdate() and gcbh not in (select gcbh from bill_ysmxb where ysDept=(select userDept from bill_users where userCode='" + Session["userCode"].ToString().Trim() + "') and ystype='1') and status='1'");
-
-
-    //            for (int i = 0; i <= temp.Tables[0].Rows.Count - 1; i++)
-    //            {
-    //                sb.Append("     <tr>");
-    //                sb.Append("         <td>");
-    //                sb.Append("             <table class=\"myGrid\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"width: 100%\">");
-    //                sb.Append("                 <tr class=\"myGridItem\">");
-    //                sb.Append("                     <td>");
-
-    //                //sb.Append("                         <a href=../ysgl/ystbFrame.aspx target=_self>【" + temp.Tables[0].Rows[i]["gcbh"].ToString().Trim() + "】<font color=red>" + temp.Tables[0].Rows[i]["xmmc"].ToString().Trim() + "</font></a>");
-    //                sb.Append("                         <span datalink='../ysgl/ystbAdd.aspx?gcbh=" + temp.Tables[0].Rows[i]["gcbh"].ToString().Trim() + "' linkname='预算填报' class='addTabs' >【" + temp.Tables[0].Rows[i]["gcbh"].ToString().Trim() + "】<font color=red>" + temp.Tables[0].Rows[i]["xmmc"].ToString().Trim() + "</font></span>");
-
-    //                sb.Append("                     </td>");
-    //                sb.Append("                  </tr>");
-    //                sb.Append("              </table>");
-    //                sb.Append("          </td>");
-    //                sb.Append("     </tr>");
-    //            }
-    //            sb.Append("</table>");
-    //            this.ystbInfoList.InnerHtml = sb.ToString();
-    //        }
-    //        #endregion
-
-    //        #region yqtsInfo
-    //        sb = new StringBuilder();
-    //        sb.Append("<table style=\"width: 100%\">");
-
-    //        temp = server.GetDataSet("select top 5 * from bill_msg order by date desc");
-
-    //        for (int i = 0; i <= temp.Tables[0].Rows.Count - 1; i++)
-    //        {
-    //            sb.Append("     <tr>");
-    //            sb.Append("         <td>");
-    //            sb.Append("             <table class=\"myGrid\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"width: 100%\">");
-    //            sb.Append("                 <tr class=\"myGridItem\">");
-    //            sb.Append("                     <td>");
-
-    //            sb.Append("                         <a onclick=\"openMsg(" + temp.Tables[0].Rows[i]["id"].ToString().Trim() + ");\" href=# target=_self title=\"" + temp.Tables[0].Rows[i]["title"].ToString().Trim() + "\">" + (temp.Tables[0].Rows[i]["title"].ToString().Trim().Length > 33 ? temp.Tables[0].Rows[i]["title"].ToString().Trim().Substring(0, 31) + "..." : temp.Tables[0].Rows[i]["title"].ToString().Trim()) + "</a>");
-
-    //            sb.Append("                     </td>");
-    //            sb.Append("                  </tr>");
-    //            sb.Append("              </table>");
-    //            sb.Append("          </td>");
-    //            sb.Append("     </tr>");
-    //        }
-    //        sb.Append("</table>");
-    //        this.yqtsInfo.InnerHtml = sb.ToString();
-    //        #endregion
-
-    //        #region 技术支持显示
-
-    //        //string strsql = "select parVal from bill_syspar where parname='技术支持'";
-    //        //this.jszcInfo.InnerHtml = server.GetCellValue(strsql);
-
-    //        #endregion
-    //    }
 
 
     protected void myGrid_ItemDataBound(object sender, GridViewRowEventArgs e)
@@ -296,7 +141,7 @@ where (billUser='" + Session["userCode"].ToString().Trim() + "' or billCode in (
             // e.Row.Cells[4].Text = sysMgr.GetDeptCodeName(e.Row.Cells[4].Text);
             string strpotype = e.Row.Cells[3].Text.ToString().Trim();//单据类型
             string zt = e.Row.Cells[2].Text;
-            
+
             if (zt == "end")
             {
                 e.Row.Cells[2].Text = "审批通过";
@@ -310,7 +155,7 @@ where (billUser='" + Session["userCode"].ToString().Trim() + "' or billCode in (
                     e.Row.Cells[2].Text = state;
 
                 }
-                else if (strpotype.Equals("yszj")||strpotype.Equals("ystz"))
+                else if (strpotype.Equals("yszj") || strpotype.Equals("ystz"))
                 {
                     string billcode = e.Row.Cells[0].Text.Trim();
                     string state = new WorkFlowRecordManager().WFState(billcode);
@@ -320,12 +165,6 @@ where (billUser='" + Session["userCode"].ToString().Trim() + "' or billCode in (
                 {
                     WorkFlowRecordManager bll = new WorkFlowRecordManager();
                     string state = bll.WFState(strbillname);
-                    //if (state == "未提交" && (strpotype.Equals("ybbx") || strpotype.Equals("yksq_dz")))//大智单子转移的问题  过一阵子就可以删除
-                    //{
-                    //    string billcode2 = server.GetCellValue("select top 1 billcode from bill_main where billname='" + strbillname + "'");
-                    //    state = bll.WFState(billcode2);
-                    //}
-
                     e.Row.Cells[2].Text = state;
                 }
             }
@@ -475,7 +314,7 @@ where (billUser='" + Session["userCode"].ToString().Trim() + "' or billCode in (
                 else if (strpotype == "fzcgz")//物品申购单
                 {
 
-                    strurl = "../ /fysq/ZcgzsqDetail.aspx?Ctrl=View&Code=" + strbillcode+"&flg=f";
+                    strurl = "../ /fysq/ZcgzsqDetail.aspx?Ctrl=View&Code=" + strbillcode + "&flg=f";
                 }
                 else if (strpotype == "zfzxsqd")//跨区域转费转校申请单
                 {
@@ -493,13 +332,11 @@ where (billUser='" + Session["userCode"].ToString().Trim() + "' or billCode in (
                 string strZhaiYao = e.Row.Cells[5].Text.Trim();
                 strZhaiYao = strZhaiYao.Replace("&nbsp;", "");
                 string strZhaiYaoShow = getString(strZhaiYao, 9);
-                //strZhaiYao.Length > 7 ? strZhaiYao.Substring(0, 7) + "..." : strZhaiYao;
                 if (strZhaiYao.Length > 0)
                 {
                     strZhaiYaoShow = "_" + strZhaiYaoShow;
                 }
-                //e.Row.Cells[1].Text = "<a href=\"#\" onclick=\"openDetail('" + strurl + "')\">" + strtext + strZhaiYaoShow + "</a>";
-                e.Row.Cells[1].Text =  strtext + strZhaiYaoShow;
+                e.Row.Cells[1].Text = strtext + strZhaiYaoShow;
             }
         }
     }
@@ -551,10 +388,6 @@ where (billUser='" + Session["userCode"].ToString().Trim() + "' or billCode in (
             DateTime strnowdate = DateTime.Now;
             if (strnowdate > dtReg)
             {
-                //Random dom = new Random();
-                //int idom = dom.Next(0, 10);
-                //if (idom % 3 == 0)
-                //{
                 TimeSpan aa = DateTime.Parse("2013-05-26") - DateTime.Now;
                 int iDays = aa.Days + 1;
                 if (iDays > 0)
@@ -565,28 +398,8 @@ where (billUser='" + Session["userCode"].ToString().Trim() + "' or billCode in (
                 {
                     checkeditionbyDog();
                 }
-                //}
             }
         }
-    }
-    /// <summary>
-    /// 提示信息
-    /// </summary>
-    /// <param name="strMsg">提示的信息</param>
-    /// <param name="isExit">提示后是否退出</param>
-    /// <param name="strReturnVal">返回值</param>
-    private void showMessage(string strMsg, bool isExit, string strReturnVal)
-    {
-        string strScript = "alert('" + strMsg + "');";
-        if (!strReturnVal.Equals(""))
-        {
-            strScript += "window.returnValue=\"" + strReturnVal + "\";";
-        }
-        if (isExit)
-        {
-            strScript += "self.close();";
-        }
-        ClientScript.RegisterStartupScript(this.GetType(), "", strScript, true);
     }
 }
 

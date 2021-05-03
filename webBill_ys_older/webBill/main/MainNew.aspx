@@ -108,7 +108,6 @@
         .highlight {
             background: #CCE8CF;
         }
-        /*原来的#EBF2F5*/
     </style>
     <link href="../Resources/Css/jquery-ui-1.8.16.custom.css" rel="stylesheet" type="text/css" />
 
@@ -117,10 +116,29 @@
     <script src="../Resources/jScript/jQuery/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
 
     <link href="../Resources/Css/Main.css" rel="stylesheet" type="text/css" />
-
-
     <title></title>
     <meta http-equiv="X-UA-Compatible" content="IE=8" />
+    <script type="text/javascript">
+        function openWindow(url, width, height,title) {
+
+            $("#prodcutDetailSrc").attr("src", url);
+            $("#dialog-confirm").dialog(
+                {
+                    modal: true,// 创建模式对话框
+                    autoOpen: true,//是否自动打开
+                    height: height, //高度
+                    width: width, //宽度
+                    title: title,
+                    title_html: true,
+                    buttons: {
+                    }
+                }
+            );
+        }
+        function closeWindow() {
+            $("#dialog-confirm").dialog('close');
+        }
+    </script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -198,7 +216,7 @@
                             </table>
 
                             <script type="text/javascript">
-                               
+
                                 (function () {
                                     var S = navigator.userAgent.indexOf("MSIE") != -1 && !window.opera;
                                     //根据传进来的ID返回DOM对象
@@ -579,9 +597,6 @@
                                     Q.init(A);
                                     N.draw();
                                 })();
-                                //-->
-
-                                //alert("此产品的许可即将失效，许可失效后可能会影响系统的稳定性，请联系开发商注册永久许可。");
                             </script>
 
                         </td>
@@ -702,60 +717,44 @@
                     帮 助 (H)
                 </div>
                 <div id="helpcontent" style="word-wrap: break-word; overflow: auto;">
-                    <%--<iframe src="HTMLPage.htm" style="width: 99%; height: 100%"></iframe>--%>
                 </div>
             </div>
         </div>
+        <div id="dialog-confirm" style="display: none; overflow: hidden;">
+            <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" id="prodcutDetailSrc" scrolling="auto" width="100%" height="100%"></iframe>
+        </div>
     </form>
-        <script type="text/javascript" language="javascript" charset="gb2312">
-            $(function () {
-                GetDesk();
-                $("body").focus();
-                $(this).keypress(function (event) {
-                    var key = event.keyCode;
-                    if (key == 13) {
+    <script type="text/javascript" language="javascript" charset="gb2312">
+        $(function () {
+            GetDesk();
+            $("#left").accordion({
+                fillSpace: true
+            });
 
-                        var url = '../bxgl/bxDetailFinal.aspx?type=add'; // +Math.random();
-                        var peizhiurl = $("#hdEnterURL").val();
-                        if (peizhiurl != undefined && peizhiurl != '') {
-                            url = peizhiurl;
-                        }
-                        url = url + "&par=" + Math.random();
-                        window.showModalDialog(url, 'newwindow', 'center:yes;dialogHeight:600px;dialogWidth:960px;status:no;scroll:yes');
-                    } else if (key == 106) {
-                        var Url2 = '../../SaleBill/BorrowMoney/LoanListDetails.aspx?Ctrl=Add&par=' + Math.random();
-                        window.showModalDialog(Url2, 'newwindow', 'center:yes;dialogHeight:600px;dialogWidth:900px;status:no;scroll:yes');
+            $tabs = $("#right").tabs({
+                tabTemplate: "<li><a href='#{href}'>#{label}</a> <span class='ui-icon ui-icon-close'></span></li>",
+                add: function (event, ui) {
+                    var link = $("#hd_link").val();
+                    //在这里为每一个页面传一个页面高度的参数
+                    if (link.indexOf('?') > -1) {
+                        link += "&wdheight=" + ($(window).height() - 30);
+                    } else {
+                        link += "?wdheight=" + ($(window).height() - 30);
                     }
-                });
-
-                $("#left").accordion({
-                    fillSpace: true
-                });
-
-                $tabs = $("#right").tabs({
-                    tabTemplate: "<li><a href='#{href}'>#{label}</a> <span class='ui-icon ui-icon-close'></span></li>",
-                    add: function (event, ui) {
-                        var link = $("#hd_link").val();
-                        //在这里为每一个页面传一个页面高度的参数
-                        if (link.indexOf('?') > -1) {
-                            link += "&wdheight=" + ($(window).height() - 30);
-                        } else {
-                            link += "?wdheight=" + ($(window).height() - 30);
-                        }
-                        $(ui.panel).append("<iframe src='" + link + "' width='100%' height='95%' frameborder='0'  scrolling='auto'></iframe>");
-                    },
-                    select: function (event, ui) {
-                        if (ui.index == 0) {
-                            GetDesk();
-                        }
-                        //切换tab的时候动态显示帮助信息
-                        var menuname = ui.tab.innerHTML;
-                        $("#hdnowshowname").val(menuname);
-                        showhelpmsg();
+                    $(ui.panel).append("<iframe src='" + link + "' width='100%' height='95%' frameborder='0'  scrolling='auto'></iframe>");
+                },
+                select: function (event, ui) {
+                    if (ui.index == 0) {
+                        GetDesk();
                     }
-                });
-                //高亮
-                $("#<%=myGrid.ClientID%> tr").filter(":not(:has(table, th))").click(function () {
+                    //切换tab的时候动态显示帮助信息
+                    var menuname = ui.tab.innerHTML;
+                    $("#hdnowshowname").val(menuname);
+                    showhelpmsg();
+                }
+            });
+            //高亮
+            $("#<%=myGrid.ClientID%> tr").filter(":not(:has(table, th))").click(function () {
                 $("#<%=myGrid.ClientID%> tr").removeClass("highlight");
                 $(this).addClass("highlight");
             });
@@ -811,19 +810,7 @@
 
         });
         function GetDesk() {
-            //$.post("../MyAjax/DeskNews.ashx", "", function (data, status) {
-            //    if (status == "success") {
-            //        var newInner = "";
-            //        var obj = $.parseJSON(data);
-            //        for (var i = 0; i < obj.length; i++) {
-            //            newInner += '<li class="infoLi"><span class="addTabs" linkname="' + obj[i].title + '" datalink="../DeskMessage/NewsForLook.aspx?code=' + obj[i].code + '">' + obj[i].title + '</span><span style="float:right">' + obj[i].sdate + '</span></li>';
-            //        }
-            //        $("#info").html("<ul>" + newInner + "</ul>");
-            //    }
-            //    else {
-            //        alert("刷新失败");
-            //    }
-            //});
+
             //待办事项
             $.post("../MyAjax/GetDeskUndo.ashx", "", function (data, status) {
                 if (status == "success") {
@@ -834,24 +821,7 @@
                 }
             });
 
-            //日历待办事情
-            //$.post("../MyAjax/GetNote.ashx", "", function (data, status) {
-            //    if (status == "success") {
-            //        var newInner = "";
-            //        var obj = $.parseJSON(data);
 
-            //        if (obj != null) {
-            //            for (var i = 0; i < obj.length; i++) {
-            //                newInner += '<li ><span >' + obj[i] + '</span></li>';
-            //            }
-            //            $("#Td7").html("<ul>" + newInner + "</ul>");
-            //        }
-
-            //    }
-            //    else {
-            //        alert("刷新失败");
-            //    }
-            //});
 
 
             //新闻
@@ -981,6 +951,7 @@
                 //DispalySelect(1);
             }
         }
+
     </script>
 
 </body>

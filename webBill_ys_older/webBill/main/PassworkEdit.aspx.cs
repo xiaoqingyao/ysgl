@@ -47,13 +47,13 @@ public partial class webBill_main_PassworkEdit : System.Web.UI.Page
             else
             {
                 userMgr.EditPwd(TextBox2.Text);
-                ClientScript.RegisterStartupScript(this.GetType(), "", "alert('保存成功!')", true);
+                ClientScript.RegisterStartupScript(this.GetType(), "", "alert('保存成功!');parent.closeWindow();", true);
             }
         }
         else
         {
             userMgr.EditPwd(TextBox2.Text);
-            ClientScript.RegisterStartupScript(this.GetType(), "", "alert('保存成功!')", true);
+            ClientScript.RegisterStartupScript(this.GetType(), "", "alert('保存成功!');parent.closeWindow();", true);
         }
     }
 }
