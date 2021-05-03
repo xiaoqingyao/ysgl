@@ -2,7 +2,6 @@
 
 <%@ Register Assembly="UcfarPager" Namespace="UcfarPager" TagPrefix="pager" %>
 
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
@@ -51,17 +50,16 @@
                 }
                 var billcode = checkrow.find("td")[0].innerHTML;
                 var vardeptcode = $("#LaDept").val();
-                 <%--window.location.href = "YstzDetailForLook.aspx?type=look&deptcode=" + vardeptcode + "&billCode=" + billcode;
-               var isdz = '<%=Request["isdz"]%>';
+                var isdz = '<%=Request["isdz"]%>';
                 if (isdz == "1") {
                     window.location.href = "yd_ystzDetail_dz.aspx?type=look&deptcode=" + vardeptcode + "&billCode=" + billcode;
 
                 } else {
                     window.location.href = "yd_ystzDetail.aspx?type=look&deptcode=" + vardeptcode + "&billCode=" + billcode;
 
-                }--%>
+                }
 
-                openLookSpStep("YstzDetailForLook.aspx?type=look&billCode=" + billcode + "&deptcode=" + vardeptcode, '<%=DetailURL %>');
+                // openDetail("?type=look&billCode=" + billcode + "&deptcode=" + vardeptcode, '<%=DetailURL %>');
             });
             $("#btn_delete").click(function () {
                 var checkrow = $(".highlight");
@@ -70,7 +68,7 @@
                     return;
                 }
                 var hdYstzNeedAudit = $("#hd_YstzNeedAudit").val();
-                var zt = checkrow.find("td")[4].innerHTML;
+                var zt = checkrow.find("td")[6].innerHTML;
                 if (zt != "未提交" && !(zt == "审批通过" && hdYstzNeedAudit == "0")) {
                     alert("该行已提交,不能删除！");
                     return;
@@ -100,7 +98,7 @@
                     alert("请先选择行");
                     return;
                 }
-                var zt = checkrow.find("td")[4].innerHTML;
+                var zt = checkrow.find("td")[6].innerHTML;
                 if (zt == "未提交" || zt == "审批通过") {
                     alert("该单据不能撤销操作!");
                 } else {
@@ -109,7 +107,7 @@
                         if (status == "success") {
                             if (data == "1") {
                                 alert("撤销成功！");
-                                checkrow.find("td")[4].innerHTML = "未提交";
+                                checkrow.find("td")[6].innerHTML = "未提交";
                             }
                             else {
                                 alert("单据以进入审批，不能撤销");
@@ -127,7 +125,7 @@
                     alert("请先选择行");
                     return;
                 }
-                var zt = checkrow.find("td")[4].innerHTML;
+                var zt = checkrow.find("td")[6].innerHTML;
                 if (zt != "未提交") {
                     alert("单据已提交.不要重复操作!");
                 } else {
@@ -144,7 +142,7 @@
                             }
                             else {
                                 alert("提交成功！");
-                                checkrow.find("td")[4].innerHTML = data;
+                                checkrow.find("td")[6].innerHTML = data;
                             }
                         }
                         else {
@@ -157,16 +155,14 @@
                 var isdz = '<%=Request["isdz"]%>';
                 var vardeptcode = $("#LaDept").val();
 
-                openLookSpStep("ystzDetail.aspx?type=add&deptcode=" + vardeptcode, '<%=DetailURL %>');
-               // window.location.href = "ystzDetail.aspx?type=add&deptcode=" + vardeptcode;
-                //if (isdz == "1") {
+                if (isdz == "1") {
 
-                //    window.location.href = "yd_ystzDetail_dz.aspx?type=add&deptcode=" + vardeptcode;
+                    window.location.href = "yd_ystzDetail_dz.aspx?type=add&deptcode=" + vardeptcode;
 
-                //} else {
-                //    window.location.href = "yd_ystzDetail.aspx?type=add&deptcode=" + vardeptcode;
+                } else {
+                    window.location.href = "yd_ystzDetail.aspx?type=add&deptcode=" + vardeptcode;
 
-                //}
+                }
 
             });
             $("#btn_edit").click(function () {
@@ -176,7 +172,7 @@
                     alert("请先选择行");
                     return;
                 }
-                var zt = checkrow.find("td")[4].innerHTML;
+                var zt = checkrow.find("td")[6].innerHTML;
                 if (zt != "未提交") {
                     alert("该行已提交！");
                     return;
@@ -184,32 +180,16 @@
                 var billcode = checkrow.find("td")[0].innerHTML;
                 var vardeptcode = $("#LaDept").val();
                 var url = "";
-                window.location.href = "ystzDetail.aspx?type=edit&billCode=" + billcode + "&deptcode=" + vardeptcode;
-                //if (isdz == "1") {
+                if (isdz == "1") {
 
-                //    window.location.href = "yd_ystzDetail_dz.aspx?type=edit&billCode=" + billcode + "&deptcode=" + vardeptcode;
+                    window.location.href = "yd_ystzDetail_dz.aspx?type=edit&billCode=" + billcode + "&deptcode=" + vardeptcode;
 
-                //} else {
-                //    window.location.href = "yd_ystzDetail.aspx?type=edit&billCode=" + billcode + "&deptcode=" + vardeptcode;
+                } else {
+                    window.location.href = "yd_ystzDetail.aspx?type=edit&billCode=" + billcode + "&deptcode=" + vardeptcode;
 
-                //}
+                }
             });
         });
-        //function editCheck() {
-        //    var checkrow = $(".highlight");
-        //    if (checkrow.val() == undefined) {
-        //        alert("请先选择行");
-        //        return false;
-        //    }
-        //    $("#choosebill").val(checkrow.find("td")[0].innerHTML);
-        //    var zt = checkrow.find("td")[4].innerHTML;
-        //    if (zt != "未提交") {
-        //        alert("该行已提交！");
-        //        return false;
-        //    }
-        //    return true;
-        //}
-
 
         function openDetail(option, DetailUrl) {
             if (DetailUrl == "YstzDetailNew.aspx") {
@@ -223,7 +203,7 @@
 
         }
         function openLookSpStep(openUrl) {
-            window.showModalDialog(openUrl, 'newwindow', 'center:yes;dialogHeight:600px;dialogWidth:700px;status:no;scroll:yes');
+            window.showModalDialog(openUrl, 'newwindow', 'center:yes;dialogHeight:500px;dialogWidth:460px;status:no;scroll:yes');
         }
 
         function gudingbiaotounew(obj, height) {
@@ -302,19 +282,19 @@
                                     <ItemStyle CssClass="myGridItem" Font-Italic="False" Font-Overline="False"
                                         Font-Strikeout="False" Font-Underline="False" Wrap="true" />
                                 </asp:BoundColumn>
-                            <%--    <asp:BoundColumn DataField="gcmc" HeaderText="目标预算过程" HeaderStyle-Width="150" ItemStyle-Width="150" >
+                                <asp:BoundColumn DataField="gcmc" HeaderText="目标预算过程" HeaderStyle-Width="180" ItemStyle-Width="180">
                                     <HeaderStyle CssClass="myGridHeader" Font-Bold="True" Font-Italic="False" Font-Overline="False"
                                         Font-Strikeout="False" Font-Underline="False" HorizontalAlign="Center" Wrap="False" />
-                                    <ItemStyle CssClass="myGridItem" Font-Italic="False" Font-Overline="False" 
+                                    <ItemStyle CssClass="myGridItem" Font-Italic="False" Font-Overline="False"
                                         Font-Strikeout="False" Font-Underline="False" Wrap="true" />
                                 </asp:BoundColumn>
                                 <asp:BoundColumn DataField="billJe" HeaderText="调整金额" DataFormatString="{0:N2}" ItemStyle-Width="100"
-                                    HeaderStyle-Width="100"  >
+                                    HeaderStyle-Width="100">
                                     <HeaderStyle CssClass="myGridHeader" Font-Bold="True" Font-Italic="False" Font-Overline="False"
                                         Font-Strikeout="False" Font-Underline="False" HorizontalAlign="Center" Wrap="False" />
                                     <ItemStyle CssClass="myGridItemRight" Font-Italic="False" Font-Overline="False"
                                         Font-Strikeout="False" Font-Underline="False" Wrap="true" />
-                                </asp:BoundColumn>--%>
+                                </asp:BoundColumn>
                                 <asp:BoundColumn DataField="billDate" DataFormatString="{0:D}" HeaderText="制单日期" HeaderStyle-Width="150" ItemStyle-Width="150">
                                     <HeaderStyle CssClass="myGridHeader" Font-Bold="True" Font-Italic="False" Font-Overline="False"
                                         Font-Strikeout="False" Font-Underline="False" HorizontalAlign="Center" Wrap="False" />

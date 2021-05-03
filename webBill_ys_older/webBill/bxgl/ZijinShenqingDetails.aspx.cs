@@ -222,7 +222,7 @@ public partial class webBill_fysq_ZijinShenqingDetails : System.Web.UI.Page
         //decimal ysje = 0;
         //decimal hfje = 0;
         //decimal syje = 0;
-        string dept = strdept.Substring(1,strdept.IndexOf("]")-1);//CutVal(strdept);
+        string dept = strdept.Substring(1, strdept.IndexOf("]") - 1);//CutVal(strdept);
         //DateTime dt = Convert.ToDateTime(stryksj);
         //string gcbh = ysmgr.GetYsgcCode(dt);
         //ysje = ysmgr.GetYueYsje_dept(gcbh, dept);
@@ -260,7 +260,7 @@ public partial class webBill_fysq_ZijinShenqingDetails : System.Web.UI.Page
         SysManager sysMgr = new SysManager();
         string sqltemp = "insert into bill_main (billcode,billname,flowid,stepid,billuser,billdate,billDept,billJe,loopTimes,billtype,billName2,note1,note2,note3,note4) values('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}')";
         string billname = sysMgr.GetYbbxBillName("jfsq", DateTime.Now.ToString("yyyMMdd"), 1);
-        string user = strsqr.Substring(1,strsqr.IndexOf("]")-1);// CutVal(strsqr);
+        string user = strsqr.Substring(1, strsqr.IndexOf("]") - 1);// CutVal(strsqr);
 
         sqltemp = string.Format(sqltemp, billcode, billname, "jfsq", "-1", user, txtdate.Text.Trim(), dept, strje, "1", "1", this.txtSm.Text.Trim(), stryksj, stryt, fujian, strykfs);
         new sqlHelper.sqlHelper().ExecuteNonQuery(sqltemp, null);
@@ -316,73 +316,13 @@ public partial class webBill_fysq_ZijinShenqingDetails : System.Web.UI.Page
     //    lbl_je.Text = "预算金额：" + ysje.ToString() + "花费金额：" + hfje.ToString() + "; 剩余金额：" + syje.ToString();
 
     //}
-    protected void btnScdj_Click(object sender, EventArgs e)
-    {
-        //    string filePath = "";
-        //    string Name = "";
-        //    string name = "";
-        //    string exname = "";
-        //    if (upLoadFiles.Visible == true)
-        //    {
-        //        if (upLoadFiles.PostedFile.FileName == "")
-        //        {
-        //            laFilexx.Text = "请选择文件";
-        //            return;
-        //        }
-        //        else
-        //        {
-        //            try
-        //            {
-        //                filePath = upLoadFiles.PostedFile.FileName;
-        //                Name = this.upLoadFiles.PostedFile.FileName;
-        //                name = System.IO.Path.GetFileName(Name).Split('.')[0];
-        //                exname = System.IO.Path.GetExtension(Name);
-        //                if (isOK(exname))
-        //                {
-        //                    string filename = filePath.Substring(filePath.LastIndexOf("\\") + 1);
-        //                    string fileSn = System.DateTime.Now.ToString("yyyyMMddHHmmssfff");
-        //                    ////转换成绝对地址,
-        //                    string serverpath = Server.MapPath(@"~\Uploads\jfsq\") + fileSn + "-" + filename;//.Substring(filename.LastIndexOf("."));
-        //                    ////转换成与相对地址,相对地址为将来访问图片提供
-        //                    string relativepath = @"~\Uploads\jfsq\" + fileSn + "-" + filename;//.Substring(filename.LastIndexOf("."));
-        //                    ////绝对地址用来将上传文件夹保存到服务器的具体路下。
-        //                    if (!Directory.Exists(Server.MapPath(@"~\Uploads\jfsq\")))
-        //                    {
-        //                        Directory.CreateDirectory(Server.MapPath(@"~\Uploads\jfsq\"));
-        //                    }
-        //                    upLoadFiles.PostedFile.SaveAs(serverpath);
-        //                    ////把相对路径的地址保存到页面hdImageUrl的value值上以供保存值时使用。
-        //                    hiddFileDz.Value += relativepath + ";";
-        //                    Lafilename.Text += "<div style=' border-bottom:1px dashed #CDCDCD; text-align:left;'>&nbsp;&nbsp;&nbsp;<span style='font-weight:700'>新附件" + filename + "：</span></div>";
-
-        //                    hidfilnename.Value += filename + ";";
-        //                    laFilexx.Text = "上传成功";
-        //                }
-        //                else
-        //                {
-        //                    Response.Write("<script>alert('文件类型不合法');</script>");
-        //                }
-        //            }
-        //            catch (Exception ex)
-        //            {
-        //                laFilexx.Text = ex.ToString();
-        //            }
-        //        }
-        //    }
-        //    else
-        //    {
-        //        btn_sc.Text = "上传";
-        //        upLoadFiles.Visible = true;
-
-        //    }
-    }
+  
     private void showKyje()
     {
         this.lblkyed.Text = getKyje().ToString("N2");
     }
     private decimal getKyje()
     {
-        return 100;
         string stryksj = this.txt_yksj.Text;
         string strdept = this.txtdept.Text.Trim();
         if (string.IsNullOrEmpty(strdept))
@@ -390,10 +330,10 @@ public partial class webBill_fysq_ZijinShenqingDetails : System.Web.UI.Page
             ClientScript.RegisterStartupScript(this.GetType(), "", "alert('申请部门不能为空');", true);
             return 0;
         }
-        string dept = strdept.Substring(1,strdept.IndexOf("]")-1);// CutVal(strdept);
+        string dept = strdept.Substring(1, strdept.IndexOf("]") - 1);// CutVal(strdept);
         string strsql = "exec dz_qysyje '" + this.txt_yksj.Text.Trim() + "','" + dept + "'";
         string kyje = server.GetCellValue(strsql);
-    
+
         return decimal.Parse(kyje);
     }
     bool isOK(string exname)

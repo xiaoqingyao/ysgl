@@ -141,7 +141,7 @@ public partial class webBill_ysgl_ystz : BasePage
         strsqlcount = string.Format(strsqlcount, sql);
         count = int.Parse(server.GetCellValue(strsqlcount));
 
-        string strsqlframe = "select * from ( {0} ) t where t.crow>{1} and t.crow<={2}";
+        string strsqlframe = "select * from ( {0} ) t where t.crow>{1} and t.crow<={2}  order by crow";
         strsqlframe = string.Format(strsqlframe, sql, pagefrm, pageto);
         return server.GetDataTable(strsqlframe, null);
     }

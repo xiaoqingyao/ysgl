@@ -218,18 +218,13 @@
                     <td colspan="5">
                         <asp:Label ID="lblfj" runat="server" Text="上传附件："></asp:Label>
                         &nbsp;&nbsp;&nbsp;
-                    <%--<asp:FileUpload ID="upLoadFiles" runat="server" Width="100px" />--%>
                         <input type="file" id="upLoadFiles" name="upLoadFiles" style="100px" />
 
                         <asp:HiddenField ID="hidfilnename" runat="server"></asp:HiddenField>
                         <asp:HiddenField ID="hiddFileDz" runat="server" />
                         <input id="csfj" value="上传" class="baseButton" onclick="shangchuan();" type="button" />
-                        <%--<asp:Button ID="btn_sc" runat="server" Visible="false" Text="上 传" CssClass="baseButton" OnClick="btnScdj_Click" />--%>
-                        <%--<asp:Label ID="laFilexx" runat="server" Text="" ForeColor="Red"></asp:Label>--%>
                         <div id="divBxdj" runat="server">
                         </div>
-                        <%-- <asp:Literal ID="Lafilename" runat="server" Text=""></asp:Literal>
-                        <asp:Literal ID="Literal1" runat="server"></asp:Literal>--%>
                         <div id="filenames" runat="server">
                         </div>
                     </td>
