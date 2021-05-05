@@ -1,11 +1,22 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="logindex.aspx.cs" Inherits="logindex" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>预算管理系统</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=8" />
     <link rel="shortcut icon" href="favicon.ico" />
+    <script src="webBill/Resources/jScript/jQuery/jquery-1.4.2.min.js" type="text/javascript"></script>
+
+    <link href="webBill/Resources/Css/jquery-ui-1.8.16.custom.css" rel="stylesheet" />
+    <script src="webBill/Resources/jScript/jQuery/jquery-ui-1.8.16.custom.min.js"></script>
+    <script>
+        $(function () {
+            $("#dialog").dialog({
+                width: 800,
+                buttons: { "我知道了": function () { $(this).dialog("close"); } }
+            });
+        });
+    </script>
 </head>
 <style type="text/css">
     .content {
@@ -185,12 +196,12 @@
     }
 </style>
 
-<script src="webBill/Resources/jScript/jQuery/jquery-1.4.2.min.js" type="text/javascript"></script>
 
 <script language="javascript" type="text/javascript">
     $(function () {
         document.getElementById("txtUserCode").focus();
     });
+
     function changeImg() {
         var url = "validate.aspx?" + Math.round();
         document.getElementById('imgYz').src = "";
@@ -291,9 +302,11 @@
                                                 </tr>
                                                 <tr>
                                                     <td colspan="2">
-                                                        <div align="left" class="STYLE3" style="margin-left: 100px;font-size:12px;">
+                                                        <div align="left" class="STYLE3" style="margin-left: 100px; font-size: 12px;">
+                                                            &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<a href="erweima.html">回到旧版</a><br />
                                                             <%--&nbsp;&nbsp;&nbsp;&nbsp;本系统支持IE6以上的IE系列主流浏览器，单击<a href="help.htm">查看</a>如何将IE设为默认浏览器。--%>
                                                             &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<a href="erweima.html">手机扫码登录</a>
+                                                            
                                                         </div>
 
                                                     </td>
@@ -309,7 +322,7 @@
             </table>
         </div>
         <script type="text/javascript">
-            var $ = function (id) {
+            var $$ = function (id) {
                 return "string" == typeof id ? document.getElementById(id) : id;
             };
 
@@ -333,7 +346,7 @@
                 //容器对象,滑动对象,切换参数,切换数量
                 initialize: function (container, slider, parameter, count, options) {
                     if (parameter <= 0 || count <= 0) return;
-                    var oContainer = $(container), oSlider = $(slider), oThis = this;
+                    var oContainer = $$(container), oSlider = $$(slider), oThis = this;
 
                     this.Index = 0; //当前索引
 
@@ -413,7 +426,7 @@
                 function Each(list, fun) {
                     for (var i = 0, len = list.length; i < len; i++) { fun(list[i], i); }
                 };
-                var objs2 = $("idNum2").getElementsByTagName("li");
+                var objs2 = $$("idNum2").getElementsByTagName("li");
 
                 var tv2 = new TransformView("idTransformView2", "idSlider2", 470, 3, {
                     onStart: function () { Each(objs2, function (o, i) { o.className = tv2.Index == i ? "on" : ""; }) }, //按钮样式
@@ -439,5 +452,21 @@
         </script>
 
     </form>
+
 </body>
+<div id="dialog" title="系统升级公告" style="display: none">
+    <p style="text-align: left">
+        尊敬的用户您好：
+    </p>
+    <p style="text-align: left">
+        &nbsp;&nbsp;&nbsp;&nbsp;您正使用的系统已经完成了版本升级，本次升级对系统的性能及浏览器兼容性做了全面的升级优化。
+    </p>
+    <p style="text-align: left">
+        &nbsp;&nbsp;&nbsp;&nbsp;系统支持您使用IE、火狐、谷歌等各种内核浏览器来访问系统。我们推荐您<a style="color:blue" href="http://47.100.173.18:18002/files/tools/chrome.exe">下载</a>使用谷歌浏览器获得最佳使用体验。
+    </p>
+    <p style="text-align: left">
+        &nbsp;&nbsp;&nbsp;&nbsp;您可以将本次升级未尽事宜反馈给系统管理员并点击登录按钮下方“回到旧版”保证业务顺利进行。
+    </p>
+    <p style="text-align: right">感谢您的使用和支持！</p>
+</div>
 </html>

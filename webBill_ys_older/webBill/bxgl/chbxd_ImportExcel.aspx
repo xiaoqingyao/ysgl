@@ -133,7 +133,7 @@
                                     <td>
                                         <asp:TextBox ID="txtLoanDateTo" runat="server" Width="120px"></asp:TextBox>
                                     </td>
-                                     <td>单据编号：
+                                    <td>单据编号：
                                     </td>
                                     <td>
                                         <asp:TextBox ID="txt_pocode" runat="server" Width="120px"></asp:TextBox>
@@ -149,14 +149,24 @@
                                     </td>
                                     <td>
                                         <asp:DropDownList ID="ddlZhangTao" runat="server" AutoPostBack="true" OnSelectedIndexChanged="OnddlZhangTao_SelectedIndexChanged">
+                                           
+                                            <asp:ListItem Value="UFTData650712_000019" Text="济南大智教育培训学校有限公司"></asp:ListItem>
+                                            <asp:ListItem Value="UFTData608357_170001" Text="山东大智教育集团股份有限公司"></asp:ListItem>
+                                            <asp:ListItem Value="UFTData907335_000036" Text="青岛市市北区大智文化培训学校有限公司"></asp:ListItem>
                                         </asp:DropDownList>
                                     </td>
-                                     <td>
+                                    <td>
                                         <asp:DropDownList ID="ddl_status" runat="server">
                                             <asp:ListItem Value="">全部</asp:ListItem>
                                             <asp:ListItem Value="0" Selected="True">未导入</asp:ListItem>
                                             <asp:ListItem Value="1">已导入</asp:ListItem>
                                         </asp:DropDownList>
+                                    </td>
+                                    <td>
+                                        制单人
+                                    </td>
+                                    <td>
+                                        <asp:TextBox runat="server" ID="creator"></asp:TextBox>
                                     </td>
                                     <td>
                                         <asp:Button ID="Button2" runat="server" Text="查 询" CssClass="baseButton" OnClick="Button4_Click" />
@@ -184,12 +194,12 @@
                                     </td>
                                     <td class="style1">制单部门：
                                     </td>
-                                    <td >
+                                    <td>
                                         <asp:TextBox ID="txt_dept" runat="server">
                                         </asp:TextBox>
                                     </td>
 
-                                      <td class="style1" >制单日期：
+                                    <td class="style1">制单日期：
                                     </td>
                                     <td>
                                         <asp:TextBox ID="txt_zdrq" runat="server"></asp:TextBox>
@@ -205,6 +215,7 @@
 
                                     <td colspan="2">
                                         <asp:Button runat="server" ID="btn_dr" Text="导入" CssClass="baseButton" OnClick="btn_dr_Click" />
+ <input type="button" id="btn_set" value="设置存货科目对照关系" class="baseButton" onclick="javascript: window.location.href = 'chkm_dy.aspx'" />
 
                                     </td>
                                 </tr>
@@ -217,7 +228,7 @@
                 <td>
                     <div id="divgrid" style="overflow-x: auto;">
                         <asp:DataGrid ID="myGrid" runat="server" AutoGenerateColumns="False" Width="1200px"
-                            CssClass="myGrid">
+                            CssClass="myGrid" OnItemDataBound="myGrid_ItemDataBound" ShowFooter="true">
                             <Columns>
                                 <asp:TemplateColumn ItemStyle-Width="32" HeaderStyle-Width="30" HeaderText="选择">
                                     <HeaderTemplate>
@@ -308,7 +319,12 @@
                                     <ItemStyle Font-Italic="False" Font-Overline="False" Font-Strikeout="False"
                                         Font-Underline="False" Wrap="true" CssClass="myGridItem" />
                                 </asp:BoundColumn>
-
+                                <asp:BoundColumn   HeaderText="对应预算科目编号" HeaderStyle-Width="100" ItemStyle-Width="100">
+                                    <HeaderStyle Font-Bold="True" Font-Italic="False" Font-Overline="False" Font-Strikeout="False"
+                                        Font-Underline="False" HorizontalAlign="Center" Wrap="False" CssClass="myGridHeader" />
+                                    <ItemStyle Font-Italic="False" Font-Overline="False" Font-Strikeout="False"
+                                        Font-Underline="False" Wrap="true" CssClass="myGridItem" />
+                                </asp:BoundColumn>
                             </Columns>
                             <PagerStyle Visible="False" />
                         </asp:DataGrid>

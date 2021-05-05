@@ -235,6 +235,14 @@
             </div>
             <div class="layui-col-md4">
                 <div class="layui-card">
+                    <div class="layui-card-header">微信机器人</div>
+                    <div class="layui-card-body layui-text">
+                        建设中，功能开放后可通过微信聊天实现单据审批。
+                    </div>
+                </div>
+            </div>
+            <div class="layui-col-md4">
+                <div class="layui-card">
                     <div class="layui-card-header">我要吐槽</div>
                     <div class="layui-card-body layui-text">
                         <div class="layui-carousel layadmin-backlog">
@@ -277,6 +285,7 @@
                     </div>
                 </div>
             </div>
+            
         </div>
     </div>
     <script type="text/javascript">
@@ -284,7 +293,7 @@
             var form = layui.form;
             form.on('submit(demo1)', function (data) {
                 var data = form.val('example');
-               
+
                 $.post("../MyAjax/Proposal.ashx", JSON.stringify(data), function (data, status) {
                     if (status == "success") {
                         $("#title").val('');

@@ -164,18 +164,18 @@ public partial class webBill_bxgl_chbxd_ImportExcel : BasePage
     /// </summary>
     private void bindZhangTao()
     {
-        string strlinkdbname = new Bll.ConfigBLL().GetValueByKey("pingzhengdblinkname");
+        //string strlinkdbname = new Bll.ConfigBLL().GetValueByKey("pingzhengdblinkname");
 
-        string strselectsql = @"select dsname as db_data, cAcc_Name,iYear,
-                        cast(cAcc_Num as varchar(50))+'|*|'+dsname as tval,
-                        * from [{0}].UFTSystem.dbo.EAP_Account  as m    where iYear>='2014' order by m.iYear desc";
-        strselectsql = string.Format(strselectsql, strlinkdbname);
+        //string strselectsql = @"select dsname as db_data, cAcc_Name,iYear,
+        //                cast(cAcc_Num as varchar(50))+'|*|'+dsname as tval,
+        //                * from [{0}].UFTSystem.dbo.EAP_Account  as m    where iYear>='2014' order by m.iYear desc";
+        //strselectsql = string.Format(strselectsql, strlinkdbname);
 
 
-        this.ddlZhangTao.DataSource = server.GetDataTable(strselectsql, null);
-        this.ddlZhangTao.DataTextField = "companyname";
-        this.ddlZhangTao.DataValueField = "db_data";
-        this.ddlZhangTao.DataBind();
+        //this.ddlZhangTao.DataSource = server.GetDataTable(strselectsql, null);
+        //this.ddlZhangTao.DataTextField = "companyname";
+        //this.ddlZhangTao.DataValueField = "db_data";
+        //this.ddlZhangTao.DataBind();
     }
     protected void OnddlZhangTao_SelectedIndexChanged(object sender, EventArgs e)
     {
@@ -499,6 +499,25 @@ public partial class webBill_bxgl_chbxd_ImportExcel : BasePage
         if (lstchsql.Count > 0)
         {
             server.ExecuteNonQuerysArray(lstchsql);
+        }
+    }
+    private decimal deAmountRow;
+    protected void myGrid_ItemDataBound(object sender, DataGridItemEventArgs e)
+    {
+        if (e.Item.ItemType != ListItemType.Header && e.Item.ItemType != ListItemType.Footer)
+        {
+            string text = e.Item.Cells[10].Text;
+            decimal d = 0m;
+            if (decimal.TryParse(text, out d))
+            {
+                this.deAmountRow += d;
+                return;
+            }
+        }
+        else if (e.Item.ItemType == ListItemType.Footer)
+        {
+            e.Item.Cells[10].Text = this.deAmountRow.ToString();
+            e.Item.Cells[0].Text = "合计：";
         }
     }
 }
