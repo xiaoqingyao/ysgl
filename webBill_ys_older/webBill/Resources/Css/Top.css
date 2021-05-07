@@ -9,13 +9,12 @@
 }
 
 
-#logo
-{
-	height:84px;
-	width:15%;
-	margin:0 auto;
-	float:left;
-	background-image:url(../Images/logoBg.GIF);
+#logo {
+	height: 84px;
+	width: 15%;
+	margin: 0 auto;
+	float: left;
+	background-image: url(../Images/logoBg.GIF);
 }
 #logo img
 {

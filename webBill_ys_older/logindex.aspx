@@ -23,7 +23,7 @@
         position: absolute;
         left: 40%;
         top: 35%;
-        /*margin-left: -200px;*/ /* 400的一半 */
+        margin-left: -200px; /* 400的一半 */
         margin-top: -100px; /* 200的一半 */
     }
 
