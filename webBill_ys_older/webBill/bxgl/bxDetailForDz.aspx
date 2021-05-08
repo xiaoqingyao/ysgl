@@ -118,7 +118,7 @@
                     }
                     else {
                         $.post("../MyWorkFlow/WorkFlowApprove.ashx", { "billcode": billcode, "mind": mind, "action": "approve" }, OnApproveSuccess);
-                        
+
                     }
                 }
             });
@@ -702,6 +702,22 @@
                     alert("请先选择报销日期"); return;
                 }
                 //结束验证借款申请单和费用报销单是否在同一个年月
+                //将银行信息带过来
+                if (json.length > 0) {
+                    if ($("#txt_khh").val().length > 0 || $("#txtbxzh").val().length > 0 || $("#txt_skdw").val() > 0) {
+                        if (confirm("您已经填写了银行账号相关信息，是否使用借款单的银行账号信息覆盖？")) {
+                            $("#txt_khh").val(json[0].khyh);
+                            $("#txtbxzh").val(json[0].zh);
+                            $("#txt_skdw").val(json[0].skdw);
+                        }
+                    } else {
+                        $("#txt_khh").val(json[0].khyh);
+                        $("#txtbxzh").val(json[0].zh);
+                        $("#txt_skdw").val(json[0].skdw);
+                    }
+                }
+
+                //结束将银行信息带过来
                 var checkArray = new Array();
                 var ykIndex = $("#tab_yksq tbody tr").last().attr("id");
                 if (ykIndex == undefined || ykIndex == "") {

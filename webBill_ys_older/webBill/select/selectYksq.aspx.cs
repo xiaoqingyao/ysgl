@@ -163,7 +163,7 @@ public partial class webBill_select_selectYksq : System.Web.UI.Page
     private void GetYkMx(string yksqCode, string je, List<JsonRet> lst)
     {
 
-        string sql = "select (select top 1 bxzy from bill_ybbxmxb where billcode=main.billcode) as bxzy,(select top 1 bxsm from bill_ybbxmxb where billcode=main.billcode) as bxsm,(select '['+deptcode+']'+deptname from bill_departments where deptcode=main.gkdept) as deptname,(select dydj from bill_yskm where yskmcode=fykm.fykm) as dydj,(select '['+yskmcode+']'+yskmmc from bill_yskm where yskmcode=fykm.fykm) as kmname,* from bill_ybbxmxb_fykm fykm,bill_main main where fykm.billcode=main.billcode and main.billcode in (select billcode from bill_main where billname='" + yksqCode + "') and fykm.je!=0 ";
+        string sql = "select (select top 1 bxzy from bill_ybbxmxb where billcode=main.billcode) as bxzy,(select top 1 bxsm from bill_ybbxmxb where billcode=main.billcode) as bxsm,(select '['+deptcode+']'+deptname from bill_departments where deptcode=main.gkdept) as deptname,(select dydj from bill_yskm where yskmcode=fykm.fykm) as dydj,(select '['+yskmcode+']'+yskmmc from bill_yskm where yskmcode=fykm.fykm) as kmname,mxb.bxrzh,* from bill_ybbxmxb_fykm fykm,bill_main main,bill_ybbxmxb mxb  where fykm.billcode=main.billcode and main.billcode=mxb.billcode and main.billcode in (select billcode from bill_main where billname='" + yksqCode + "') and fykm.je!=0 ";
 
         DataTable dt = server.GetDataTable(sql, null);
         YsManager ysmgr = new YsManager();
@@ -192,6 +192,20 @@ public partial class webBill_select_selectYksq : System.Web.UI.Page
                 temp.Syje = syje.ToString();//剩余金额
                 temp.bxzy = dt.Rows[i]["bxzy"].ToString();//报销摘要
                 temp.bxsm = dt.Rows[i]["bxsm"].ToString();//报销摘要
+                string text = dt.Rows[i]["bxrzh"].ToString();
+                if (!string.IsNullOrEmpty(text))
+                {
+                    string[] array = text.Split(new string[]
+                    {
+                        "|&|"
+                    }, StringSplitOptions.None);
+                    if (array.Length >= 3)
+                    {
+                        temp.khyh = array[0];
+                        temp.zh = array[1];
+                        temp.skdw = array[2];
+                    }
+                }
                 lst.Add(temp);
             }
         }
@@ -243,5 +257,8 @@ class JsonRet
     /// 报销说明
     /// </summary>
     public string bxsm = "";
+    public string khyh = "";
+    public string zh = "";
+    public string skdw = "";
 
 }

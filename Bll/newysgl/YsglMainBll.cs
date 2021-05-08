@@ -92,13 +92,13 @@ namespace Bll.newysgl
                         {
                             ys.February = ysmxb.Where(p => p.Gcbh == gcbh.February && p.Yskm == i.YskmCode && ystype.Contains(p.YsType)).Sum(p => p.Ysje).ToString();
                             ys.FebruaryYsnZj = ysmxb.Where(p => p.Gcbh == gcbh.February && p.Yskm == i.YskmCode && p.YsType == "5").Sum(p => p.Ysje).ToString();
-                           // ys.Februarybxje = ysmxbill.getbxje(nd, nd + "-02", i.YskmCode, deptcode);
+                            // ys.Februarybxje = ysmxbill.getbxje(nd, nd + "-02", i.YskmCode, deptcode);
                         }
                         if (ysmxb.Where(p => p.Gcbh == gcbh.march && p.Yskm == i.YskmCode && ystype.Contains(p.YsType)).Count() > 0)
                         {
                             ys.march = ysmxb.Where(p => p.Gcbh == gcbh.march && p.Yskm == i.YskmCode && ystype.Contains(p.YsType)).Sum(p => p.Ysje).ToString();
                             ys.marchYsnZj = ysmxb.Where(p => p.Gcbh == gcbh.march && p.Yskm == i.YskmCode && p.YsType == "5").Sum(p => p.Ysje).ToString();
-                           // ys.marchbxje = ysmxbill.getbxje(nd, nd + "-03", i.YskmCode, deptcode);
+                            // ys.marchbxje = ysmxbill.getbxje(nd, nd + "-03", i.YskmCode, deptcode);
                         }
                         if (ysmxb.Where(p => p.Gcbh == gcbh.April && p.Yskm == i.YskmCode && ystype.Contains(p.YsType)).Count() > 0)
                         {
@@ -110,31 +110,31 @@ namespace Bll.newysgl
                         {
                             ys.May = ysmxb.Where(p => p.Gcbh == gcbh.May && p.Yskm == i.YskmCode && ystype.Contains(p.YsType)).Sum(p => p.Ysje).ToString();
                             ys.MayYsnZj = ysmxb.Where(p => p.Gcbh == gcbh.May && p.Yskm == i.YskmCode && p.YsType == "5").Sum(p => p.Ysje).ToString();
-                           // ys.Maybxje = ysmxbill.getbxje(nd, nd + "-05", i.YskmCode, deptcode);
+                            // ys.Maybxje = ysmxbill.getbxje(nd, nd + "-05", i.YskmCode, deptcode);
                         }
                         if (ysmxb.Where(p => p.Gcbh == gcbh.June && p.Yskm == i.YskmCode && ystype.Contains(p.YsType)).Count() > 0)
                         {
                             ys.June = ysmxb.Where(p => p.Gcbh == gcbh.June && p.Yskm == i.YskmCode && ystype.Contains(p.YsType)).Sum(p => p.Ysje).ToString();
                             ys.JuneYsnZj = ysmxb.Where(p => p.Gcbh == gcbh.June && p.Yskm == i.YskmCode && p.YsType == "5").Sum(p => p.Ysje).ToString();
-                           // ys.Junebxje = ysmxbill.getbxje(nd, nd + "-06", i.YskmCode, deptcode);
+                            // ys.Junebxje = ysmxbill.getbxje(nd, nd + "-06", i.YskmCode, deptcode);
                         }
                         if (ysmxb.Where(p => p.Gcbh == gcbh.July && p.Yskm == i.YskmCode && ystype.Contains(p.YsType)).Count() > 0)
                         {
                             ys.July = ysmxb.Where(p => p.Gcbh == gcbh.July && p.Yskm == i.YskmCode && ystype.Contains(p.YsType)).Sum(p => p.Ysje).ToString();
                             ys.JulyYsnZj = ysmxb.Where(p => p.Gcbh == gcbh.July && p.Yskm == i.YskmCode && p.YsType == "5").Sum(p => p.Ysje).ToString();
-                           // ys.Julybxje = ysmxbill.getbxje(nd, nd + "-07", i.YskmCode, deptcode);
+                            // ys.Julybxje = ysmxbill.getbxje(nd, nd + "-07", i.YskmCode, deptcode);
                         }
                         if (ysmxb.Where(p => p.Gcbh == gcbh.August && p.Yskm == i.YskmCode && ystype.Contains(p.YsType)).Count() > 0)
                         {
                             ys.August = ysmxb.Where(p => p.Gcbh == gcbh.August && p.Yskm == i.YskmCode && ystype.Contains(p.YsType)).Sum(p => p.Ysje).ToString();
                             ys.AugustYsnZj = ysmxb.Where(p => p.Gcbh == gcbh.August && p.Yskm == i.YskmCode && p.YsType == "5").Sum(p => p.Ysje).ToString();
-                           // ys.Augustbxje = ysmxbill.getbxje(nd, nd + "-08", i.YskmCode, deptcode);
+                            // ys.Augustbxje = ysmxbill.getbxje(nd, nd + "-08", i.YskmCode, deptcode);
                         }
                         if (ysmxb.Where(p => p.Gcbh == gcbh.September && p.Yskm == i.YskmCode && ystype.Contains(p.YsType)).Count() > 0)
                         {
                             ys.September = ysmxb.Where(p => p.Gcbh == gcbh.September && p.Yskm == i.YskmCode && ystype.Contains(p.YsType)).Sum(p => p.Ysje).ToString();
                             ys.SeptemberYsnZj = ysmxb.Where(p => p.Gcbh == gcbh.September && p.Yskm == i.YskmCode && p.YsType == "5").Sum(p => p.Ysje).ToString();
-                           // ys.Septemberbxje = ysmxbill.getbxje(nd, nd + "-09", i.YskmCode, deptcode);
+                            // ys.Septemberbxje = ysmxbill.getbxje(nd, nd + "-09", i.YskmCode, deptcode);
                         }
                         if (ysmxb.Where(p => p.Gcbh == gcbh.October && p.Yskm == i.YskmCode && ystype.Contains(p.YsType)).Count() > 0)
                         {
@@ -146,13 +146,13 @@ namespace Bll.newysgl
                         {
                             ys.November = ysmxb.Where(p => p.Gcbh == gcbh.November && p.Yskm == i.YskmCode && ystype.Contains(p.YsType)).Sum(p => p.Ysje).ToString();
                             ys.NovemberYsnZj = ysmxb.Where(p => p.Gcbh == gcbh.November && p.Yskm == i.YskmCode && p.YsType == "5").Sum(p => p.Ysje).ToString();
-                           // ys.Novemberbxje = ysmxbill.getbxje(nd, nd + "-11", i.YskmCode, deptcode);
+                            // ys.Novemberbxje = ysmxbill.getbxje(nd, nd + "-11", i.YskmCode, deptcode);
                         }
                         if (ysmxb.Where(p => p.Gcbh == gcbh.December && p.Yskm == i.YskmCode && ystype.Contains(p.YsType)).Count() > 0)
                         {
                             ys.December = ysmxb.Where(p => p.Gcbh == gcbh.December && p.Yskm == i.YskmCode && ystype.Contains(p.YsType)).Sum(p => p.Ysje).ToString();
                             ys.DecemberYsnZj = ysmxb.Where(p => p.Gcbh == gcbh.December && p.Yskm == i.YskmCode && p.YsType == "5").Sum(p => p.Ysje).ToString();
-                           // ys.Decemberbxje = ysmxbill.getbxje(nd, nd + "-12", i.YskmCode, deptcode);
+                            // ys.Decemberbxje = ysmxbill.getbxje(nd, nd + "-12", i.YskmCode, deptcode);
                         }
                     }
                     #endregion
@@ -176,15 +176,169 @@ namespace Bll.newysgl
         /// <param name="ystype">需要获取的预算数的类型 数组中传入1 代表只获取年初预算的 加入2代表加上调整的等等</param>
         /// <returns></returns>
 
-        public IList<Models.YsgcTb> GetMainTable(string deptcode, string nd, string yskmtype, string tblx, string[] ystype, string xmbh,string stepid)
+        public IList<Models.YsgcTb> GetMainTable(string deptcode, string nd, string yskmtype, string tblx, string[] ystype, string xmbh, string stepid)
         {
             try
             {
-                bill_ysmxbBll ysmxbill=new bill_ysmxbBll();
+                bill_ysmxbBll ysmxbill = new bill_ysmxbBll();
                 IDictionary<string, string> sysConfig = new Bll.UserProperty.SysManager().GetsysConfigBynd(nd); // 获取预算参数设置
                 IList<Bill_Yskm> yskm = new Dal.SysDictionary.YskmDal().GetYskmByDeptTblx(deptcode, tblx, nd, yskmtype);      //  获取预算科目   
                 IList<Bill_Ysmxb> ysmxb = new Bll.newysgl.bill_ysmxbBll().GetYsmxByNian(nd, deptcode, xmbh, stepid);          //  获取预算明细表
-                IList<yskmhf> ysmxb_hf = new Bll.newysgl.bill_ysmxbBll().getkmje(deptcode,nd);  
+                IList<yskmhf> ysmxb_hf = new Bll.newysgl.bill_ysmxbBll().getkmje(deptcode, nd);
+                YsgcTb gcbh = GetgcbhByNd(nd);                                                                  // 将预算过程编号保存在一个model中
+                IList<YsgcTb> Tbmain = new List<YsgcTb>();
+                foreach (var i in yskm)                                                                         //将预算科目编号保存进去
+                {
+                    #region 预算科目中的数据添加到数据表中
+
+                    YsgcTb ys = new YsgcTb();
+                    ys.km = i.YskmMc;
+                    ys.kmbh = i.YskmCode;
+                    ys.iszyys = i.iszyys;
+                    #region 年预算
+
+                    if (ysmxb.Where(p => p.Gcbh == gcbh.year && p.Yskm == i.YskmCode && ystype.Contains(p.YsType)).Count() > 0)
+                    {
+                        ys.year = ysmxb.Where(p => p.Gcbh == gcbh.year && p.Yskm == i.YskmCode && ystype.Contains(p.YsType)).Sum(p => p.Ysje).ToString();
+                        ys.yearYsnZj = ysmxb.Where(p => p.Gcbh == gcbh.year && p.Yskm == i.YskmCode && p.YsType == "5").Sum(p => p.Ysje).ToString();
+                    }
+
+                    #endregion
+
+                    #region 季度预算
+
+                    if (sysConfig["MonthOrQuarter"] == "1")
+                    {
+                        if (ysmxb.Where(p => p.Gcbh == gcbh.spring && p.Yskm == i.YskmCode && ystype.Contains(p.YsType)).Count() > 0) //一月
+                        {
+                            ys.spring = ysmxb.Where(p => p.Gcbh == gcbh.spring && p.Yskm == i.YskmCode && ystype.Contains(p.YsType)).Sum(p => p.Ysje).ToString();
+                            ys.springYsnZj = ysmxb.Where(p => p.Gcbh == gcbh.spring && p.Yskm == i.YskmCode && p.YsType == "5").Sum(p => p.Ysje).ToString();
+                        }
+                        if (ysmxb.Where(p => p.Gcbh == gcbh.summer && p.Yskm == i.YskmCode && ystype.Contains(p.YsType)).Count() > 0)
+                        {
+                            ys.summer = ysmxb.Where(p => p.Gcbh == gcbh.summer && p.Yskm == i.YskmCode && ystype.Contains(p.YsType)).Sum(p => p.Ysje).ToString();
+                            ys.summerYsnZj = ysmxb.Where(p => p.Gcbh == gcbh.summer && p.Yskm == i.YskmCode && p.YsType == "5").Sum(p => p.Ysje).ToString();
+                        }
+                        if (ysmxb.Where(p => p.Gcbh == gcbh.autumn && p.Yskm == i.YskmCode && ystype.Contains(p.YsType)).Count() > 0)
+                        {
+                            ys.autumn = ysmxb.Where(p => p.Gcbh == gcbh.autumn && p.Yskm == i.YskmCode && ystype.Contains(p.YsType)).Sum(p => p.Ysje).ToString();
+                            ys.autumnYsnZj = ysmxb.Where(p => p.Gcbh == gcbh.autumn && p.Yskm == i.YskmCode && p.YsType == "5").Sum(p => p.Ysje).ToString();
+                        }
+                        if (ysmxb.Where(p => p.Gcbh == gcbh.winter && p.Yskm == i.YskmCode && ystype.Contains(p.YsType)).Count() > 0)
+                        {
+                            ys.winter = ysmxb.Where(p => p.Gcbh == gcbh.winter && p.Yskm == i.YskmCode && ystype.Contains(p.YsType)).Sum(p => p.Ysje).ToString();
+                            ys.winterYsnZj = ysmxb.Where(p => p.Gcbh == gcbh.winter && p.Yskm == i.YskmCode && p.YsType == "5").Sum(p => p.Ysje).ToString();
+                        }
+                    }
+                    #endregion
+
+                    #region 月度预算
+
+                    if (sysConfig["MonthOrQuarter"] == "2")
+                    {
+                        if (ysmxb.Where(p => p.Gcbh == gcbh.January && p.Yskm == i.YskmCode && ystype.Contains(p.YsType)).Count() > 0)
+                        {
+                            ys.January = ysmxb.Where(p => p.Gcbh == gcbh.January && p.Yskm == i.YskmCode && ystype.Contains(p.YsType)).Sum(p => p.Ysje).ToString();
+                            ys.JanuaryYsnZj = ysmxb.Where(p => p.Gcbh == gcbh.January && p.Yskm == i.YskmCode && p.YsType == "5").Sum(p => p.Ysje).ToString();
+                            ys.Januarybxje = ysmxb_hf.Where(p => p.fykm == i.YskmCode && p.cnyf == nd + "-01").Sum(p => p.je).ToString();
+                            // ys.Januarybxje = ysmxbill.getbxje(nd, nd + "-01", i.YskmCode, deptcode);
+                        }
+                        if (ysmxb.Where(p => p.Gcbh == gcbh.February && p.Yskm == i.YskmCode && ystype.Contains(p.YsType)).Count() > 0)
+                        {
+                            ys.February = ysmxb.Where(p => p.Gcbh == gcbh.February && p.Yskm == i.YskmCode && ystype.Contains(p.YsType)).Sum(p => p.Ysje).ToString();
+                            ys.FebruaryYsnZj = ysmxb.Where(p => p.Gcbh == gcbh.February && p.Yskm == i.YskmCode && p.YsType == "5").Sum(p => p.Ysje).ToString();
+                            // ys.Februarybxje = ysmxbill.getbxje(nd, nd + "-02", i.YskmCode, deptcode);
+                            ys.Februarybxje = ysmxb_hf.Where(p => p.fykm == i.YskmCode && p.cnyf == nd + "-02").Sum(p => p.je).ToString();
+                        }
+                        if (ysmxb.Where(p => p.Gcbh == gcbh.march && p.Yskm == i.YskmCode && ystype.Contains(p.YsType)).Count() > 0)
+                        {
+                            ys.march = ysmxb.Where(p => p.Gcbh == gcbh.march && p.Yskm == i.YskmCode && ystype.Contains(p.YsType)).Sum(p => p.Ysje).ToString();
+                            ys.marchYsnZj = ysmxb.Where(p => p.Gcbh == gcbh.march && p.Yskm == i.YskmCode && p.YsType == "5").Sum(p => p.Ysje).ToString();
+                            //  ys.marchbxje = ysmxbill.getbxje(nd, nd + "-03", i.YskmCode, deptcode);
+                            ys.marchbxje = ysmxb_hf.Where(p => p.fykm == i.YskmCode && p.cnyf == nd + "-03").Sum(p => p.je).ToString();
+                        }
+                        if (ysmxb.Where(p => p.Gcbh == gcbh.April && p.Yskm == i.YskmCode && ystype.Contains(p.YsType)).Count() > 0)
+                        {
+                            ys.April = ysmxb.Where(p => p.Gcbh == gcbh.April && p.Yskm == i.YskmCode && ystype.Contains(p.YsType)).Sum(p => p.Ysje).ToString();
+                            ys.AprilYsnZj = ysmxb.Where(p => p.Gcbh == gcbh.April && p.Yskm == i.YskmCode && p.YsType == "5").Sum(p => p.Ysje).ToString();
+                            //  ys.Augustbxje = ysmxbill.getbxje(nd, nd + "-04", i.YskmCode, deptcode);
+                            ys.Augustbxje = ysmxb_hf.Where(p => p.fykm == i.YskmCode && p.cnyf == nd + "-04").Sum(p => p.je).ToString();
+                        }
+                        if (ysmxb.Where(p => p.Gcbh == gcbh.May && p.Yskm == i.YskmCode && ystype.Contains(p.YsType)).Count() > 0)
+                        {
+                            ys.May = ysmxb.Where(p => p.Gcbh == gcbh.May && p.Yskm == i.YskmCode && ystype.Contains(p.YsType)).Sum(p => p.Ysje).ToString();
+                            ys.MayYsnZj = ysmxb.Where(p => p.Gcbh == gcbh.May && p.Yskm == i.YskmCode && p.YsType == "5").Sum(p => p.Ysje).ToString();
+                            //  ys.Maybxje = ysmxbill.getbxje(nd, nd + "-05", i.YskmCode, deptcode);
+                            ys.Maybxje = ysmxb_hf.Where(p => p.fykm == i.YskmCode && p.cnyf == nd + "-05").Sum(p => p.je).ToString();
+                        }
+                        if (ysmxb.Where(p => p.Gcbh == gcbh.June && p.Yskm == i.YskmCode && ystype.Contains(p.YsType)).Count() > 0)
+                        {
+                            ys.June = ysmxb.Where(p => p.Gcbh == gcbh.June && p.Yskm == i.YskmCode && ystype.Contains(p.YsType)).Sum(p => p.Ysje).ToString();
+                            ys.JuneYsnZj = ysmxb.Where(p => p.Gcbh == gcbh.June && p.Yskm == i.YskmCode && p.YsType == "5").Sum(p => p.Ysje).ToString();
+                            // ys.Junebxje = ysmxbill.getbxje(nd, nd + "-06", i.YskmCode, deptcode);
+                            ys.Junebxje = ysmxb_hf.Where(p => p.fykm == i.YskmCode && p.cnyf == nd + "-06").Sum(p => p.je).ToString();
+                        }
+                        if (ysmxb.Where(p => p.Gcbh == gcbh.July && p.Yskm == i.YskmCode && ystype.Contains(p.YsType)).Count() > 0)
+                        {
+                            ys.July = ysmxb.Where(p => p.Gcbh == gcbh.July && p.Yskm == i.YskmCode && ystype.Contains(p.YsType)).Sum(p => p.Ysje).ToString();
+                            ys.JulyYsnZj = ysmxb.Where(p => p.Gcbh == gcbh.July && p.Yskm == i.YskmCode && p.YsType == "5").Sum(p => p.Ysje).ToString();
+                            // ys.Julybxje = ysmxbill.getbxje(nd, nd + "-07", i.YskmCode, deptcode);
+                            ys.Julybxje = ysmxb_hf.Where(p => p.fykm == i.YskmCode && p.cnyf == nd + "-07").Sum(p => p.je).ToString();
+                        }
+                        if (ysmxb.Where(p => p.Gcbh == gcbh.August && p.Yskm == i.YskmCode && ystype.Contains(p.YsType)).Count() > 0)
+                        {
+                            ys.August = ysmxb.Where(p => p.Gcbh == gcbh.August && p.Yskm == i.YskmCode && ystype.Contains(p.YsType)).Sum(p => p.Ysje).ToString();
+                            ys.AugustYsnZj = ysmxb.Where(p => p.Gcbh == gcbh.August && p.Yskm == i.YskmCode && p.YsType == "5").Sum(p => p.Ysje).ToString();
+                            // ys.Augustbxje = ysmxbill.getbxje(nd, nd + "-08", i.YskmCode, deptcode);
+                            ys.Augustbxje = ysmxb_hf.Where(p => p.fykm == i.YskmCode && p.cnyf == nd + "-08").Sum(p => p.je).ToString();
+                        }
+                        if (ysmxb.Where(p => p.Gcbh == gcbh.September && p.Yskm == i.YskmCode && ystype.Contains(p.YsType)).Count() > 0)
+                        {
+                            ys.September = ysmxb.Where(p => p.Gcbh == gcbh.September && p.Yskm == i.YskmCode && ystype.Contains(p.YsType)).Sum(p => p.Ysje).ToString();
+                            ys.SeptemberYsnZj = ysmxb.Where(p => p.Gcbh == gcbh.September && p.Yskm == i.YskmCode && p.YsType == "5").Sum(p => p.Ysje).ToString();
+                            //  ys.Septemberbxje = ysmxbill.getbxje(nd, nd + "-09", i.YskmCode, deptcode);
+                            ys.Septemberbxje = ysmxb_hf.Where(p => p.fykm == i.YskmCode && p.cnyf == nd + "-09").Sum(p => p.je).ToString();
+                        }
+                        if (ysmxb.Where(p => p.Gcbh == gcbh.October && p.Yskm == i.YskmCode && ystype.Contains(p.YsType)).Count() > 0)
+                        {
+                            ys.October = ysmxb.Where(p => p.Gcbh == gcbh.October && p.Yskm == i.YskmCode && ystype.Contains(p.YsType)).Sum(p => p.Ysje).ToString();
+                            ys.OctoberYsnZj = ysmxb.Where(p => p.Gcbh == gcbh.October && p.Yskm == i.YskmCode && p.YsType == "5").Sum(p => p.Ysje).ToString();
+                            // ys.Octoberbxje = ysmxbill.getbxje(nd, nd + "-10", i.YskmCode, deptcode);
+                            ys.Octoberbxje = ysmxb_hf.Where(p => p.fykm == i.YskmCode && p.cnyf == nd + "-10").Sum(p => p.je).ToString();
+                        }
+                        if (ysmxb.Where(p => p.Gcbh == gcbh.November && p.Yskm == i.YskmCode && ystype.Contains(p.YsType)).Count() > 0)
+                        {
+                            ys.November = ysmxb.Where(p => p.Gcbh == gcbh.November && p.Yskm == i.YskmCode && ystype.Contains(p.YsType)).Sum(p => p.Ysje).ToString();
+                            ys.NovemberYsnZj = ysmxb.Where(p => p.Gcbh == gcbh.November && p.Yskm == i.YskmCode && p.YsType == "5").Sum(p => p.Ysje).ToString();
+                            //ys.Novemberbxje = ysmxbill.getbxje(nd, nd + "-11", i.YskmCode, deptcode);
+                            ys.Novemberbxje = ysmxb_hf.Where(p => p.fykm == i.YskmCode && p.cnyf == nd + "-11").Sum(p => p.je).ToString();
+                        }
+                        if (ysmxb.Where(p => p.Gcbh == gcbh.December && p.Yskm == i.YskmCode && ystype.Contains(p.YsType)).Count() > 0)
+                        {
+                            ys.December = ysmxb.Where(p => p.Gcbh == gcbh.December && p.Yskm == i.YskmCode && ystype.Contains(p.YsType)).Sum(p => p.Ysje).ToString();
+                            ys.DecemberYsnZj = ysmxb.Where(p => p.Gcbh == gcbh.December && p.Yskm == i.YskmCode && p.YsType == "5").Sum(p => p.Ysje).ToString();
+                            //  ys.Decemberbxje = ysmxbill.getbxje(nd, nd + "-12", i.YskmCode, deptcode);
+                            ys.Decemberbxje = ysmxb_hf.Where(p => p.fykm == i.YskmCode && p.cnyf == nd + "-12").Sum(p => p.je).ToString();
+                        }
+                    }
+                    #endregion
+
+                    Tbmain.Add(ys);
+                    #endregion
+                }
+                return Tbmain;
+            }
+            catch (Exception ex) { throw new Exception(ex.ToString()); }
+        }
+        public IList<Models.YsgcTb> GetMainTable_qt(string deptcode, string nd, string yskmtype, string tblx, string[] ystype, string xmbh, string stepid)
+        {
+            try
+            {
+                bill_ysmxbBll ysmxbill = new bill_ysmxbBll();
+                IDictionary<string, string> sysConfig = new Bll.UserProperty.SysManager().GetsysConfigBynd(nd); // 获取预算参数设置
+                IList<Bill_Yskm> yskm = new Dal.SysDictionary.YskmDal().GetYskmByDeptTblx(deptcode, tblx, nd, yskmtype);      //  获取预算科目   
+                IList<Bill_Ysmxb> ysmxb = new Bll.newysgl.bill_ysmxbBll().GetYsmxByNian(nd, deptcode, xmbh, stepid);          //  获取预算明细表
+                IList<yskmhf> ysmxb_hf = new Bll.newysgl.bill_ysmxbBll().getkmje(deptcode, nd);
 
 
 
@@ -250,63 +404,63 @@ namespace Bll.newysgl
                         {
                             ys.February = ysmxb.Where(p => p.Gcbh == gcbh.February && p.Yskm == i.YskmCode && ystype.Contains(p.YsType)).Sum(p => p.Ysje).ToString();
                             ys.FebruaryYsnZj = ysmxb.Where(p => p.Gcbh == gcbh.February && p.Yskm == i.YskmCode && p.YsType == "5").Sum(p => p.Ysje).ToString();
-                           // ys.Februarybxje = ysmxbill.getbxje(nd, nd + "-02", i.YskmCode, deptcode);
+                            // ys.Februarybxje = ysmxbill.getbxje(nd, nd + "-02", i.YskmCode, deptcode);
                             ys.Februarybxje = ysmxb_hf.Where(p => p.fykm == i.YskmCode && p.cnyf == nd + "-02").Sum(p => p.je).ToString();
                         }
                         if (ysmxb.Where(p => p.Gcbh == gcbh.march && p.Yskm == i.YskmCode && ystype.Contains(p.YsType)).Count() > 0)
                         {
                             ys.march = ysmxb.Where(p => p.Gcbh == gcbh.march && p.Yskm == i.YskmCode && ystype.Contains(p.YsType)).Sum(p => p.Ysje).ToString();
                             ys.marchYsnZj = ysmxb.Where(p => p.Gcbh == gcbh.march && p.Yskm == i.YskmCode && p.YsType == "5").Sum(p => p.Ysje).ToString();
-                          //  ys.marchbxje = ysmxbill.getbxje(nd, nd + "-03", i.YskmCode, deptcode);
+                            //  ys.marchbxje = ysmxbill.getbxje(nd, nd + "-03", i.YskmCode, deptcode);
                             ys.marchbxje = ysmxb_hf.Where(p => p.fykm == i.YskmCode && p.cnyf == nd + "-03").Sum(p => p.je).ToString();
                         }
                         if (ysmxb.Where(p => p.Gcbh == gcbh.April && p.Yskm == i.YskmCode && ystype.Contains(p.YsType)).Count() > 0)
                         {
                             ys.April = ysmxb.Where(p => p.Gcbh == gcbh.April && p.Yskm == i.YskmCode && ystype.Contains(p.YsType)).Sum(p => p.Ysje).ToString();
                             ys.AprilYsnZj = ysmxb.Where(p => p.Gcbh == gcbh.April && p.Yskm == i.YskmCode && p.YsType == "5").Sum(p => p.Ysje).ToString();
-                          //  ys.Augustbxje = ysmxbill.getbxje(nd, nd + "-04", i.YskmCode, deptcode);
+                            //  ys.Augustbxje = ysmxbill.getbxje(nd, nd + "-04", i.YskmCode, deptcode);
                             ys.Augustbxje = ysmxb_hf.Where(p => p.fykm == i.YskmCode && p.cnyf == nd + "-04").Sum(p => p.je).ToString();
                         }
                         if (ysmxb.Where(p => p.Gcbh == gcbh.May && p.Yskm == i.YskmCode && ystype.Contains(p.YsType)).Count() > 0)
                         {
                             ys.May = ysmxb.Where(p => p.Gcbh == gcbh.May && p.Yskm == i.YskmCode && ystype.Contains(p.YsType)).Sum(p => p.Ysje).ToString();
                             ys.MayYsnZj = ysmxb.Where(p => p.Gcbh == gcbh.May && p.Yskm == i.YskmCode && p.YsType == "5").Sum(p => p.Ysje).ToString();
-                          //  ys.Maybxje = ysmxbill.getbxje(nd, nd + "-05", i.YskmCode, deptcode);
+                            //  ys.Maybxje = ysmxbill.getbxje(nd, nd + "-05", i.YskmCode, deptcode);
                             ys.Maybxje = ysmxb_hf.Where(p => p.fykm == i.YskmCode && p.cnyf == nd + "-05").Sum(p => p.je).ToString();
                         }
                         if (ysmxb.Where(p => p.Gcbh == gcbh.June && p.Yskm == i.YskmCode && ystype.Contains(p.YsType)).Count() > 0)
                         {
                             ys.June = ysmxb.Where(p => p.Gcbh == gcbh.June && p.Yskm == i.YskmCode && ystype.Contains(p.YsType)).Sum(p => p.Ysje).ToString();
                             ys.JuneYsnZj = ysmxb.Where(p => p.Gcbh == gcbh.June && p.Yskm == i.YskmCode && p.YsType == "5").Sum(p => p.Ysje).ToString();
-                           // ys.Junebxje = ysmxbill.getbxje(nd, nd + "-06", i.YskmCode, deptcode);
+                            // ys.Junebxje = ysmxbill.getbxje(nd, nd + "-06", i.YskmCode, deptcode);
                             ys.Junebxje = ysmxb_hf.Where(p => p.fykm == i.YskmCode && p.cnyf == nd + "-06").Sum(p => p.je).ToString();
                         }
                         if (ysmxb.Where(p => p.Gcbh == gcbh.July && p.Yskm == i.YskmCode && ystype.Contains(p.YsType)).Count() > 0)
                         {
                             ys.July = ysmxb.Where(p => p.Gcbh == gcbh.July && p.Yskm == i.YskmCode && ystype.Contains(p.YsType)).Sum(p => p.Ysje).ToString();
                             ys.JulyYsnZj = ysmxb.Where(p => p.Gcbh == gcbh.July && p.Yskm == i.YskmCode && p.YsType == "5").Sum(p => p.Ysje).ToString();
-                           // ys.Julybxje = ysmxbill.getbxje(nd, nd + "-07", i.YskmCode, deptcode);
+                            // ys.Julybxje = ysmxbill.getbxje(nd, nd + "-07", i.YskmCode, deptcode);
                             ys.Julybxje = ysmxb_hf.Where(p => p.fykm == i.YskmCode && p.cnyf == nd + "-07").Sum(p => p.je).ToString();
                         }
                         if (ysmxb.Where(p => p.Gcbh == gcbh.August && p.Yskm == i.YskmCode && ystype.Contains(p.YsType)).Count() > 0)
                         {
                             ys.August = ysmxb.Where(p => p.Gcbh == gcbh.August && p.Yskm == i.YskmCode && ystype.Contains(p.YsType)).Sum(p => p.Ysje).ToString();
                             ys.AugustYsnZj = ysmxb.Where(p => p.Gcbh == gcbh.August && p.Yskm == i.YskmCode && p.YsType == "5").Sum(p => p.Ysje).ToString();
-                           // ys.Augustbxje = ysmxbill.getbxje(nd, nd + "-08", i.YskmCode, deptcode);
+                            // ys.Augustbxje = ysmxbill.getbxje(nd, nd + "-08", i.YskmCode, deptcode);
                             ys.Augustbxje = ysmxb_hf.Where(p => p.fykm == i.YskmCode && p.cnyf == nd + "-08").Sum(p => p.je).ToString();
                         }
                         if (ysmxb.Where(p => p.Gcbh == gcbh.September && p.Yskm == i.YskmCode && ystype.Contains(p.YsType)).Count() > 0)
                         {
                             ys.September = ysmxb.Where(p => p.Gcbh == gcbh.September && p.Yskm == i.YskmCode && ystype.Contains(p.YsType)).Sum(p => p.Ysje).ToString();
                             ys.SeptemberYsnZj = ysmxb.Where(p => p.Gcbh == gcbh.September && p.Yskm == i.YskmCode && p.YsType == "5").Sum(p => p.Ysje).ToString();
-                          //  ys.Septemberbxje = ysmxbill.getbxje(nd, nd + "-09", i.YskmCode, deptcode);
+                            //  ys.Septemberbxje = ysmxbill.getbxje(nd, nd + "-09", i.YskmCode, deptcode);
                             ys.Septemberbxje = ysmxb_hf.Where(p => p.fykm == i.YskmCode && p.cnyf == nd + "-09").Sum(p => p.je).ToString();
                         }
                         if (ysmxb.Where(p => p.Gcbh == gcbh.October && p.Yskm == i.YskmCode && ystype.Contains(p.YsType)).Count() > 0)
                         {
                             ys.October = ysmxb.Where(p => p.Gcbh == gcbh.October && p.Yskm == i.YskmCode && ystype.Contains(p.YsType)).Sum(p => p.Ysje).ToString();
                             ys.OctoberYsnZj = ysmxb.Where(p => p.Gcbh == gcbh.October && p.Yskm == i.YskmCode && p.YsType == "5").Sum(p => p.Ysje).ToString();
-                           // ys.Octoberbxje = ysmxbill.getbxje(nd, nd + "-10", i.YskmCode, deptcode);
+                            // ys.Octoberbxje = ysmxbill.getbxje(nd, nd + "-10", i.YskmCode, deptcode);
                             ys.Octoberbxje = ysmxb_hf.Where(p => p.fykm == i.YskmCode && p.cnyf == nd + "-10").Sum(p => p.je).ToString();
                         }
                         if (ysmxb.Where(p => p.Gcbh == gcbh.November && p.Yskm == i.YskmCode && ystype.Contains(p.YsType)).Count() > 0)
@@ -320,7 +474,7 @@ namespace Bll.newysgl
                         {
                             ys.December = ysmxb.Where(p => p.Gcbh == gcbh.December && p.Yskm == i.YskmCode && ystype.Contains(p.YsType)).Sum(p => p.Ysje).ToString();
                             ys.DecemberYsnZj = ysmxb.Where(p => p.Gcbh == gcbh.December && p.Yskm == i.YskmCode && p.YsType == "5").Sum(p => p.Ysje).ToString();
-                          //  ys.Decemberbxje = ysmxbill.getbxje(nd, nd + "-12", i.YskmCode, deptcode);
+                            //  ys.Decemberbxje = ysmxbill.getbxje(nd, nd + "-12", i.YskmCode, deptcode);
                             ys.Decemberbxje = ysmxb_hf.Where(p => p.fykm == i.YskmCode && p.cnyf == nd + "-12").Sum(p => p.je).ToString();
                         }
                     }
@@ -343,7 +497,7 @@ namespace Bll.newysgl
         /// <param name="usercode"></param>
         /// <param name="billstatus">end or -1</param>
         /// <returns></returns>
-        public bool Addtb(IList<YsgcTb> TbMain, string deptcode, string tblx, string nd, string usercode, string billstatus, string flowid,string strxmbh)
+        public bool Addtb(IList<YsgcTb> TbMain, string deptcode, string tblx, string nd, string usercode, string billstatus, string flowid, string strxmbh)
         {
             string xmcode = "";
             if (!string.IsNullOrEmpty(strxmbh))
@@ -374,7 +528,7 @@ namespace Bll.newysgl
             {
                 if (!string.IsNullOrEmpty(xmcode))
                 {
-                    BillMainCode.year = AddMain(ref MainList, mainbll.GetBillcodeByDeptAndYsgc(gcbh.year, deptcode, flowid,xmcode), deptcode, gcbh.year, usercode, billstatus, flowid, xmcode);
+                    BillMainCode.year = AddMain(ref MainList, mainbll.GetBillcodeByDeptAndYsgc(gcbh.year, deptcode, flowid, xmcode), deptcode, gcbh.year, usercode, billstatus, flowid, xmcode);
 
                 }
                 else
@@ -410,7 +564,7 @@ namespace Bll.newysgl
                         BillMainCode.autumn = AddMain(ref MainList, mainbll.GetBillcodeByDeptAndYsgc(gcbh.autumn, deptcode, flowid), deptcode, gcbh.autumn, usercode, billstatus, flowid, xmcode);
                         BillMainCode.winter = AddMain(ref MainList, mainbll.GetBillcodeByDeptAndYsgc(gcbh.winter, deptcode, flowid), deptcode, gcbh.winter, usercode, billstatus, flowid, xmcode);
                     }
-                
+
                 }
 
             }
@@ -465,7 +619,7 @@ namespace Bll.newysgl
                         BillMainCode.December = AddMain(ref MainList, mainbll.GetBillcodeByDeptAndYsgc(gcbh.December, deptcode, flowid), deptcode, gcbh.December, usercode, billstatus, flowid, xmcode);
 
                     }
-                  
+
                 }
             }
             #endregion
@@ -720,9 +874,9 @@ namespace Bll.newysgl
             catch { throw new Exception("预算参数设置不正确或者缺少必要的预算过程"); }
         }
         //把需要添加到bill_main中和需要删除预算明细中的记录下来 区分开
-        public string AddMain(ref IList<Bill_Main> mainlist, string bh, string deptcode, string gcbh, string usercode, string billstatus, string flowid,string xmbh)
+        public string AddMain(ref IList<Bill_Main> mainlist, string bh, string deptcode, string gcbh, string usercode, string billstatus, string flowid, string xmbh)
         {
-           
+
             if (bh != "")
             {
                 Bill_Main main = new Bill_Main();

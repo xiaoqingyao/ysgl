@@ -3,112 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
-    <style type="text/css">
-        body, td, .p1, .p2, .i {
-            font-family: arial;
-        }
-
-        body {
-            margin: 6px 0 0 0;
-            background-color: #fff;
-            color: #000;
-        }
-
-        table {
-            border: 0;
-        }
-
-        #cal {
-            width: 324px;
-            border: 1px solid #c3d9ff;
-            font-size: 12px;
-            margin: 1px 1px 0 1px;
-        }
-
-            #cal #top {
-                height: 19px;
-                line-height: 19px;
-                background: #e7eef8;
-                color: #003784;
-                padding-left: 5px;
-            }
-
-                #cal #top select {
-                    font-size: 12px;
-                }
-
-                #cal #top input {
-                    padding: 0;
-                }
-
-            #cal ul#wk {
-                margin: 0;
-                padding: 0;
-                height: 25px;
-            }
-
-                #cal ul#wk li {
-                    float: left;
-                    width: 45px;
-                    text-align: center;
-                    line-height: 25px;
-                    list-style: none;
-                }
-
-                    #cal ul#wk li b {
-                        font-weight: normal;
-                        color: #c60b02;
-                    }
-
-            #cal #cm {
-                clear: left;
-                border-top: 1px solid #ddd;
-                border-bottom: 1px dotted #ddd;
-                position: relative;
-            }
-
-                #cal #cm .cell {
-                    position: absolute;
-                    width: 30px;
-                    height: 30px;
-                    text-align: center;
-                    margin: 0 0 0 5px;
-                }
-
-                    #cal #cm .cell .so {
-                        font: bold 12px arial;
-                    }
-
-            #cal #bm {
-                text-align: right;
-                height: 1px;
-                line-height: 1px;
-                padding: 0 1px 0 0;
-            }
-
-            #cal #fd {
-                display: none;
-                position: absolute;
-                border: 1px solid #dddddf;
-                background: #feffcd;
-                padding: 10px;
-                line-height: 21px;
-                width: 150px;
-            }
-
-                #cal #fd b {
-                    font-weight: normal;
-                    color: #c60a00;
-                }
-
-        .hiddenbill {
-            display: none;
-        }
-
-        .highlight {
-            background: #CCE8CF;
-        }
-    </style>
+    
     <link href="../Resources/Css/jquery-ui-1.8.16.custom.css" rel="stylesheet" type="text/css" />
 
     <script src="../Resources/jScript/jQuery/jquery-1.4.2.min.js" type="text/javascript"></script>
@@ -157,7 +52,7 @@
                 <li><a id="a_desk" href="#tabs-1">桌面</a></li>
             </ul>
             <div id="tabs-1">
-                <iframe src="Desk.aspx" width="100%" height="100%" scrolling="auto" frameborder="0"></iframe>
+                <iframe src="Desk.aspx" width="100%" height="100%" id="fDesc" scrolling="auto" frameborder="0"></iframe>
             </div>
         </div>
         <div style="float: left; height: 100%; width: 10%; border: 1px solid #c3d9ff; padding: 1px; display: none"
@@ -207,39 +102,46 @@
                 }
             });
 
+            //关闭tab页
             $("#right span.ui-icon-close").live("click", function () {
                 var index = $("li", $tabs).index($(this).parent());
                 $tabs.tabs("remove", index);
+                refreshDesc();
             });
             $(".addTabs").live("click", function () {
                 var named = $(this).attr("linkname");
 
                 createNewTab(named, $(this).attr("datalink"))
             });
-            $("#cal").mouseleave(function () {
-                $("div[name='showDiv']").css("display", "none");
-            });
+            //$("#cal").mouseleave(function () {
+            //    $("div[name='showDiv']").css("display", "none");
+            //});
 
-            $("#cal").find(".baseButton").live("click", function () {
-                var text = $("#cal").find(".baseText").val();
-                var date = this.checkDate;
-                $.post("../MyAjax/NoteSave.ashx", { "tempDate": date, "text": text }, function (data, status) {
-                    if (status == "success") {
-                        if (data == "1") {
-                            //                            alert("添加成功");
-                        }
-                        else {
-                            alert(data);
-                        }
-                    }
-                    else {
-                        alert("添加失败");
-                    }
-                });
+            //$("#cal").find(".baseButton").live("click", function () {
+            //    var text = $("#cal").find(".baseText").val();
+            //    var date = this.checkDate;
+            //    $.post("../MyAjax/NoteSave.ashx", { "tempDate": date, "text": text }, function (data, status) {
+            //        if (status == "success") {
+            //            if (data == "1") {
+            //                //                            alert("添加成功");
+            //            }
+            //            else {
+            //                alert(data);
+            //            }
+            //        }
+            //        else {
+            //            alert("添加失败");
+            //        }
+            //    });
+            //});
+            $("#a_desk").click(function () {
+                refreshDesc();
             });
-
 
         });
+        function refreshDesc() {
+            $("#fDesc").attr("src", "Desk.aspx?a=" + Math.random());
+        }
         function createNewTab(named, url) {
             $("#hd_link").val(url);
             var bj = 0;

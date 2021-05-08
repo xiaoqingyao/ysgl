@@ -61,13 +61,13 @@ public partial class logindex : System.Web.UI.Page
         string name = ConfigurationManager.AppSettings["CustomTitle"];
 
         Bll.ConfigBLL bllConfig = new Bll.ConfigBLL();
-        DataTable dt;
+        //DataTable dt;
         //  企业简称 
-        dt = bllConfig.GetDtByKey("CompanyName");
-        if (dt.Rows.Count > 0 && !string.IsNullOrEmpty(Convert.ToString(dt.Rows[0]["avalue"])))
-        {
-            name = Convert.ToString(dt.Rows[0]["avalue"]);
-        }
+        //dt = bllConfig.GetDtByKey("CompanyName");
+        //if (dt.Rows.Count > 0 && !string.IsNullOrEmpty(Convert.ToString(dt.Rows[0]["avalue"])))
+        //{
+        //    name = Convert.ToString(dt.Rows[0]["avalue"]);
+        //}
         ////登录界面图片1
         //dt = bllConfig.GetDtByKey("LoginImg1");
         //if (dt.Rows.Count > 0 && !string.IsNullOrEmpty(Convert.ToString(dt.Rows[0]["avalue"])))

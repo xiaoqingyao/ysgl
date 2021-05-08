@@ -153,7 +153,11 @@
                     alert("未获取到操作状态，无法保存！"); return;
                 }
                 //检测必填项
-
+                var teacher = $("#txt_teacher").val();
+                if (teacher.length == 0) {
+                    alert("请填写任课讲师");
+                    return;
+                }
                 var djs = $("#txt_djs").val();
 
                 if (djs == undefined || djs == "" || djs == "0") {
@@ -267,8 +271,9 @@
                 var dyksdj = $("#txt_dyksdj").val();
                 var yxffy = $("#txt_yxffy").val();
                 var ykqtfy = $("#txt_ykqtfy").val();
+                var teacher = $("#txt_teacher").val();
                 var xfqk = xyfdfy + "|&|" + yxfks + "|&|" + dyksdj + "|&|" + yxffy + "|&|" + ykqtfy;
-                var ret = '{"billcode":"' + billcode + '","fujian":"' + fujian + '","djlx":"' + djtype + '","billuser":"' + usercode + '","bxr":"' + usercode + '","bxrzh":"' + varzh + '","zy":"' + bxzy + '","sm":"' + bxsm + '","bxlx":"03","tfxx":"' + tfxx + '","xfqk":"' + xfqk + '","gkbmbh":"' + gkbmbh + '","bxDate":"' + bxDate + '","sfgf":"0","gfje":"0","djs":"' + djs + '","isgk":"' + isgk + '","sqlx":"","ykfs":"","isxkfx":"是","bxr2":"","bxrphone":"","list":[';
+                var ret = '{"billcode":"' + billcode + '","fujian":"' + fujian + '","djlx":"' + djtype + '","billuser":"' + usercode + '","bxr":"' + usercode + '","bxrzh":"' + varzh + '","zy":"' + bxzy + '","sm":"' + bxsm + '","bxlx":"03","tfxx":"' + tfxx + '","xfqk":"' + xfqk + '","gkbmbh":"' + gkbmbh + '","bxDate":"' + bxDate + '","sfgf":"0","gfje":"0","djs":"' + djs + '","isgk":"' + isgk + '","sqlx":"","ykfs":"","isxkfx":"是","bxr2":"","note2":"' + teacher +'","bxrphone":"","list":[';
                 //预算科目明细
                 $("#tab_fykm tbody tr").each(function (i) {
                     var tempkm = $(this).find("td:eq(0)").html();//科目
@@ -820,10 +825,14 @@
                             <tr>
                                 <td class="tableBg2">退费原因
                                 </td>
-                                <td colspan="5">
+                                <td colspan="2">
                                     <div style="text-align: left">
-                                        <asp:TextBox ID="txtBxsm" runat="server" TextMode="MultiLine"  Style="width: 700px; margin-left:5px;"></asp:TextBox><span style="color: red">*</span>
+                                        <asp:TextBox ID="txtBxsm" runat="server" TextMode="MultiLine"  Style="width: 350px; margin-left:5px;"></asp:TextBox><span style="color: red">*</span>
                                     </div>
+                                </td>
+                                  <td class="tableBg2">任课导师：</td>
+                                <td>
+                                    <asp:TextBox runat="server" ID="txt_teacher"></asp:TextBox><span style="color: red">*</span>
                                 </td>
                             </tr>
                             <tr>

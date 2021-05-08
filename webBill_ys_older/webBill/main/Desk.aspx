@@ -56,7 +56,7 @@
                                                 <cite>报销单</cite>
                                             </a>
                                         </li>
-                                        <li class="layui-col-xs3" linkname="退费申请" datalink="../bxgl/bxDetailForDz.aspx?type=add&par=0.23071922305615455&dydj=06&djmxlx=01&isDZ=1" windoww="1000" windowh="700">
+                                        <li class="layui-col-xs3" linkname="退费申请" datalink="../bxgl/jkDetailForDz.aspx?type=add&par=0.23071922305615455&dydj=06&djmxlx=01&isDZ=1" windoww="1000" windowh="700">
                                             <a>
                                                 <i class="layui-icon layui-icon-survey"></i>
                                                 <cite>退费申请</cite>

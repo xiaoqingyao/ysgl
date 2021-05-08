@@ -9,14 +9,14 @@
 
     <link href="webBill/Resources/Css/jquery-ui-1.8.16.custom.css" rel="stylesheet" />
     <script src="webBill/Resources/jScript/jQuery/jquery-ui-1.8.16.custom.min.js"></script>
-    <script>
+    <%--<script>
         $(function () {
             $("#dialog").dialog({
                 width: 800,
                 buttons: { "我知道了": function () { $(this).dialog("close"); } }
             });
         });
-    </script>
+    </script>--%>
 </head>
 <style type="text/css">
     .content {
