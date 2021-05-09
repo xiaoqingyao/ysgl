@@ -336,7 +336,7 @@ namespace Bll.newysgl
             {
                 bill_ysmxbBll ysmxbill = new bill_ysmxbBll();
                 IDictionary<string, string> sysConfig = new Bll.UserProperty.SysManager().GetsysConfigBynd(nd); // 获取预算参数设置
-                IList<Bill_Yskm> yskm = new Dal.SysDictionary.YskmDal().GetYskmByDeptTblx(deptcode, tblx, nd, yskmtype);      //  获取预算科目   
+                IList<Bill_Yskm> yskm = new Dal.SysDictionary.YskmDal().GetYskmByDeptTblx_qt(deptcode, tblx, nd, yskmtype);      //  获取预算科目   
                 IList<Bill_Ysmxb> ysmxb = new Bll.newysgl.bill_ysmxbBll().GetYsmxByNian(nd, deptcode, xmbh, stepid);          //  获取预算明细表
                 IList<yskmhf> ysmxb_hf = new Bll.newysgl.bill_ysmxbBll().getkmje(deptcode, nd);
 
@@ -487,6 +487,8 @@ namespace Bll.newysgl
             }
             catch (Exception ex) { throw new Exception(ex.ToString()); }
         }
+
+
         /// <summary>
         /// 填写预算
         /// </summary>

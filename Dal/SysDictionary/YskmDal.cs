@@ -5,6 +5,7 @@ using System.Text;
 using Models;
 using System.Data.SqlClient;
 using System.Data;
+using Dal.Bills;
 
 namespace Dal.SysDictionary
 {
@@ -504,6 +505,22 @@ namespace Dal.SysDictionary
                 }
             }
         }
+
+        public IList<Bill_Yskm> GetYskmByDeptTblx_qt(string depcode, string tblx, string nd, string yskmType)
+        {
+            string text = " select * from Bill_Yskm where  yskmcode in (select yskmcode from bill_yskm_dept where deptcode=@deptcode) and tblx=@tblx and isnull(iszyys,0)=0  and yskmMc not like '%退费%'";
+            if (!string.IsNullOrEmpty(yskmType))
+            {
+                text = text + " and dydj='" + yskmType + "'";
+            }
+            SqlParameter[] sps = new SqlParameter[]
+            {
+        new SqlParameter("@deptcode", depcode),
+        new SqlParameter("@tblx", tblx)
+            };
+            return this.ListMaker(text, sps);
+        }
+
 
         #region 服务于预算部门分解
         public DataTable GetDeptByNd(string p, string strstatus, string strxmcode)

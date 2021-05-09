@@ -152,18 +152,8 @@
                 }
             });
             $("#btn_insert").click(function () {
-                var isdz = '<%=Request["isdz"]%>';
                 var vardeptcode = $("#LaDept").val();
-
-                if (isdz == "1") {
-
-                    window.location.href = "yd_ystzDetail_dz.aspx?type=add&deptcode=" + vardeptcode;
-
-                } else {
-                    window.location.href = "yd_ystzDetail.aspx?type=add&deptcode=" + vardeptcode;
-
-                }
-
+                window.location.href = "yd_ystzDetail_dz.aspx?type=add&deptcode=" + vardeptcode;
             });
             $("#btn_edit").click(function () {
                 var isdz = '<%=Request["isdz"]%>';
