@@ -535,7 +535,7 @@ public partial class webBill_ysgl_tf_ystzDetail_dz : BasePage
         main.BillCode = lstYsmx[0].BillCode;
         main.BillDate = DateTime.Now;
         main.BillDept = deptcode;
-        decimal decje = (lstYsmx.Where(p => p.Ysje > 0 && p.Gcbh.IndexOf("0001") <= 0).Sum(p => p.Ysje));
+        decimal decje = (lstYsmx.Where(p => p.Ysje > 0 && !p.Gcbh.EndsWith("0001")).Sum(p => p.Ysje));
         main.BillJe = decje;
         main.BillName = "退费调整单";
         main.Dydj = this.ddlYsType.SelectedValue;//存储预算科目类型 01 02 03……

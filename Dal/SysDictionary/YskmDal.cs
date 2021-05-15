@@ -426,9 +426,7 @@ namespace Dal.SysDictionary
 
                     if (boIsgkfj)
                     {
-                        string cxsql = @"select * from bill_yskm where yskmcode in (select  distinct kmcode  from bill_ys_xmfjbm where deptcode = @deptcode and by3 = '2'  and  left(procode,4) = @nd) 
-                                            and yskmcode not in (select distinct yskmcode from bill_yskm_gkdept gkdept inner join bill_ys_xmfjbm xmfjbm on gkdept.yskmcode=xmfjbm.kmcode where xmfjbm.procode=@nd
-                                            and xmfjbm.deptcode=@deptcode and  gkdept.deptcode=@deptcode)";//and isnull(iszyys,'1')='1'
+                        string cxsql = @"select * from bill_yskm where yskmcode in (select  distinct kmcode  from bill_ys_xmfjbm where deptcode = @deptcode and by3 = '2'  and  left(procode,4) = @nd)";//and isnull(iszyys,'1')='1'
                         if (!string.IsNullOrEmpty(yskmType))
                         {
                             cxsql += " and dydj='" + yskmType + "'";
@@ -481,9 +479,7 @@ namespace Dal.SysDictionary
 
                     if (boIsgkfj)
                     {
-                        string cxsql = @"select * from bill_yskm where yskmcode in (select  distinct kmcode  from bill_ys_xmfjbm where deptcode = @deptcode and by3 = '2'  and  left(procode,4) = @nd) 
-                                            and yskmcode not in (select distinct yskmcode from bill_yskm_gkdept gkdept inner join bill_ys_xmfjbm xmfjbm on gkdept.yskmcode=xmfjbm.kmcode where xmfjbm.procode=@nd
-                                            and xmfjbm.deptcode=@deptcode and  gkdept.deptcode=@deptcode)";//and isnull(iszyys,'1')='1'
+                        string cxsql = @"select * from bill_yskm where yskmcode in (select  distinct kmcode  from bill_ys_xmfjbm where deptcode = @deptcode and by3 = '2'  and  left(procode,4) = @nd)";//and isnull(iszyys,'1')='1'
                         if (!string.IsNullOrEmpty(yskmType))
                         {
                             cxsql += " and dydj='" + yskmType + "'";

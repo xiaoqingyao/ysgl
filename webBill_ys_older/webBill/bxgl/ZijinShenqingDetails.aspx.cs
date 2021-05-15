@@ -117,6 +117,7 @@ public partial class webBill_fysq_ZijinShenqingDetails : System.Web.UI.Page
                 {
                     btn_save.Visible = false;
                 }
+                lblkyed.Text = main.Note5;
             }
             if (!string.IsNullOrEmpty(Request["billCode"]))
             {
@@ -147,7 +148,10 @@ public partial class webBill_fysq_ZijinShenqingDetails : System.Web.UI.Page
                     hiddFileDz.Value = "";
                 }
             }
-            showKyje();
+            if (strctrl.Equals("edit")|| strctrl.Equals("add"))
+            {
+                showKyje();
+            }            
         }
 
 
@@ -258,11 +262,11 @@ public partial class webBill_fysq_ZijinShenqingDetails : System.Web.UI.Page
         }
 
         SysManager sysMgr = new SysManager();
-        string sqltemp = "insert into bill_main (billcode,billname,flowid,stepid,billuser,billdate,billDept,billJe,loopTimes,billtype,billName2,note1,note2,note3,note4) values('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}')";
+        string sqltemp = "insert into bill_main (billcode,billname,flowid,stepid,billuser,billdate,billDept,billJe,loopTimes,billtype,billName2,note1,note2,note3,note4,note5) values('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}','{15}')";
         string billname = sysMgr.GetYbbxBillName("jfsq", DateTime.Now.ToString("yyyMMdd"), 1);
         string user = strsqr.Substring(1, strsqr.IndexOf("]") - 1);// CutVal(strsqr);
 
-        sqltemp = string.Format(sqltemp, billcode, billname, "jfsq", "-1", user, txtdate.Text.Trim(), dept, strje, "1", "1", this.txtSm.Text.Trim(), stryksj, stryt, fujian, strykfs);
+        sqltemp = string.Format(sqltemp, billcode, billname, "jfsq", "-1", user, txtdate.Text.Trim(), dept, strje, "1", "1", this.txtSm.Text.Trim(), stryksj, stryt, fujian, strykfs, syje);
         new sqlHelper.sqlHelper().ExecuteNonQuery(sqltemp, null);
         ClientScript.RegisterStartupScript(this.GetType(), "", "alert('保存成功！');parent.closeDetail();", true);
     }

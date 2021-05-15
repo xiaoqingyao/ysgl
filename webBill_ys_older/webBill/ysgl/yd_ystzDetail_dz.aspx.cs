@@ -24,7 +24,7 @@ public partial class webBill_ysgl_yd_ystzDetail_dz : BasePage
     public string billcode = string.Empty;//如果是修改的话，单据主键
     string flowid = "ystz";
     string stepid = "-1";
-    
+
     List<string> lstYskmsNoYs = new List<string>();//不占用预算的预算科目编号
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -435,7 +435,7 @@ public partial class webBill_ysgl_yd_ystzDetail_dz : BasePage
         }
     }
 
-   
+
 
 
     protected void btnSave_Click(object sender, EventArgs e)
@@ -545,7 +545,7 @@ public partial class webBill_ysgl_yd_ystzDetail_dz : BasePage
         main.BillCode = lstYsmx[0].BillCode;
         main.BillDate = DateTime.Now;
         main.BillDept = deptcode;
-        decimal decje = (lstYsmx.Where(p => p.Ysje > 0 && p.Gcbh.IndexOf("0001") <= 0).Sum(p => p.Ysje));
+        decimal decje = (lstYsmx.Where(p => p.Ysje > 0 && !p.Gcbh.EndsWith("0001")).Sum(p => p.Ysje));
         main.BillJe = decje;
         main.BillName = "预算调整单";
         main.Dydj = this.ddlYsType.SelectedValue;//存储预算科目类型 01 02 03……
@@ -1196,7 +1196,7 @@ public partial class webBill_ysgl_yd_ystzDetail_dz : BasePage
 
         DataTable dtmx = getdtysmx();
         Dictionary<string, string> dic = new Dictionary<String, String>();
-      //  dic.Add("Gcbh", "过程编号");
+        //  dic.Add("Gcbh", "过程编号");
         dic.Add("GcMc", "过程名称");
         dic.Add("Yskm", "预算科目编号");
         dic.Add("YskmMc", "预算科目名称");
