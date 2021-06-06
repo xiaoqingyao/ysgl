@@ -80,7 +80,7 @@
                                                 <cite>其他调整</cite>
                                             </a>
                                         </li>
-                                        <li class="layui-col-xs3" linkname="预算追加" datalink="../ysgl/ystz.aspx?isdz=1" windoww="1000" windowh="700">
+                                        <li class="layui-col-xs3" linkname="预算追加" datalink="../ysgl/yszjList.aspx?isdz=1" windoww="1000" windowh="700">
                                             <a lay-href="user/user/list.html">
                                                 <i class="layui-icon layui-icon-templeate-1"></i>
                                                 <cite>预算追加</cite>
