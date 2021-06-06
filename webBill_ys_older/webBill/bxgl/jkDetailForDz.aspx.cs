@@ -298,6 +298,7 @@ public partial class webBill_bxgl_jkDetailForDz : System.Web.UI.Page
                     }
                 }
                 //判断是不是预算到末级
+                this.txt_teacher.Text = ybbx.note2;
 
                 string strismj = new ConfigBLL().GetValueByKey("deptjc");
                 if (!string.IsNullOrEmpty(strismj) && strismj == "Y")//如果是末级
