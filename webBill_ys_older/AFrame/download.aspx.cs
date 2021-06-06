@@ -133,12 +133,12 @@ public partial class AFrame_download : System.Web.UI.Page
             fs = new FileStream(fullName, FileMode.Open, FileAccess.Read);
 
             fileLen = fs.Length;
-            if (fileLen >= 5242880) //5M
-            {
-                fs.Close();
-                Response.Write("Exception: the file is too large");
-                Response.End();
-            }
+            //if (fileLen >= 524288000) //5M
+            //{
+            //    fs.Close();
+            //    Response.Write("Exception: the file is too large");
+            //    Response.End();
+            //}
 
             Response.Buffer = true;
             Response.Clear();

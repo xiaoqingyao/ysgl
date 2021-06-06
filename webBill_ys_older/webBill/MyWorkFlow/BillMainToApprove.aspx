@@ -315,7 +315,7 @@
         }
         function closeDetail() {
             $("#dialog-confirm").dialog("close");
-            $("#btnRefresh").click();
+            setInterval(function () { location.replace(location.href)}, 200);
         }
 
         function submitData(oCheckbox) {
